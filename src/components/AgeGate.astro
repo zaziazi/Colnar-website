@@ -1,0 +1,104 @@
+---
+import { routes, otherLang, type Lang, type RouteKey } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  page: RouteKey;
+}
+
+const { lang, page } = Astro.props;
+
+/*
+ * The gate asks two things at once: confirm you are of age, and pick a
+ * language. Both buttons are the same act of entering, so choosing a language
+ * *is* the confirmation — one decision instead of two.
+ *
+ * It is bilingual throughout, because at this point we do not yet know which
+ * language the visitor reads.
+ *
+ * Deliberately client-side: the page underneath is served in full, so crawlers
+ * and anyone without JavaScript get the site rather than a wall. That is how
+ * these gates are normally built, and it keeps the site indexable.
+ */
+const here = routes[lang][page];
+const there = routes[otherLang(lang)][page];
+const slHref = lang === 'sl' ? here : there;
+const enHref = lang === 'en' ? here : there;
+---
+
+<div class="age-gate" data-age-gate role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+  <div class="age-gate-panel">
+    <p class="age-gate-mark">Colnar</p>
+    <p class="age-gate-year tnum">1747</p>
+    <span class="age-gate-rule" aria-hidden="true"></span>
+
+    <div data-gate-ask>
+      <h1 class="age-gate-title" id="age-gate-title">
+        <span lang="sl">Za vstop morate biti stari 18 let ali več.</span>
+        <span lang="en">You must be 18 or over to enter.</span>
+      </h1>
+
+      <div class="age-gate-actions">
+        <a class="age-gate-button" href={slHref} data-gate-enter lang="sl">
+          Vstopi
+          <span class="age-gate-button-note">Slovensko</span>
+        </a>
+        <a class="age-gate-button" href={enHref} data-gate-enter lang="en">
+          Enter
+          <span class="age-gate-button-note">English</span>
+        </a>
+      </div>
+
+      <button class="age-gate-decline" type="button" data-gate-decline>
+        <span lang="sl">Nimam 18 let</span> · <span lang="en">I am under 18</span>
+      </button>
+    </div>
+
+    <p class="age-gate-refused" data-gate-refused hidden>
+      <span lang="sl">Hvala za iskrenost. Vstop je dovoljen le polnoletnim.</span>
+      <span lang="en">Thank you for your honesty. Only those of legal age may enter.</span>
+    </p>
+
+    <p class="age-gate-warning" lang="sl">
+      Minister za zdravje opozarja: Prekomerno pitje alkohola škoduje zdravju!
+    </p>
+  </div>
+</div>
+
+{/*
+  Inline, and in one piece with the markup, on purpose: the `gated` class that
+  covers the page is set in <head>, and this is what takes it away again. If it
+  were a module that failed to load, the visitor would be left staring at a
+  gate that could not be opened.
+*/}
+<script is:inline>
+  (() => {
+    const gate = document.querySelector('[data-age-gate]');
+    if (!gate) return;
+
+    const root = document.documentElement;
+    const KEY = 'colnar:age-ok';
+
+    const enter = (event) => {
+      // Same language as this page? Just take the gate away — no navigation.
+      const href = event.currentTarget.getAttribute('href');
+      try {
+        localStorage.setItem(KEY, String(Date.now()));
+      } catch {
+        /* private browsing — the gate simply asks again next time */
+      }
+      if (new URL(href, location.href).pathname === location.pathname) {
+        event.preventDefault();
+        root.classList.remove('gated');
+        window.scrollTo(0, 0);
+      }
+    };
+
+    gate.querySelectorAll('[data-gate-enter]').forEach((el) => el.addEventListener('click', enter));
+
+    gate.querySelector('[data-gate-decline]')?.addEventListener('click', () => {
+      gate.querySelector('[data-gate-ask]').hidden = true;
+      gate.querySelector('[data-gate-refused]').hidden = false;
+    });
+  })();
+</script>

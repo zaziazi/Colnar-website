@@ -1,6 +1,7 @@
 ---
 import '../styles/fonts.css';
 import '../styles/site.css';
+import AgeGate from '../components/AgeGate.astro';
 import { getContent, alternates, routes, type Lang, type RouteKey } from '../i18n';
 
 interface Props {
@@ -108,12 +109,23 @@ const winery = {
       )
     }
 
-    {/* Before first paint, so the hero and the reveals only hide when JS can show them again. */}
+    {/*
+      Both before first paint: `js` so the hero and the reveals only hide when
+      JS can show them again, and `gated` so a visitor who has not confirmed
+      their age never sees the site flash behind the gate — nor a returning one
+      the gate flash in front of it.
+    */}
     <script is:inline>
       document.documentElement.classList.add('js');
+      try {
+        if (!localStorage.getItem('colnar:age-ok')) document.documentElement.classList.add('gated');
+      } catch {
+        document.documentElement.classList.add('gated');
+      }
     </script>
   </head>
   <body>
+    <AgeGate lang={lang} page={page} />
     <slot />
     <script>
       import '../scripts/motion.js';

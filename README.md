@@ -71,6 +71,31 @@ One deliberate exception: the Winery JSON-LD in `Base.astro` keeps
 structured data should carry the names those businesses are registered and
 signposted under, whichever language the page is written in.
 
+### The age gate
+
+`components/AgeGate.astro`, rendered from the layout so it sits on every page.
+It asks two things in one act: confirm you are 18 or over, and choose a
+language — the two buttons *are* the confirmation, so it is one decision rather
+than two. Bilingual throughout, because at that point we do not know which
+language the visitor reads. Declining swaps the panel for a polite refusal and
+does not let them in.
+
+- **The language buttons go to the counterpart of the current page.** Land on
+  `/degustacija/`, choose English, and you arrive at `/en/tasting/` — not the
+  homepage.
+- **Consent is remembered** in `localStorage` under `colnar:age-ok`, and the
+  `gated` class is set in `<head>` before first paint. A returning visitor never
+  sees the gate flash; a new one never sees the site flash behind it. Private
+  browsing throws on `localStorage`, which is caught — the gate simply asks
+  again next time.
+- **Its script is inline, in one piece with the markup.** The `gated` class that
+  covers the page is set in `<head>`; this is what removes it. As a module that
+  failed to load, it would leave a visitor facing a gate that could not open.
+- **Deliberately client-side.** The page underneath is served in full, so
+  crawlers and anyone without JavaScript get the site rather than a wall — which
+  is how these gates are normally built, and what keeps the site indexable.
+- Carries the health ministry warning required for alcohol in Slovenia.
+
 ### Sub-page rules
 
 All four sub-pages follow these.
