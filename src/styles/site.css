@@ -1,0 +1,2370 @@
+/*
+ * colnar.si — homepage
+ *
+ * Layout switches at 760px (phone) with a 1040px intermediate step that drops
+ * the 3-up card row to 2-up. Desktop is the base; phone overrides follow each
+ * block, so a section reads top to bottom in one place.
+ */
+
+@import './tokens.css';
+
+/* ---------------------------------------------------------------- reset -- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Anchored sections must clear the fixed nav. */
+  scroll-padding-top: 84px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  /*
+   * `clip`, never `hidden`: `overflow-x: hidden` on an ancestor of the sticky
+   * hero turns this element into a scroll container and silently breaks
+   * `position: sticky`, leaving a blank viewport where the hero should be.
+   */
+  overflow-x: clip;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* The <picture> wrapper Astro emits is layout-neutral. */
+.pic {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------------- shared --- */
+
+.wrap {
+  max-width: var(--wrap-max);
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+}
+
+/*
+ * A note that applies throughout: centred letterspaced uppercase text carries a
+ * `padding-left` equal to its own `letter-spacing`. The tracking adds a
+ * trailing space after the last letter, which pushes the run off-centre; the
+ * matching left pad puts it back. Left-aligned labels do not need it.
+ */
+
+.tnum {
+  font-feature-settings: 'tnum';
+}
+
+/* Section heading over a hairline. */
+.section-head {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 34px;
+  margin: 0 0 14px;
+  border-bottom: 1px solid var(--color-divider);
+  padding-bottom: 14px;
+}
+
+@media (max-width: 759.98px) {
+  .section-head {
+    font-size: 27px;
+    margin: 0;
+    padding-bottom: 12px;
+  }
+}
+
+/* ----------------------------------------------------------------- nav --- */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  align-items: center;
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-divider);
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.nav.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.nav a:hover {
+  color: var(--color-text);
+}
+
+/* Desktop bar: links · wordmark · links */
+.nav--desktop {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  padding: 16px var(--page-pad);
+}
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+
+.nav-links--end {
+  justify-content: flex-end;
+}
+
+.nav-wordmark {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding-left: 0.3em;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
+.nav-lang {
+  color: color-mix(in srgb, var(--color-text) 40%, transparent);
+}
+
+/* Phone bar: Meni · wordmark · EN */
+.nav--phone {
+  display: none;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  padding: 13px 18px;
+  background: color-mix(in srgb, var(--color-bg) 94%, transparent);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-heading);
+  font-size: 11px;
+}
+
+.nav--phone .nav-wordmark {
+  font-size: 11.5px;
+  text-align: center;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+}
+
+.nav-menu-button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 4px 6px 4px 0;
+  font: inherit;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 68%, transparent);
+  cursor: pointer;
+}
+
+.nav-panel {
+  position: fixed;
+  top: 45px;
+  left: 0;
+  right: 0;
+  z-index: 29;
+  display: grid;
+  gap: 2px;
+  padding: 6px 18px 18px;
+  /* Solid, not translucent like the bar above it: this panel opens over the
+     hero photograph, and letterspaced 13px type needs a plate to sit on. */
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.nav-panel[data-open='true'] {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.nav-panel a {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.nav-panel a:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 759.98px) {
+  .nav--desktop {
+    display: none;
+  }
+
+  .nav--phone {
+    display: grid;
+  }
+}
+
+@media (min-width: 760px) {
+  .nav-panel {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------- hero --- */
+
+.hero-track {
+  height: 240vh;
+  position: relative;
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-neutral-900);
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+  will-change: transform;
+}
+
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 90% at 50% 52%,
+    rgba(24, 22, 20, 0.62) 0%,
+    rgba(24, 22, 20, 0.34) 55%,
+    rgba(24, 22, 20, 0.5) 100%
+  );
+  opacity: 0.15;
+}
+
+.hero-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 26px;
+  padding: 0 24px;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(52px, 9.5vw, 140px);
+  line-height: 0.86;
+  letter-spacing: 0.44em;
+  text-transform: uppercase;
+  padding-left: 0.44em;
+  color: var(--color-neutral-100);
+  text-shadow: var(--shadow-text-lg);
+  will-change: transform, opacity, letter-spacing;
+}
+
+.hero-year {
+  font-family: var(--font-heading);
+  font-size: clamp(16px, 2vw, 30px);
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  padding-left: 0.36em;
+  font-feature-settings: 'tnum';
+  color: color-mix(in srgb, var(--color-neutral-100) 92%, transparent);
+  text-shadow: var(--shadow-text-sm);
+}
+
+.hero-links {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  flex-wrap: wrap;
+  padding-left: 0.2em;
+}
+
+.hero-links a {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-neutral-100);
+  border-bottom: 1px solid var(--color-accent-400);
+  padding-bottom: 5px;
+}
+
+.hero-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 34px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding-left: 0.3em;
+  color: color-mix(in srgb, var(--color-neutral-100) 70%, transparent);
+}
+
+/* Before the scroll handler runs, the hero reveal is held back. */
+.js .hero-title,
+.js .hero-year,
+.js .hero-links {
+  opacity: 0;
+}
+
+@media (max-width: 759.98px) {
+  .hero-track {
+    height: 200vh;
+  }
+
+  .hero-photo {
+    object-position: 52% 45%;
+  }
+
+  .hero-veil {
+    background: radial-gradient(
+      130% 95% at 50% 50%,
+      rgba(24, 22, 20, 0.6) 0%,
+      rgba(24, 22, 20, 0.34) 55%,
+      rgba(24, 22, 20, 0.52) 100%
+    );
+    opacity: 0.14;
+  }
+
+  .hero-center {
+    gap: 18px;
+    padding: 0 22px;
+  }
+
+  .hero-title {
+    font-size: 52px;
+    line-height: 0.9;
+    letter-spacing: 0.42em;
+    padding-left: 0.42em;
+    text-shadow: var(--shadow-text-md);
+  }
+
+  .hero-year {
+    font-size: 15px;
+    text-shadow: 0 1px 14px rgba(24, 22, 20, 0.6);
+  }
+
+  .hero-links {
+    flex-direction: column;
+    gap: 18px;
+    bottom: 58px;
+  }
+
+  .hero-links a {
+    font-size: 13px;
+  }
+
+  .hero-hint {
+    bottom: 26px;
+    font-size: 10px;
+    color: color-mix(in srgb, var(--color-neutral-100) 68%, transparent);
+  }
+}
+
+/* --------------------------------------------------------------- story --- */
+
+.story {
+  padding: 120px 0 0;
+  text-align: center;
+}
+
+.story h2 {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(34px, 4.4vw, 54px);
+}
+
+.story p {
+  margin: 18px auto 0;
+  max-width: 660px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+/* Space above a section heading. */
+.section-gap {
+  padding: 96px 0 0;
+}
+
+/* For a section that reads as a continuation of the one above it. */
+.section-gap--tight {
+  padding-top: 64px;
+}
+
+@media (max-width: 759.98px) {
+  .story {
+    padding: 34px 0 0;
+  }
+
+  .story h2 {
+    font-size: 36px;
+  }
+
+  .story p {
+    margin-top: 14px;
+    font-size: 14px;
+  }
+
+  .section-gap {
+    padding: 44px 0 0;
+  }
+
+  .section-gap--tight {
+    padding-top: 36px;
+  }
+}
+
+/* ------------------------------------------------------------ timeline --- */
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 36px 0 0;
+  list-style: none;
+  margin: 0;
+}
+
+.tl-node {
+  padding: 0 18px;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s var(--ease-out-soft);
+  transition-delay: calc(var(--i, 0) * 170ms);
+}
+
+.tl-node:first-child {
+  padding-left: 0;
+}
+
+.tl-node:last-child {
+  padding-right: 0;
+}
+
+.timeline.is-in .tl-node {
+  opacity: 1;
+  transform: none;
+}
+
+.tl-year {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--color-accent-700);
+}
+
+/* The 1px run with the ringed dot sitting on it. */
+.tl-mark {
+  display: block;
+  position: relative;
+  height: 1px;
+  margin: 18px 0 22px;
+}
+
+.tl-rule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-divider);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s var(--ease-out-draw);
+  transition-delay: calc(var(--i, 0) * 170ms);
+}
+
+/* Open ends, so the row reads as one continuous run. */
+.tl-node:first-child .tl-rule {
+  left: 50%;
+}
+
+.tl-node:last-child .tl-rule {
+  right: 50%;
+}
+
+.timeline.is-in .tl-rule {
+  transform: scaleX(1);
+}
+
+.tl-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-accent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s var(--ease-pop);
+  transition-delay: calc(var(--i, 0) * 170ms + 0.25s);
+}
+
+.timeline.is-in .tl-dot {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.tl-kicker {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.tl-copy {
+  font-size: 14px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+
+/* The spine only exists in the phone layout. */
+.tl-spine {
+  display: none;
+}
+
+@media (max-width: 759.98px) {
+  .timeline {
+    position: relative;
+    display: block;
+    padding: 10px 0 0;
+  }
+
+  .tl-spine {
+    display: block;
+    position: absolute;
+    /* Centred on the dots: 60px year column + 9px dot offset + half the 11px ring. */
+    left: 73px;
+    top: 26px;
+    bottom: 26px;
+    width: 1px;
+    background: var(--color-divider);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1.5s var(--ease-out-draw);
+  }
+
+  .timeline.is-in .tl-spine {
+    transform: scaleY(1);
+  }
+
+  .tl-node {
+    display: grid;
+    grid-template-columns: 60px 30px 1fr;
+    align-items: start;
+    padding: 15px 0;
+    transition-duration: 0.7s;
+    transition-delay: calc(160ms + var(--i, 0) * 190ms);
+  }
+
+  .tl-node:first-child,
+  .tl-node:last-child {
+    padding: 15px 0;
+  }
+
+  .tl-year {
+    font-size: 23px;
+    line-height: 1.15;
+  }
+
+  .tl-mark {
+    height: 24px;
+    margin: 0;
+  }
+
+  .tl-rule {
+    display: none;
+  }
+
+  .tl-dot {
+    left: 9px;
+    top: 7px;
+    transform: scale(0);
+    transition-duration: 0.45s;
+    transition-delay: calc(160ms + var(--i, 0) * 190ms);
+  }
+
+  .timeline.is-in .tl-dot {
+    transform: scale(1);
+  }
+
+  .tl-kicker {
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    margin-bottom: 6px;
+  }
+
+  .tl-copy {
+    font-size: 13px;
+  }
+}
+
+/* --------------------------------------------------------------- stats --- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 64px 0 0;
+  padding: 34px 0;
+  border-top: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.stat {
+  text-align: center;
+  padding: 0 20px;
+  border-right: 1px solid var(--color-divider);
+}
+
+.stat:last-child {
+  border-right: 0;
+}
+
+.stat-figure {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  margin-top: 12px;
+}
+
+@media (max-width: 759.98px) {
+  .stats {
+    margin: 30px 0 0;
+    padding: 22px 0;
+  }
+
+  .stat {
+    padding: 0 6px;
+  }
+
+  .stat-figure {
+    font-size: 27px;
+  }
+
+  .stat-label {
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    margin-top: 9px;
+  }
+}
+
+/* --------------------------------------------------------------- cards --- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 110px 0 0;
+}
+
+.card-frame {
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.card-photo {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  transition: transform 1.4s var(--ease-out-soft);
+}
+
+@media (hover: hover) {
+  .card-frame:hover .card-photo {
+    transform: scale(1.04);
+  }
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 32px;
+  margin: 22px 0 12px;
+}
+
+.card-copy {
+  margin: 0 0 18px;
+  font-size: 14.5px;
+  line-height: 1.75;
+  text-align: justify;
+  hyphens: auto;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.card-link {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 3px;
+}
+
+@media (max-width: 1039.98px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 759.98px) {
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding: 52px 0 0;
+  }
+
+  .card-photo {
+    height: 300px;
+  }
+
+  .card-title {
+    font-size: 29px;
+    margin: 18px 0 10px;
+  }
+
+  .card-copy {
+    margin-bottom: 16px;
+    font-size: 13.5px;
+    line-height: 1.78;
+  }
+
+  /* Tap target clears 44px. */
+  .card-link {
+    font-size: 11.5px;
+    padding: 8px 0 6px;
+  }
+}
+
+/* --------------------------------------------------------------- quote --- */
+
+.quote {
+  padding: 130px 0 120px;
+  text-align: center;
+}
+
+.quote p {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(24px, 3.4vw, 40px);
+  line-height: 1.3;
+  color: color-mix(in srgb, var(--color-text) 82%, transparent);
+}
+
+@media (max-width: 759.98px) {
+  .quote {
+    padding: 60px 4px 56px;
+  }
+
+  .quote p {
+    font-size: 23px;
+    line-height: 1.38;
+  }
+}
+
+/* -------------------------------------------------------------- places --- */
+
+.places {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 36px 0 110px;
+}
+
+/* Sub-page variant: the block that follows supplies its own space above. */
+.places--page {
+  padding-bottom: 0;
+}
+
+.place:not(:last-child) {
+  padding-right: 44px;
+}
+
+.place + .place {
+  padding-left: 44px;
+  border-left: 1px solid var(--color-divider);
+}
+
+/* Three across, for pages that need it. */
+.places--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.places--three .place:not(:last-child) {
+  padding-right: 32px;
+}
+
+.places--three .place + .place {
+  padding-left: 32px;
+}
+
+.place-label {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.place-name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+.place-copy {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+@media (max-width: 759.98px) {
+  .places {
+    grid-template-columns: 1fr;
+    padding: 0 0 52px;
+  }
+
+  .places--page {
+    padding-bottom: 0;
+  }
+
+  .place,
+  .places--three .place {
+    padding: 22px 0;
+  }
+
+  .place + .place,
+  .places--three .place + .place {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .place:not(:last-child),
+  .places--three .place:not(:last-child) {
+    padding-right: 0;
+  }
+
+  .place:last-child {
+    padding-bottom: 0;
+  }
+
+  .place-label {
+    font-size: 10.5px;
+  }
+
+  .place-name {
+    font-size: 25px;
+    margin: 9px 0;
+  }
+
+  .place-copy {
+    font-size: 13px;
+  }
+}
+
+/* ------------------------------------------------------------ vinoteka --- */
+
+.vinoteka {
+  background: var(--color-neutral-900);
+  color: var(--color-neutral-100);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.vinoteka-text {
+  padding: 80px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vinoteka-title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 42px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+  line-height: 1.12;
+  margin-bottom: 22px;
+}
+
+.vinoteka-rule {
+  width: 56px;
+  height: 1px;
+  background: var(--color-accent-400);
+  margin-bottom: 26px;
+}
+
+.vinoteka-copy {
+  margin: 0 0 32px;
+  max-width: 460px;
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: justify;
+  hyphens: auto;
+  color: color-mix(in srgb, var(--color-neutral-100) 72%, transparent);
+}
+
+.vinoteka-meta {
+  display: flex;
+  gap: 40px;
+  padding-top: 22px;
+  border-top: 1px solid color-mix(in srgb, var(--color-accent-400) 45%, transparent);
+}
+
+.meta-label {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-300);
+  margin-bottom: 10px;
+}
+
+.meta-value {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 300;
+}
+
+a.meta-value {
+  border-bottom: 1px solid var(--color-accent-400);
+  padding-bottom: 2px;
+}
+
+.meta-item + .meta-item {
+  padding-left: 40px;
+  border-left: 1px solid color-mix(in srgb, var(--color-accent-400) 30%, transparent);
+}
+
+.vinoteka-frame {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.vinoteka-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 62%;
+  will-change: transform;
+}
+
+@media (max-width: 759.98px) {
+  .vinoteka {
+    grid-template-columns: 1fr;
+  }
+
+  /* Photograph on top, text below. */
+  .vinoteka-frame {
+    order: 1;
+    height: 280px;
+    min-height: 0;
+  }
+
+  .vinoteka-text {
+    order: 2;
+    padding: 40px var(--page-pad) 44px;
+  }
+
+  .vinoteka-title {
+    font-size: 27px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .vinoteka-rule {
+    width: 48px;
+    margin-bottom: 22px;
+  }
+
+  .vinoteka-copy {
+    margin-bottom: 28px;
+    font-size: 13.5px;
+  }
+
+  .vinoteka-meta {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .meta-label {
+    font-size: 10.5px;
+    margin-bottom: 8px;
+  }
+
+  .meta-value {
+    font-size: 18px;
+  }
+
+  .meta-item + .meta-item {
+    padding-left: 0;
+    padding-top: 20px;
+    border-left: 0;
+    border-top: 1px solid color-mix(in srgb, var(--color-accent-400) 30%, transparent);
+  }
+}
+
+/* -------------------------------------------------------------- footer --- */
+
+.foot-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px;
+  padding: 64px 0 34px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+
+.foot-label {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  margin-bottom: 12px;
+}
+
+.foot-cols a:hover {
+  color: var(--color-text);
+}
+
+.colophon {
+  padding: 22px 0 40px;
+  border-top: 1px solid var(--color-divider);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
+.colophon-mark {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  padding-left: 0.34em;
+  color: color-mix(in srgb, var(--color-text) 75%, transparent);
+}
+
+@media (max-width: 759.98px) {
+  .foot-cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 40px 0 24px;
+    font-size: 12.5px;
+    line-height: 1.85;
+  }
+
+  .foot-label {
+    font-size: 10.5px;
+    margin-bottom: 10px;
+  }
+
+  .colophon {
+    padding: 18px 0 40px;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 11.5px;
+  }
+
+  /* Clears the fixed CTA bar, on the pages that have one. */
+  body:has(.cta-bar) .colophon {
+    padding-bottom: 108px;
+  }
+
+  .colophon-mark {
+    font-size: 12px;
+  }
+}
+
+/* ------------------------------------------------------------- cta bar --- */
+
+.cta-bar {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  padding: 14px 18px 20px;
+  background: color-mix(in srgb, var(--color-bg) 95%, transparent);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--color-divider);
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+.cta-bar.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.cta-bar a {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+@media (max-width: 759.98px) {
+  .cta-bar {
+    display: block;
+  }
+
+  .nav--phone,
+  .cta-bar {
+    transition-duration: 0.45s;
+  }
+}
+
+/* ------------------------------------------------------------- reveals --- */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 1s var(--ease-out-soft),
+    transform 1s var(--ease-out-soft);
+}
+
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 759.98px) {
+  .js [data-reveal] {
+    transform: translateY(22px);
+    transition-duration: 0.9s;
+  }
+}
+
+/* ----------------------------------------------------- reduced motion --- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  /* Content renders in place — no reveal offsets. */
+  .js [data-reveal],
+  .tl-node {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tl-rule {
+    transform: scaleX(1);
+  }
+
+  .tl-spine {
+    transform: scaleY(1);
+  }
+
+  .tl-dot {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* The hero is flattened: no scroll dependency, nothing to reveal. */
+  .hero-track {
+    height: 100vh;
+  }
+
+  .js .hero-title,
+  .js .hero-year,
+  .js .hero-links {
+    opacity: 1;
+  }
+
+  .hero-title {
+    letter-spacing: 0.3em;
+  }
+
+  .hero-veil {
+    opacity: 1;
+  }
+
+  .hero-hint {
+    display: none;
+  }
+
+  .nav,
+  .cta-bar {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .js .page-hero-standfirst {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 759.98px) {
+  .hero-title {
+    letter-spacing: 0.28em;
+  }
+
+  .tl-dot {
+    transform: scale(1);
+  }
+}
+
+/* ------------------------------------------------ reservation (/degustacija) --
+ *
+ * Not part of the handoff — no form was designed. Built out of the same parts
+ * the homepage uses: hairline borders, 4px radius, outlined controls, small
+ * caps labels in --color-accent-700. Nothing filled, nothing shadowed.
+ */
+
+.reservation {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: 72px;
+  padding: 36px 0 0;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 32px;
+}
+
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+.field label,
+.fieldset-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  margin-bottom: 10px;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  transition: border-color 0.25s ease;
+}
+
+.field textarea {
+  min-height: 116px;
+  resize: vertical;
+}
+
+.field input:hover,
+.field textarea:hover {
+  border-color: color-mix(in srgb, var(--color-text) 32%, transparent);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--color-accent);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.field input[aria-invalid='true'],
+.field textarea[aria-invalid='true'] {
+  border-color: var(--color-error);
+}
+
+.field-note {
+  margin-top: 8px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-text) 62%, transparent);
+}
+
+.field-error {
+  margin-top: 8px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--color-error);
+}
+
+.field-error:empty {
+  display: none;
+}
+
+/* Tasting size — outlined choices, never filled. */
+.choices {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-inline-size: 0;
+}
+
+.choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.choice {
+  position: relative;
+  flex: 1 1 0;
+  /* The three chips share one row inside a half-width field column. */
+  min-width: 0;
+}
+
+.choice input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.choice > span {
+  display: block;
+  height: 100%;
+  padding: 13px 10px;
+  text-align: center;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.choice input:checked + span {
+  border-color: var(--color-accent);
+  color: var(--color-accent-700);
+}
+
+.choice input:focus-visible + span {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  padding-top: 30px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.button {
+  appearance: none;
+  background: none;
+  padding: 15px 34px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+.button[disabled] {
+  cursor: progress;
+  color: color-mix(in srgb, var(--color-accent-700) 55%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+}
+
+.form-status {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-terms {
+  margin-top: 20px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 62%, transparent);
+}
+
+.form-status[data-state='error'] {
+  color: var(--color-error);
+}
+
+.form-status[data-state='ok'] {
+  color: var(--color-accent-700);
+}
+
+/* Success replaces the form outright. */
+.form-done {
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 40px 36px;
+}
+
+.form-done h2 {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+.form-done p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.aside-block + .aside-block {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.aside-block h2 {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+
+.aside-block p,
+.aside-block li {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.aside-block .aside-name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.aside-block .aside-detail {
+  margin-top: 6px;
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+.aside-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aside-list li + li {
+  margin-top: 10px;
+}
+
+.aside-block a {
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 1px;
+  color: var(--color-accent-700);
+}
+
+@media (max-width: 1039.98px) {
+  .reservation {
+    gap: 56px;
+  }
+}
+
+@media (max-width: 759.98px) {
+  .reservation {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 28px 0 0;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .form-actions {
+    margin-top: 30px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .form-done {
+    padding: 32px 24px;
+  }
+
+  .form-done h2 {
+    font-size: 27px;
+  }
+}
+
+/* ------------------------------------------------ sub-pages (Vina, Vinogradi) --
+ *
+ * Not in the handoff either. Same parts as the homepage: hairline structure,
+ * 4px radius, outlined controls, small caps labels in --color-accent-700.
+ */
+
+.wine-list {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+}
+
+.wine {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 0.8fr) minmax(0, 1.7fr);
+  gap: 40px;
+  align-items: start;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.wine:last-child {
+  border-bottom: 0;
+}
+
+/* The bottles are keyed out, so they stand on the page rather than in a box. */
+.wine-figure {
+  display: flex;
+  justify-content: center;
+}
+
+.wine-photo {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
+}
+
+.wine-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 3px;
+}
+
+/*
+ * Until a wine has a description, its row is just a name — so the text takes
+ * the remaining width and the category sits at the far end of the same
+ * baseline, rather than leaving an empty column.
+ */
+.wine:not(:has(.wine-copy)) {
+  grid-template-columns: 120px minmax(0, 1fr);
+}
+
+.wine:not(:has(.wine-copy)) .wine-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wine:not(:has(.wine-copy)) .wine-kind {
+  margin-top: 0;
+}
+
+.wine-name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.wine-kind {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  margin-top: 10px;
+}
+
+.wine-copy {
+  font-size: 14.5px;
+  line-height: 1.75;
+  text-align: justify;
+  hyphens: auto;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.wine-copy p + p {
+  margin-top: 12px;
+}
+
+.cta-band {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin: 96px 0 0;
+  padding: 40px 0 110px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.cta-band-heading {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.cta-band-actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cta-band-link {
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 3px;
+}
+
+.button:link,
+.button:visited {
+  display: inline-block;
+  text-align: center;
+}
+
+@media (max-width: 759.98px) {
+  .wine-list {
+    margin-top: 24px;
+  }
+
+  .wine,
+  .wine:not(:has(.wine-copy)) {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 14px 18px;
+    align-items: center;
+    padding: 24px 0;
+  }
+
+  .wine-photo {
+    height: 130px;
+  }
+
+  /* Bottle beside the name, description across the full width below. */
+  .wine-body {
+    grid-column: 1 / -1;
+  }
+
+  .wine-link {
+    margin-top: 12px;
+    font-size: 11.5px;
+    padding: 8px 0 6px;
+  }
+
+  /* A wine with no bottle shot should not sit indented by an empty column. */
+  .wine:not(:has(.wine-photo)),
+  .wine:not(:has(.wine-photo)):not(:has(.wine-copy)) {
+    grid-template-columns: 1fr;
+  }
+
+  .wine:not(:has(.wine-photo)) .wine-figure {
+    display: none;
+  }
+
+  .wine-name {
+    font-size: 25px;
+  }
+
+  .wine-kind {
+    font-size: 10.5px;
+    margin-top: 8px;
+  }
+
+  .wine-copy {
+    font-size: 13px;
+  }
+
+  .cta-band {
+    margin-top: 56px;
+    padding: 32px 0 72px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .cta-band-heading {
+    font-size: 27px;
+  }
+
+  .cta-band-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .cta-band-link {
+    text-align: center;
+    align-self: center;
+    font-size: 11.5px;
+    padding: 8px 0 6px;
+  }
+}
+
+/* Contact details set as place names keep the underline treatment. */
+.place-name a,
+.place-copy a {
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 1px;
+}
+
+.place-copy a {
+  color: var(--color-accent-700);
+}
+
+/* ------------------------------------------------------------ page hero --
+ *
+ * The sub-page header: photograph, veil, title. Same construction and type as
+ * the homepage hero, sized down and held still.
+ */
+
+/*
+ * Without JavaScript this is simply a band. With it, the track becomes a scroll
+ * runway and the pane inside pins for the whole reveal — `overflow-x: clip` on
+ * body (never `hidden`) is what keeps that working, see the note at the top of
+ * this file. Reduced motion flattens it back to the band.
+ */
+.page-hero-track {
+  position: relative;
+}
+
+.page-hero {
+  position: relative;
+  height: clamp(460px, 82vh, 820px);
+  overflow: hidden;
+  background: var(--color-neutral-900);
+}
+
+.js .page-hero-track {
+  height: 178vh;
+}
+
+.js .page-hero-track .page-hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.js .page-hero-track.is-flat {
+  height: auto;
+}
+
+.js .page-hero-track.is-flat .page-hero {
+  position: relative;
+  height: clamp(460px, 82vh, 820px);
+}
+
+.page-hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Same radial construction as the homepage, held at its settled opacity. */
+.page-hero-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 90% at 50% 52%,
+    rgba(24, 22, 20, 0.72) 0%,
+    rgba(24, 22, 20, 0.5) 55%,
+    rgba(24, 22, 20, 0.64) 100%
+  );
+}
+
+.page-hero-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 22px;
+  padding: 0 24px;
+}
+
+.page-hero-title {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(36px, 6.4vw, 88px);
+  line-height: 0.95;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding-left: 0.16em;
+  color: var(--color-neutral-100);
+  text-shadow: var(--shadow-text-lg);
+}
+
+.page-hero-standfirst {
+  /* One line where it fits; where it does not, break the lines evenly. */
+  text-wrap: balance;
+  font-family: var(--font-heading);
+  font-size: clamp(12px, 1.3vw, 15px);
+  line-height: 1.9;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding-left: 0.28em;
+  color: var(--color-accent-300);
+  text-shadow: var(--shadow-text-sm);
+}
+
+.js .page-hero-standfirst {
+  opacity: 0;
+}
+
+.js .page-hero-standfirst.is-visible {
+  opacity: 1;
+}
+
+/* The scroll position is the timeline — no transition on what it writes. */
+.nav.is-scrubbed,
+.page-hero-standfirst.is-scrubbed {
+  transition: none;
+}
+
+@media (max-width: 759.98px) {
+  .page-hero,
+  .js .page-hero-track.is-flat .page-hero {
+    height: clamp(380px, 62vh, 560px);
+  }
+
+  .js .page-hero-track {
+    height: 152vh;
+  }
+
+  .page-hero-inner {
+    gap: 16px;
+    padding: 0 22px;
+  }
+
+  .page-hero-title {
+    letter-spacing: 0.14em;
+    padding-left: 0.14em;
+  }
+
+  .page-hero-standfirst {
+    letter-spacing: 0.2em;
+    padding-left: 0.2em;
+  }
+}
+
+/* Opening paragraph under a page hero, where a page head would otherwise sit. */
+.page-intro {
+  padding: 88px 0 0;
+  max-width: 720px;
+}
+
+.page-intro p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+/* Body copy that carries the page, under the opening paragraph. */
+.page-prose {
+  padding: 34px 0 0;
+  max-width: 62ch;
+}
+
+.page-prose p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.page-prose p + p {
+  margin-top: 18px;
+}
+
+@media (max-width: 759.98px) {
+  .page-intro {
+    padding-top: 48px;
+  }
+
+  .page-intro p {
+    font-size: 15px;
+  }
+
+  .page-prose {
+    padding-top: 26px;
+  }
+
+  .page-prose p {
+    font-size: 14px;
+  }
+
+  .page-prose p + p {
+    margin-top: 16px;
+  }
+}
+
+/* ---------------------------------------------------------- detail list --
+ *
+ * Facts in a column, each on its own line with a hairline above it: label on
+ * the left, the point and its explanation on the right. The same hairline
+ * language as the timeline and the stats band, turned vertical.
+ */
+
+.detail-list {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 200px) minmax(0, 1fr);
+  gap: 44px;
+  padding: 28px 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.detail-label {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  padding-top: 8px;
+}
+
+.detail-name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.detail-copy {
+  font-size: 14.5px;
+  line-height: 1.75;
+  max-width: 62ch;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+@media (max-width: 759.98px) {
+  .detail-list {
+    margin-top: 24px;
+  }
+
+  .detail {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 22px 0;
+  }
+
+  .detail-label {
+    padding-top: 0;
+    font-size: 10.5px;
+  }
+
+  .detail-name {
+    font-size: 23px;
+    margin-bottom: 8px;
+  }
+
+  .detail-copy {
+    font-size: 13.5px;
+  }
+}
+
+/* ----------------------------------------------------------- price list --
+ *
+ * Name on the left, figure on the right, a hairline between. Figures are
+ * Cormorant with `tnum`, like every other number on the site.
+ */
+
+.price-group + .price-group {
+  margin-top: 56px;
+}
+
+.price-group-label {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.price-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 18px 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.price-name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.price-note {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-text) 62%, transparent);
+}
+
+.price-figure {
+  flex: none;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.2;
+  font-feature-settings: 'tnum';
+  text-align: right;
+}
+
+.price-unit {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+/* Terms under the price list — VAT, how to pay. */
+.price-notes {
+  margin-top: 26px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+
+@media (max-width: 759.98px) {
+  .price-group + .price-group {
+    margin-top: 40px;
+  }
+
+  .price {
+    gap: 20px;
+    padding: 15px 0;
+  }
+
+  .price-name,
+  .price-figure {
+    font-size: 22px;
+  }
+
+  .price-note {
+    font-size: 12.5px;
+  }
+
+  .price-unit {
+    font-size: 10px;
+  }
+
+  .price-notes {
+    margin-top: 22px;
+    font-size: 13px;
+  }
+
+  .aside-block .aside-name {
+    font-size: 22px;
+  }
+
+  .aside-block .aside-detail {
+    font-size: 14.5px;
+  }
+}
+
+/* Add-ons in the form sit as a pair of outlined toggles, like the wine chips. */
+.choice--check > span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.choice-price {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  font-feature-settings: 'tnum';
+}
+
+/* ------------------------------------------------------------- vineyards --
+ *
+ * One row per sunny position: photograph on one side, name and copy on the
+ * other, sides alternating down the page. A row without a photograph keeps its
+ * frame, so an unfinished vineyard reads as pending rather than broken.
+ */
+
+.stats-lead {
+  padding-top: 88px;
+}
+
+.vineyard-list {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+}
+
+.vineyard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+  padding: 48px 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.vineyard:first-child {
+  border-top: 0;
+}
+
+/* Photograph left, then right, then left again. */
+.vineyard:nth-child(even) .vineyard-figure {
+  order: 2;
+}
+
+.vineyard-figure {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+}
+
+.vineyard-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vineyard-placeholder {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 38%, transparent);
+}
+
+.vineyard-name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+.vineyard-copy {
+  margin-top: 14px;
+  font-size: 14.5px;
+  line-height: 1.75;
+  text-align: justify;
+  hyphens: auto;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+@media (max-width: 759.98px) {
+  .stats-lead {
+    padding-top: 48px;
+  }
+
+  .vineyard-list {
+    margin-top: 24px;
+  }
+
+  .vineyard {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 32px 0;
+  }
+
+  /* Stacked, the photograph always leads. */
+  .vineyard:nth-child(even) .vineyard-figure {
+    order: 0;
+  }
+
+  .vineyard-name {
+    font-size: 27px;
+  }
+
+  .vineyard-copy {
+    margin-top: 10px;
+    font-size: 13.5px;
+  }
+}

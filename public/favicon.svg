@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Colnar">
+  <!-- The wordmark reduced to its initial: gold ring, one letterspaced C. -->
+  <rect width="64" height="64" rx="4" fill="#201f1d"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#b68235" stroke-width="1.5"/>
+  <text
+    x="33.5"
+    y="33"
+    fill="#f8f4f4"
+    font-family="Cormorant Garamond, Garamond, Georgia, serif"
+    font-size="34"
+    font-weight="300"
+    letter-spacing="3"
+    text-anchor="middle"
+    dominant-baseline="central">C</text>
+</svg>

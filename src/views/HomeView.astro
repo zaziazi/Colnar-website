@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Timeline from '../components/Timeline.astro';
+import Stats from '../components/Stats.astro';
+import Cards from '../components/Cards.astro';
+import Vinoteka from '../components/Vinoteka.astro';
+import Footer from '../components/Footer.astro';
+import { getContent, route, routes, otherLang, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+---
+
+<Base lang={lang} page="home" structuredData>
+  <Nav lang={lang} toggleHref={routes[otherLang(lang)].home} />
+
+  <Hero lang={lang} />
+
+  <main>
+    <div class="wrap">
+      <section class="story" data-reveal>
+        <h2>{t.home.storyHead}</h2>
+        <p>{t.home.storyCopy}</p>
+      </section>
+
+      <section aria-labelledby="skozi-leta">
+        <div class="section-gap" data-reveal>
+          <h2 class="section-head" id="skozi-leta">{t.home.yearsHead}</h2>
+        </div>
+        <Timeline lang={lang} />
+      </section>
+
+      <Stats lang={lang} />
+
+      <Cards lang={lang} />
+
+      <section class="quote" data-reveal>
+        <p>{t.home.quote}</p>
+      </section>
+
+      <section id="klet" aria-labelledby="kje-nas-najdete">
+        <div data-reveal>
+          <h2 class="section-head" id="kje-nas-najdete">{t.home.placesHead}</h2>
+        </div>
+        <div class="places" data-reveal>
+          {
+            t.home.places.map((place) => (
+              <div class="place">
+                <p class="place-label">{place.label}</p>
+                <p class="place-name">{place.name}</p>
+                <p class="place-copy">{place.copy}</p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+
+    <Vinoteka lang={lang} />
+  </main>
+
+  <Footer lang={lang} />
+
+  {/* Phone only: arrives together with the top bar once the hero completes. */}
+  <div class="cta-bar" data-cta-bar>
+    <a href={route(lang, 'tasting')}>{t.home.ctaBar}</a>
+  </div>
+</Base>

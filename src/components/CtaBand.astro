@@ -1,0 +1,27 @@
+---
+import { getContent, route, type Lang } from '../i18n';
+import type { Link } from '../i18n/types';
+
+interface Props {
+  lang: Lang;
+  heading: string;
+  /** The quieter link beside the reservation button. */
+  secondary?: Link;
+}
+
+const { lang, heading, secondary } = Astro.props;
+const t = getContent(lang);
+---
+
+{/* Closes a sub-page: outlined button, never filled, over a hairline. */}
+<div class="cta-band" data-reveal>
+  <h2 class="cta-band-heading">{heading}</h2>
+  <div class="cta-band-actions">
+    <a class="button" href={route(lang, 'tasting')}>{t.home.ctaBar}</a>
+    {secondary && (
+      <a class="cta-band-link" href={route(lang, secondary.to)}>
+        {secondary.label}
+      </a>
+    )}
+  </div>
+</div>

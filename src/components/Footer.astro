@@ -1,0 +1,39 @@
+---
+import { getContent, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+---
+
+<footer class="wrap">
+  <div class="foot-cols" data-reveal>
+    {
+      t.footer.columns.map((column) => (
+        <div>
+          <p class="foot-label">{column.label}</p>
+          {column.lines.map((line) => (
+            <div>
+              {line.map((item, i) => (
+                <>
+                  {i > 0 ? ' · ' : ''}
+                  {item.href ? <a href={item.href}>{item.text}</a> : item.text}
+                </>
+              ))}
+            </div>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="colophon">
+    <span class="colophon-mark">Colnar</span>
+    <span>
+      {t.legalName} &nbsp;·&nbsp; <span class="tnum">{t.vatLabel}: SI43099807</span>
+    </span>
+  </div>
+</footer>

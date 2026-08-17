@@ -1,0 +1,53 @@
+---
+import { Picture } from 'astro:assets';
+import vinaPhoto from '../assets/photos/vina.jpg';
+import degustacijaPhoto from '../assets/photos/degustacija.jpg';
+import vinogradiPhoto from '../assets/photos/vinogradi.jpg';
+import { getContent, route, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+
+/*
+ * The ids stay on the cards in both languages so the handoff's `#vina` /
+ * `#degustacija` / `#vinogradi` anchors keep resolving. The photographs and
+ * crops are the same; only the words change.
+ */
+const photos: Record<string, { photo: ImageMetadata; position: string }> = {
+  vina: { photo: vinaPhoto, position: '50% 58%' },
+  degustacija: { photo: degustacijaPhoto, position: '50% 50%' },
+  vinogradi: { photo: vinogradiPhoto, position: '50% 55%' },
+};
+---
+
+<div class="cards">
+  {
+    t.home.cards.map((card) => (
+      <article id={card.id} data-reveal>
+        <div class="card-frame">
+          <Picture
+            class="card-photo"
+            pictureAttributes={{ class: 'pic' }}
+            src={photos[card.id].photo}
+            formats={['avif', 'webp']}
+            fallbackFormat="jpg"
+            widths={[400, 640, 900]}
+            sizes="(max-width: 759.98px) 100vw, (max-width: 1039.98px) 45vw, 340px"
+            style={`object-position: ${photos[card.id].position}`}
+            loading="lazy"
+            alt={card.alt}
+          />
+        </div>
+        <h3 class="card-title">{card.title}</h3>
+        <p class="card-copy">{card.copy}</p>
+        <a class="card-link" href={route(lang, card.link.to)}>
+          {card.link.label}
+        </a>
+      </article>
+    ))
+  }
+</div>

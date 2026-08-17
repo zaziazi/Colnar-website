@@ -1,0 +1,122 @@
+---
+import '../styles/fonts.css';
+import '../styles/site.css';
+import { getContent, alternates, routes, type Lang, type RouteKey } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  page: RouteKey;
+  /** Winery JSON-LD belongs on the homepage only. */
+  structuredData?: boolean;
+}
+
+const { lang, page, structuredData = false } = Astro.props;
+const t = getContent(lang);
+const { title, description } = t.meta[page];
+
+const canonical = new URL(routes[lang][page], Astro.site);
+const ogImage = new URL('/og-colnar.jpg', Astro.site);
+
+const winery = {
+  '@context': 'https://schema.org',
+  '@type': 'Winery',
+  name: t.siteName,
+  legalName: t.legalName,
+  description,
+  url: new URL(routes[lang].home, Astro.site).href,
+  image: ogImage.href,
+  email: 'info@colnar.si',
+  telephone: '+386 31 288 724',
+  foundingDate: '1747',
+  vatID: 'SI43099807',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Lešnica 8',
+    postalCode: '8222',
+    addressLocality: 'Otočec',
+    addressCountry: 'SI',
+  },
+  department: [
+    {
+      '@type': 'Winery',
+      name: 'Vinoteka Colnar',
+      telephone: '+386 41 871 425',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Otoška cesta 5',
+        postalCode: '8000',
+        addressLocality: 'Novo mesto',
+        addressCountry: 'SI',
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          opens: '09:00',
+          closes: '21:00',
+        },
+      ],
+    },
+    {
+      '@type': 'Winery',
+      name: 'Zidanica Colnar',
+      telephone: '+386 31 725 830',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Črešnjice 124',
+        addressLocality: 'Otočec',
+        addressCountry: 'SI',
+      },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#f3f2f2" />
+
+    {/* Each page declares both languages, and a default for everyone else. */}
+    {
+      alternates(page).map((alt) => (
+        <link rel="alternate" hreflang={alt.lang} href={new URL(alt.href, Astro.site).href} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(routes.sl[page], Astro.site).href} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={t.ogLocale} />
+    <meta property="og:site_name" content={t.siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={ogImage.href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {
+      structuredData && (
+        <script type="application/ld+json" set:html={JSON.stringify(winery)} is:inline />
+      )
+    }
+
+    {/* Before first paint, so the hero and the reveals only hide when JS can show them again. */}
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import '../scripts/motion.js';
+    </script>
+  </body>
+</html>

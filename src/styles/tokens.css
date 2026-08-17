@@ -1,0 +1,53 @@
+/*
+ * Design tokens — "Classical" design system, as handed off.
+ * Nothing outside this file should contain a raw colour or a font stack.
+ */
+
+:root {
+  /* Colour */
+  --color-bg: #f3f2f2; /* page ground (warm near-white) */
+  --color-surface: #eae9e9; /* card / plate ground */
+  --color-text: #201f1d; /* body and headings */
+  --color-accent: #b68235; /* gold — strokes, underlines, dots */
+  --color-divider: rgba(32, 31, 29, 0.16); /* all hairlines (1px) */
+  --color-neutral-100: #f8f4f4; /* text on dark blocks */
+  --color-neutral-900: #2d2b2b; /* dark block ground, hero fallback */
+  --color-accent-300: #facb8d; /* small labels on dark ground */
+  --color-accent-400: #e1ad66; /* gold on dark ground */
+  --color-accent-700: #7d5411; /* gold for small text on light ground */
+
+  /* Type — Bold is never used; weight 300 above ~28px. */
+  --font-heading: 'Cormorant Garamond', Cormorant, Garamond, Georgia, 'Times New Roman', serif;
+  --font-body: 'Lora', Georgia, 'Times New Roman', serif;
+
+  /* Radius — nothing on this site is more rounded than this. */
+  --radius-md: 4px;
+
+  /* Layout */
+  --wrap-max: 1120px;
+  --page-pad: 40px;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out-draw: cubic-bezier(0.3, 0.7, 0.2, 1);
+  --ease-pop: cubic-bezier(0.2, 1.4, 0.4, 1);
+
+  /* Text set over photography */
+  --shadow-text-lg: 0 2px 30px rgba(24, 22, 20, 0.45);
+  --shadow-text-md: 0 2px 26px rgba(24, 22, 20, 0.5);
+  --shadow-text-sm: 0 1px 16px rgba(24, 22, 20, 0.55);
+
+  /*
+   * Addition to the handed-off set. No form was designed, and a form needs a
+   * state that reads as "wrong" without leaning on the gold. This is the
+   * darkest wine red that still clears 4.5:1 on --color-bg; if the design
+   * system grows a real error token, replace this with it.
+   */
+  --color-error: #8a2f26;
+}
+
+@media (max-width: 759.98px) {
+  :root {
+    --page-pad: 22px;
+  }
+}

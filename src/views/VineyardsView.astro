@@ -1,0 +1,89 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import PageHero from '../components/PageHero.astro';
+import Stats from '../components/Stats.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import heroPhoto from '../assets/photos/vinogradi-hero.jpg';
+import { getContent, routes, otherLang, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const v = getContent(lang).vineyards;
+
+/*
+ * The five sunny positions — placeholders until the owner supplies a photograph
+ * for each. The names come from the translation file (they are the same in both
+ * languages, being place names); a photo goes here, keyed by name:
+ *
+ *   import trskaGora from '../assets/photos/vineyards/trska-gora.jpg';
+ *   const photos = { 'Trška gora': trskaGora };
+ *
+ * Rows render either way — without a photo the frame stays an empty plate, on
+ * purpose, so an unfinished vineyard is obvious rather than quietly missing.
+ */
+const photos: Record<string, ImageMetadata> = {};
+---
+
+<Base lang={lang} page="vineyards">
+  <Nav lang={lang} toggleHref={routes[otherLang(lang)].vineyards} />
+
+  <PageHero
+    photo={heroPhoto}
+    alt={v.heroAlt}
+    title={v.title}
+    standfirst={v.standfirst}
+    position="50% 55%"
+  />
+
+  <main class="wrap">
+    <div class="stats-lead">
+      <Stats lang={lang} />
+    </div>
+
+    <section aria-labelledby="lege">
+      <div class="section-gap" data-reveal>
+        <h2 class="section-head" id="lege">{v.sitesHead}</h2>
+      </div>
+
+      <ul class="vineyard-list">
+        {
+          v.sites.map((site) => (
+            <li class="vineyard" data-reveal>
+              <div class="vineyard-figure">
+                {photos[site] ? (
+                  <Picture
+                    class="vineyard-photo"
+                    pictureAttributes={{ class: 'pic' }}
+                    src={photos[site]}
+                    formats={['avif', 'webp']}
+                    fallbackFormat="jpg"
+                    widths={[400, 640, 900]}
+                    sizes="(max-width: 759.98px) 100vw, 45vw"
+                    loading="lazy"
+                    alt={site}
+                  />
+                ) : (
+                  <p class="vineyard-placeholder">{v.photoPending}</p>
+                )}
+              </div>
+              <div class="vineyard-body">
+                <h3 class="vineyard-name">{site}</h3>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <CtaBand lang={lang} heading={v.cta.heading} secondary={v.cta.secondary} />
+  </main>
+
+  <Footer lang={lang} />
+</Base>

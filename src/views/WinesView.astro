@@ -1,0 +1,104 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import heroPhoto from '../assets/photos/vina-hero.jpg';
+import { getContent, routes, otherLang, winesFor, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+
+const wines = (await getCollection('wines', winesFor(lang))).sort(
+  (a, b) => a.data.vrstniRed - b.data.vrstniRed
+);
+
+// Every field is optional, so a wine can be listed before its copy, photograph
+// or distributor link exists. Render once here and let the template ask.
+const entries = await Promise.all(
+  wines.map(async (wine) => {
+    const { Content } = await render(wine);
+    const body = (wine.body ?? '').replace(/<!--[\s\S]*?-->/g, '').trim();
+    return { ...wine, Content, hasBody: body.length > 0 };
+  })
+);
+---
+
+<Base lang={lang} page="wines">
+  <Nav lang={lang} toggleHref={routes[otherLang(lang)].wines} />
+
+  <PageHero
+    photo={heroPhoto}
+    alt={t.wines.heroAlt}
+    title={t.wines.title}
+    standfirst={t.wines.standfirst}
+    position="50% 50%"
+  />
+
+  <main class="wrap">
+    <div class="page-intro" data-reveal>
+      <p>{t.wines.lede}</p>
+    </div>
+
+    <div class="page-prose" data-reveal>
+      {t.wines.prose.map((para) => <p>{para}</p>)}
+    </div>
+
+    <section aria-labelledby="seznam-vin">
+      <div class="section-gap" data-reveal>
+        <h2 class="section-head" id="seznam-vin">{t.wines.listHead}</h2>
+      </div>
+
+      <ul class="wine-list" data-reveal>
+        {
+          entries.map((wine) => (
+            <li class="wine">
+              <div class="wine-figure">
+                {wine.data.slika && (
+                  <Picture
+                    class="wine-photo"
+                    pictureAttributes={{ class: 'pic' }}
+                    src={wine.data.slika}
+                    formats={['avif', 'webp']}
+                    fallbackFormat="png"
+                    widths={[160, 320]}
+                    sizes="120px"
+                    loading="lazy"
+                    alt={t.wines.bottleAlt(wine.data.ime)}
+                  />
+                )}
+              </div>
+              <div class="wine-heading">
+                <h3 class="wine-name">{wine.data.ime}</h3>
+                {wine.data.zvrst && <p class="wine-kind">{t.wines.kinds[wine.data.zvrst]}</p>}
+              </div>
+              <div class="wine-body">
+                {wine.hasBody && (
+                  <div class="wine-copy">
+                    <wine.Content />
+                  </div>
+                )}
+                {wine.data.evino && (
+                  <a class="wine-link" href={wine.data.evino} target="_blank" rel="noopener">
+                    {t.wines.buy}
+                  </a>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <CtaBand lang={lang} heading={t.wines.cta.heading} secondary={t.wines.cta.secondary} />
+  </main>
+
+  <Footer lang={lang} />
+</Base>

@@ -1,0 +1,47 @@
+---
+import { Picture } from 'astro:assets';
+import heroPhoto from '../assets/photos/hero-grozdje.jpg';
+import { getContent, route, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+---
+
+{/*
+  The track is the scroll runway; the sticky pane inside it stays pinned for the
+  whole reveal, then releases into the editorial content below. Nothing above
+  this element may carry `overflow-x: hidden` — see the note in site.css.
+*/}
+<div class="hero-track" data-hero-track>
+  <div class="hero-sticky">
+    <Picture
+      class="hero-photo"
+      pictureAttributes={{ class: 'pic' }}
+      data-hero-photo
+      src={heroPhoto}
+      formats={['avif', 'webp']}
+      fallbackFormat="jpg"
+      widths={[640, 960, 1280, 1600]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      alt={t.home.heroAlt}
+    />
+    <div class="hero-veil" data-hero-veil aria-hidden="true"></div>
+
+    <div class="hero-center">
+      <h1 class="hero-title" data-hero-title>Colnar</h1>
+      <p class="hero-year" data-hero-year>1747</p>
+    </div>
+
+    <div class="hero-links" data-hero-links>
+      {t.home.heroLinks.map((link) => <a href={route(lang, link.to)}>{link.label}</a>)}
+    </div>
+
+    <p class="hero-hint" data-hero-hint aria-hidden="true">{t.home.scrollHint}</p>
+  </div>
+</div>

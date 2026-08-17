@@ -1,0 +1,55 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  photo: ImageMetadata;
+  alt: string;
+  /** Set as the h1, uppercase and letterspaced like the homepage wordmark. */
+  title: string;
+  /** The quieter line under it, in the place the homepage puts `1747`. */
+  standfirst?: string;
+  /** `object-position` for the crop. */
+  position?: string;
+}
+
+const { photo, alt, title, standfirst, position = '50% 50%' } = Astro.props;
+---
+
+{/*
+  The sub-page counterpart of the homepage hero: same photograph-under-veil
+  construction and the same type treatment.
+
+  The page opens on the photograph and the title alone — no bar across the top,
+  no second line. Then the pane pins: the page holds still while the standfirst
+  and the nav fade up under the scroll, and only once they have arrived does the
+  hero release into the content. That is the rule for every sub-page, and the
+  ramps live in `scripts/motion.js`.
+*/}
+<div class="page-hero-track" data-page-hero-track>
+  <header class="page-hero" data-page-hero>
+    <Picture
+      class="page-hero-photo"
+      pictureAttributes={{ class: 'pic' }}
+      data-page-hero-photo
+      src={photo}
+      formats={['avif', 'webp']}
+      fallbackFormat="jpg"
+      widths={[640, 960, 1280, 1600, 2000]}
+      sizes="100vw"
+      style={`object-position: ${position}`}
+      loading="eager"
+      fetchpriority="high"
+      alt={alt}
+    />
+    <div class="page-hero-veil" aria-hidden="true"></div>
+    <div class="page-hero-inner">
+      <h1 class="page-hero-title">{title}</h1>
+      {standfirst && (
+        <p class="page-hero-standfirst" data-page-hero-standfirst>
+          {standfirst}
+        </p>
+      )}
+    </div>
+  </header>
+</div>

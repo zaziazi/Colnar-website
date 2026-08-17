@@ -1,0 +1,30 @@
+---
+import { getContent, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  /** Static figures render as given; without this they count up on first sight. */
+  animate?: boolean;
+}
+
+const { lang, animate = true } = Astro.props;
+const t = getContent(lang);
+const fmt = (stat: (typeof t.home.stats)[number]) =>
+  stat.grouped ? stat.value.toLocaleString(t.numberLocale) : String(stat.value);
+---
+
+<div class="stats" data-reveal data-stats={animate ? '' : undefined}>
+  {
+    t.home.stats.map((stat) => (
+      <div class="stat">
+        <p class="stat-figure tnum">
+          <span data-count={animate ? stat.value : undefined} data-thousands={stat.grouped ? '' : undefined}>
+            {animate ? '0' : fmt(stat)}
+          </span>
+          {stat.unit ? ` ${stat.unit}` : ''}
+        </p>
+        <p class="stat-label">{stat.label}</p>
+      </div>
+    ))
+  }
+</div>

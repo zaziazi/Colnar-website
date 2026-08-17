@@ -1,0 +1,12 @@
+dist/
+node_modules/
+.astro/
+.env
+.env.production
+.DS_Store
+*.log
+
+# The client's photo library — a source, not an asset. Anchored to the repo root
+# on purpose: macOS is case-insensitive, so an unanchored `Photos/` also matches
+# src/assets/photos/ and would quietly drop every image on the site from git.
+/Photos/

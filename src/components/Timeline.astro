@@ -1,0 +1,35 @@
+---
+import { getContent, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+---
+
+{/*
+  One markup shape, two layouts. On desktop each node draws its own 1px rule
+  with the dot centred on it, and the first and last rules stop at 50% so the
+  row reads as a single continuous run with open ends. On the phone the rules
+  are dropped and a single spine draws itself down the left instead.
+*/}
+<ol class="timeline" data-timeline>
+  <span class="tl-spine" aria-hidden="true"></span>
+  {
+    t.home.milestones.map((milestone) => (
+      <li class="tl-node" data-tl-node>
+        <p class="tl-year tnum">{milestone.year}</p>
+        <span class="tl-mark" aria-hidden="true">
+          <span class="tl-rule" />
+          <span class="tl-dot" />
+        </span>
+        <div class="tl-body">
+          <p class="tl-kicker">{milestone.kicker}</p>
+          <p class="tl-copy">{milestone.copy}</p>
+        </div>
+      </li>
+    ))
+  }
+</ol>

@@ -1,0 +1,46 @@
+---
+import { Picture } from 'astro:assets';
+import vinotekaPhoto from '../assets/photos/vinoteka.jpg';
+import { getContent, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const v = getContent(lang).home.vinoteka;
+---
+
+{/* Full-bleed dark block: text beside the photograph, photograph on top on the phone. */}
+<section class="vinoteka" aria-labelledby="vinoteka-naslov">
+  <div class="vinoteka-text" data-reveal>
+    <h2 class="vinoteka-title" id="vinoteka-naslov">{v.title}</h2>
+    <span class="vinoteka-rule" aria-hidden="true"></span>
+    <p class="vinoteka-copy">{v.copy}</p>
+    <div class="vinoteka-meta">
+      <div class="meta-item">
+        <p class="meta-label">{v.hoursLabel}</p>
+        <p class="meta-value tnum">{v.hours}</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">{v.menuLabel}</p>
+        <a class="meta-value" href="#degustacija">{v.menuLink}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="vinoteka-frame" data-parallax-frame>
+    <Picture
+      class="vinoteka-photo"
+      pictureAttributes={{ class: 'pic' }}
+      data-parallax
+      src={vinotekaPhoto}
+      formats={['avif', 'webp']}
+      fallbackFormat="jpg"
+      widths={[640, 960, 1280]}
+      sizes="(max-width: 759.98px) 100vw, 50vw"
+      loading="lazy"
+      alt={v.alt}
+    />
+  </div>
+</section>

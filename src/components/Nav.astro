@@ -1,0 +1,46 @@
+---
+import { getContent, route, otherLang, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  /** Pages without a hero show their chrome straight away. */
+  alwaysVisible?: boolean;
+  /** Where the language toggle points — the same page in the other language. */
+  toggleHref: string;
+}
+
+const { lang, alwaysVisible = false, toggleHref } = Astro.props;
+const t = getContent(lang);
+const state = alwaysVisible ? 'is-visible' : '';
+const all = [...t.nav.left, ...t.nav.right];
+const other = otherLang(lang);
+---
+
+<header>
+  <nav class={`nav nav--desktop ${state}`} data-nav aria-label={t.nav.menuAria}>
+    <div class="nav-links">
+      {t.nav.left.map((link) => <a href={route(lang, link.to)}>{link.label}</a>)}
+    </div>
+    <a class="nav-wordmark" href={route(lang, 'home')}>Colnar</a>
+    <div class="nav-links nav-links--end">
+      {t.nav.right.map((link) => <a href={route(lang, link.to)}>{link.label}</a>)}
+      <a class="nav-lang" href={toggleHref} hreflang={other} lang={other}>{t.nav.toggle}</a>
+    </div>
+  </nav>
+
+  <nav class={`nav nav--phone ${state}`} data-nav aria-label={t.nav.menuAria}>
+    <button
+      class="nav-menu-button"
+      type="button"
+      data-menu-button
+      aria-expanded="false"
+      aria-controls="nav-panel">{t.nav.menu}</button
+    >
+    <a class="nav-wordmark" href={route(lang, 'home')}>Colnar</a>
+    <a class="nav-lang" href={toggleHref} hreflang={other} lang={other}>{t.nav.toggle}</a>
+  </nav>
+
+  <div class="nav-panel" id="nav-panel" data-menu-panel data-open="false">
+    {all.map((link) => <a href={route(lang, link.to)}>{link.label}</a>)}
+  </div>
+</header>

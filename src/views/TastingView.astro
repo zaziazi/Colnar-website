@@ -1,0 +1,231 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import PageHero from '../components/PageHero.astro';
+import Footer from '../components/Footer.astro';
+import heroPhoto from '../assets/photos/degustacija-hero.jpg';
+import { getContent, routes, otherLang, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const d = t.tasting;
+const f = d.form;
+
+/*
+ * Where the reservation is sent. Any endpoint that accepts a multipart POST
+ * works — a Cloudflare Pages Function, Netlify Forms, Formspree. See README.
+ * With nothing configured the form still validates, and tells the visitor to
+ * write or call instead of pretending the reservation went through.
+ */
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+---
+
+<Base lang={lang} page="tasting">
+  <Nav lang={lang} toggleHref={routes[otherLang(lang)].tasting} />
+
+  <PageHero
+    photo={heroPhoto}
+    alt={d.heroAlt}
+    title={d.title}
+    standfirst={d.standfirst}
+    position="50% 46%"
+  />
+
+  <main class="wrap">
+    <div class="page-intro" data-reveal>
+      <p>{d.intro}</p>
+    </div>
+
+    <div class="page-prose" data-reveal>
+      {d.prose.map((para) => <p>{para}</p>)}
+    </div>
+
+    <section id="prijava" aria-labelledby="rezervacija">
+      <div class="section-gap" data-reveal>
+        <h2 class="section-head" id="rezervacija">{d.bookingHead}</h2>
+      </div>
+
+      <div class="reservation">
+        <div>
+          <form
+            class="reservation-form"
+            data-reservation-form
+            data-endpoint={endpoint}
+            action={endpoint || undefined}
+            method="post"
+          >
+            {/* Validation strings live with the rest of the copy; the script reads them from here. */}
+            <script
+              type="application/json"
+              data-form-messages
+              set:html={JSON.stringify(f.messages)}
+              is:inline
+            />
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="ime">{f.name}</label>
+                <input id="ime" name="ime" type="text" autocomplete="name" required />
+                <p class="field-error" data-error-for="ime" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="email">{f.email}</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+                <p class="field-error" data-error-for="email" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="telefon">{f.phone}</label>
+                <input id="telefon" name="telefon" type="tel" autocomplete="tel" required />
+                <p class="field-error" data-error-for="telefon" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="datum">{f.date}</label>
+                <input id="datum" name="datum" type="date" required />
+                <p class="field-error" data-error-for="datum" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="gostje">{f.guests}</label>
+                <input
+                  id="gostje"
+                  name="gostje"
+                  type="number"
+                  min="1"
+                  max="60"
+                  inputmode="numeric"
+                  required
+                />
+                <p class="field-error" data-error-for="gostje" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <fieldset class="choices">
+                  <legend class="fieldset-label">{f.extras}</legend>
+                  <div class="choice-row">
+                    {
+                      f.extraItems.map((extra) => (
+                        <label class="choice choice--check">
+                          <input type="checkbox" name="dodatno" value={extra.value} />
+                          <span>
+                            {extra.name}
+                            <span class="choice-price">
+                              {extra.price}&nbsp;€ {d.perPersonShort}
+                            </span>
+                          </span>
+                        </label>
+                      ))
+                    }
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="field field--wide">
+                <fieldset class="choices">
+                  <legend class="fieldset-label">{f.size}</legend>
+                  <div class="choice-row">
+                    {
+                      f.sizes.map((size) => (
+                        <label class="choice">
+                          <input type="radio" name="obseg" value={size.value} required />
+                          <span>
+                            {size.label}
+                            <span class="choice-price">
+                              {size.price}&nbsp;€ {d.perPersonShort}
+                            </span>
+                          </span>
+                        </label>
+                      ))
+                    }
+                  </div>
+                  <p class="field-error" data-error-for="obseg" role="alert"></p>
+                </fieldset>
+              </div>
+
+              <div class="field field--wide">
+                <label for="opomba">{f.note}</label>
+                <textarea id="opomba" name="opomba" rows="4"></textarea>
+                <p class="field-note">{f.noteHelp}</p>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="button" type="submit" data-submit data-sending={f.sending}>
+                {f.submit}
+              </button>
+              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+            </div>
+
+            <p class="form-terms">{d.paymentNote}</p>
+          </form>
+
+          <div class="form-done" data-form-done hidden tabindex="-1">
+            <h2>{f.doneHead}</h2>
+            <p>
+              {f.doneCopy}<a href="tel:+38631288724">+386 31 288 724</a>{f.doneCopyTail}
+            </p>
+          </div>
+        </div>
+
+        <aside>
+          {/* Tastings happen only at the cellar in Lešnica — the zidanica does not belong here. */}
+          <div class="aside-block">
+            <h2>{d.aside.whereLabel}</h2>
+            <p class="aside-name">{d.aside.whereName}</p>
+            <p class="aside-detail">{d.aside.whereCopy}</p>
+          </div>
+
+          <div class="aside-block">
+            <h2>{d.aside.phoneLabel}</h2>
+            <p class="aside-name tnum">
+              <a href="tel:+38631288724">+386 31 288 724</a>
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section aria-labelledby="cenik">
+      <div class="section-gap section-gap--tight" data-reveal>
+        <h2 class="section-head" id="cenik">{d.priceHead}</h2>
+      </div>
+
+      <div data-reveal>
+        {
+          d.priceGroups.map((group) => (
+            <div class="price-group">
+              <p class="price-group-label">{group.label}</p>
+              <ul class="price-list">
+                {group.rows.map((row) => (
+                  <li class="price">
+                    <div>
+                      <p class="price-name">{row.name}</p>
+                      {row.note && <p class="price-note">{row.note}</p>}
+                    </div>
+                    <p class="price-figure">
+                      {row.price}&nbsp;€<span class="price-unit">{d.perPerson}</span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+
+        <p class="price-notes">{d.vatNote}</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Base>
+
+<script>
+  import '../scripts/reservation.js';
+</script>
