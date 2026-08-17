@@ -367,6 +367,23 @@ configured in the dashboard: build command, publish directory, Node 22, and
 `PUBLIC_FORM_ENDPOINT = "/"`. `public/_headers` caches `/_astro/*` and the fonts
 forever — they are fingerprinted — and keeps pages revalidating.
 
+### The site URL
+
+`site` in `astro.config.mjs` reads `process.env.URL`, which Netlify sets at build
+time to the main site URL — the `*.netlify.app` subdomain while that is all there
+is, and the custom domain the moment one is attached. Canonical URLs, hreflang,
+Open Graph and the sitemap all follow it.
+
+**So nothing needs editing when colnar.si is pointed here.** Netlify also 301s
+the old subdomain to the custom domain on its own, so anything indexed under the
+temporary URL follows across.
+
+`robots.txt` is generated (`src/pages/robots.txt.ts`) rather than static, for the
+same reason: its `Sitemap:` line has to follow the deploy URL.
+
+The fallback when `URL` is unset — local builds, other hosts — is
+`https://colnar.si`.
+
 ### The booking form on Netlify
 
 The form carries `name="rezervacija"`, `data-netlify="true"` and a hidden
