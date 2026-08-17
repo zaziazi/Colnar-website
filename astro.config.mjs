@@ -17,6 +17,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: process.env.URL ?? 'https://colnar.si',
   output: 'static',
+  // Matches build.format below, and how a static host serves directory output.
+  trailingSlash: 'always',
   integrations: [sitemap()],
   build: {
     // colnar.si/degustacija rather than colnar.si/degustacija/index.html

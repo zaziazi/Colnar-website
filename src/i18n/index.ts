@@ -18,21 +18,27 @@ export type RouteKey = 'home' | 'wines' | 'cellar' | 'vineyards' | 'tasting';
  * rather than derived, because the English paths are translated too — /vina is
  * /en/wines, not /en/vina — and because this is the one place to look when
  * wiring a link.
+ *
+ * The trailing slashes are load-bearing. `build.format: 'directory'` writes
+ * dist/vina/index.html, which a host serves at /vina/ and 301s /vina to — so
+ * without them every internal link takes a redirect, the canonical points at a
+ * URL that is not the one served, and the sitemap (which adds them) disagrees
+ * with the canonical. Astro's `trailingSlash: 'always'` keeps dev honest.
  */
 export const routes: Record<Lang, Record<RouteKey, string>> = {
   sl: {
     home: '/',
-    wines: '/vina',
-    cellar: '/klet',
-    vineyards: '/vinogradi',
-    tasting: '/degustacija',
+    wines: '/vina/',
+    cellar: '/klet/',
+    vineyards: '/vinogradi/',
+    tasting: '/degustacija/',
   },
   en: {
     home: '/en/',
-    wines: '/en/wines',
-    cellar: '/en/cellar',
-    vineyards: '/en/vineyards',
-    tasting: '/en/tasting',
+    wines: '/en/wines/',
+    cellar: '/en/cellar/',
+    vineyards: '/en/vineyards/',
+    tasting: '/en/tasting/',
   },
 };
 
