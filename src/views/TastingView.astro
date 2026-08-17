@@ -51,13 +51,35 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
 
       <div class="reservation">
         <div>
+          {/*
+            `name` + `data-netlify` are what Netlify's build scanner looks for;
+            the hidden `form-name` is what identifies the submission, and the
+            honeypot catches bots without troubling a real visitor. Both language
+            versions share one form name, so bookings land in a single list — the
+            `jezik` field records which side they came from.
+
+            None of it is Netlify-specific from the page's point of view: point
+            PUBLIC_FORM_ENDPOINT at Formspree or a function and the same markup
+            posts there instead.
+          */}
           <form
             class="reservation-form"
             data-reservation-form
             data-endpoint={endpoint}
             action={endpoint || undefined}
             method="post"
+            name="rezervacija"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
           >
+            <input type="hidden" name="form-name" value="rezervacija" />
+            <input type="hidden" name="jezik" value={lang} />
+            <p class="visually-hidden" aria-hidden="true">
+              <label>
+                Leave this empty
+                <input name="bot-field" tabindex="-1" autocomplete="off" />
+              </label>
+            </p>
             {/* Validation strings live with the rest of the copy; the script reads them from here. */}
             <script
               type="application/json"

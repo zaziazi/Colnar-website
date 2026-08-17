@@ -292,8 +292,10 @@ handoff left open is now closed: the figures are 20 ha / 100.000 trt / 5 leg,
 there are ten wines, and the first planting year is 2001.
 
 1. **Instagram and Facebook are plain text**, because the handoff gave no
-   profile URLs. Add `href`s to the Kontakt column in `src/data/content.ts`.
-2. **`PUBLIC_FORM_ENDPOINT`**, per above.
+   profile URLs. Add `href`s to the Kontakt / Contact column in `src/i18n/sl.ts` and `en.ts`.
+2. **Form notifications.** On Netlify the bookings are captured automatically,
+   but somebody has to be told about them — Netlify → Forms → Settings → form
+   notifications, pointed at info@colnar.si.
 3. **Three text tints fall below WCAG AA.** The nav wordmark and the footer
    colophon sit at 55% of `--color-text` (3.63:1) and the nav `EN` at 40%
    (2.40:1), against 4.5:1 required. These are the handoff's own values and are
@@ -360,5 +362,31 @@ brief intends.
 
 Static output — any host. `npm run build`, publish `dist/`.
 
-Cloudflare Pages / Netlify: build command `npm run build`, output directory
-`dist`, and set `PUBLIC_FORM_ENDPOINT` in the host's environment variables.
+Set up for **Netlify**, with everything in `netlify.toml` so nothing has to be
+configured in the dashboard: build command, publish directory, Node 22, and
+`PUBLIC_FORM_ENDPOINT = "/"`. `public/_headers` caches `/_astro/*` and the fonts
+forever — they are fingerprinted — and keeps pages revalidating.
+
+### The booking form on Netlify
+
+The form carries `name="rezervacija"`, `data-netlify="true"` and a hidden
+`form-name`, which is what Netlify's build scanner looks for — so submissions
+land in **Forms** in the dashboard with no backend and no third-party account.
+
+- **Both languages share one form name**, so bookings arrive in a single list; a
+  hidden `jezik` field records which side each came from.
+- A honeypot (`bot-field`) catches bots without troubling a real visitor.
+- Submissions go url-encoded, which is what Netlify expects from an AJAX post —
+  and what Formspree and a plain function handler take too.
+- **Turn on notifications** in Netlify → Forms → Settings, or the bookings sit in
+  the dashboard unread. That is the one thing still to do by hand.
+
+None of this is Netlify-specific from the page's point of view: point
+`PUBLIC_FORM_ENDPOINT` at a Formspree URL or a function instead and the same
+markup posts there.
+
+### Other hosts
+
+Cloudflare Pages or Vercel: build command `npm run build`, output `dist`, Node
+22+, and set `PUBLIC_FORM_ENDPOINT` yourself — neither has a forms service, so
+it needs Formspree or a small function.

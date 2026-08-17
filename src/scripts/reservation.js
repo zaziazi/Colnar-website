@@ -130,10 +130,19 @@ if (form) {
     setStatus('', null);
 
     try {
+      /*
+       * Sent url-encoded rather than multipart: that is what Netlify Forms
+       * expects from an AJAX submission, and Formspree and a plain function
+       * handler both take it too. `URLSearchParams` keeps repeated names, so
+       * ticking both extras still sends both.
+       */
       const response = await fetch(endpoint, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(form),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(new FormData(form)).toString(),
       });
 
       if (!response.ok) throw new Error(`HTTP ${response.status}`);

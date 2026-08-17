@@ -1,0 +1,13 @@
+# Netlify build + the form endpoint, so nothing has to be set in the dashboard.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Astro 7 needs Node 22.12 or newer.
+  NODE_VERSION = "22"
+  # Netlify Forms captures a POST to any path on the site, so the reservation
+  # form posts to the root. Point this at a Formspree URL or a function instead
+  # and nothing else has to change.
+  PUBLIC_FORM_ENDPOINT = "/"
