@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "photos": "node scripts/prepare-photos.mjs",
-    "wine-photos": "node scripts/prepare-wine-photos.mjs"
+    "wine-photos": "node scripts/prepare-wine-photos.mjs",
+    "logo": "node scripts/prepare-logo.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

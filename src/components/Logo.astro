@@ -1,0 +1,24 @@
+---
+/*
+ * The JC COLNAR mark, inlined rather than linked so `fill: currentColor` works —
+ * the mark then takes the colour of whatever it sits in, light ground or dark.
+ * Generated from the client's PDF by scripts/prepare-logo.mjs; do not hand-edit
+ * the SVG, edit that.
+ */
+import mark from '../assets/brand/jc.svg?raw';
+
+interface Props {
+  /** Accessible name. Decorative when the link around it already has one. */
+  label?: string;
+  class?: string;
+}
+
+const { label, class: className } = Astro.props;
+
+// `aria-label`/`role` come from the file; strip them when it is decorative.
+const svg = label
+  ? mark.replace('aria-label="Colnar"', `aria-label="${label}"`)
+  : mark.replace(' role="img"', '').replace(' aria-label="Colnar"', ' aria-hidden="true"');
+---
+
+<span class={className} set:html={svg} />

@@ -267,6 +267,26 @@ distributor's product page). Every field is optional and the row adapts: no desc
 takes the width; no bottle and the photo column collapses on the phone; no
 `evino` and there is simply no buy link.
 
+### The logo
+
+`npm run logo` — converts the client's `JC-LOGO-1.pdf` into
+`src/assets/brand/jc.svg`, which `components/Logo.astro` inlines.
+
+The PDF is pure vector, with the wordmark already outlined, so it is translated
+rather than rasterised: PDF path operators become SVG ones, coordinates are
+flipped for SVG's y-down axis, and the two fills keep their own fill-rules —
+`f*` is even-odd, and the counters inside the letters depend on the difference.
+The viewBox is the exact ink bounds, computed from the true extrema of each
+cubic rather than its control points, so the mark has no stray padding.
+
+**The page carries `/Rotate 270`**, which viewers apply on display and which is
+easy to miss — ignore it and the mark comes out on its side. The converter
+handles all four rotations.
+
+Inlined rather than linked so `fill: currentColor` works: the mark takes the
+colour of whatever it sits in, which is why the nav can tint it and darken it on
+hover without a second file for dark grounds.
+
 ### Bottle shots
 
 `npm run wine-photos` — downloads the nine bottle shots from the distributor's

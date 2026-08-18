@@ -164,13 +164,31 @@ p {
   justify-content: flex-end;
 }
 
-.nav-wordmark {
-  font-family: var(--font-heading);
-  font-size: 12px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  padding-left: 0.3em;
-  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+/*
+ * The JC COLNAR mark sits where the wordmark used to. It is inline SVG filled
+ * with `currentColor`, so it carries the same tint the type did and darkens on
+ * hover with it — no second asset for the dark grounds.
+ */
+.nav-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: color-mix(in srgb, var(--color-text) 62%, transparent);
+  transition: color 0.3s ease;
+}
+
+.nav-mark:hover {
+  color: var(--color-text);
+}
+
+.nav-mark-glyph {
+  display: block;
+}
+
+.nav-mark-glyph svg {
+  display: block;
+  height: 21px;
+  width: auto;
 }
 
 .nav-lang {
@@ -189,10 +207,8 @@ p {
   font-size: 11px;
 }
 
-.nav--phone .nav-wordmark {
-  font-size: 11.5px;
-  text-align: center;
-  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+.nav--phone .nav-mark-glyph svg {
+  height: 17px;
 }
 
 .nav-menu-button {
