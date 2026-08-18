@@ -1154,12 +1154,14 @@ a.meta-value {
 }
 
 .colophon-mark {
-  font-family: var(--font-heading);
-  font-size: 13px;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  padding-left: 0.34em;
+  display: block;
   color: color-mix(in srgb, var(--color-text) 75%, transparent);
+}
+
+.colophon-mark svg {
+  display: block;
+  height: 20px;
+  width: auto;
 }
 
 @media (max-width: 759.98px) {
@@ -1188,8 +1190,8 @@ a.meta-value {
     padding-bottom: 108px;
   }
 
-  .colophon-mark {
-    font-size: 12px;
+  .colophon-mark svg {
+    height: 17px;
   }
 }
 
@@ -2419,6 +2421,20 @@ a.meta-value {
   max-width: 560px;
 }
 
+/* The mark leads, the wordmark answers it — so the mark stays the smaller of the two. */
+.age-gate-logo {
+  display: block;
+  margin-bottom: 26px;
+  color: var(--color-neutral-100);
+}
+
+.age-gate-logo svg {
+  display: block;
+  height: clamp(30px, 5vw, 42px);
+  width: auto;
+  margin: 0 auto;
+}
+
 .age-gate-mark {
   font-family: var(--font-heading);
   font-weight: 300;
@@ -2536,6 +2552,10 @@ a.meta-value {
 }
 
 @media (max-width: 759.98px) {
+  .age-gate-logo {
+    margin-bottom: 20px;
+  }
+
   .age-gate-rule {
     margin: 26px auto;
   }
