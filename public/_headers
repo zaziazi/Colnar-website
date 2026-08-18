@@ -1,10 +1,9 @@
+# Netlify applies every rule that matches and the LAST value wins, so the
+# catch-all has to come first — below it, the fingerprinted assets override it.
+
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
 # Astro fingerprints everything under /_astro/, so it can be cached forever.
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
-
-/*.woff2
-  Cache-Control: public, max-age=31536000, immutable
-
-# Pages are cheap and change; let the CDN hold them but always revalidate.
-/*
-  Cache-Control: public, max-age=0, must-revalidate

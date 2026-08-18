@@ -33,10 +33,15 @@ const enHref = lang === 'en' ? here : there;
     <span class="age-gate-rule" aria-hidden="true"></span>
 
     <div data-gate-ask>
-      <h1 class="age-gate-title" id="age-gate-title">
+      {/*
+        A <p>, not a heading: this element comes before the page's own <h1> in
+        the source, so as a heading it would present the age warning as what
+        every page is about. `aria-labelledby` names the dialog either way.
+      */}
+      <p class="age-gate-title" id="age-gate-title">
         <span lang="sl">Za vstop morate biti stari 18 let ali več.</span>
         <span lang="en">You must be 18 or over to enter.</span>
-      </h1>
+      </p>
 
       <div class="age-gate-actions">
         <a class="age-gate-button" href={slHref} data-gate-enter lang="sl">

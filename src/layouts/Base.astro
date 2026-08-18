@@ -2,7 +2,7 @@
 import '../styles/fonts.css';
 import '../styles/site.css';
 import AgeGate from '../components/AgeGate.astro';
-import { getContent, alternates, routes, type Lang, type RouteKey } from '../i18n';
+import { getContent, alternates, otherLang, routes, type Lang, type RouteKey } from '../i18n';
 
 interface Props {
   lang: Lang;
@@ -94,6 +94,7 @@ const winery = {
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={t.ogLocale} />
+    <meta property="og:locale:alternate" content={getContent(otherLang(lang)).ogLocale} />
     <meta property="og:site_name" content={t.siteName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
