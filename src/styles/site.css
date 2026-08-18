@@ -2421,20 +2421,6 @@ a.meta-value {
   max-width: 560px;
 }
 
-/* The mark leads, the wordmark answers it — so the mark stays the smaller of the two. */
-.age-gate-logo {
-  display: block;
-  margin-bottom: 26px;
-  color: var(--color-neutral-100);
-}
-
-.age-gate-logo svg {
-  display: block;
-  height: clamp(30px, 5vw, 42px);
-  width: auto;
-  margin: 0 auto;
-}
-
 .age-gate-mark {
   font-family: var(--font-heading);
   font-weight: 300;
@@ -2552,10 +2538,6 @@ a.meta-value {
 }
 
 @media (max-width: 759.98px) {
-  .age-gate-logo {
-    margin-bottom: 20px;
-  }
-
   .age-gate-rule {
     margin: 26px auto;
   }
