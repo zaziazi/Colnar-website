@@ -1756,6 +1756,15 @@ a.meta-value {
   line-height: 1.2;
 }
 
+/* The name is the way into the wine's own page. */
+.wine-name a {
+  transition: color 0.3s ease;
+}
+
+.wine-name a:hover {
+  color: var(--color-accent-700);
+}
+
 .wine-kind {
   font-family: var(--font-heading);
   font-size: 12px;
@@ -1775,6 +1784,121 @@ a.meta-value {
 
 .wine-copy p + p {
   margin-top: 12px;
+}
+
+/* ------------------------------------------------------- a single wine --
+ *
+ * The bottle beside its own words, then where to find it, then its
+ * neighbours. Same measure and rhythm as the list it came from.
+ */
+.wine-back {
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.wine-back a {
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 3px;
+}
+
+.wine-detail {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+  margin-top: 34px;
+}
+
+/* No bottle yet — the words take the width rather than sit beside a gap. */
+.wine-detail:not(:has(.wine-detail-figure)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.wine-detail-figure {
+  display: flex;
+  justify-content: center;
+}
+
+.wine-detail-photo {
+  height: 360px;
+  width: auto;
+  object-fit: contain;
+}
+
+.wine-copy--detail {
+  max-width: 62ch;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.wine-copy--detail p + p {
+  margin-top: 16px;
+}
+
+/* Prev and next, one at each end. */
+.wine-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 72px;
+  padding-top: 26px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.wine-nav-link--next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.wine-nav-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.wine-nav-name {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.wine-nav-link:hover .wine-nav-name {
+  color: var(--color-accent-700);
+}
+
+@media (max-width: 759.98px) {
+  .wine-detail {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    margin-top: 26px;
+  }
+
+  .wine-detail-photo {
+    height: 260px;
+  }
+
+  .wine-copy--detail {
+    font-size: 15px;
+  }
+
+  .wine-nav {
+    margin-top: 52px;
+  }
+
+  .wine-nav-name {
+    font-size: 20px;
+  }
 }
 
 .cta-band {

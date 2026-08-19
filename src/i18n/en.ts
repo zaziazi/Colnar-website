@@ -183,6 +183,16 @@ export const en: Content = {
       penina: 'sparkling',
       'penina rosé': 'sparkling rosé',
     },
+    detail: {
+      back: 'All wines',
+      prev: 'Previous',
+      next: 'Next',
+      whereHead: 'Where to find it',
+      whereCellar: 'At a tasting in the cellar at Lešnica',
+      whereVinoteka: 'At the Colnar wine bar in Novo mesto',
+      fallbackDescription: (name, kind) =>
+        `${name}${kind ? `, a ${kind} wine` : ''} from Vinska klet Colnar at Lešnica near Otočec. Taste it at the cellar or at the Colnar wine bar in Novo mesto.`,
+    },
     cta: {
       heading: 'Meet them at the cellar.',
       secondary: { label: 'See the vineyards', to: 'vineyards' },

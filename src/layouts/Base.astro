@@ -22,13 +22,19 @@ interface Props {
   ogImage?: ImageMetadata;
   /** What that photograph shows, for anyone who cannot see it. */
   ogImageAlt?: string;
+  /**
+   * For a page that sits *under* a route rather than at it — a single wine.
+   * `page` stays the parent, which is what the nav and the breadcrumb want;
+   * these carry the page's own address and words.
+   */
+  detail?: { path: string; other: string; title: string; description: string; name: string };
 }
 
-const { lang, page, schema = [], ogImage: ogSource, ogImageAlt } = Astro.props;
+const { lang, page, schema = [], ogImage: ogSource, ogImageAlt, detail } = Astro.props;
 const t = getContent(lang);
-const { title, description } = t.meta[page];
+const { title, description } = detail ?? t.meta[page];
 
-const canonical = new URL(routes[lang][page], Astro.site);
+const canonical = new URL(detail?.path ?? routes[lang][page], Astro.site);
 
 /*
  * Sharing card: the page's own photograph, cut to the 1.91:1 every platform
@@ -52,7 +58,19 @@ const graph: Node[] = [
   webPage(Astro.site!, t, canonical.href, title, description, ogImage.href),
   ...(page === 'home'
     ? [website(Astro.site!, t, home)]
-    : [breadcrumb(home, t.siteName, canonical.href, t.meta[page].title.split(' — ')[0])]),
+    : [
+        breadcrumb(
+          home,
+          t.siteName,
+          [
+            {
+              url: new URL(routes[lang][page], Astro.site).href,
+              name: t.meta[page].title.split(' — ')[0],
+            },
+            ...(detail ? [{ url: canonical.href, name: detail.name }] : []),
+          ],
+        ),
+      ]),
   ...schema,
 ];
 
@@ -73,11 +91,21 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 
     {/* Each page declares both languages, and a default for everyone else. */}
     {
-      alternates(page).map((alt) => (
+      (detail
+        ? [
+            { lang: lang, href: detail.path },
+            { lang: otherLang(lang), href: detail.other },
+          ]
+        : alternates(page)
+      ).map((alt) => (
         <link rel="alternate" hreflang={alt.lang} href={new URL(alt.href, Astro.site).href} />
       ))
     }
-    <link rel="alternate" hreflang="x-default" href={new URL(routes.sl[page], Astro.site).href} />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(detail ? (lang === 'sl' ? detail.path : detail.other) : routes.sl[page], Astro.site).href}
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={t.ogLocale} />

@@ -104,7 +104,9 @@ const schema = [
                 )}
               </div>
               <div class="wine-heading">
-                <h3 class="wine-name">{wine.data.ime}</h3>
+                <h3 class="wine-name">
+                  <a href={`${routes[lang].wines}${wine.id.split('/').pop()}/`}>{wine.data.ime}</a>
+                </h3>
                 {wine.data.zvrst && <p class="wine-kind">{t.wines.kinds[wine.data.zvrst]}</p>}
               </div>
               <div class="wine-body">

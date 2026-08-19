@@ -24,6 +24,7 @@ The site is **bilingual**: Slovenian at the root, English under `/en/`.
 | --- | --- | --- |
 | `/` | `/en/` | The homepage from the handoff, in full — hero, story, timeline, statistics, three cards, quote, locations, Vinoteka, footer. |
 | `/vina` | `/en/wines` | The wines, from the content collection. See [Wines](#wines). |
+| `/vina/<slug>` | `/en/wines/<slug>` | One wine each — twelve in each language, same slug on both sides. |
 | `/klet` | `/en/cellar` | The cellar at Lešnica. |
 | `/vinogradi` | `/en/vineyards` | The vineyards. |
 | `/vinoteka` | `/en/wine-bar` | The wine bar in Novo mesto: the full cenik, by category. See [The vinoteka cenik](#the-vinoteka-cenik). |
@@ -280,6 +281,27 @@ and the cellar sells at €7,90 is still the 2024.
 the POS export at €19,90 and €35,00 — but neither appears on colnar.si or on
 evino.si, so there is no copy to quote and no photograph to use. They are listed
 by name and kind until the estate supplies both.
+
+### A page each
+
+`src/pages/vina/[slug].astro` and `src/pages/en/wines/[slug].astro` build one
+page per wine from the same collection, both languages sharing the slug, so
+`/vina/cvicek` and `/en/wines/cvicek` are a pair the way the section pages are.
+`src/views/WineView.astro` is the template: the wines hero with the wine's name
+on it, the bottle beside its own words, where to find it — links into the
+tasting and the vinoteka — and its two neighbours in the estate's order.
+
+The layout takes a `detail` prop for this. `Base` otherwise derives everything
+from `page`, a key in the route map, and a single wine is not one: `detail`
+carries the page's own path, its counterpart, its title and its description, and
+`page` stays `wines` so the nav and the breadcrumb's middle step still point at
+the list.
+
+Each page carries a `Product` and a three-level `BreadcrumbList`; the sitemap
+pairs the slugs; `llms.txt` lists all twelve URLs. Wines without copy —
+Chardonnay and Modri pinot — collapse to a single column and take a made
+description from `wines.detail.fallbackDescription`, which names the wine, its
+kind and where to drink it, and claims nothing else.
 
 ### The logo
 

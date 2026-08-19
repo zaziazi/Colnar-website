@@ -41,6 +41,21 @@ export default defineConfig({
             { lang: 'sl', url: origin + routes.sl[pair] },
             { lang: 'en', url: origin + routes.en[pair] },
           ];
+          return item;
+        }
+
+        // A single wine: /vina/cvicek/ and /en/wines/cvicek/ share the slug.
+        const { sl, en } = { sl: routes.sl.wines, en: routes.en.wines };
+        const slug = pathname.startsWith(sl)
+          ? pathname.slice(sl.length)
+          : pathname.startsWith(en)
+            ? pathname.slice(en.length)
+            : null;
+        if (slug) {
+          item.links = [
+            { lang: 'sl', url: origin + sl + slug },
+            { lang: 'en', url: origin + en + slug },
+          ];
         }
         return item;
       },

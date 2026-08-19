@@ -176,6 +176,16 @@ export const sl: Content = {
       penina: 'penina',
       'penina rosé': 'penina rosé',
     },
+    detail: {
+      back: 'Vsa vina',
+      prev: 'Prejšnje',
+      next: 'Naslednje',
+      whereHead: 'Kje ga dobite',
+      whereCellar: 'Na degustaciji v kleti na Lešnici',
+      whereVinoteka: 'V Vinoteki Colnar v Novem mestu',
+      fallbackDescription: (name, kind) =>
+        `${name}${kind ? `, ${kind} vino` : ''} Vinske kleti Colnar iz Lešnice pri Otočcu. Pokusite ga na degustaciji v kleti ali v Vinoteki Colnar v Novem mestu.`,
+    },
     cta: { heading: 'Spoznajte jih v kleti.', secondary: { label: 'Poglejte vinograde', to: 'vineyards' } },
   },
 

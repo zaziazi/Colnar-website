@@ -85,10 +85,17 @@ Sold online through the distributor Evino: https://www.evino.si/znamke/colnar/
 
 ## The wines
 
-${wines.map((w) => `- ${w.data.ime}${w.data.zvrst ? ` (${en.wines.kinds[w.data.zvrst] ?? w.data.zvrst})` : ''}`).join('\n')}
+${wines
+  .map(
+    (w) =>
+      `- ${w.data.ime}${w.data.zvrst ? ` (${en.wines.kinds[w.data.zvrst] ?? w.data.zvrst})` : ''} — ${url(
+        `${routes.en.wines}${w.id.split('/').pop()}/`,
+      )}`,
+  )
+  .join('\n')}
 
 Cviček, the speciality of the Dolenjska region, is 60% of what the estate makes.
-Full descriptions: ${url(routes.en.wines)}
+Each wine has its own page; the list is at ${url(routes.en.wines)}
 
 ## Tastings
 

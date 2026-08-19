@@ -1,0 +1,172 @@
+---
+import { getCollection, render } from 'astro:content';
+import { getImage } from 'astro:assets';
+import { Picture } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import heroPhoto from '../assets/photos/vina-hero.jpg';
+import { wineProduct } from '../data/schema';
+import { getContent, route, routes, otherLang, winesFor, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  wine: CollectionEntry<'wines'>;
+}
+
+const { lang, wine } = Astro.props;
+const t = getContent(lang);
+const d = t.wines.detail;
+
+const slug = wine.id.split('/').pop()!;
+const path = `${routes[lang].wines}${slug}/`;
+const other = `${routes[otherLang(lang)].wines}${slug}/`;
+
+const { Content } = await render(wine);
+const body = (wine.body ?? '').replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim();
+const kind = wine.data.zvrst ? (t.wines.kinds[wine.data.zvrst] ?? wine.data.zvrst) : undefined;
+
+/* Its neighbours in the estate's own order, so every wine is two clicks apart. */
+const all = (await getCollection('wines', winesFor(lang))).sort(
+  (a, b) => a.data.vrstniRed - b.data.vrstniRed,
+);
+const at = all.findIndex((entry) => entry.id === wine.id);
+const prev = all[at - 1];
+const next = all[at + 1];
+const slugOf = (entry: CollectionEntry<'wines'>) => entry.id.split('/').pop()!;
+
+const description = body
+  ? body.length > 158
+    ? `${body.slice(0, 155).trimEnd()}…`
+    : body
+  : d.fallbackDescription(wine.data.ime, kind);
+
+const bottle = wine.data.slika
+  ? await getImage({ src: wine.data.slika, format: 'png', width: 800 })
+  : null;
+
+const canonical = new URL(path, Astro.site).href;
+const schema = [
+  wineProduct(Astro.site!, canonical, {
+    name: wine.data.ime,
+    kind,
+    description: body || undefined,
+    image: bottle ? new URL(bottle.src, Astro.site).href : undefined,
+    buy: wine.data.evino,
+  }),
+];
+---
+
+<Base
+  lang={lang}
+  page="wines"
+  schema={schema}
+  ogImage={heroPhoto}
+  ogImageAlt={t.wines.heroAlt}
+  detail={{
+    path,
+    other,
+    name: wine.data.ime,
+    title: `${wine.data.ime} — ${t.siteName}`,
+    description,
+  }}
+>
+  <Nav lang={lang} toggleHref={other} />
+
+  <PageHero
+    photo={heroPhoto}
+    alt={t.wines.heroAlt}
+    title={wine.data.ime}
+    standfirst={kind}
+    position="50% 50%"
+  />
+
+  <main class="wrap">
+    <p class="wine-back" data-reveal>
+      <a href={route(lang, 'wines')}>{d.back}</a>
+    </p>
+
+    {/*
+      The bottle beside its own words. Wines without either — the two the
+      estate has not written up — keep the frame and say so by its absence
+      rather than by an apology.
+    */}
+    <div class="wine-detail" data-reveal>
+      {
+        wine.data.slika && (
+          <div class="wine-detail-figure">
+            <Picture
+              class="wine-detail-photo"
+              pictureAttributes={{ class: 'pic' }}
+              src={wine.data.slika}
+              formats={['avif', 'webp']}
+              fallbackFormat="png"
+              widths={[320, 640]}
+              sizes="(max-width: 759.98px) 60vw, 280px"
+              loading="eager"
+              alt={t.wines.bottleAlt(wine.data.ime)}
+            />
+          </div>
+        )
+      }
+
+      <div class="wine-detail-body">
+        {body && (
+          <div class="wine-copy wine-copy--detail">
+            <Content />
+          </div>
+        )}
+
+        {
+          wine.data.evino && (
+            <a class="wine-link" href={wine.data.evino} target="_blank" rel="noopener">
+              {t.wines.buy}
+            </a>
+          )
+        }
+      </div>
+    </div>
+
+    <section aria-labelledby="kje-ga-dobite">
+      <div class="section-gap section-gap--tight" data-reveal>
+        <h2 class="section-head" id="kje-ga-dobite">{d.whereHead}</h2>
+      </div>
+      <ul class="detail-list" data-reveal>
+        <li>
+          <a href={route(lang, 'tasting')}>{d.whereCellar}</a>
+        </li>
+        <li>
+          <a href={route(lang, 'vinoteka')}>{d.whereVinoteka}</a>
+        </li>
+      </ul>
+    </section>
+
+    <nav class="wine-nav" aria-label={t.wines.listHead} data-reveal>
+      {
+        prev ? (
+          <a class="wine-nav-link" href={`${routes[lang].wines}${slugOf(prev)}/`}>
+            <span class="wine-nav-label">{d.prev}</span>
+            <span class="wine-nav-name">{prev.data.ime}</span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next && (
+          <a class="wine-nav-link wine-nav-link--next" href={`${routes[lang].wines}${slugOf(next)}/`}>
+            <span class="wine-nav-label">{d.next}</span>
+            <span class="wine-nav-name">{next.data.ime}</span>
+          </a>
+        )
+      }
+    </nav>
+
+    <CtaBand lang={lang} heading={t.wines.cta.heading} secondary={t.wines.cta.secondary} />
+  </main>
+
+  <Footer lang={lang} />
+</Base>

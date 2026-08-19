@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import WineView from '../../views/WineView.astro';
+import { winesFor } from '../../i18n';
+
+export async function getStaticPaths() {
+  const wines = await getCollection('wines', winesFor('sl'));
+  return wines.map((wine) => ({ params: { slug: wine.id.split('/').pop()! }, props: { wine } }));
+}
+
+const { wine } = Astro.props;
+---
+
+<WineView lang="sl" wine={wine} />

@@ -120,13 +120,40 @@ export const webPage = (
   primaryImageOfPage: image,
 });
 
-/** Home → this page. Two levels is the whole site. */
-export const breadcrumb = (home: string, homeName: string, url: string, name: string): Node => ({
+/** Home, then whatever the trail is — two levels for a page, three for a wine. */
+export const breadcrumb = (
+  home: string,
+  homeName: string,
+  trail: { url: string; name: string }[],
+): Node => ({
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: homeName, item: home },
-    { '@type': 'ListItem', position: 2, name, item: url },
+    ...trail.map((step, i) => ({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: step.name,
+      item: step.url,
+    })),
   ],
+});
+
+/** One wine, on its own page. No price: the page does not print one. */
+export const wineProduct = (
+  site: URL,
+  canonical: string,
+  wine: { name: string; kind?: string; description?: string; image?: string; buy?: string },
+): Node => ({
+  '@type': 'Product',
+  '@id': `${canonical}#product`,
+  name: wine.name,
+  url: canonical,
+  ...(wine.kind ? { category: wine.kind } : {}),
+  ...(wine.description ? { description: wine.description } : {}),
+  ...(wine.image ? { image: wine.image } : {}),
+  ...(wine.buy ? { sameAs: wine.buy } : {}),
+  brand: { '@id': ids.winery(site) },
+  manufacturer: { '@id': ids.winery(site) },
 });
 
 /* --------------------------------------------------------------- the cenik --

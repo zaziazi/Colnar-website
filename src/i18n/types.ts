@@ -93,6 +93,17 @@ export type Content = {
     bottleAlt: (name: string) => string;
     kinds: Record<string, string>;
     cta: { heading: string; secondary: Link };
+    /** A single wine's own page. */
+    detail: {
+      back: string;
+      prev: string;
+      next: string;
+      whereHead: string;
+      whereCellar: string;
+      whereVinoteka: string;
+      /** Meta description for a wine that has no copy of its own yet. */
+      fallbackDescription: (name: string, kind?: string) => string;
+    };
   };
 
   cellar: {
