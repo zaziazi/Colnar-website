@@ -142,7 +142,15 @@ export const breadcrumb = (
 export const wineProduct = (
   site: URL,
   canonical: string,
-  wine: { name: string; kind?: string; description?: string; image?: string; buy?: string },
+  wine: {
+    name: string;
+    kind?: string;
+    description?: string;
+    image?: string;
+    buy?: string;
+    /** The same rows the page prints, as `PropertyValue`s. */
+    specs?: { label: string; value: string }[];
+  },
 ): Node => ({
   '@type': 'Product',
   '@id': `${canonical}#product`,
@@ -154,6 +162,15 @@ export const wineProduct = (
   ...(wine.buy ? { sameAs: wine.buy } : {}),
   brand: { '@id': ids.winery(site) },
   manufacturer: { '@id': ids.winery(site) },
+  ...(wine.specs?.length
+    ? {
+        additionalProperty: wine.specs.map((spec) => ({
+          '@type': 'PropertyValue',
+          name: spec.label,
+          value: spec.value,
+        })),
+      }
+    : {}),
 });
 
 /* --------------------------------------------------------------- the cenik --

@@ -2,6 +2,10 @@
 ime: Rosé
 zvrst: rosé
 vrstniRed: 8
+stil: rose
+letnik: 2025
+volumen: 0.75
+alkohol: 13
 slika: ../../../assets/photos/wines/rose.png
 evino: https://www.evino.si/izdelek/rose-2025-colnar/
 ---

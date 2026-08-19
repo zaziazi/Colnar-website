@@ -297,8 +297,22 @@ carries the page's own path, its counterpart, its title and its description, and
 `page` stays `wines` so the nav and the breadcrumb's middle step still point at
 the list.
 
-Each page carries a `Product` and a three-level `BreadcrumbList`; the sitemap
-pairs the slugs; `llms.txt` lists all twelve URLs. Wines without copy —
+Under the copy sits **Značilnosti** — style, vintage, volume, alcohol, region,
+country — the set evino.si prints, and the figures are theirs: scraped from the
+nine Colnar listings there on 19 August 2026 and written into each wine's
+frontmatter as plain numbers (`stil`, `letnik`, `volumen`, `alkohol`), so the
+page can print `0,75 l` and `13,50 %` in Slovenian and `0.75 l` and `13.50 %` in
+English from the same data. A row with nothing behind it is dropped rather than
+printed empty.
+
+Three wines are not on Evino. Dolenjsko belo takes its 11 % and its litre from
+colnar.si; **its vintage is left off, because that page says 2024 in the header
+and 2023 in the specification**. Chardonnay and Modri pinot show only what the
+POS export proves — 0,75 l — plus the region and country.
+
+Each page carries a `Product` — its characteristics repeated as
+`additionalProperty` — and a three-level `BreadcrumbList`; the sitemap pairs the
+slugs; `llms.txt` lists all twelve URLs. Wines without copy —
 Chardonnay and Modri pinot — collapse to a single column and take a made
 description from `wines.detail.fallbackDescription`, which names the wine, its
 kind and where to drink it, and claims nothing else.

@@ -98,9 +98,20 @@ export type Content = {
       back: string;
       prev: string;
       next: string;
-      whereHead: string;
-      whereCellar: string;
-      whereVinoteka: string;
+      /** The characteristics table, as the distributor states them. */
+      specHead: string;
+      spec: {
+        style: string;
+        vintage: string;
+        volume: string;
+        alcohol: string;
+        region: string;
+        country: string;
+      };
+      /** Keyed by the `stil` in a wine's frontmatter. */
+      styles: Record<string, string>;
+      regionName: string;
+      countryName: string;
       /** Meta description for a wine that has no copy of its own yet. */
       fallbackDescription: (name: string, kind?: string) => string;
     };

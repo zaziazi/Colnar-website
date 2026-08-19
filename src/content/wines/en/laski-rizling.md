@@ -2,6 +2,10 @@
 ime: Laški rizling
 zvrst: belo
 vrstniRed: 4
+stil: sveze-belo
+letnik: 2021
+volumen: 0.75
+alkohol: 13.5
 slika: ../../../assets/photos/wines/laski-rizling.png
 evino: https://www.evino.si/izdelek/laski-rizling-2021-colnar/
 ---

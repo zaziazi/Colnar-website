@@ -2,6 +2,9 @@
 ime: Penina
 zvrst: penina
 vrstniRed: 9
+stil: penece
+volumen: 0.75
+alkohol: 11.5
 slika: ../../../assets/photos/wines/penina.png
 evino: https://www.evino.si/izdelek/penina-brut-nature-colnar/
 ---

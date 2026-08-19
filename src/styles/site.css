@@ -1839,6 +1839,53 @@ a.meta-value {
   margin-top: 16px;
 }
 
+/*
+ * The characteristics: label left, figure right, a hairline between — the same
+ * construction as the cenik, which is the other table on the site.
+ */
+.wine-spec {
+  margin: 14px 0 0;
+  border-bottom: 1px solid var(--color-divider);
+  max-width: 620px;
+}
+
+.wine-spec-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 14px 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.wine-spec-label {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.wine-spec-value {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 1.2;
+  text-align: right;
+}
+
+@media (max-width: 759.98px) {
+  .wine-spec-row {
+    padding: 12px 0;
+    gap: 20px;
+  }
+
+  .wine-spec-value {
+    font-size: 19px;
+  }
+}
+
 /* Prev and next, one at each end. */
 .wine-nav {
   display: flex;

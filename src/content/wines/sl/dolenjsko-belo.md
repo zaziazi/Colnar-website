@@ -2,6 +2,9 @@
 ime: Dolenjsko belo
 zvrst: belo
 vrstniRed: 2
+stil: sveze-belo
+volumen: 1
+alkohol: 11
 # Ni na evino.si — brez slike in povezave, dokler ne bo listan.
 ---
 

@@ -2,6 +2,10 @@
 ime: Collis
 zvrst: belo
 vrstniRed: 12
+stil: bogato-belo
+letnik: 2019
+volumen: 0.75
+alkohol: 13.5
 slika: ../../../assets/photos/wines/collis.png
 evino: https://www.evino.si/izdelek/collis-2019-colnar/
 ---

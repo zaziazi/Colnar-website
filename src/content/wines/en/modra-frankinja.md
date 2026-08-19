@@ -2,6 +2,10 @@
 ime: Modra frankinja
 zvrst: rdeče
 vrstniRed: 6
+stil: bogato-rdece
+letnik: 2023
+volumen: 0.75
+alkohol: 13
 slika: ../../../assets/photos/wines/modra-frankinja.png
 evino: https://www.evino.si/izdelek/modra-frankinja-2023-colnar/
 ---

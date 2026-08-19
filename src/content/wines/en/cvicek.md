@@ -2,6 +2,10 @@
 ime: Cviček
 zvrst: rdeče
 vrstniRed: 1
+stil: sveze-rdece
+letnik: 2025
+volumen: 0.75
+alkohol: 10
 slika: ../../../assets/photos/wines/cvicek.png
 evino: https://www.evino.si/izdelek/cvicek-2025-colnar/
 ---

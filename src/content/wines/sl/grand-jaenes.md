@@ -2,6 +2,9 @@
 ime: Grand Jaenes
 zvrst: penina
 vrstniRed: 10
+stil: penece
+volumen: 0.75
+alkohol: 12
 slika: ../../../assets/photos/wines/grand-jaenes.png
 evino: https://www.evino.si/izdelek/grand-jaenes-colnar/
 ---

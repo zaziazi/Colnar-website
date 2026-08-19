@@ -2,6 +2,10 @@
 ime: Hišno belo
 zvrst: belo
 vrstniRed: 3
+stil: sveze-belo
+letnik: 2024
+volumen: 0.75
+alkohol: 12
 slika: ../../../assets/photos/wines/hisno-belo.png
 evino: https://www.evino.si/izdelek/hisno-belo-2024/
 ---

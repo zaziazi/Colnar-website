@@ -2,6 +2,9 @@
 ime: Grand Jaenes Rosé
 zvrst: penina rosé
 vrstniRed: 11
+stil: penece
+volumen: 0.75
+alkohol: 12
 slika: ../../../assets/photos/wines/grand-jaenes-rose.png
 evino: https://www.evino.si/izdelek/grand-jaenes-rose-colnar/
 ---

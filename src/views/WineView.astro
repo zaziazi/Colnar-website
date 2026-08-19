@@ -44,6 +44,35 @@ const description = body
     : body
   : d.fallbackDescription(wine.data.ime, kind);
 
+/*
+ * The characteristics, in the distributor's own set: style, vintage, volume,
+ * alcohol, region, country. Rows with nothing behind them are dropped rather
+ * than printed empty, so a wine we have not been given figures for shows the
+ * two or three we do have and no blanks.
+ */
+const number = new Intl.NumberFormat(t.numberLocale, { maximumFractionDigits: 2 });
+const percent = new Intl.NumberFormat(t.numberLocale, {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+const specs = [
+  wine.data.stil && { label: d.spec.style, value: d.styles[wine.data.stil] },
+  wine.data.letnik && { label: d.spec.vintage, value: String(wine.data.letnik), tnum: true },
+  wine.data.volumen && {
+    label: d.spec.volume,
+    value: `${number.format(wine.data.volumen)} l`,
+    tnum: true,
+  },
+  wine.data.alkohol && {
+    label: d.spec.alcohol,
+    value: `${percent.format(wine.data.alkohol)} %`,
+    tnum: true,
+  },
+  { label: d.spec.region, value: d.regionName },
+  { label: d.spec.country, value: d.countryName },
+].filter(Boolean) as { label: string; value: string; tnum?: boolean }[];
+
 const bottle = wine.data.slika
   ? await getImage({ src: wine.data.slika, format: 'png', width: 800 })
   : null;
@@ -56,6 +85,7 @@ const schema = [
     description: body || undefined,
     image: bottle ? new URL(bottle.src, Astro.site).href : undefined,
     buy: wine.data.evino,
+    specs,
   }),
 ];
 ---
@@ -130,18 +160,21 @@ const schema = [
       </div>
     </div>
 
-    <section aria-labelledby="kje-ga-dobite">
+    <section aria-labelledby="znacilnosti">
       <div class="section-gap section-gap--tight" data-reveal>
-        <h2 class="section-head" id="kje-ga-dobite">{d.whereHead}</h2>
+        <h2 class="section-head" id="znacilnosti">{d.specHead}</h2>
       </div>
-      <ul class="detail-list" data-reveal>
-        <li>
-          <a href={route(lang, 'tasting')}>{d.whereCellar}</a>
-        </li>
-        <li>
-          <a href={route(lang, 'vinoteka')}>{d.whereVinoteka}</a>
-        </li>
-      </ul>
+
+      <dl class="wine-spec" data-reveal>
+        {
+          specs.map((spec) => (
+            <div class="wine-spec-row">
+              <dt class="wine-spec-label">{spec.label}</dt>
+              <dd class:list={['wine-spec-value', { tnum: spec.tnum }]}>{spec.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
     </section>
 
     <nav class="wine-nav" aria-label={t.wines.listHead} data-reveal>

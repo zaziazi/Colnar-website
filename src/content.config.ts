@@ -24,6 +24,22 @@ const wines = defineCollection({
       slika: image().optional(),
       /** Stran pri distributerju (evino.si). Brez nje ni povezave. */
       evino: z.url().optional(),
+
+      /*
+       * Značilnosti, kot jih navaja distributer. Vsaka je neobvezna: vrstica se
+       * izpiše samo, če podatek imamo, tako da vino brez podatkov nima prazne
+       * tabele. Vrednosti so brez enot — te doda stran v svojem jeziku.
+       */
+      /** Slog vina; ključ v `wines.detail.styles`. */
+      stil: z
+        .enum(['sveze-belo', 'bogato-belo', 'sveze-rdece', 'bogato-rdece', 'rose', 'penece'])
+        .optional(),
+      /** Letnik. Penine so brez njega. */
+      letnik: z.number().int().optional(),
+      /** Prostornina steklenice v litrih. */
+      volumen: z.number().optional(),
+      /** Delež alkohola v odstotkih. */
+      alkohol: z.number().optional(),
     }),
 });
 

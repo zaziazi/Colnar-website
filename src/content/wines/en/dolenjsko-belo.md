@@ -2,6 +2,9 @@
 ime: Dolenjsko belo
 zvrst: belo
 vrstniRed: 2
+stil: sveze-belo
+volumen: 1
+alkohol: 11
 # Not listed on evino.si — no bottle shot and no buy link until it is.
 ---
 
