@@ -227,8 +227,8 @@ export const sl: Content = {
   },
 
   vinoteka: {
-    title: 'Vinoteka Colnar',
-    heroAlt: 'Kozarci na pultu vinoteke',
+    title: 'Vinoteka',
+    heroAlt: 'Steklenica Colnar Chardonnay na mizi med zelenjem',
     whereHead: 'Kako do nas',
     addressLabel: 'Naslov',
     addressName: 'Otoška cesta 5',

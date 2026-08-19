@@ -237,8 +237,8 @@ export const en: Content = {
   },
 
   vinoteka: {
-    title: 'Colnar Wine Bar',
-    heroAlt: 'Glasses on the wine bar counter',
+    title: 'Wine bar',
+    heroAlt: 'A bottle of Colnar Chardonnay on a table among greenery',
     whereHead: 'How to find us',
     addressLabel: 'Address',
     addressName: 'Otoška cesta 5',
