@@ -235,7 +235,7 @@ export const en: Content = {
   vinoteka: {
     title: 'Colnar Wine Bar',
     heroAlt: 'Glasses on the wine bar counter',
-    whereHead: 'Where and when',
+    whereHead: 'How to find us',
     addressLabel: 'Address',
     addressName: 'Otoška cesta 5',
     addressCopy: 'Supernova Novo mesto, 8000 Novo mesto, Slovenia',
