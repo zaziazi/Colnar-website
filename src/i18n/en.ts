@@ -233,21 +233,15 @@ export const en: Content = {
   },
 
   vinoteka: {
-    title: 'Wine bar',
+    title: 'Colnar Wine Bar',
     standfirst: 'in Novo mesto',
     heroAlt: 'Glasses on the wine bar counter',
-    lede: 'Our wine bar in the Supernova shopping centre in Novo mesto, where you can stop for a coffee or a glass of wine. You can also collect wine to take home.',
-    prose: [
-      'Every one of our wines and sparkling wines is poured at the counter, by the glass or by the bottle, alongside wines from growers we are fond of. Coffee, juice and local delicacies are served all day.',
-      'Whatever you take to, you can take with you: bottles for home, in gift or wooden packaging.',
-    ],
     whereHead: 'Where and when',
     addressLabel: 'Address',
     addressName: 'Otoška cesta 5',
     addressCopy: 'Supernova Novo mesto, 8000 Novo mesto, Slovenia',
     hoursLabel: 'Opening hours',
     hours: 'Mon – Sat · 9.00 – 21.00',
-    menuHead: 'Price list',
     menu: {
       sections: {
         bar: 'At the wine bar',

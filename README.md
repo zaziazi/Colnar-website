@@ -26,7 +26,7 @@ The site is **bilingual**: Slovenian at the root, English under `/en/`.
 | `/vina` | `/en/wines` | The wines, from the content collection. See [Wines](#wines). |
 | `/klet` | `/en/cellar` | The cellar at Lešnica. |
 | `/vinogradi` | `/en/vineyards` | The vineyards. |
-| `/vinoteka` | `/en/wine-bar` | The wine bar in Novo mesto, and the full cenik. See [The vinoteka cenik](#the-vinoteka-cenik). |
+| `/vinoteka` | `/en/wine-bar` | The wine bar in Novo mesto: the full cenik, by category. See [The vinoteka cenik](#the-vinoteka-cenik). |
 | `/degustacija` | `/en/tasting` | What a tasting is, the reservation form, then the prices. See [Reservation form](#reservation-form). |
 
 Only `/` was designed. The other five are built out of the same parts — hairline
@@ -314,6 +314,13 @@ rosé sparkling is not labelled the same as a white one.
 `src/data/vinoteka-menu.ts` — the whole price list, from the estate's own POS
 export (*Prodajni artikli — VINOTEKACOLNAR*, 19 August 2026). Prices are that
 file's **BRUTO CENA**: the shelf price, DDV included.
+
+The page carries no prose at all, at the owner's instruction: the hero opens
+straight onto the cenik. Every category is a `<details>` — shut, the list reads
+as a page of eighteen names on hairlines; the header opens it and shuts it
+again, and the `+` becomes a `—`. No script: `<details>` opens and closes on its
+own, the keyboard and screen readers already know it, and the list works
+without JavaScript. Address and opening hours follow the list, before the CTA.
 
 The rows sit in `src/data/` rather than in `sl.ts` / `en.ts` because a wine's
 name is a wine's name in either language. Only the eighteen group labels and the

@@ -125,16 +125,12 @@ export type Content = {
     title: string;
     standfirst: string;
     heroAlt: string;
-    lede: string;
-    prose: string[];
     whereHead: string;
     addressLabel: string;
     addressName: string;
     addressCopy: string;
     hoursLabel: string;
     hours: string;
-    /** Names the list's contents block for screen readers. */
-    menuHead: string;
     /**
      * Labels for the price list. The rows themselves — names, volumes, prices —
      * are language-neutral and live in `src/data/vinoteka-menu.ts`; only these

@@ -41,14 +41,52 @@ const size = (item: { ml?: number; g?: number }) => {
     position="50% 30%"
   />
 
-  <main class="wrap">
-    <div class="page-intro" data-reveal>
-      <p>{c.lede}</p>
-    </div>
+  {/*
+    The hero opens straight onto the cenik. Every category is shut to begin
+    with, so the whole list reads as a page of names; opening one drops its
+    prices in under it, and the same header shuts it again.
 
-    <div class="page-prose" data-reveal>
-      {c.prose.map((para) => <p>{para}</p>)}
-    </div>
+    <details> rather than scripted panels: it opens and closes on its own, the
+    keyboard and screen readers already know it, and a visitor without
+    JavaScript gets the working list.
+  */}
+  <main class="wrap">
+    {
+      menu.map((section) => (
+        <section aria-labelledby={`menu-${section.id}`}>
+          <div class="section-gap" data-reveal>
+            <h2 class="section-head" id={`menu-${section.id}`}>
+              {c.menu.sections[section.id]}
+            </h2>
+          </div>
+
+          <div class="menu-groups" data-reveal>
+            {section.groups.map((group) => (
+              <details class="menu-group" id={`g-${group.id}`}>
+                <summary class="menu-group-head">
+                  <span class="menu-group-name">{c.menu.groups[group.id]}</span>
+                  <span class="menu-group-mark" aria-hidden="true" />
+                </summary>
+
+                <ul class="price-list">
+                  {group.items.map((item) => (
+                    <li class="price price--menu">
+                      <p class="price-name">
+                        {item.name}
+                        {size(item) && <span class="price-volume tnum">{size(item)}</span>}
+                      </p>
+                      <p class="price-figure tnum">{euro.format(item.price)}&nbsp;€</p>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+
+    <p class="price-notes" data-reveal>{c.menuNote}</p>
 
     <section aria-labelledby="kje-in-kdaj">
       <div class="section-gap" data-reveal>
@@ -69,64 +107,6 @@ const size = (item: { ml?: number; g?: number }) => {
         </div>
       </div>
     </section>
-
-    {/*
-      The cenik itself, in the estate's own two halves: what is poured at the
-      counter, and what leaves with you. Rows carry the pour beside the name and
-      the gross price — DDV in — on the right.
-
-      It is a long list — a hundred and ninety lines — so it opens with its own
-      contents, one line per group, and each group carries the anchor.
-    */}
-    <nav class="menu-index" aria-label={c.menuHead} data-reveal>
-      {
-        menu.map((section) => (
-          <div class="menu-index-part">
-            <p class="menu-index-label">{c.menu.sections[section.id]}</p>
-            <ul class="menu-index-list">
-              {section.groups.map((group) => (
-                <li>
-                  <a href={`#g-${group.id}`}>{c.menu.groups[group.id]}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </nav>
-
-    {
-      menu.map((section) => (
-        <section aria-labelledby={`menu-${section.id}`}>
-          <div class="section-gap" data-reveal>
-            <h2 class="section-head" id={`menu-${section.id}`}>
-              {c.menu.sections[section.id]}
-            </h2>
-          </div>
-
-          <div data-reveal>
-            {section.groups.map((group) => (
-              <div class="price-group" id={`g-${group.id}`}>
-                <p class="price-group-label">{c.menu.groups[group.id]}</p>
-                <ul class="price-list">
-                  {group.items.map((item) => (
-                    <li class="price price--menu">
-                      <p class="price-name">
-                        {item.name}
-                        {size(item) && <span class="price-volume tnum">{size(item)}</span>}
-                      </p>
-                      <p class="price-figure tnum">{euro.format(item.price)}&nbsp;€</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-      ))
-    }
-
-    <p class="price-notes" data-reveal>{c.menuNote}</p>
 
     <CtaBand lang={lang} heading={c.cta.heading} secondary={c.cta.secondary} />
   </main>
