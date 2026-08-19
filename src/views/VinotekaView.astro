@@ -69,7 +69,7 @@ const size = (item: { ml?: number; g?: number }) => {
 
                 {(group.parts ?? [{ id: null, items: group.items ?? [] }]).map((part) => (
                   <div class="menu-part">
-                    {part.id && <p class="price-group-label">{c.menu.groups[part.id]}</p>}
+                    {part.id && <p class="menu-part-label">{c.menu.groups[part.id]}</p>}
                     <ul class="price-list">
                       {part.items.map((item) => (
                         <li class="price price--menu">

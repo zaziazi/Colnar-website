@@ -2348,9 +2348,18 @@ a.meta-value {
   margin-top: 26px;
 }
 
-.menu-part .price-group-label {
-  display: block;
-  margin-bottom: 10px;
+/*
+ * Whose wines these are. Set larger than the wines themselves and in the gold,
+ * so the estate's own list is the one the eye lands on first — the category
+ * above keeps its caps and tracking, which is what marks it as the header.
+ */
+.menu-part-label {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.2;
+  color: var(--color-accent-700);
+  margin-bottom: 8px;
 }
 
 /* The list inside a category: no rule above the first row — the header is it. */
@@ -2420,6 +2429,10 @@ a.meta-value {
   .section-head--menu {
     font-size: 30px;
     margin-bottom: 18px;
+  }
+
+  .menu-part-label {
+    font-size: 22px;
   }
 
   .menu-group-head {
