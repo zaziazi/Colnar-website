@@ -1,4 +1,5 @@
 import type { Content } from './types';
+import { maps } from '../data/maps';
 
 /**
  * Slovenščina — izvirno besedilo.
@@ -135,11 +136,13 @@ export const sl: Content = {
         label: 'Klet',
         name: 'Lešnica 8',
         copy: 'Sodobna vinska klet iz leta 2022. Možen je ogled kleti, degustacija in prevzem vina.',
+        map: maps.cellar,
       },
       {
         label: 'Zidanica Colnar',
         name: 'Črešnjice 124, Otočec',
         copy: 'Stara zidanica med vinogradi, s pogledom na Krko in Gorjance. Prostor za zaključne družbe in praznovanja.',
+        map: maps.zidanica,
       },
     ],
     vinoteka: {
@@ -202,6 +205,7 @@ export const sl: Content = {
     addressLabel: 'Naslov',
     addressName: 'Lešnica 8',
     addressCopy: '8222 Otočec',
+    addressMap: maps.cellar,
     contactLabel: 'Kontakt',
     cta: {
       heading: 'Ogled in degustacijo dogovorimo vnaprej.',
@@ -229,6 +233,7 @@ export const sl: Content = {
     addressLabel: 'Naslov',
     addressName: 'Otoška cesta 5',
     addressCopy: 'Supernova Novo mesto, 8000 Novo mesto',
+    addressMap: maps.vinoteka,
     hoursLabel: 'Delovni čas',
     hours: 'Pon – Sob · 9.00 – 21.00',
     menu: {
@@ -304,6 +309,7 @@ export const sl: Content = {
       whereLabel: 'Kje',
       whereName: 'Vinska klet Colnar',
       whereCopy: 'Lešnica 8, 8222 Otočec',
+      whereMap: maps.cellar,
       phoneLabel: 'Raje po telefonu',
     },
     form: {
@@ -373,21 +379,21 @@ export const sl: Content = {
       {
         label: 'Vinska klet',
         lines: [
-          [{ text: 'Lešnica 8, 8222 Otočec' }],
+          [{ text: 'Lešnica 8, 8222 Otočec', href: maps.cellar, external: true }],
           [{ text: '+386 31 288 724', href: 'tel:+38631288724' }],
         ],
       },
       {
         label: 'Vinoteka',
         lines: [
-          [{ text: 'Otoška cesta 5, 8000 Novo mesto' }],
+          [{ text: 'Otoška cesta 5, 8000 Novo mesto', href: maps.vinoteka, external: true }],
           [{ text: '+386 41 871 425', href: 'tel:+38641871425' }],
         ],
       },
       {
         label: 'Zidanica',
         lines: [
-          [{ text: 'Črešnjice 124, Otočec' }],
+          [{ text: 'Črešnjice 124, Otočec', href: maps.zidanica, external: true }],
           [{ text: '+386 31 725 830', href: 'tel:+38631725830' }],
         ],
       },

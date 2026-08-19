@@ -353,6 +353,16 @@ Gift packaging, the Riedel glasses and the Coravin are their own group at the
 foot of the list. They are articles the vinoteka sells, so they are on it — say
 if a public cenik should stop at the drinks.
 
+## Addresses
+
+`src/data/maps.ts` holds one Google Maps link per address — the cellar at
+Lešnica, the zidanica at Črešnjice, the vinoteka in Novo mesto — and every place
+the address is printed links to it: the two locations on the homepage, the
+cellar page, the *Kje* block on the tasting page, the vinoteka page, and all
+three columns of the footer. They are **search** URLs built from the address
+itself rather than place ids, so a renamed or re-registered listing cannot break
+them. All open in a new tab.
+
 ## Reservation form
 
 `/degustacija` — name, e-mail, phone, preferred date, number of guests, tasting

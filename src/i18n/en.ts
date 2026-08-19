@@ -1,4 +1,5 @@
 import type { Content } from './types';
+import { maps } from '../data/maps';
 
 /**
  * English.
@@ -142,11 +143,13 @@ export const en: Content = {
         label: 'Cellar',
         name: 'Lešnica 8',
         copy: 'A modern cellar built in 2022. Cellar tours, tastings and wine collection.',
+        map: maps.cellar,
       },
       {
         label: 'Vineyard cottage',
         name: 'Črešnjice 124, Otočec',
         copy: 'The old vineyard cottage among the vines, looking out over the Krka and the Gorjanci. A place for parties and celebrations.',
+        map: maps.zidanica,
       },
     ],
     vinoteka: {
@@ -212,6 +215,7 @@ export const en: Content = {
     addressLabel: 'Address',
     addressName: 'Lešnica 8',
     addressCopy: '8222 Otočec, Slovenia',
+    addressMap: maps.cellar,
     contactLabel: 'Contact',
     cta: {
       heading: 'Tours and tastings are arranged in advance.',
@@ -239,6 +243,7 @@ export const en: Content = {
     addressLabel: 'Address',
     addressName: 'Otoška cesta 5',
     addressCopy: 'Supernova Novo mesto, 8000 Novo mesto, Slovenia',
+    addressMap: maps.vinoteka,
     hoursLabel: 'Opening hours',
     hours: 'Mon – Sat · 9.00 – 21.00',
     menu: {
@@ -314,6 +319,7 @@ export const en: Content = {
       whereLabel: 'Where',
       whereName: 'Vinska klet Colnar',
       whereCopy: 'Lešnica 8, 8222 Otočec, Slovenia',
+      whereMap: maps.cellar,
       phoneLabel: 'Rather by phone',
     },
     form: {
@@ -379,21 +385,21 @@ export const en: Content = {
       {
         label: 'Winery',
         lines: [
-          [{ text: 'Lešnica 8, 8222 Otočec' }],
+          [{ text: 'Lešnica 8, 8222 Otočec', href: maps.cellar, external: true }],
           [{ text: '+386 31 288 724', href: 'tel:+38631288724' }],
         ],
       },
       {
         label: 'Wine bar',
         lines: [
-          [{ text: 'Otoška cesta 5, 8000 Novo mesto' }],
+          [{ text: 'Otoška cesta 5, 8000 Novo mesto', href: maps.vinoteka, external: true }],
           [{ text: '+386 41 871 425', href: 'tel:+38641871425' }],
         ],
       },
       {
         label: 'Vineyard cottage',
         lines: [
-          [{ text: 'Črešnjice 124, Otočec' }],
+          [{ text: 'Črešnjice 124, Otočec', href: maps.zidanica, external: true }],
           [{ text: '+386 31 725 830', href: 'tel:+38631725830' }],
         ],
       },

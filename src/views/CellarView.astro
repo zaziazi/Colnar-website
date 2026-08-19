@@ -64,7 +64,9 @@ const c = getContent(lang).cellar;
       <div class="places places--page" data-reveal>
         <div class="place">
           <p class="place-label">{c.addressLabel}</p>
-          <p class="place-name">{c.addressName}</p>
+          <p class="place-name">
+            <a href={c.addressMap} target="_blank" rel="noopener">{c.addressName}</a>
+          </p>
           <p class="place-copy">{c.addressCopy}</p>
         </div>
         <div class="place">

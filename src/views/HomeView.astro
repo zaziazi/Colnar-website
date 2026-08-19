@@ -53,7 +53,15 @@ const t = getContent(lang);
             t.home.places.map((place) => (
               <div class="place">
                 <p class="place-label">{place.label}</p>
-                <p class="place-name">{place.name}</p>
+                <p class="place-name">
+                  {place.map ? (
+                    <a href={place.map} target="_blank" rel="noopener">
+                      {place.name}
+                    </a>
+                  ) : (
+                    place.name
+                  )}
+                </p>
                 <p class="place-copy">{place.copy}</p>
               </div>
             ))

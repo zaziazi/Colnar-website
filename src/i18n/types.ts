@@ -19,7 +19,7 @@ export type Stat = {
   label: string;
 };
 
-export type Place = { label: string; name: string; copy: string };
+export type Place = { label: string; name: string; copy: string; map?: string };
 
 export type Card = {
   id: string;
@@ -29,7 +29,7 @@ export type Card = {
   link: Link;
 };
 
-export type FooterItem = { text: string; href?: string };
+export type FooterItem = { text: string; href?: string; external?: boolean };
 export type FooterColumn = { label: string; lines: FooterItem[][] };
 
 export type PriceRow = { name: string; note?: string; price: number };
@@ -107,6 +107,7 @@ export type Content = {
     addressLabel: string;
     addressName: string;
     addressCopy: string;
+    addressMap: string;
     contactLabel: string;
     cta: { heading: string; secondary: Link };
   };
@@ -128,6 +129,7 @@ export type Content = {
     addressLabel: string;
     addressName: string;
     addressCopy: string;
+    addressMap: string;
     hoursLabel: string;
     hours: string;
     /**
@@ -157,7 +159,13 @@ export type Content = {
     perPersonShort: string;
     vatNote: string;
     paymentNote: string;
-    aside: { whereLabel: string; whereName: string; whereCopy: string; phoneLabel: string };
+    aside: {
+      whereLabel: string;
+      whereName: string;
+      whereCopy: string;
+      whereMap: string;
+      phoneLabel: string;
+    };
     form: {
       name: string;
       email: string;

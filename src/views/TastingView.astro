@@ -200,7 +200,9 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
           <div class="aside-block">
             <h2>{d.aside.whereLabel}</h2>
             <p class="aside-name">{d.aside.whereName}</p>
-            <p class="aside-detail">{d.aside.whereCopy}</p>
+            <p class="aside-detail">
+              <a href={d.aside.whereMap} target="_blank" rel="noopener">{d.aside.whereCopy}</a>
+            </p>
           </div>
 
           <div class="aside-block">
