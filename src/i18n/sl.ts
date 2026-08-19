@@ -237,8 +237,8 @@ export const sl: Content = {
         home: 'Za domov',
       },
       groups: {
-        glass: 'Na kozarec',
-        bottle: 'Na steklenico',
+        glass: 'Vina na kozarec',
+        bottle: 'Vina na steklenico',
         colnar: 'Vina Colnar',
         guest: 'Vina drugih vinarjev',
         predikati: 'Predikatna vina',

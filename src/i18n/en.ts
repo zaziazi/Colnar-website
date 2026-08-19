@@ -247,8 +247,8 @@ export const en: Content = {
         home: 'To take home',
       },
       groups: {
-        glass: 'By the glass',
-        bottle: 'By the bottle',
+        glass: 'Wines by the glass',
+        bottle: 'Wines by the bottle',
         colnar: 'Colnar wines',
         guest: 'Wines from other growers',
         predikati: 'Predicate wines',
