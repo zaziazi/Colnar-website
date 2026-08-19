@@ -1806,9 +1806,12 @@ a.meta-value {
 }
 
 .wine-detail {
+  /* The bottle's column, shared with the table below so the two cannot drift. */
+  --wine-figure: 280px;
+  --wine-gutter: 56px;
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 56px;
+  grid-template-columns: var(--wine-figure) minmax(0, 1fr);
+  gap: var(--wine-gutter);
   align-items: start;
   margin-top: 34px;
 }
@@ -1844,9 +1847,14 @@ a.meta-value {
  * construction as the cenik, which is the other table on the site.
  */
 .wine-spec {
-  margin: 14px 0 0;
+  margin: 58px 0 0;
   border-bottom: 1px solid var(--color-divider);
   max-width: 620px;
+}
+
+/* Set under the copy rather than under the bottle — same offset as the grid. */
+.wine-spec--aligned {
+  margin-left: calc(280px + 56px);
 }
 
 .wine-spec-row {
@@ -1876,6 +1884,15 @@ a.meta-value {
 }
 
 @media (max-width: 759.98px) {
+  /* One column on the phone, so there is nothing to line up with. */
+  .wine-spec {
+    margin-top: 40px;
+  }
+
+  .wine-spec--aligned {
+    margin-left: 0;
+  }
+
   .wine-spec-row {
     padding: 12px 0;
     gap: 20px;

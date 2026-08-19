@@ -297,8 +297,11 @@ carries the page's own path, its counterpart, its title and its description, and
 `page` stays `wines` so the nav and the breadcrumb's middle step still point at
 the list.
 
-Under the copy sits **Značilnosti** — style, vintage, volume, alcohol, region,
-country — the set evino.si prints, and the figures are theirs: scraped from the
+Under the copy — and set to the same left edge, since the table belongs to the
+words rather than to the bottle beside them — sit the characteristics: style,
+vintage, volume, alcohol, region, country, the set evino.si prints, and the figures are theirs. There is no
+heading over it: a label and a figure on a rule say what they are. The section
+keeps the name for anyone listening to the page. The rows are scraped from the
 nine Colnar listings there on 19 August 2026 and written into each wine's
 frontmatter as plain numbers (`stil`, `letnik`, `volumen`, `alkohol`), so the
 page can print `0,75 l` and `13,50 %` in Slovenian and `0.75 l` and `13.50 %` in

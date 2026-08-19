@@ -160,12 +160,13 @@ const schema = [
       </div>
     </div>
 
-    <section aria-labelledby="znacilnosti">
-      <div class="section-gap section-gap--tight" data-reveal>
-        <h2 class="section-head" id="znacilnosti">{d.specHead}</h2>
-      </div>
-
-      <dl class="wine-spec" data-reveal>
+    {/*
+      No heading: label and figure say what they are. The section keeps the
+      name for anyone listening to the page, and the table lines up with the
+      copy above it — under the words, not under the bottle.
+    */}
+    <section aria-label={d.specHead}>
+      <dl class:list={['wine-spec', { 'wine-spec--aligned': wine.data.slika }]} data-reveal>
         {
           specs.map((spec) => (
             <div class="wine-spec-row">
