@@ -2288,12 +2288,19 @@ a.meta-value {
   display: none;
 }
 
+/*
+ * The category name takes the gold and a heavier cut than the wines under it,
+ * so a header never reads as another line of the list. Small caps rather than
+ * the italic-free upright: the tracking is what separates it at a glance.
+ */
 .menu-group-name {
   font-family: var(--font-heading);
-  font-weight: 300;
-  font-size: clamp(22px, 2.2vw, 28px);
-  line-height: 1.15;
-  color: color-mix(in srgb, var(--color-text) 88%, transparent);
+  font-weight: 500;
+  font-size: clamp(19px, 1.7vw, 22px);
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
   transition: color 0.3s ease;
 }
 
