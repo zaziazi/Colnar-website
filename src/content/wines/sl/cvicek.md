@@ -3,7 +3,7 @@ ime: Cviček
 zvrst: rdeče
 vrstniRed: 1
 slika: ../../../assets/photos/wines/cvicek.png
-evino: https://www.evino.si/izdelek/cvicek-2024-colnar/
+evino: https://www.evino.si/izdelek/cvicek-2025-colnar/
 ---
 
 Cviček je posebnost Dolenjske in v naši vinski kleti predstavlja kar 60 % pridelanega vina. Lahko bi

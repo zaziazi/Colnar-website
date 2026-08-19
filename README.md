@@ -269,6 +269,13 @@ product page). Every field is optional and the row adapts: no description and
 the name takes the width; no bottle and the photo column collapses on the phone;
 no `evino` and there is simply no buy link.
 
+The `evino` links point at the vintage Evino currently lists — cviček 2025 as of
+19 August 2026. Two of the estate's wines are listed there in more than one
+form; where that happens the link follows the **format the estate itself sells**,
+not simply the newest listing. Hišno belo is the case in point: the 2025 exists
+on Evino only as a 1 l bottle at €5,90, while the 0,75 l the wines page shows
+and the cellar sells at €7,90 is still the 2024.
+
 **Chardonnay and Modri pinot carry none of them.** Both are sold — they are in
 the POS export at €19,90 and €35,00 — but neither appears on colnar.si or on
 evino.si, so there is no copy to quote and no photograph to use. They are listed
