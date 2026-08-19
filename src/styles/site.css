@@ -2257,6 +2257,10 @@ a.meta-value {
   font-size: clamp(32px, 3.6vw, 46px);
   letter-spacing: 0.01em;
   color: var(--color-accent-700);
+  /* The categories below open with their own rule — one line, not two. */
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 26px;
 }
 
 .menu-groups {
@@ -2408,6 +2412,7 @@ a.meta-value {
 
   .section-head--menu {
     font-size: 30px;
+    margin-bottom: 18px;
   }
 
   .menu-group-head {
