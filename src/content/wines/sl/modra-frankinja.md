@@ -1,7 +1,7 @@
 ---
 ime: Modra frankinja
 zvrst: rdeče
-vrstniRed: 5
+vrstniRed: 6
 slika: ../../../assets/photos/wines/modra-frankinja.png
 evino: https://www.evino.si/izdelek/modra-frankinja-2023-colnar/
 ---

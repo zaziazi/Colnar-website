@@ -1,7 +1,7 @@
 ---
 ime: Rosé
 zvrst: rosé
-vrstniRed: 6
+vrstniRed: 8
 slika: ../../../assets/photos/wines/rose.png
 evino: https://www.evino.si/izdelek/rose-2025-colnar/
 ---

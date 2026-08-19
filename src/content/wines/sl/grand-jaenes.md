@@ -1,7 +1,7 @@
 ---
 ime: Grand Jaenes
 zvrst: penina
-vrstniRed: 8
+vrstniRed: 10
 slika: ../../../assets/photos/wines/grand-jaenes.png
 evino: https://www.evino.si/izdelek/grand-jaenes-colnar/
 ---

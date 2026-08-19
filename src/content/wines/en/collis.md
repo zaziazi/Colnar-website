@@ -1,7 +1,7 @@
 ---
 ime: Collis
 zvrst: belo
-vrstniRed: 10
+vrstniRed: 12
 slika: ../../../assets/photos/wines/collis.png
 evino: https://www.evino.si/izdelek/collis-2019-colnar/
 ---

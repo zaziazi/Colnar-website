@@ -1,7 +1,7 @@
 ---
 ime: Penina
 zvrst: penina
-vrstniRed: 7
+vrstniRed: 9
 slika: ../../../assets/photos/wines/penina.png
 evino: https://www.evino.si/izdelek/penina-brut-nature-colnar/
 ---

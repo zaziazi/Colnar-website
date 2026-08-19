@@ -15,7 +15,7 @@ const { lang } = Astro.props;
 const c = getContent(lang).cellar;
 ---
 
-<Base lang={lang} page="cellar">
+<Base lang={lang} page="cellar" ogImage={heroPhoto}>
   <Nav lang={lang} toggleHref={routes[otherLang(lang)].cellar} />
 
   <PageHero

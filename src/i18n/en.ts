@@ -46,7 +46,7 @@ export const en: Content = {
     wines: {
       title: 'Our wines — Vinska klet Colnar',
       description:
-        'Cviček, penina, Grand Jaenes, Dolenjsko and house white, rosé, modra frankinja, laški rizling and Collis — the wines of the Colnar family from Lešnica near Otočec.',
+        'Twelve wines from the Colnar family at Lešnica near Otočec: cviček, penina, Grand Jaenes, the Dolenjsko and house whites, chardonnay, laški rizling, rosé, modra frankinja, modri pinot and Collis.',
     },
     cellar: {
       title: 'The cellar — Vinska klet Colnar',
@@ -105,7 +105,7 @@ export const en: Content = {
       {
         year: 'Today',
         kicker: 'Quality',
-        copy: 'We make ten kinds of wine, and consistent quality comes before all of it.',
+        copy: 'We make twelve kinds of wine, and consistent quality comes before all of it.',
       },
     ],
     stats: [
@@ -118,7 +118,7 @@ export const en: Content = {
         id: 'vina',
         title: 'Wines',
         alt: 'Bottles of Colnar wine',
-        copy: 'Meet our wines: cviček, our penina, Grand Jaenes and Grand Jaenes rosé, the Dolenjsko and house whites, rosé, modra frankinja, laški rizling and Collis.',
+        copy: 'Meet our wines: cviček, our penina, Grand Jaenes and Grand Jaenes rosé, the Dolenjsko and house whites, chardonnay, laški rizling, rosé, modra frankinja, modri pinot and Collis.',
         link: { label: 'Meet our wines', to: 'wines' },
       },
       {
@@ -320,6 +320,35 @@ export const en: Content = {
     perPersonShort: '/ person',
     vatNote: 'All prices include VAT.',
     paymentNote: 'Payment is taken on site, in cash or by card.',
+    faq: {
+      head: 'Common questions',
+      items: [
+        {
+          q: 'What does a tasting include?',
+          a: 'Three to six wines, an account of how they are made, and a tour of the modern cellar at Lešnica. A board of local charcuterie and cheese can be added.',
+        },
+        {
+          q: 'What does a tasting cost?',
+          a: 'Three wines €16, four €20, five €24, six €28 per person. The board of local delicacies is €10 per person and the cellar tour €10 per person. Prices include VAT.',
+        },
+        {
+          q: 'Do I need to book?',
+          a: 'Yes. Tours and tastings are arranged in advance, through the form on this page or by phone on +386 31 288 724.',
+        },
+        {
+          q: 'Where does the tasting take place?',
+          a: 'At the Colnar cellar, Lešnica 8, 8222 Otočec. Tastings are held at the cellar only; the vineyard cottage at Črešnjice is for private parties.',
+        },
+        {
+          q: 'How long is the cellar tour?',
+          a: 'About 30 minutes.',
+        },
+        {
+          q: 'How can I pay?',
+          a: 'On site, in cash or by card.',
+        },
+      ],
+    },
     aside: {
       whereLabel: 'Where',
       whereName: 'Vinska klet Colnar',

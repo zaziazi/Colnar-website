@@ -259,14 +259,20 @@ vrstniRed: 1
 Dva ali trije stavki o vinu.
 ```
 
-All ten carry a description, the Slovenian taken verbatim from that wine's own
-page on colnar.si (`/product/<slug>`), the English translated from it with only light copy-editing — sentence joins,
-lower-cased grape names, `l` for litres. Nothing about a wine is invented here.
+There are **twelve**. Ten carry a description, the Slovenian taken verbatim from
+that wine's own page on colnar.si (`/product/<slug>`), the English translated
+from it with only light copy-editing — sentence joins, lower-cased grape names,
+`l` for litres. Nothing about a wine is invented here.
 
-Nine of the ten also carry `slika` (a bottle shot) and `evino` (the
-distributor's product page). Every field is optional and the row adapts: no description and the name
-takes the width; no bottle and the photo column collapses on the phone; no
-`evino` and there is simply no buy link.
+Those same ten carry `slika` (a bottle shot) and `evino` (the distributor's
+product page). Every field is optional and the row adapts: no description and
+the name takes the width; no bottle and the photo column collapses on the phone;
+no `evino` and there is simply no buy link.
+
+**Chardonnay and Modri pinot carry none of them.** Both are sold — they are in
+the POS export at €19,90 and €35,00 — but neither appears on colnar.si or on
+evino.si, so there is no copy to quote and no photograph to use. They are listed
+by name and kind until the estate supplies both.
 
 ### The logo
 
@@ -396,8 +402,8 @@ form a machine can lift.
 | Page | Nodes |
 | --- | --- |
 | `/` | `Winery`, `WebSite`, `WebPage` |
-| `/vina` | + `ItemList` of ten `Product`s — description, photograph, distributor link |
-| `/degustacija` | + `Service` with an `Offer` per tasting size and add-on |
+| `/vina` | + `ItemList` of twelve `Product`s — description, photograph, distributor link |
+| `/degustacija` | + `Service` with an `Offer` per tasting size and add-on, and a `FAQPage` |
 | `/vinoteka` | + `BarOrPub`/`LiquorStore` with a `Menu`: 189 `MenuItem`s, each with its price and pour |
 | every sub-page | + `BreadcrumbList` |
 
@@ -417,6 +423,21 @@ wines, the tasting prices, and the whole cenik. Generated in
 `src/pages/llms.txt.ts` from the same content the pages are built from, so it
 cannot drift from them. `robots.txt` points at it.
 
+**Six questions** sit at the foot of `/degustacija`, in the same `<details>` as
+the cenik and marked up as an `FAQPage`. Every answer is already elsewhere on
+that page — what it includes, what it costs, that it must be booked, where it
+is, that the tour runs about 30 minutes, that you can pay by card. Nothing new
+is claimed; only the shape a question comes in, which is the shape an assistant
+quotes.
+
+**Sharing cards** are each page's own photograph, cut to 1200×630 at build time
+so the crop is ours rather than the platform's. The homepage keeps the designed
+card at `public/og-colnar.jpg`.
+
+**A 404 page** (`src/pages/404.astro`) sits outside `Base` — a missing page has
+no canonical and no counterpart in the other language. It is bilingual, carries
+`noindex, follow`, and offers both front doors.
+
 **Titles and descriptions** are 30–60 and 134–165 characters, each naming the
 estate, the place, and what is on offer — a description is an answer, not a
 teaser.
@@ -425,7 +446,7 @@ teaser.
 
 Four things need the owner, not the developer. Every factual question the
 handoff left open is now closed: the figures are 20 ha / 100.000 trt / 5 leg,
-there are ten wines, and the first planting year is 2001.
+there are twelve wines, and the first planting year is 2001.
 
 1. **Instagram and Facebook are plain text**, because the handoff gave no
    profile URLs. Add `href`s to the Kontakt / Contact column in `src/i18n/sl.ts` and `en.ts`.

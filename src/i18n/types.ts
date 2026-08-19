@@ -161,6 +161,8 @@ export type Content = {
     perPersonShort: string;
     vatNote: string;
     paymentNote: string;
+    /** Answers to what people ring up and ask, every one of them from this page. */
+    faq: { head: string; items: { q: string; a: string }[] };
     aside: {
       whereLabel: string;
       whereName: string;

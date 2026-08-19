@@ -43,6 +43,7 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
     addressCountry: 'SI',
   },
   hasMap: maps.cellar,
+  sameAs: ['https://www.evino.si/znamke/colnar/'],
   areaServed: 'SI',
   knowsLanguage: ['sl', 'en'],
   department: [
@@ -250,5 +251,20 @@ export const wineList = (
       brand: { '@id': ids.winery(site) },
       manufacturer: { '@id': ids.winery(site) },
     },
+  })),
+});
+
+/* ------------------------------------------------------------------- FAQ --
+ *
+ * The questions as they are asked and answered on the page — nothing here that
+ * a reader cannot open and read for themselves.
+ */
+export const faq = (canonical: string, items: { q: string; a: string }[]): Node => ({
+  '@type': 'FAQPage',
+  '@id': `${canonical}#faq`,
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
   })),
 });

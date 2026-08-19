@@ -39,7 +39,7 @@ export const sl: Content = {
     wines: {
       title: 'Naša vina — Vinska klet Colnar',
       description:
-        'Cviček, penina, Grand Jaenes, dolenjsko in hišno belo, rosé, modra frankinja, laški rizling in collis — vina družine Colnar iz Lešnice pri Otočcu.',
+        'Dvanajst vin družine Colnar iz Lešnice pri Otočcu: cviček, penina, Grand Jaenes, dolenjsko in hišno belo, chardonnay, laški rizling, rosé, modra frankinja, modri pinot in collis.',
     },
     cellar: {
       title: 'Vinska klet — Vinska klet Colnar',
@@ -98,7 +98,7 @@ export const sl: Content = {
       {
         year: 'Danes',
         kicker: 'Kakovost',
-        copy: 'Pridelujemo deset vrst vina, na prvem mestu pa je konstantno zagotavljanje kakovosti.',
+        copy: 'Pridelujemo dvanajst vrst vina, na prvem mestu pa je konstantno zagotavljanje kakovosti.',
       },
     ],
     stats: [
@@ -111,7 +111,7 @@ export const sl: Content = {
         id: 'vina',
         title: 'Vina',
         alt: 'Steklenice vina Colnar',
-        copy: 'Spoznajte naša vina: cviček, penina, Grand Jaenes in Grand Jaenes rosé, dolenjsko in hišno belo, rosé, modra frankinja, laški rizling in collis.',
+        copy: 'Spoznajte naša vina: cviček, penina, Grand Jaenes in Grand Jaenes rosé, dolenjsko in hišno belo, chardonnay, laški rizling, rosé, modra frankinja, modri pinot in collis.',
         link: { label: 'Spoznajte naša vina', to: 'wines' },
       },
       {
@@ -310,6 +310,35 @@ export const sl: Content = {
     perPersonShort: '/ osebo',
     vatNote: 'Vse cene vključujejo DDV.',
     paymentNote: 'Plačilo je možno na lokaciji, z gotovino ali s kartico.',
+    faq: {
+      head: 'Pogosta vprašanja',
+      items: [
+        {
+          q: 'Kaj vključuje degustacija?',
+          a: 'Pokušino treh do šestih vin s predstavitvijo vin in njihove pridelave ter ogled sodobne kleti na Lešnici. Po želji dodamo narezek domačih dobrot.',
+        },
+        {
+          q: 'Koliko stane degustacija?',
+          a: 'Tri vina 16 €, štiri vina 20 €, pet vin 24 €, šest vin 28 € na osebo. Narezek domačih dobrot je 10 € na osebo, ogled kleti 10 € na osebo. Cene vključujejo DDV.',
+        },
+        {
+          q: 'Ali je potrebna rezervacija?',
+          a: 'Da, ogled in degustacijo dogovorimo vnaprej — prek obrazca na tej strani ali po telefonu +386 31 288 724.',
+        },
+        {
+          q: 'Kje poteka degustacija?',
+          a: 'V vinski kleti Colnar na Lešnici 8, 8222 Otočec. Degustacije so samo v kleti; zidanica v Črešnjicah je namenjena zaključnim družbam.',
+        },
+        {
+          q: 'Koliko traja ogled kleti?',
+          a: 'Približno 30 minut.',
+        },
+        {
+          q: 'Kako lahko plačam?',
+          a: 'Na lokaciji z gotovino ali s kartico.',
+        },
+      ],
+    },
     aside: {
       whereLabel: 'Kje',
       whereName: 'Vinska klet Colnar',

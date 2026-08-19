@@ -1,0 +1,36 @@
+---
+import '../styles/fonts.css';
+import '../styles/site.css';
+import Logo from '../components/Logo.astro';
+import { routes } from '../i18n';
+
+/*
+ * Deliberately outside Base: a missing page has no canonical, no counterpart in
+ * the other language, and nothing to say to a crawler. It is bilingual because
+ * we do not know who arrived, and it hands them the two front doors.
+ */
+---
+
+<!doctype html>
+<html lang="sl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stran ne obstaja — Vinska klet Colnar</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#f3f2f2" />
+  </head>
+  <body>
+    <main class="notfound">
+      <span class="notfound-mark" aria-hidden="true"><Logo /></span>
+      <p class="notfound-code tnum">404</p>
+      <p class="notfound-line" lang="sl">Te strani ni. Morda je bila premaknjena.</p>
+      <p class="notfound-line" lang="en">This page is not here. It may have moved.</p>
+      <div class="notfound-links">
+        <a href={routes.sl.home} lang="sl">Na začetno stran</a>
+        <a href={routes.en.home} lang="en">Home</a>
+      </div>
+    </main>
+  </body>
+</html>

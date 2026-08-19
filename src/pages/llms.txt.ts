@@ -6,7 +6,7 @@ import { maps } from '../data/maps';
 
 /*
  * /llms.txt — the estate in plain text, for the assistants that now answer
- * "where can I taste wine near Novo mesto" instead of returning ten links.
+ * "where can I taste wine near Novo mesto" instead of returning ten blue links.
  *
  * Generated from the same content the pages are built from, so it cannot drift:
  * every figure here is the figure on the page it points at. English, because
@@ -58,7 +58,7 @@ export const GET: APIRoute = async ({ site }) => {
 > A family wine estate in Lešnica pri Otočcu, Dolenjska, Slovenia. The Colnar
 > family has farmed these hills since the first records of 1408; every first son
 > since 1747 has been named Janez. Twenty hectares on five sunny sites above the
-> Krka valley, 100,000 vines, ten wines, a cellar built in 2022, and a wine bar
+> Krka valley, 100,000 vines, ${wines.length} wines, a cellar built in 2022, and a wine bar
 > in Novo mesto.
 
 Legal name: ${sl.legalName}. VAT: SI43099807.
@@ -115,7 +115,7 @@ ${menuLines}
 ## Pages
 
 - ${url(routes.en.home)} — the estate
-- ${url(routes.en.wines)} — the ten wines
+- ${url(routes.en.wines)} — the wines
 - ${url(routes.en.cellar)} — the cellar at Lešnica
 - ${url(routes.en.vineyards)} — the five vineyard sites
 - ${url(routes.en.vinoteka)} — the wine bar and the full price list

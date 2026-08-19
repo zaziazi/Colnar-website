@@ -5,7 +5,7 @@ import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/degustacija-hero.jpg';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
-import { tasting as tastingSchema } from '../data/schema';
+import { tasting as tastingSchema, faq as faqSchema } from '../data/schema';
 
 interface Props {
   lang: Lang;
@@ -16,7 +16,7 @@ const t = getContent(lang);
 const d = t.tasting;
 
 const canonical = new URL(routes[lang].tasting, Astro.site).href;
-const schema = [tastingSchema(Astro.site!, canonical, t, d.perPerson)];
+const schema = [tastingSchema(Astro.site!, canonical, t, d.perPerson), faqSchema(canonical, d.faq.items)];
 const f = d.form;
 
 /*
@@ -28,7 +28,7 @@ const f = d.form;
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
 ---
 
-<Base lang={lang} page="tasting" schema={schema}>
+<Base lang={lang} page="tasting" schema={schema} ogImage={heroPhoto}>
   <Nav lang={lang} toggleHref={routes[otherLang(lang)].tasting} />
 
   <PageHero
@@ -247,6 +247,31 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
         }
 
         <p class="price-notes">{d.vatNote}</p>
+      </div>
+    </section>
+
+    {/*
+      What people ring up and ask. Every answer is already somewhere on this
+      page — the price list, the aside, the copy — so the block adds no new
+      claims, only the shape a question comes in. Same <details> as the cenik.
+    */}
+    <section aria-labelledby="pogosta-vprasanja">
+      <div class="section-gap" data-reveal>
+        <h2 class="section-head" id="pogosta-vprasanja">{d.faq.head}</h2>
+      </div>
+
+      <div class="menu-groups" data-reveal>
+        {
+          d.faq.items.map((item) => (
+            <details class="menu-group">
+              <summary class="menu-group-head">
+                <span class="menu-group-name menu-group-name--faq">{item.q}</span>
+                <span class="menu-group-mark" aria-hidden="true" />
+              </summary>
+              <p class="faq-answer">{item.a}</p>
+            </details>
+          ))
+        }
       </div>
     </section>
   </main>

@@ -1,7 +1,7 @@
 ---
 ime: Grand Jaenes Rosé
 zvrst: penina rosé
-vrstniRed: 9
+vrstniRed: 11
 slika: ../../../assets/photos/wines/grand-jaenes-rose.png
 evino: https://www.evino.si/izdelek/grand-jaenes-rose-colnar/
 ---

@@ -2362,6 +2362,33 @@ a.meta-value {
   margin-bottom: 8px;
 }
 
+/*
+ * A question is a sentence, not a category: it keeps the gold and the weight of
+ * a menu header but drops the caps and the tracking, which are unreadable at
+ * the length of a question.
+ */
+.menu-group-name--faq {
+  font-size: clamp(18px, 1.6vw, 21px);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.faq-answer {
+  max-width: 62ch;
+  margin: 0 0 26px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--color-text) 82%, transparent);
+  animation: menu-open 0.4s ease both;
+}
+
+@media (max-width: 759.98px) {
+  .faq-answer {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+}
+
 /* The list inside a category: no rule above the first row — the header is it. */
 .menu-group .price-list {
   margin: 0 0 14px;
@@ -2788,4 +2815,69 @@ a.meta-value {
     margin-top: 36px;
     font-size: 11px;
   }
+}
+
+/* -------------------------------------------------------------- not found --
+ *
+ * One centred column, both languages, two doors back in.
+ */
+.notfound {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 40px var(--page-pad);
+  text-align: center;
+}
+
+.notfound-mark {
+  display: block;
+  margin-bottom: 26px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+
+.notfound-mark svg {
+  display: block;
+  height: 34px;
+  width: auto;
+}
+
+.notfound-code {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--color-accent-700);
+}
+
+.notfound-line {
+  font-size: 16px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.notfound-line + .notfound-line {
+  color: color-mix(in srgb, var(--color-text) 52%, transparent);
+}
+
+.notfound-links {
+  display: flex;
+  gap: 28px;
+  margin-top: 30px;
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.notfound-links a {
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 3px;
+  transition: color 0.3s ease;
+}
+
+.notfound-links a:hover {
+  color: var(--color-accent-700);
 }

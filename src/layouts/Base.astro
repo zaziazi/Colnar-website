@@ -4,20 +4,33 @@ import '../styles/site.css';
 import AgeGate from '../components/AgeGate.astro';
 import { getContent, alternates, otherLang, routes, type Lang, type RouteKey } from '../i18n';
 import { winery, website, webPage, breadcrumb, type Node } from '../data/schema';
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
   lang: Lang;
   page: RouteKey;
   /** Nodes this page adds to the graph — its menu, its offers, its wines. */
   schema?: Node[];
+  /** The page's own photograph for sharing; the estate's card if none is given. */
+  ogImage?: ImageMetadata;
 }
 
-const { lang, page, schema = [] } = Astro.props;
+const { lang, page, schema = [], ogImage: ogSource } = Astro.props;
 const t = getContent(lang);
 const { title, description } = t.meta[page];
 
 const canonical = new URL(routes[lang][page], Astro.site);
-const ogImage = new URL('/og-colnar.jpg', Astro.site);
+
+/*
+ * Sharing card: the page's own photograph, cut to the 1.91:1 every platform
+ * crops to anyway, so the crop is ours rather than theirs. Pages that pass
+ * nothing fall back to the estate's card.
+ */
+const og = ogSource
+  ? await getImage({ src: ogSource, format: 'jpg', width: 1200, height: 630, fit: 'cover' })
+  : null;
+const ogImage = new URL(og?.src ?? '/og-colnar.jpg', Astro.site);
 
 const home = new URL(routes[lang].home, Astro.site).href;
 
