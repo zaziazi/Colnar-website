@@ -423,6 +423,14 @@ wines, the tasting prices, and the whole cenik. Generated in
 `src/pages/llms.txt.ts` from the same content the pages are built from, so it
 cannot drift from them. `robots.txt` points at it.
 
+**The `sameAs` and the award** were not in the handoff and are not guesses. The
+estate's own Instagram bio names the two profiles and the title — *King of
+cviček 08', 14' and 2022* — and the title is corroborated by Slovenske novice,
+Dolenjski list, oVinu and Kmečki glas, which also record Janez as the fiftieth
+kralj cvička. Both profiles are linked from the footer, both are in `sameAs`
+with the Evino brand page, and the three years are on `/vina` and in the
+`Winery`'s `award`. **Ask the owner to confirm the wording once.**
+
 **Six questions** sit at the foot of `/degustacija`, in the same `<details>` as
 the cenik and marked up as an `FAQPage`. Every answer is already elsewhere on
 that page — what it includes, what it costs, that it must be booked, where it
@@ -448,8 +456,10 @@ Four things need the owner, not the developer. Every factual question the
 handoff left open is now closed: the figures are 20 ha / 100.000 trt / 5 leg,
 there are twelve wines, and the first planting year is 2001.
 
-1. **Instagram and Facebook are plain text**, because the handoff gave no
-   profile URLs. Add `href`s to the Kontakt / Contact column in `src/i18n/sl.ts` and `en.ts`.
+1. **Coordinates for the cellar.** The `Winery` has an address and a map link
+   but no `geo`. Drop a pin on Lešnica 8 and paste the latitude and longitude
+   into `src/data/schema.ts`. Third-party listings are no help — the ones that
+   carry hours also still say 16 hectares.
 2. **Form notifications.** On Netlify the bookings are captured automatically,
    but somebody has to be told about them — Netlify → Forms → Settings → form
    notifications, pointed at info@colnar.si.

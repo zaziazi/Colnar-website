@@ -170,7 +170,7 @@ export const en: Content = {
     heroAlt: 'The Colnar name embossed on a bottle label',
     lede: 'Consistent quality comes before everything else — from the vine we prune and pick ourselves, to the bottle.',
     prose: [
-      'The grapes come from twenty hectares on five sunny sites above the Krka valley. Cviček, the speciality of Dolenjska, accounts for 60 % of everything we make; alongside it we produce white wines, rosé, modra frankinja, sparkling wine by the classic method, and Collis, which ages in an acacia cask.',
+      'The grapes come from twenty hectares on five sunny sites above the Krka valley. Cviček, the speciality of Dolenjska, accounts for 60 % of everything we make; alongside it we produce white wines, chardonnay, rosé, modra frankinja, modri pinot, sparkling wine by the classic method, and Collis, which ages in an acacia cask. The estate has been named Kralj cvička — King of Cviček — in 2008, 2014 and 2022.',
       'You can taste the wines at the cellar in Lešnica, or collect them there and at the Colnar wine bar in Novo mesto.',
     ],
     listHead: 'Wines',
@@ -441,7 +441,10 @@ export const en: Content = {
         label: 'Contact',
         lines: [
           [{ text: 'info@colnar.si', href: 'mailto:info@colnar.si' }],
-          [{ text: 'Instagram' }, { text: 'Facebook' }],
+          [
+            { text: 'Instagram', href: 'https://www.instagram.com/vinskakletcolnar/', external: true },
+            { text: 'Facebook', href: 'https://www.facebook.com/vinskakletcolnar/', external: true },
+          ],
         ],
       },
     ],

@@ -43,7 +43,13 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
     addressCountry: 'SI',
   },
   hasMap: maps.cellar,
-  sameAs: ['https://www.evino.si/znamke/colnar/'],
+  sameAs: [
+    'https://www.instagram.com/vinskakletcolnar/',
+    'https://www.facebook.com/vinskakletcolnar/',
+    'https://www.instagram.com/vinotekacolnar/',
+    'https://www.evino.si/znamke/colnar/',
+  ],
+  award: ['Kralj cvička 2008', 'Kralj cvička 2014', 'Kralj cvička 2022'],
   areaServed: 'SI',
   knowsLanguage: ['sl', 'en'],
   department: [

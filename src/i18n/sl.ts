@@ -163,7 +163,7 @@ export const sl: Content = {
     heroAlt: 'Vtisnjen napis Colnar na etiketi steklenice',
     lede: 'Na prvem mestu je konstantno zagotavljanje kakovosti — od trte, ki jo obrezujemo in beremo sami, do steklenice.',
     prose: [
-      'Grozdje pridelamo na dvajsetih hektarjih na petih sončnih legah nad dolino Krke. Cviček, posebnost Dolenjske, predstavlja kar 60 % pridelanega vina; ob njem pridelujemo bela vina, rosé, modro frankinjo, penino po klasični metodi in collis, ki zori v akacijevem sodu.',
+      'Grozdje pridelamo na dvajsetih hektarjih na petih sončnih legah nad dolino Krke. Cviček, posebnost Dolenjske, predstavlja kar 60 % pridelanega vina; ob njem pridelujemo bela vina, chardonnay, rosé, modro frankinjo, modri pinot, penino po klasični metodi in collis, ki zori v akacijevem sodu. Naziv kralja cvička smo prejeli v letih 2008, 2014 in 2022.',
       'Vina lahko pokusite ob degustaciji v kleti na Lešnici ali jih prevzamete tam in v Vinoteki Colnar v Novem mestu.',
     ],
     listHead: 'Vina',
@@ -435,7 +435,10 @@ export const sl: Content = {
         label: 'Kontakt',
         lines: [
           [{ text: 'info@colnar.si', href: 'mailto:info@colnar.si' }],
-          [{ text: 'Instagram' }, { text: 'Facebook' }],
+          [
+            { text: 'Instagram', href: 'https://www.instagram.com/vinskakletcolnar/', external: true },
+            { text: 'Facebook', href: 'https://www.facebook.com/vinskakletcolnar/', external: true },
+          ],
         ],
       },
     ],

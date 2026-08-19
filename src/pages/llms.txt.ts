@@ -61,6 +61,9 @@ export const GET: APIRoute = async ({ site }) => {
 > Krka valley, 100,000 vines, ${wines.length} wines, a cellar built in 2022, and a wine bar
 > in Novo mesto.
 
+Named Kralj cvička — King of Cviček, the region's award for the best cviček —
+in 2008, 2014 and 2022.
+
 Legal name: ${sl.legalName}. VAT: SI43099807.
 Website: ${url(routes.sl.home)} (Slovenian) · ${url(routes.en.home)} (English)
 
@@ -75,6 +78,10 @@ Website: ${url(routes.sl.home)} (Slovenian) · ${url(routes.en.home)} (English)
   8222 Otočec, Slovenia. Phone +386 31 725 830. Map: ${maps.zidanica}
 
 Email: info@colnar.si
+Instagram: https://www.instagram.com/vinskakletcolnar/ (wine bar:
+https://www.instagram.com/vinotekacolnar/)
+Facebook: https://www.facebook.com/vinskakletcolnar/
+Sold online through the distributor Evino: https://www.evino.si/znamke/colnar/
 
 ## The wines
 
