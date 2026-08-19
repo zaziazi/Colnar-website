@@ -26,9 +26,10 @@ The site is **bilingual**: Slovenian at the root, English under `/en/`.
 | `/vina` | `/en/wines` | The wines, from the content collection. See [Wines](#wines). |
 | `/klet` | `/en/cellar` | The cellar at Lešnica. |
 | `/vinogradi` | `/en/vineyards` | The vineyards. |
+| `/vinoteka` | `/en/wine-bar` | The wine bar in Novo mesto, and the full cenik. See [The vinoteka cenik](#the-vinoteka-cenik). |
 | `/degustacija` | `/en/tasting` | What a tasting is, the reservation form, then the prices. See [Reservation form](#reservation-form). |
 
-Only `/` was designed. The other four are built out of the same parts — hairline
+Only `/` was designed. The other five are built out of the same parts — hairline
 structure, 4px radius, outlined controls, small caps labels in
 `--color-accent-700`.
 
@@ -307,6 +308,40 @@ listed).
 The two Grand Jaenes are sparkling — both 100 % žametna črnina by the classic
 method, 20 months on the lees. `zvrst` gained `penina rosé` for the second, so a
 rosé sparkling is not labelled the same as a white one.
+
+## The vinoteka cenik
+
+`src/data/vinoteka-menu.ts` — the whole price list, from the estate's own POS
+export (*Prodajni artikli — VINOTEKACOLNAR*, 19 August 2026). Prices are that
+file's **BRUTO CENA**: the shelf price, DDV included.
+
+The rows sit in `src/data/` rather than in `sl.ts` / `en.ts` because a wine's
+name is a wine's name in either language. Only the eighteen group labels and the
+two section labels are translated, under `vinoteka.menu` in the content files,
+keyed by each group's `id`. Volumes are stored as millilitres and grams so the
+page can format them per locale — `0,75 l` against `0.75 l`.
+
+All 189 articles from the export are on the page, checked against it by
+comparing the two price lists item for item. Four judgement calls were made
+while transcribing, and each is worth the owner's eye:
+
+- **The four `QL` rows are left off** (`KAVA QL`, `KAVA QL - BELA KAVA`,
+  `CAPUCCINO QL`, `KAKAV QL`). They are second, lower prices for drinks already
+  on the list, and a public cenik cannot show a coffee at two prices.
+- **`COLNAR LAŠKI RIZLING 1L` is listed as 0,75 l**, since its own recipe line
+  reads `0,750 Liter COLNAR LAŠKI RIZLING 0,75L`. One of the two is a typing
+  slip in the POS.
+- **`SON. OLJE` is written out as *Sončnično olje***.
+- **Two rows are duplicated in the export** — `ERIGONE - RIBOLLA GIALLA` twice
+  and `ERIGONE - ZALA` under two spellings. Each appears once here.
+
+Producers come from the recipe column rather than the article name where the two
+differ: `GROS, SAUVIGNON` is poured from `GRUBAR ANTON Sauvignon`, and is on the
+page as *Sauvignon, Grubar*.
+
+Gift packaging, the Riedel glasses and the Coravin are their own group at the
+foot of the list. They are articles the vinoteka sells, so they are on it — say
+if a public cenik should stop at the drinks.
 
 ## Reservation form
 

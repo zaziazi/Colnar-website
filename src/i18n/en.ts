@@ -28,6 +28,7 @@ export const en: Content = {
       { label: 'Wines', to: 'wines' },
       { label: 'Cellar', to: 'cellar' },
       { label: 'Vineyards', to: 'vineyards' },
+      { label: 'Wine bar', to: 'vinoteka' },
     ],
     right: [{ label: 'Tasting', to: 'tasting' }],
     toggle: 'SL',
@@ -55,6 +56,11 @@ export const en: Content = {
       title: 'Our vineyards — Vinska klet Colnar',
       description:
         'The Colnar vineyards above the Krka valley, looking across to the Gorjanci — Trška gora, Razbore, Grčevje, Ždinja Vas and Vinji vrh.',
+    },
+    vinoteka: {
+      title: 'The wine bar — Vinska klet Colnar',
+      description:
+        'The Colnar wine bar in the Supernova shopping centre, Novo mesto. Every one of our wines and sparkling wines by the glass or the bottle, open Mon – Sat 9.00 – 21.00.',
     },
     tasting: {
       title: 'Tasting — Vinska klet Colnar',
@@ -222,6 +228,56 @@ export const en: Content = {
     photoPending: 'Photograph to follow',
     cta: {
       heading: 'Meet the wines these vineyards make.',
+      secondary: { label: 'Our wines', to: 'wines' },
+    },
+  },
+
+  vinoteka: {
+    title: 'Wine bar',
+    standfirst: 'in Novo mesto',
+    heroAlt: 'Glasses on the wine bar counter',
+    lede: 'Our wine bar in the Supernova shopping centre in Novo mesto, where you can stop for a coffee or a glass of wine. You can also collect wine to take home.',
+    prose: [
+      'Every one of our wines and sparkling wines is poured at the counter, by the glass or by the bottle, alongside wines from growers we are fond of. Coffee, juice and local delicacies are served all day.',
+      'Whatever you take to, you can take with you: bottles for home, in gift or wooden packaging.',
+    ],
+    whereHead: 'Where and when',
+    addressLabel: 'Address',
+    addressName: 'Otoška cesta 5',
+    addressCopy: 'Supernova Novo mesto, 8000 Novo mesto, Slovenia',
+    hoursLabel: 'Opening hours',
+    hours: 'Mon – Sat · 9.00 – 21.00',
+    menuHead: 'Price list',
+    menu: {
+      sections: {
+        bar: 'At the wine bar',
+        home: 'To take home',
+      },
+      groups: {
+        colnarGlass: 'Colnar wines by the glass',
+        guestGlass: 'Guest wines by the glass',
+        colnarBottle: 'Colnar wines by the bottle',
+        guestBottle: 'Guest wines by the bottle',
+        predikati: 'Predicate wines',
+        mixed: 'Spritzers',
+        spirits: 'Spirits and aperitifs',
+        beer: 'Beer',
+        soft: 'Soft drinks',
+        hot: 'Hot drinks',
+        extras: 'Extras',
+        colnarWines: 'Colnar wines',
+        colnarSparkling: 'Colnar sparkling wines',
+        guestWines: 'Wines from other growers',
+        sparkling: 'Sparkling wines and champagne',
+        spiritsHome: 'Spirits',
+        delicacies: 'Juices and local delicacies',
+        gifts: 'Gift packaging and accessories',
+      },
+    },
+    menuNote:
+      'Prices are in euros and include VAT. The list changes as the cellar does — if a wine is not on it, ask at the counter.',
+    cta: {
+      heading: 'You can taste the wines at the cellar too.',
       secondary: { label: 'Our wines', to: 'wines' },
     },
   },

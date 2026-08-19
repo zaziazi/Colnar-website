@@ -34,6 +34,7 @@ export type FooterColumn = { label: string; lines: FooterItem[][] };
 
 export type PriceRow = { name: string; note?: string; price: number };
 
+
 export type Content = {
   /** `lang` attribute and Open Graph locale. */
   htmlLang: string;
@@ -117,6 +118,34 @@ export type Content = {
     sitesHead: string;
     sites: string[];
     photoPending: string;
+    cta: { heading: string; secondary: Link };
+  };
+
+  vinoteka: {
+    title: string;
+    standfirst: string;
+    heroAlt: string;
+    lede: string;
+    prose: string[];
+    whereHead: string;
+    addressLabel: string;
+    addressName: string;
+    addressCopy: string;
+    hoursLabel: string;
+    hours: string;
+    /** Names the list's contents block for screen readers. */
+    menuHead: string;
+    /**
+     * Labels for the price list. The rows themselves — names, volumes, prices —
+     * are language-neutral and live in `src/data/vinoteka-menu.ts`; only these
+     * headings are translated, keyed by the `id` of each section and group.
+     */
+    menu: {
+      sections: Record<string, string>;
+      groups: Record<string, string>;
+    };
+    /** Terms under the list — DDV, that the offer changes. */
+    menuNote: string;
     cta: { heading: string; secondary: Link };
   };
 

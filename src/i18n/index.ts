@@ -11,7 +11,7 @@ const content: Record<Lang, Content> = { sl, en };
 
 export const getContent = (lang: Lang): Content => content[lang];
 
-export type RouteKey = 'home' | 'wines' | 'cellar' | 'vineyards' | 'tasting';
+export type RouteKey = 'home' | 'wines' | 'cellar' | 'vineyards' | 'vinoteka' | 'tasting';
 
 /**
  * Slovenian is the site; English sits under /en/. Both sets are spelled out
@@ -31,6 +31,7 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
     wines: '/vina/',
     cellar: '/klet/',
     vineyards: '/vinogradi/',
+    vinoteka: '/vinoteka/',
     tasting: '/degustacija/',
   },
   en: {
@@ -38,6 +39,7 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
     wines: '/en/wines/',
     cellar: '/en/cellar/',
     vineyards: '/en/vineyards/',
+    vinoteka: '/en/wine-bar/',
     tasting: '/en/tasting/',
   },
 };

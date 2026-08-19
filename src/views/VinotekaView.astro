@@ -1,0 +1,135 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import heroPhoto from '../assets/photos/vinoteka-hero.jpg';
+import { menu } from '../data/vinoteka-menu';
+import { getContent, routes, otherLang, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const c = t.vinoteka;
+
+/* Both formatted in the page's own locale: 24,00 € and 0,75 l in Slovenian. */
+const euro = new Intl.NumberFormat(t.numberLocale, {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+const litres = new Intl.NumberFormat(t.numberLocale, { maximumFractionDigits: 3 });
+
+const size = (item: { ml?: number; g?: number }) => {
+  if (item.ml) return `${litres.format(item.ml / 1000)} l`;
+  if (item.g) return `${litres.format(item.g)} g`;
+  return undefined;
+};
+---
+
+<Base lang={lang} page="vinoteka">
+  <Nav lang={lang} toggleHref={routes[otherLang(lang)].vinoteka} />
+
+  <PageHero
+    photo={heroPhoto}
+    alt={c.heroAlt}
+    title={c.title}
+    standfirst={c.standfirst}
+    position="50% 30%"
+  />
+
+  <main class="wrap">
+    <div class="page-intro" data-reveal>
+      <p>{c.lede}</p>
+    </div>
+
+    <div class="page-prose" data-reveal>
+      {c.prose.map((para) => <p>{para}</p>)}
+    </div>
+
+    <section aria-labelledby="kje-in-kdaj">
+      <div class="section-gap" data-reveal>
+        <h2 class="section-head" id="kje-in-kdaj">{c.whereHead}</h2>
+      </div>
+      <div class="places places--page" data-reveal>
+        <div class="place">
+          <p class="place-label">{c.addressLabel}</p>
+          <p class="place-name">{c.addressName}</p>
+          <p class="place-copy">{c.addressCopy}</p>
+        </div>
+        <div class="place">
+          <p class="place-label">{c.hoursLabel}</p>
+          <p class="place-name tnum">{c.hours}</p>
+          <p class="place-copy">
+            <a href="tel:+38641871425">+386 41 871 425</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/*
+      The cenik itself, in the estate's own two halves: what is poured at the
+      counter, and what leaves with you. Rows carry the pour beside the name and
+      the gross price — DDV in — on the right.
+
+      It is a long list — a hundred and ninety lines — so it opens with its own
+      contents, one line per group, and each group carries the anchor.
+    */}
+    <nav class="menu-index" aria-label={c.menuHead} data-reveal>
+      {
+        menu.map((section) => (
+          <div class="menu-index-part">
+            <p class="menu-index-label">{c.menu.sections[section.id]}</p>
+            <ul class="menu-index-list">
+              {section.groups.map((group) => (
+                <li>
+                  <a href={`#g-${group.id}`}>{c.menu.groups[group.id]}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </nav>
+
+    {
+      menu.map((section) => (
+        <section aria-labelledby={`menu-${section.id}`}>
+          <div class="section-gap" data-reveal>
+            <h2 class="section-head" id={`menu-${section.id}`}>
+              {c.menu.sections[section.id]}
+            </h2>
+          </div>
+
+          <div data-reveal>
+            {section.groups.map((group) => (
+              <div class="price-group" id={`g-${group.id}`}>
+                <p class="price-group-label">{c.menu.groups[group.id]}</p>
+                <ul class="price-list">
+                  {group.items.map((item) => (
+                    <li class="price price--menu">
+                      <p class="price-name">
+                        {item.name}
+                        {size(item) && <span class="price-volume tnum">{size(item)}</span>}
+                      </p>
+                      <p class="price-figure tnum">{euro.format(item.price)}&nbsp;€</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+
+    <p class="price-notes" data-reveal>{c.menuNote}</p>
+
+    <CtaBand lang={lang} heading={c.cta.heading} secondary={c.cta.secondary} />
+  </main>
+
+  <Footer lang={lang} />
+</Base>

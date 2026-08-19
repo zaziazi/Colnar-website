@@ -1,7 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import vinotekaPhoto from '../assets/photos/vinoteka.jpg';
-import { getContent, type Lang } from '../i18n';
+import { getContent, route, type Lang } from '../i18n';
 
 interface Props {
   lang: Lang;
@@ -24,7 +24,7 @@ const v = getContent(lang).home.vinoteka;
       </div>
       <div class="meta-item">
         <p class="meta-label">{v.menuLabel}</p>
-        <a class="meta-value" href="#degustacija">{v.menuLink}</a>
+        <a class="meta-value" href={route(lang, 'vinoteka')}>{v.menuLink}</a>
       </div>
     </div>
   </div>

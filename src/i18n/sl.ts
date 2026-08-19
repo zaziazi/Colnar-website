@@ -21,6 +21,7 @@ export const sl: Content = {
       { label: 'Vina', to: 'wines' },
       { label: 'Klet', to: 'cellar' },
       { label: 'Vinogradi', to: 'vineyards' },
+      { label: 'Vinoteka', to: 'vinoteka' },
     ],
     right: [{ label: 'Degustacija', to: 'tasting' }],
     toggle: 'EN',
@@ -48,6 +49,11 @@ export const sl: Content = {
       title: 'Naši vinogradi — Vinska klet Colnar',
       description:
         'Vinogradi družine Colnar nad dolino reke Krke, s pogledom na Gorjance — Trška gora, Razbore, Grčevje, Ždinja Vas in Vinji vrh.',
+    },
+    vinoteka: {
+      title: 'Vinoteka Colnar — Supernova Novo mesto',
+      description:
+        'Vinoteka Colnar v nakupovalnem središču Supernova Novo mesto. Vsa naša vina in penine po kozarcu ali po steklenici, odprto Pon – Sob 9.00 – 21.00.',
     },
     tasting: {
       title: 'Degustacija — Vinska klet Colnar',
@@ -212,6 +218,56 @@ export const sl: Content = {
     photoPending: 'Fotografija sledi',
     cta: {
       heading: 'Spoznajte vina iz naših vinogradov.',
+      secondary: { label: 'Naša vina', to: 'wines' },
+    },
+  },
+
+  vinoteka: {
+    title: 'Vinoteka',
+    standfirst: 'v Novem mestu',
+    heroAlt: 'Kozarci na pultu vinoteke',
+    lede: 'Vinoteka v nakupovalnem središču Supernova Novo mesto, kjer se lahko ustavite na kavi ali kozarčku vina. Možen tudi prevzem vina za domov.',
+    prose: [
+      'Za pultom točimo vsa naša vina in penine — po kozarcu ali po steklenici — ob njih pa vina vinarjev, ki jih imamo radi. Ves dan postrežemo tudi kavo, sok in domače dobrote.',
+      'Kar vam je všeč, lahko vzamete s seboj: vino za domov, darilno ali leseno embalažo.',
+    ],
+    whereHead: 'Kje in kdaj',
+    addressLabel: 'Naslov',
+    addressName: 'Otoška cesta 5',
+    addressCopy: 'Supernova Novo mesto, 8000 Novo mesto',
+    hoursLabel: 'Delovni čas',
+    hours: 'Pon – Sob · 9.00 – 21.00',
+    menuHead: 'Cenik',
+    menu: {
+      sections: {
+        bar: 'V vinoteki',
+        home: 'Za domov',
+      },
+      groups: {
+        colnarGlass: 'Vina Colnar po kozarcu',
+        guestGlass: 'Vina drugih vinarjev po kozarcu',
+        colnarBottle: 'Vina Colnar po steklenici',
+        guestBottle: 'Vina drugih vinarjev po steklenici',
+        predikati: 'Predikatna vina',
+        mixed: 'Špricarji in škropci',
+        spirits: 'Žgane pijače in aperitivi',
+        beer: 'Piva',
+        soft: 'Brezalkoholne pijače',
+        hot: 'Topli napitki',
+        extras: 'Dodatki k napitkom',
+        colnarWines: 'Vina Colnar',
+        colnarSparkling: 'Penine Colnar',
+        guestWines: 'Vina drugih vinarjev',
+        sparkling: 'Penine in šampanjci',
+        spiritsHome: 'Žgane pijače',
+        delicacies: 'Sokovi in domače dobrote',
+        gifts: 'Darilna embalaža in dodatki',
+      },
+    },
+    menuNote:
+      'Cene so v evrih in vključujejo DDV. Ponudba se sproti spreminja — za vino, ki ga ni na seznamu, vprašajte pri pultu.',
+    cta: {
+      heading: 'Vina lahko pokusite tudi v kleti.',
       secondary: { label: 'Naša vina', to: 'wines' },
     },
   },
