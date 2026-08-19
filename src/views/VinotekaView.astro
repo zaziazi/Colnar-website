@@ -37,7 +37,6 @@ const size = (item: { ml?: number; g?: number }) => {
     photo={heroPhoto}
     alt={c.heroAlt}
     title={c.title}
-    standfirst={c.standfirst}
     position="50% 30%"
   />
 
@@ -55,7 +54,7 @@ const size = (item: { ml?: number; g?: number }) => {
       menu.map((section) => (
         <section aria-labelledby={`menu-${section.id}`}>
           <div class="section-gap" data-reveal>
-            <h2 class="section-head" id={`menu-${section.id}`}>
+            <h2 class="section-head section-head--menu" id={`menu-${section.id}`}>
               {c.menu.sections[section.id]}
             </h2>
           </div>

@@ -234,7 +234,6 @@ export const en: Content = {
 
   vinoteka: {
     title: 'Colnar Wine Bar',
-    standfirst: 'in Novo mesto',
     heroAlt: 'Glasses on the wine bar counter',
     whereHead: 'Where and when',
     addressLabel: 'Address',
@@ -244,7 +243,7 @@ export const en: Content = {
     hours: 'Mon – Sat · 9.00 – 21.00',
     menu: {
       sections: {
-        bar: 'At the wine bar',
+        bar: 'Price list',
         home: 'To take home',
       },
       groups: {

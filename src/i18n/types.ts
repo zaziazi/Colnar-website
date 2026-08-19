@@ -123,7 +123,6 @@ export type Content = {
 
   vinoteka: {
     title: string;
-    standfirst: string;
     heroAlt: string;
     whereHead: string;
     addressLabel: string;

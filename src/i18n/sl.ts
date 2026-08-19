@@ -53,7 +53,7 @@ export const sl: Content = {
     vinoteka: {
       title: 'Vinoteka Colnar — Supernova Novo mesto',
       description:
-        'Vinoteka Colnar v nakupovalnem središču Supernova Novo mesto. Vsa naša vina in penine po kozarcu ali po steklenici, odprto Pon – Sob 9.00 – 21.00.',
+        'Vinoteka Colnar v nakupovalnem središču Supernova Novo mesto. Vsa naša vina in penine na kozarec ali na steklenico, odprto Pon – Sob 9.00 – 21.00.',
     },
     tasting: {
       title: 'Degustacija — Vinska klet Colnar',
@@ -224,7 +224,6 @@ export const sl: Content = {
 
   vinoteka: {
     title: 'Vinoteka Colnar',
-    standfirst: 'v Novem mestu',
     heroAlt: 'Kozarci na pultu vinoteke',
     whereHead: 'Kje in kdaj',
     addressLabel: 'Naslov',
@@ -234,14 +233,14 @@ export const sl: Content = {
     hours: 'Pon – Sob · 9.00 – 21.00',
     menu: {
       sections: {
-        bar: 'V vinoteki',
+        bar: 'Cenik',
         home: 'Za domov',
       },
       groups: {
-        colnarGlass: 'Vina Colnar po kozarcu',
-        guestGlass: 'Vina drugih vinarjev po kozarcu',
-        colnarBottle: 'Vina Colnar po steklenici',
-        guestBottle: 'Vina drugih vinarjev po steklenici',
+        colnarGlass: 'Vina Colnar na kozarec',
+        guestGlass: 'Vina drugih vinarjev na kozarec',
+        colnarBottle: 'Vina Colnar na steklenico',
+        guestBottle: 'Vina drugih vinarjev na steklenico',
         predikati: 'Predikatna vina',
         mixed: 'Špricarji in škropci',
         spirits: 'Žgane pijače in aperitivi',

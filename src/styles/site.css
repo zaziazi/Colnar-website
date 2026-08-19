@@ -2247,6 +2247,18 @@ a.meta-value {
  * it, and the same header shuts it again. The mark on the right is a + that
  * turns into a — , so open and closed are legible without reading the list.
  */
+/*
+ * The two halves of the cenik. On this page the categories under a head are
+ * themselves large, so the head takes the gold and a heavier cut to stay
+ * clearly above them.
+ */
+.section-head--menu {
+  font-weight: 400;
+  font-size: clamp(32px, 3.6vw, 46px);
+  letter-spacing: 0.01em;
+  color: var(--color-accent-700);
+}
+
 .menu-groups {
   border-top: 1px solid var(--color-divider);
 }
@@ -2275,7 +2287,7 @@ a.meta-value {
 .menu-group-name {
   font-family: var(--font-heading);
   font-weight: 300;
-  font-size: clamp(24px, 2.6vw, 34px);
+  font-size: clamp(22px, 2.2vw, 28px);
   line-height: 1.15;
   color: color-mix(in srgb, var(--color-text) 88%, transparent);
   transition: color 0.3s ease;
@@ -2379,6 +2391,10 @@ a.meta-value {
 @media (max-width: 759.98px) {
   .price-group + .price-group {
     margin-top: 40px;
+  }
+
+  .section-head--menu {
+    font-size: 30px;
   }
 
   .menu-group-head {
