@@ -2332,10 +2332,23 @@ a.meta-value {
   transform: rotate(0deg);
 }
 
+/* A category that is split — Colnar's own wines, then everybody else's. */
+.menu-part + .menu-part {
+  margin-top: 26px;
+}
+
+.menu-part .price-group-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
 /* The list inside a category: no rule above the first row — the header is it. */
 .menu-group .price-list {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   border-bottom: 0;
+}
+
+.menu-group[open] .menu-part {
   animation: menu-open 0.4s ease both;
 }
 
@@ -2351,7 +2364,7 @@ a.meta-value {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .menu-group .price-list {
+  .menu-group[open] .menu-part {
     animation: none;
   }
 }

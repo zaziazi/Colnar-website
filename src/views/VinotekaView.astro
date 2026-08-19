@@ -67,17 +67,22 @@ const size = (item: { ml?: number; g?: number }) => {
                   <span class="menu-group-mark" aria-hidden="true" />
                 </summary>
 
-                <ul class="price-list">
-                  {group.items.map((item) => (
-                    <li class="price price--menu">
-                      <p class="price-name">
-                        {item.name}
-                        {size(item) && <span class="price-volume tnum">{size(item)}</span>}
-                      </p>
-                      <p class="price-figure tnum">{euro.format(item.price)}&nbsp;€</p>
-                    </li>
-                  ))}
-                </ul>
+                {(group.parts ?? [{ id: null, items: group.items ?? [] }]).map((part) => (
+                  <div class="menu-part">
+                    {part.id && <p class="price-group-label">{c.menu.groups[part.id]}</p>}
+                    <ul class="price-list">
+                      {part.items.map((item) => (
+                        <li class="price price--menu">
+                          <p class="price-name">
+                            {item.name}
+                            {size(item) && <span class="price-volume tnum">{size(item)}</span>}
+                          </p>
+                          <p class="price-figure tnum">{euro.format(item.price)}&nbsp;€</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </details>
             ))}
           </div>

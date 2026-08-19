@@ -317,13 +317,16 @@ file's **BRUTO CENA**: the shelf price, DDV included.
 
 The page carries no prose at all, at the owner's instruction: the hero opens
 straight onto the cenik. Every category is a `<details>` — shut, the list reads
-as a page of eighteen names on hairlines; the header opens it and shuts it
-again, and the `+` becomes a `—`. No script: `<details>` opens and closes on its
+as a page of fifteen names on hairlines; the header opens it and shuts it
+again, and the `+` becomes a `—`. *Na kozarec* and *Na steklenico* each hold
+two or three labelled parts — Colnar's own wines, then everybody else's — under
+the one header, so a visitor opens a serving size rather than four near-identical
+wine categories. No script: `<details>` opens and closes on its
 own, the keyboard and screen readers already know it, and the list works
 without JavaScript. Address and opening hours follow the list, before the CTA.
 
 The rows sit in `src/data/` rather than in `sl.ts` / `en.ts` because a wine's
-name is a wine's name in either language. Only the eighteen group labels and the
+name is a wine's name in either language. Only the group and part labels and the
 two section labels are translated, under `vinoteka.menu` in the content files,
 keyed by each group's `id`. Volumes are stored as millilitres and grams so the
 page can format them per locale — `0,75 l` against `0.75 l`.

@@ -21,10 +21,15 @@ export type MenuItem = {
   price: number;
 };
 
+/**
+ * A category. Most are a flat list; the two wine categories are split into
+ * labelled parts — Colnar's own, then everybody else's — under one header.
+ */
 export type MenuGroup = {
   /** Key into `vinoteka.menu.groups` in the content files. */
   id: string;
-  items: MenuItem[];
+  items?: MenuItem[];
+  parts?: { id: string; items: MenuItem[] }[];
 };
 
 export type MenuSection = {
@@ -38,66 +43,61 @@ export const menu: MenuSection[] = [
     id: 'bar',
     groups: [
       {
-        id: 'colnarGlass',
-        items: [
-          { name: 'Cviček', ml: 100, price: 1.4 },
-          { name: 'Dolenjsko belo', ml: 100, price: 1.4 },
-          { name: 'Hišno belo', ml: 100, price: 3.0 },
-          { name: 'Rosé', ml: 100, price: 3.0 },
-          { name: 'Laški rizling', ml: 100, price: 3.5 },
-          { name: 'Collis', ml: 100, price: 3.5 },
-          { name: 'Modra frankinja', ml: 100, price: 3.5 },
-          { name: 'Modra frankinja, iz magnuma', ml: 100, price: 3.5 },
-          { name: 'Chardonnay', ml: 100, price: 3.9 },
+        id: 'glass',
+        parts: [
+          { id: 'colnar', items: [
+            { name: 'Cviček', ml: 100, price: 1.4 },
+            { name: 'Dolenjsko belo', ml: 100, price: 1.4 },
+            { name: 'Hišno belo', ml: 100, price: 3.0 },
+            { name: 'Rosé', ml: 100, price: 3.0 },
+            { name: 'Laški rizling', ml: 100, price: 3.5 },
+            { name: 'Collis', ml: 100, price: 3.5 },
+            { name: 'Modra frankinja', ml: 100, price: 3.5 },
+            { name: 'Modra frankinja, iz magnuma', ml: 100, price: 3.5 },
+            { name: 'Chardonnay', ml: 100, price: 3.9 },
+          ] },
+          { id: 'guest', items: [
+            { name: 'Modri pinot, Šturm', ml: 100, price: 3.0 },
+            { name: 'Sauvignon, Šturm', ml: 100, price: 3.0 },
+            { name: 'Rumeni muškat, polsladko, Šturm', ml: 100, price: 3.0 },
+            { name: 'Beli pinot, Šturm', ml: 100, price: 3.3 },
+            { name: 'Renski rizling, sladko, Šturm', ml: 100, price: 3.5 },
+            { name: 'Cabernet sauvignon, Dolfo', ml: 100, price: 3.9 },
+            { name: 'Sauvignon, Grubar', ml: 100, price: 4.0 },
+            { name: 'Akord, oranžno, Šturm', ml: 100, price: 5.5 },
+          ] },
         ],
       },
-      {
-        id: 'guestGlass',
-        items: [
-          { name: 'Modri pinot, Šturm', ml: 100, price: 3.0 },
-          { name: 'Sauvignon, Šturm', ml: 100, price: 3.0 },
-          { name: 'Rumeni muškat, polsladko, Šturm', ml: 100, price: 3.0 },
-          { name: 'Beli pinot, Šturm', ml: 100, price: 3.3 },
-          { name: 'Renski rizling, sladko, Šturm', ml: 100, price: 3.5 },
-          { name: 'Cabernet sauvignon, Dolfo', ml: 100, price: 3.9 },
-          { name: 'Sauvignon, Grubar', ml: 100, price: 4.0 },
-          { name: 'Akord, oranžno, Šturm', ml: 100, price: 5.5 },
+            {
+        id: 'bottle',
+        parts: [
+          { id: 'colnar', items: [
+            { name: 'Cviček', ml: 1000, price: 13.0 },
+            { name: 'Dolenjsko belo', ml: 1000, price: 13.0 },
+            { name: 'Hišno belo', ml: 750, price: 20.0 },
+            { name: 'Rosé', ml: 750, price: 20.0 },
+            { name: 'Laški rizling', ml: 750, price: 24.0 },
+            { name: 'Collis', ml: 750, price: 24.0 },
+            { name: 'Modra frankinja', ml: 750, price: 24.0 },
+            { name: 'Chardonnay', ml: 750, price: 29.0 },
+            { name: 'Modri pinot', ml: 750, price: 47.5 },
+          ] },
+          { id: 'guest', items: [
+            { name: 'Modri pinot, Šturm', ml: 750, price: 20.0 },
+            { name: 'Rumeni muškat, Šturm', ml: 750, price: 20.0 },
+            { name: 'Sauvignon, Šturm', ml: 750, price: 21.0 },
+            { name: 'Beli pinot, Šturm', ml: 750, price: 22.0 },
+            { name: 'Renski rizling, sladko, Šturm', ml: 750, price: 22.0 },
+            { name: '1. Classe Cabernet Sauvignon, Dolfo', ml: 750, price: 25.1 },
+            { name: 'Akord, oranžno, Šturm', ml: 750, price: 40.0 },
+          ] },
+          { id: 'predikati', items: [
+            { name: 'Rumeni muškat, jagodni izbor, Šturm', ml: 375, price: 45.0 },
+            { name: 'Chardonnay, ledeno vino, Šturm', ml: 375, price: 58.0 },
+          ] },
         ],
       },
-      {
-        id: 'colnarBottle',
-        items: [
-          { name: 'Cviček', ml: 1000, price: 13.0 },
-          { name: 'Dolenjsko belo', ml: 1000, price: 13.0 },
-          { name: 'Hišno belo', ml: 750, price: 20.0 },
-          { name: 'Rosé', ml: 750, price: 20.0 },
-          { name: 'Laški rizling', ml: 750, price: 24.0 },
-          { name: 'Collis', ml: 750, price: 24.0 },
-          { name: 'Modra frankinja', ml: 750, price: 24.0 },
-          { name: 'Chardonnay', ml: 750, price: 29.0 },
-          { name: 'Modri pinot', ml: 750, price: 47.5 },
-        ],
-      },
-      {
-        id: 'guestBottle',
-        items: [
-          { name: 'Modri pinot, Šturm', ml: 750, price: 20.0 },
-          { name: 'Rumeni muškat, Šturm', ml: 750, price: 20.0 },
-          { name: 'Sauvignon, Šturm', ml: 750, price: 21.0 },
-          { name: 'Beli pinot, Šturm', ml: 750, price: 22.0 },
-          { name: 'Renski rizling, sladko, Šturm', ml: 750, price: 22.0 },
-          { name: '1. Classe Cabernet Sauvignon, Dolfo', ml: 750, price: 25.1 },
-          { name: 'Akord, oranžno, Šturm', ml: 750, price: 40.0 },
-        ],
-      },
-      {
-        id: 'predikati',
-        items: [
-          { name: 'Rumeni muškat, jagodni izbor, Šturm', ml: 375, price: 45.0 },
-          { name: 'Chardonnay, ledeno vino, Šturm', ml: 375, price: 58.0 },
-        ],
-      },
-      {
+                  {
         id: 'mixed',
         items: [
           { name: 'Škropec, beli', ml: 100, price: 1.5 },
