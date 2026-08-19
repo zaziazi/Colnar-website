@@ -2212,7 +2212,7 @@ a.meta-value {
   margin-top: 4px;
   font-size: 13px;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--color-text) 62%, transparent);
+  color: color-mix(in srgb, var(--color-text) 66%, transparent);
 }
 
 .price-figure {
@@ -2432,7 +2432,7 @@ a.meta-value {
   font-size: 12px;
   letter-spacing: 0.1em;
   white-space: nowrap;
-  color: color-mix(in srgb, var(--color-text) 52%, transparent);
+  color: color-mix(in srgb, var(--color-text) 66%, transparent);
 }
 
 /* A price the estate has not set yet — held open, not hidden. */
@@ -2859,7 +2859,7 @@ a.meta-value {
 }
 
 .notfound-line + .notfound-line {
-  color: color-mix(in srgb, var(--color-text) 52%, transparent);
+  color: color-mix(in srgb, var(--color-text) 66%, transparent);
 }
 
 .notfound-links {
