@@ -51,12 +51,12 @@ export const en: Content = {
     cellar: {
       title: 'The cellar — Vinska klet Colnar',
       description:
-        'A modern cellar built in 2022 at Lešnica near Otočec. Cellar tours, tastings and wine collection.',
+        'The Colnar family cellar at Lešnica 8 near Otočec, built in 2022: reds age in oak, whites in steel. Cellar tours, tastings and wine collection.',
     },
     vineyards: {
       title: 'Our vineyards — Vinska klet Colnar',
       description:
-        'The Colnar vineyards above the Krka valley, looking across to the Gorjanci — Trška gora, Razbore, Grčevje, Ždinja Vas and Vinji vrh.',
+        'Twenty hectares and 100,000 vines on five sunny sites above the Krka valley, facing the Gorjanci — Trška gora, Razbore, Grčevje, Ždinja Vas and Vinji vrh.',
     },
     vinoteka: {
       title: 'The wine bar — Vinska klet Colnar',
@@ -66,7 +66,7 @@ export const en: Content = {
     tasting: {
       title: 'Tasting — Vinska klet Colnar',
       description:
-        'A tasting of three to six wines with a tour of the modern cellar at Lešnica, served with a board of local charcuterie. Book your date.',
+        'A tasting of three to six wines with a tour of the cellar at Lešnica, served with a board of local charcuterie. From €16 per person. Book your date.',
     },
   },
 
@@ -227,6 +227,11 @@ export const en: Content = {
     title: 'Vineyards',
     standfirst: 'above the Krka valley, looking to the Gorjanci',
     heroAlt: 'A vineyard on a sunny slope looking over the valley to the Gorjanci',
+    lede: 'Twenty hectares of vineyard on five sunny sites above the Krka valley, looking across to the Gorjanci.',
+    prose: [
+      'Janez VII and his brother Matjaž planted the first vines in 2001. Today 100,000 vines grow on the five sites, pruned and picked by the family itself.',
+      'Everything the estate makes comes from these rows — cviček, which is 60% of the crop, and beside it the whites, the rosé, modra frankinja, laški rizling, the sparkling wines and Collis.',
+    ],
     sitesHead: 'Sunny sites',
     sites: ['Trška gora', 'Razbore', 'Grčevje', 'Ždinja Vas', 'Vinji vrh'],
     photoPending: 'Photograph to follow',

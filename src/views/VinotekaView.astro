@@ -7,6 +7,7 @@ import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/vinoteka-hero.jpg';
 import { menu } from '../data/vinoteka-menu';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
+import { menu as menuSchema } from '../data/schema';
 
 interface Props {
   lang: Lang;
@@ -23,6 +24,9 @@ const euro = new Intl.NumberFormat(t.numberLocale, {
 });
 const litres = new Intl.NumberFormat(t.numberLocale, { maximumFractionDigits: 3 });
 
+const canonical = new URL(routes[lang].vinoteka, Astro.site).href;
+const schema = menuSchema(Astro.site!, canonical, t, c.menu.sections.bar, menu, c.menu);
+
 const size = (item: { ml?: number; g?: number }) => {
   if (item.ml) return `${litres.format(item.ml / 1000)} l`;
   if (item.g) return `${litres.format(item.g)} g`;
@@ -30,7 +34,7 @@ const size = (item: { ml?: number; g?: number }) => {
 };
 ---
 
-<Base lang={lang} page="vinoteka">
+<Base lang={lang} page="vinoteka" schema={schema}>
   <Nav lang={lang} toggleHref={routes[otherLang(lang)].vinoteka} />
 
   <PageHero

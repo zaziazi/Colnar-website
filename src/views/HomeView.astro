@@ -17,7 +17,7 @@ const { lang } = Astro.props;
 const t = getContent(lang);
 ---
 
-<Base lang={lang} page="home" structuredData>
+<Base lang={lang} page="home">
   <Nav lang={lang} toggleHref={routes[otherLang(lang)].home} />
 
   <Hero lang={lang} />

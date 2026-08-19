@@ -43,6 +43,14 @@ const photos: Record<string, ImageMetadata> = {};
   />
 
   <main class="wrap">
+    <div class="page-intro" data-reveal>
+      <p>{v.lede}</p>
+    </div>
+
+    <div class="page-prose" data-reveal>
+      {v.prose.map((para) => <p>{para}</p>)}
+    </div>
+
     <div class="stats-lead">
       <Stats lang={lang} />
     </div>

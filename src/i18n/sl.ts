@@ -32,7 +32,7 @@ export const sl: Content = {
 
   meta: {
     home: {
-      title: 'Vinska klet Colnar — družinska vinska klet na Dolenjskem od 1747',
+      title: 'Vinska klet Colnar — družinska klet na Dolenjskem od 1747',
       description:
         'Družina Colnar prideluje vino v Lešnici pri Otočcu. Rezervirajte degustacijo z ogledom kleti ali se oglasite v Vinoteki Colnar v Novem mestu.',
     },
@@ -44,12 +44,12 @@ export const sl: Content = {
     cellar: {
       title: 'Vinska klet — Vinska klet Colnar',
       description:
-        'Sodobna vinska klet iz leta 2022 v Lešnici pri Otočcu. Možen je ogled kleti, degustacija in prevzem vina.',
+        'Sodobna klet družine Colnar iz leta 2022 na Lešnici 8 pri Otočcu. Rdeča vina zorimo v hrastovih sodih. Možen je ogled kleti, degustacija in prevzem vina.',
     },
     vineyards: {
       title: 'Naši vinogradi — Vinska klet Colnar',
       description:
-        'Vinogradi družine Colnar nad dolino reke Krke, s pogledom na Gorjance — Trška gora, Razbore, Grčevje, Ždinja Vas in Vinji vrh.',
+        'Dvajset hektarjev in 100.000 trt na petih sončnih legah nad dolino Krke, s pogledom na Gorjance — Trška gora, Razbore, Grčevje, Ždinja Vas in Vinji vrh.',
     },
     vinoteka: {
       title: 'Vinoteka Colnar — Supernova Novo mesto',
@@ -59,7 +59,7 @@ export const sl: Content = {
     tasting: {
       title: 'Degustacija — Vinska klet Colnar',
       description:
-        'Degustacija treh do šestih vin z ogledom sodobne vinske kleti iz leta 2022 na Lešnici, z narezki domačih dobrot. Prijavite se na termin.',
+        'Degustacija treh do šestih vin z ogledom sodobne kleti na Lešnici, z narezki domačih dobrot. Od 16 € na osebo. Prijavite se na termin.',
     },
   },
 
@@ -217,6 +217,11 @@ export const sl: Content = {
     title: 'Vinogradi',
     standfirst: 'nad dolino reke Krke, s pogledom na Gorjance',
     heroAlt: 'Vinograd na sončni legi s pogledom na dolino in Gorjance',
+    lede: 'Dvajset hektarjev vinogradov na petih sončnih legah nad dolino reke Krke, s pogledom na Gorjance.',
+    prose: [
+      'Prvo trto sta Janez VII. in brat Matjaž posadila leta 2001. Danes na petih legah raste 100.000 trt, ki jih obrezujemo in beremo sami.',
+      'Iz teh vrst pride vse, kar pridelamo — cviček, ki predstavlja 60 % pridelka, ob njem pa bela vina, rosé, modra frankinja, laški rizling, penina in collis.',
+    ],
     sitesHead: 'Sončne lege',
     sites: ['Trška gora', 'Razbore', 'Grčevje', 'Ždinja Vas', 'Vinji vrh'],
     photoPending: 'Fotografija sledi',

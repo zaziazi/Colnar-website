@@ -385,6 +385,42 @@ in Slovenian and gives the estate's e-mail and phone, rather than showing a
 success message for a reservation that went nowhere. Configure the endpoint
 before launch.
 
+## Findability
+
+Two audiences read this site: search engines, and the assistants people now ask
+instead of searching. Both want the same thing — plain facts, stated once, in a
+form a machine can lift.
+
+**Structured data.** `src/data/schema.ts` builds one `@graph` per page:
+
+| Page | Nodes |
+| --- | --- |
+| `/` | `Winery`, `WebSite`, `WebPage` |
+| `/vina` | + `ItemList` of ten `Product`s — description, photograph, distributor link |
+| `/degustacija` | + `Service` with an `Offer` per tasting size and add-on |
+| `/vinoteka` | + `BarOrPub`/`LiquorStore` with a `Menu`: 189 `MenuItem`s, each with its price and pour |
+| every sub-page | + `BreadcrumbList` |
+
+The `Winery` node carries the address, the VAT number, the founding year, the
+three map links, and the vinoteka and zidanica as departments. Everything points
+at it by `@id` rather than restating it.
+
+The rule is that **nothing is marked up that the page does not show**. The
+tasting offers are the figures in its cenik; the menu is the list itself; the
+wines carry no prices, because none are printed there. That is Google's own
+condition and it is what keeps the markup honest. The vinoteka's graph is 36 KB
+raw and 3.6 KB over the wire — the richest thing on the site, and the reason an
+assistant can answer *what does a glass of cviček cost in Novo mesto*.
+
+**`/llms.txt`** — the estate in plain text: who, where, opening hours, the ten
+wines, the tasting prices, and the whole cenik. Generated in
+`src/pages/llms.txt.ts` from the same content the pages are built from, so it
+cannot drift from them. `robots.txt` points at it.
+
+**Titles and descriptions** are 30–60 and 134–165 characters, each naming the
+estate, the place, and what is on offer — a description is an answer, not a
+teaser.
+
 ## Before this goes live
 
 Four things need the owner, not the developer. Every factual question the

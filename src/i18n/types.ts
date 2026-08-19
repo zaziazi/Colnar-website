@@ -116,6 +116,8 @@ export type Content = {
     title: string;
     standfirst: string;
     heroAlt: string;
+    lede: string;
+    prose: string[];
     sitesHead: string;
     sites: string[];
     photoPending: string;

@@ -8,7 +8,12 @@ import type { APIRoute } from 'astro';
 export const GET: APIRoute = ({ site }) => {
   const sitemap = new URL('sitemap-index.xml', site).href;
 
-  return new Response(`User-agent: *\nAllow: /\n\nSitemap: ${sitemap}\n`, {
-    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-  });
+  const llms = new URL('llms.txt', site).href;
+
+  return new Response(
+    `User-agent: *\nAllow: /\n\nSitemap: ${sitemap}\n\n# The estate in plain text, for assistants: ${llms}\n`,
+    {
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    },
+  );
 };

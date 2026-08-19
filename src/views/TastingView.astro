@@ -5,6 +5,7 @@ import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/degustacija-hero.jpg';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
+import { tasting as tastingSchema } from '../data/schema';
 
 interface Props {
   lang: Lang;
@@ -13,6 +14,9 @@ interface Props {
 const { lang } = Astro.props;
 const t = getContent(lang);
 const d = t.tasting;
+
+const canonical = new URL(routes[lang].tasting, Astro.site).href;
+const schema = [tastingSchema(Astro.site!, canonical, t, d.perPerson)];
 const f = d.form;
 
 /*
@@ -24,7 +28,7 @@ const f = d.form;
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
 ---
 
-<Base lang={lang} page="tasting">
+<Base lang={lang} page="tasting" schema={schema}>
   <Nav lang={lang} toggleHref={routes[otherLang(lang)].tasting} />
 
   <PageHero

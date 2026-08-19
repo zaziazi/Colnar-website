@@ -3,74 +3,39 @@ import '../styles/fonts.css';
 import '../styles/site.css';
 import AgeGate from '../components/AgeGate.astro';
 import { getContent, alternates, otherLang, routes, type Lang, type RouteKey } from '../i18n';
+import { winery, website, webPage, breadcrumb, type Node } from '../data/schema';
 
 interface Props {
   lang: Lang;
   page: RouteKey;
-  /** Winery JSON-LD belongs on the homepage only. */
-  structuredData?: boolean;
+  /** Nodes this page adds to the graph — its menu, its offers, its wines. */
+  schema?: Node[];
 }
 
-const { lang, page, structuredData = false } = Astro.props;
+const { lang, page, schema = [] } = Astro.props;
 const t = getContent(lang);
 const { title, description } = t.meta[page];
 
 const canonical = new URL(routes[lang][page], Astro.site);
 const ogImage = new URL('/og-colnar.jpg', Astro.site);
 
-const winery = {
-  '@context': 'https://schema.org',
-  '@type': 'Winery',
-  name: t.siteName,
-  legalName: t.legalName,
-  description,
-  url: new URL(routes[lang].home, Astro.site).href,
-  image: ogImage.href,
-  email: 'info@colnar.si',
-  telephone: '+386 31 288 724',
-  foundingDate: '1747',
-  vatID: 'SI43099807',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Lešnica 8',
-    postalCode: '8222',
-    addressLocality: 'Otočec',
-    addressCountry: 'SI',
-  },
-  department: [
-    {
-      '@type': 'Winery',
-      name: 'Vinoteka Colnar',
-      telephone: '+386 41 871 425',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Otoška cesta 5',
-        postalCode: '8000',
-        addressLocality: 'Novo mesto',
-        addressCountry: 'SI',
-      },
-      openingHoursSpecification: [
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          opens: '09:00',
-          closes: '21:00',
-        },
-      ],
-    },
-    {
-      '@type': 'Winery',
-      name: 'Zidanica Colnar',
-      telephone: '+386 31 725 830',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Črešnjice 124',
-        addressLocality: 'Otočec',
-        addressCountry: 'SI',
-      },
-    },
-  ],
-};
+const home = new URL(routes[lang].home, Astro.site).href;
+
+/*
+ * One graph per page: the estate, the site, this page, its breadcrumb, and
+ * whatever the page itself adds. Nothing is marked up here that the page does
+ * not also show — the prices in the graph are the prices on the page.
+ */
+const graph: Node[] = [
+  winery(Astro.site!, t, home, ogImage.href),
+  webPage(Astro.site!, t, canonical.href, title, description, ogImage.href),
+  ...(page === 'home'
+    ? [website(Astro.site!, t, home)]
+    : [breadcrumb(home, t.siteName, canonical.href, t.meta[page].title.split(' — ')[0])]),
+  ...schema,
+];
+
+const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 ---
 
 <!doctype html>
@@ -104,11 +69,7 @@ const winery = {
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    {
-      structuredData && (
-        <script type="application/ld+json" set:html={JSON.stringify(winery)} is:inline />
-      )
-    }
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
 
     {/*
       Both before first paint: `js` so the hero and the reveals only hide when
