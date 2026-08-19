@@ -5,6 +5,12 @@ import AgeGate from '../components/AgeGate.astro';
 import { getContent, alternates, otherLang, routes, type Lang, type RouteKey } from '../i18n';
 import { winery, website, webPage, breadcrumb, type Node } from '../data/schema';
 import { getImage } from 'astro:assets';
+/*
+ * The one face that is on screen before anything scrolls: Cormorant 300, latin.
+ * Imported for its fingerprinted URL so the preload cannot drift from the
+ * @font-face. The rest are left to `font-display: swap`.
+ */
+import cormorant300 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-300-normal.woff2?url';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
@@ -14,9 +20,11 @@ interface Props {
   schema?: Node[];
   /** The page's own photograph for sharing; the estate's card if none is given. */
   ogImage?: ImageMetadata;
+  /** What that photograph shows, for anyone who cannot see it. */
+  ogImageAlt?: string;
 }
 
-const { lang, page, schema = [], ogImage: ogSource } = Astro.props;
+const { lang, page, schema = [], ogImage: ogSource, ogImageAlt } = Astro.props;
 const t = getContent(lang);
 const { title, description } = t.meta[page];
 
@@ -60,6 +68,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical.href} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href={cormorant300} as="font" type="font/woff2" crossorigin />
     <meta name="theme-color" content="#f3f2f2" />
 
     {/* Each page declares both languages, and a default for everyone else. */}
@@ -80,7 +89,9 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
     <meta property="og:image" content={ogImage.href} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt ?? t.siteName} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:alt" content={ogImageAlt ?? t.siteName} />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
 

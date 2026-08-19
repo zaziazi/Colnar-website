@@ -430,6 +430,16 @@ wines, the tasting prices, and the whole cenik. Generated in
 `src/pages/llms.txt.ts` from the same content the pages are built from, so it
 cannot drift from them. `robots.txt` points at it.
 
+**The rest of the head**: `preload` for Cormorant 300 latin, the one face on
+screen before anything scrolls; `og:image:alt` and `twitter:image:alt` on every
+page; `aria-current="page"` on the nav link — or the wordmark, at home — that is
+where you already are.
+
+**`public/_headers`** now carries `X-Content-Type-Options`, `Referrer-Policy`,
+`X-Frame-Options`, `Permissions-Policy` and a year of HSTS alongside the caching
+rules. There is still no Content-Security-Policy: the age gate's script is
+inline, so a policy worth having needs its hash — worth doing, not free.
+
 **The `sameAs` and the award** were not in the handoff and are not guesses. The
 estate's own Instagram bio names the two profiles and the title — *King of
 cviček 08', 14' and 2022* — and the title is corroborated by Slovenske novice,
@@ -452,6 +462,17 @@ card at `public/og-colnar.jpg`.
 **A 404 page** (`src/pages/404.astro`) sits outside `Base` — a missing page has
 no canonical and no counterpart in the other language. It is bilingual, carries
 `noindex, follow`, and offers both front doors.
+
+**The sitemap pairs the languages itself.** `@astrojs/sitemap`'s `i18n` option
+matches pages whose paths agree after the locale segment, and ours do not —
+`/vina` and `/en/wines` are one page under two words. So `astro.config.mjs`
+serialises the alternates from the route map instead, and all twelve entries
+carry both `xhtml:link`s.
+
+**No `lastmod`, on purpose.** Every page's copy lives in `sl.ts` and `en.ts`, so
+git cannot say which page an edit changed: a date derived from those files would
+bump all twelve whenever one word moved. A `lastmod` that is always today is a
+signal search engines learn to ignore, which is worse than not sending one.
 
 **Titles and descriptions** are 30–60 and 134–165 characters, each naming the
 estate, the place, and what is on offer — a description is an answer, not a

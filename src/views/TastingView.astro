@@ -28,7 +28,7 @@ const f = d.form;
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
 ---
 
-<Base lang={lang} page="tasting" schema={schema} ogImage={heroPhoto}>
+<Base lang={lang} page="tasting" schema={schema} ogImage={heroPhoto} ogImageAlt={d.heroAlt}>
   <Nav lang={lang} toggleHref={routes[otherLang(lang)].tasting} />
 
   <PageHero

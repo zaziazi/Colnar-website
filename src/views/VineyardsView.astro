@@ -31,7 +31,7 @@ const v = getContent(lang).vineyards;
 const photos: Record<string, ImageMetadata> = {};
 ---
 
-<Base lang={lang} page="vineyards" ogImage={heroPhoto}>
+<Base lang={lang} page="vineyards" ogImage={heroPhoto} ogImageAlt={v.heroAlt}>
   <Nav lang={lang} toggleHref={routes[otherLang(lang)].vineyards} />
 
   <PageHero

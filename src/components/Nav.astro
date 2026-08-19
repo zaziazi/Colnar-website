@@ -12,6 +12,11 @@ interface Props {
 
 const { lang, alwaysVisible = false, toggleHref } = Astro.props;
 const t = getContent(lang);
+
+/* Which link is this page. Both sides carry trailing slashes, so they compare. */
+const here = Astro.url.pathname;
+const current = (to: Parameters<typeof route>[1]) =>
+  route(lang, to) === here ? 'page' : undefined;
 const state = alwaysVisible ? 'is-visible' : '';
 const all = [...t.nav.left, ...t.nav.right];
 const other = otherLang(lang);
@@ -20,13 +25,25 @@ const other = otherLang(lang);
 <header>
   <nav class={`nav nav--desktop ${state}`} data-nav aria-label={t.nav.menuAria}>
     <div class="nav-links">
-      {t.nav.left.map((link) => <a href={route(lang, link.to)}>{link.label}</a>)}
+      {
+        t.nav.left.map((link) => (
+          <a href={route(lang, link.to)} aria-current={current(link.to)}>
+            {link.label}
+          </a>
+        ))
+      }
     </div>
-    <a class="nav-mark" href={route(lang, 'home')} aria-label="Colnar">
+    <a class="nav-mark" href={route(lang, 'home')} aria-label="Colnar" aria-current={current('home')}>
       <Logo class="nav-mark-glyph" />
     </a>
     <div class="nav-links nav-links--end">
-      {t.nav.right.map((link) => <a href={route(lang, link.to)}>{link.label}</a>)}
+      {
+        t.nav.right.map((link) => (
+          <a href={route(lang, link.to)} aria-current={current(link.to)}>
+            {link.label}
+          </a>
+        ))
+      }
       <a class="nav-lang" href={toggleHref} hreflang={other} lang={other}>{t.nav.toggle}</a>
     </div>
   </nav>
@@ -39,13 +56,19 @@ const other = otherLang(lang);
       aria-expanded="false"
       aria-controls="nav-panel">{t.nav.menu}</button
     >
-    <a class="nav-mark" href={route(lang, 'home')} aria-label="Colnar">
+    <a class="nav-mark" href={route(lang, 'home')} aria-label="Colnar" aria-current={current('home')}>
       <Logo class="nav-mark-glyph" />
     </a>
     <a class="nav-lang" href={toggleHref} hreflang={other} lang={other}>{t.nav.toggle}</a>
   </nav>
 
   <div class="nav-panel" id="nav-panel" data-menu-panel data-open="false">
-    {all.map((link) => <a href={route(lang, link.to)}>{link.label}</a>)}
+    {
+      all.map((link) => (
+        <a href={route(lang, link.to)} aria-current={current(link.to)}>
+          {link.label}
+        </a>
+      ))
+    }
   </div>
 </header>

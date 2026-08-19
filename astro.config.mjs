@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { routes } from './src/i18n/index.ts';
 
 // https://astro.build/config
 /*
@@ -19,7 +20,32 @@ export default defineConfig({
   output: 'static',
   // Matches build.format below, and how a static host serves directory output.
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [
+    /*
+     * Each entry carries its counterpart as an xhtml:link — the sitemap's own
+     * way of saying that /vina and /en/wines are one page in two languages.
+     *
+     * Done by hand rather than with the integration's `i18n` option: that one
+     * pairs pages whose paths match after the locale segment, and ours do not.
+     * `/vina` and `/en/wines` are the same page under two different words, so
+     * the route map is the only thing that knows they belong together.
+     */
+    sitemap({
+      serialize(item) {
+        const { origin, pathname } = new URL(item.url);
+        const pair = Object.keys(routes.sl).find(
+          (key) => routes.sl[key] === pathname || routes.en[key] === pathname,
+        );
+        if (pair) {
+          item.links = [
+            { lang: 'sl', url: origin + routes.sl[pair] },
+            { lang: 'en', url: origin + routes.en[pair] },
+          ];
+        }
+        return item;
+      },
+    }),
+  ],
   build: {
     // colnar.si/degustacija rather than colnar.si/degustacija/index.html
     format: 'directory',
