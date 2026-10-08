@@ -1846,8 +1846,8 @@ a.meta-value {
  */
 
 /*
- * The range as rows: each wine on a line of its own, bottle on one side and
- * name on the other, the sides alternating down each section. The bottles are
+ * The range as rows: each wine on a line of its own, bottle on the left and
+ * name on the right. The bottles are
  * keyed out, so they stand on the page rather than in boxes.
  */
 .wine-rows {
@@ -1914,15 +1914,6 @@ a.meta-value {
   font-size: clamp(34px, 4vw, 56px);
   line-height: 1.1;
   transition: color 0.3s ease;
-}
-
-/* Every other row turns round: name first, bottle second. */
-.wine-row:nth-child(even) .wine-row-figure {
-  order: 2;
-}
-
-.wine-row:nth-child(even) .wine-row-name {
-  text-align: right;
 }
 
 .wine-row a:hover .wine-row-name {
@@ -2201,12 +2192,7 @@ a.meta-value {
     height: 300px;
   }
 
-  .wine-row:nth-child(even) .wine-row-figure {
-    order: 0;
-  }
-
-  .wine-row-name,
-  .wine-row:nth-child(even) .wine-row-name {
+  .wine-row-name {
     font-size: 30px;
     text-align: center;
   }
