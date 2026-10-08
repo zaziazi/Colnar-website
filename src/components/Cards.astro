@@ -28,7 +28,12 @@ const photos: Record<string, { photo: ImageMetadata; position: string }> = {
   {
     t.home.cards.map((card) => (
       <article id={card.id} data-reveal>
-        <div class="card-frame">
+        {/*
+          The photograph opens the same page as the link under it. It is
+          kept out of the tab order and the accessibility tree, so keyboard
+          and screen-reader users meet that destination once, by its words.
+        */}
+        <a class="card-frame" href={route(lang, card.link.to)} tabindex="-1" aria-hidden="true">
           <Picture
             class="card-photo"
             pictureAttributes={{ class: 'pic' }}
@@ -41,7 +46,7 @@ const photos: Record<string, { photo: ImageMetadata; position: string }> = {
             loading="lazy"
             alt={card.alt}
           />
-        </div>
+        </a>
         <h3 class="card-title">{card.title}</h3>
         <p class="card-copy">{card.copy}</p>
         <a class="card-link" href={route(lang, card.link.to)}>
