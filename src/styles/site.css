@@ -1842,56 +1842,56 @@ a.meta-value {
  */
 
 /*
- * The range as a shelf: each wine is its bottle and its name, and the whole
- * tile opens the wine's own page, where the description and the figures live.
- * The bottles are keyed out, so they stand on the page rather than in boxes.
+ * The range as rows: each wine on a line of its own, bottle on one side and
+ * name on the other, the sides alternating down each section. The bottles are
+ * keyed out, so they stand on the page rather than in boxes.
  */
-.wine-grid {
+.wine-rows {
   list-style: none;
-  margin: 44px 0 0;
+  margin: 0;
   padding: 0;
+}
+
+.wine-row + .wine-row {
+  border-top: 1px solid var(--color-divider);
+}
+
+.wine-row a {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 64px 32px;
-}
-
-.wine-card a {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
-  gap: 22px;
-  text-align: center;
+  gap: 56px;
+  padding: 44px 0;
 }
 
-.wine-card-figure {
+.wine-row-figure {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  width: 100%;
-  height: 380px;
+  height: 440px;
 }
 
-.wine-card-figure .pic {
+.wine-row-figure .pic {
   height: 100%;
 }
 
-.wine-card-photo {
+.wine-row-photo {
   height: 100%;
   width: auto;
   object-fit: contain;
   transition: transform 0.5s var(--ease-out-soft);
 }
 
-.wine-card a:hover .wine-card-photo {
+.wine-row a:hover .wine-row-photo {
   transform: translateY(-6px);
 }
 
-/* A wine without its photograph keeps its place on the shelf. */
-.wine-card-pending {
+/* A wine without its photograph keeps its place in the row. */
+.wine-row-pending {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 58%;
+  width: 150px;
   height: 100%;
   border-radius: var(--radius-md);
   background: var(--color-surface);
@@ -1899,43 +1899,44 @@ a.meta-value {
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  text-align: center;
+  padding: 0 12px;
   color: color-mix(in srgb, var(--color-text) 66%, transparent);
 }
 
-.wine-card-name {
+.wine-row-name {
   font-family: var(--font-heading);
   font-weight: 300;
-  font-size: 26px;
-  line-height: 1.2;
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1.1;
   transition: color 0.3s ease;
 }
 
-.wine-card a:hover .wine-card-name {
+/* Every other row turns round: name first, bottle second. */
+.wine-row:nth-child(even) .wine-row-figure {
+  order: 2;
+}
+
+.wine-row:nth-child(even) .wine-row-name {
+  text-align: right;
+}
+
+.wine-row a:hover .wine-row-name {
   color: var(--color-accent-700);
 }
 
-.wine-card a:focus-visible {
+.wine-row a:focus-visible {
   outline: 1px solid var(--color-accent-700);
-  outline-offset: 8px;
+  outline-offset: 6px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .wine-card-photo {
+  .wine-row-photo {
     transition: none;
   }
 
-  .wine-card a:hover .wine-card-photo {
+  .wine-row a:hover .wine-row-photo {
     transform: none;
-  }
-}
-
-@media (max-width: 1039.98px) {
-  .wine-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .wine-card-figure {
-    height: 330px;
   }
 }
 
@@ -2184,22 +2185,26 @@ a.meta-value {
 }
 
 @media (max-width: 759.98px) {
-  .wine-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 44px 16px;
-    margin-top: 28px;
+  /* One column: bottle above, name below, every row the same way round. */
+  .wine-row a {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 32px 0;
+    text-align: center;
   }
 
-  .wine-card a {
-    gap: 14px;
+  .wine-row-figure {
+    height: 300px;
   }
 
-  .wine-card-figure {
-    height: 250px;
+  .wine-row:nth-child(even) .wine-row-figure {
+    order: 0;
   }
 
-  .wine-card-name {
-    font-size: 21px;
+  .wine-row-name,
+  .wine-row:nth-child(even) .wine-row-name {
+    font-size: 30px;
+    text-align: center;
   }
 
   .wine-link {

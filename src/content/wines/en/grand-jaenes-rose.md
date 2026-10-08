@@ -1,7 +1,8 @@
 ---
 ime: Grand Jaenes Rosé
 zvrst: penina rosé
-vrstniRed: 11
+vrstniRed: 2
+skupina: penine
 stil: penece
 volumen: 0.75
 alkohol: 12

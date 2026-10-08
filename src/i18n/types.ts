@@ -95,6 +95,8 @@ export type Content = {
     bottleAlt: (name: string) => string;
     /** Shown in place of a bottle not yet photographed. */
     photoPending: string;
+    /** The shelf's sections, in the order the page shows them. */
+    groups: { key: 'penine' | 'sveza' | 'bela' | 'rdeca'; label: string }[];
     kinds: Record<string, string>;
     cta: { heading: string; secondary: Link };
     /** A single wine's own page. */

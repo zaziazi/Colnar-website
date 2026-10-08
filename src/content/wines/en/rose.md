@@ -1,7 +1,8 @@
 ---
 ime: Rosé
 zvrst: rosé
-vrstniRed: 8
+vrstniRed: 7
+skupina: sveza
 stil: rose
 letnik: 2025
 volumen: 0.75

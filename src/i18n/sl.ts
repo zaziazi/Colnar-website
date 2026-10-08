@@ -174,6 +174,12 @@ export const sl: Content = {
     buy: 'Kupi na Evino',
     bottleAlt: (name) => `Steklenica — ${name}`,
     photoPending: 'Fotografija sledi',
+    groups: [
+      { key: 'penine', label: 'Penine' },
+      { key: 'sveza', label: 'Sveža vina' },
+      { key: 'bela', label: 'Bela vina' },
+      { key: 'rdeca', label: 'Rdeča vina' },
+    ],
     kinds: {
       belo: 'belo',
       'rdeče': 'rdeče',

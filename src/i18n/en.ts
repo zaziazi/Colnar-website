@@ -181,6 +181,12 @@ export const en: Content = {
     buy: 'Buy at Evino',
     bottleAlt: (name) => `Bottle — ${name}`,
     photoPending: 'Photograph to follow',
+    groups: [
+      { key: 'penine', label: 'Sparkling wines' },
+      { key: 'sveza', label: 'Fresh wines' },
+      { key: 'bela', label: 'White wines' },
+      { key: 'rdeca', label: 'Red wines' },
+    ],
     kinds: {
       belo: 'white',
       'rdeče': 'red',

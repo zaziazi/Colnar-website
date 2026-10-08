@@ -57,44 +57,50 @@ const schema = [
       {t.wines.prose.map((para) => <p>{para}</p>)}
     </div>
 
-    <section aria-labelledby="seznam-vin">
-      <div class="section-gap" data-reveal>
-        <h2 class="section-head" id="seznam-vin">{t.wines.listHead}</h2>
-      </div>
-
-      {/*
-        The shelf: bottle and name only. Everything else about a wine is one
-        click away on its own page.
-      */}
-      <ul class="wine-grid" data-reveal>
-        {
-          wines.map((wine) => (
-            <li class="wine-card">
-              <a href={pageOf(wine.id)}>
-                <div class="wine-card-figure">
-                  {wine.data.slika ? (
-                    <Picture
-                      class="wine-card-photo"
-                      pictureAttributes={{ class: 'pic' }}
-                      src={wine.data.slika}
-                      formats={['avif', 'webp']}
-                      fallbackFormat="png"
-                      widths={[110, 160]}
-                      sizes="(max-width: 759.98px) 70px, 105px"
-                      loading="lazy"
-                      alt=""
-                    />
-                  ) : (
-                    <span class="wine-card-pending">{t.wines.photoPending}</span>
-                  )}
-                </div>
-                <h3 class="wine-card-name">{wine.data.ime}</h3>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
+    {/*
+      The range in four sections, each wine on a row of its own: the bottle on
+      one side and its name on the other, sides alternating, so no wine is one
+      tile among many. The whole row opens the wine's page.
+    */}
+    {
+      t.wines.groups.map((group) => (
+        <section aria-labelledby={`vina-${group.key}`}>
+          <div class="section-gap" data-reveal>
+            <h2 class="section-head" id={`vina-${group.key}`}>
+              {group.label}
+            </h2>
+          </div>
+          <ul class="wine-rows">
+            {wines
+              .filter((wine) => wine.data.skupina === group.key)
+              .map((wine) => (
+                <li class="wine-row" data-reveal>
+                  <a href={pageOf(wine.id)}>
+                    <div class="wine-row-figure">
+                      {wine.data.slika ? (
+                        <Picture
+                          class="wine-row-photo"
+                          pictureAttributes={{ class: 'pic' }}
+                          src={wine.data.slika}
+                          formats={['avif', 'webp']}
+                          fallbackFormat="png"
+                          widths={[120, 160]}
+                          sizes="120px"
+                          loading="lazy"
+                          alt=""
+                        />
+                      ) : (
+                        <span class="wine-row-pending">{t.wines.photoPending}</span>
+                      )}
+                    </div>
+                    <h3 class="wine-row-name">{wine.data.ime}</h3>
+                  </a>
+                </li>
+              ))}
+          </ul>
+        </section>
+      ))
+    }
 
     <CtaBand lang={lang} heading={t.wines.cta.heading} secondary={t.wines.cta.secondary} />
   </main>

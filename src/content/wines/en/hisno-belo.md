@@ -1,7 +1,8 @@
 ---
 ime: Hišno belo
 zvrst: belo
-vrstniRed: 3
+vrstniRed: 6
+skupina: sveza
 stil: sveze-belo
 letnik: 2024
 volumen: 0.75

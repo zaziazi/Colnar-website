@@ -1,7 +1,8 @@
 ---
 ime: Chardonnay
 zvrst: belo
-vrstniRed: 5
+vrstniRed: 10
+skupina: bela
 volumen: 0.75
 ---
 
