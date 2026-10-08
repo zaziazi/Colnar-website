@@ -24,9 +24,12 @@ const t = getContent(lang);
 
   <main>
     <div class="wrap">
-      <section class="story" data-reveal>
-        <h2>{t.home.storyHead}</h2>
-        <p>{t.home.storyCopy}</p>
+      {/*
+        One line where the story section used to be. The family's story is
+        told by the timeline right below it; this only invites the reader in.
+      */}
+      <section class="lead" aria-label={t.home.storyHead} data-reveal>
+        <p class="lead-line">{t.home.lead}</p>
       </section>
 
       <section aria-labelledby="skozi-leta">

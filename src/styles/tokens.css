@@ -15,6 +15,7 @@
   --color-accent-300: #facb8d; /* small labels on dark ground */
   --color-accent-400: #e1ad66; /* gold on dark ground */
   --color-accent-700: #7d5411; /* gold for small text on light ground */
+  --color-plate: #ffffff; /* ground for official logos, which are set on white */
 
   /* Type — Bold is never used; weight 300 above ~28px. */
   --font-heading: 'Cormorant Garamond', Cormorant, Garamond, Georgia, 'Times New Roman', serif;

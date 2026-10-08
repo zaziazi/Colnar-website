@@ -61,6 +61,11 @@ export const sl: Content = {
       description:
         'Degustacija treh do šestih vin z ogledom sodobne kleti na Lešnici, z narezki domačih dobrot. Od 16 € na osebo. Prijavite se na termin.',
     },
+    funding: {
+      title: 'Naložba v opremo vinske kleti — Vinska klet Colnar',
+      description:
+        'Naložba Kmetijskega gospodarstva Colnar v opremo vinske kleti: generator dušika, lesene sode in opremo za skladiščenje vina. Sofinancira Evropska unija.',
+    },
   },
 
   home: {
@@ -71,8 +76,7 @@ export const sl: Content = {
     ],
     scrollHint: 'Pomaknite se navzdol',
     storyHead: 'Naša Zgodba',
-    storyCopy:
-      'Družina Colnar je stara rodbina, ki ljubezen do prelepih dolenjskih gričev in zemlje skozi leta prenaša iz roda v rod.',
+    lead: 'Pustite se zapeljati med naše dolenjske griče in spoznajte vina, ki jih rodijo.',
     yearsHead: 'Skozi leta',
     milestones: [
       {
@@ -432,6 +436,25 @@ export const sl: Content = {
         ok: 'Hvala — vaša prijava je oddana. Oglasimo se v najkrajšem času.',
       },
     },
+  },
+
+  funding: {
+    eyebrow: 'Sofinanciranje',
+    title: 'Naložba v opremo vinske kleti',
+    logoAlt: 'Sofinancira Evropska unija · Republika Slovenija · Skupna kmetijska politika',
+    footerLink: 'Sofinanciranje naložbe v opremo vinske kleti',
+    interventionLabel: 'Naziv intervencije',
+    intervention:
+      '1. Javni razpis za podintervencijo naložbe kmetij v okviru intervencije IRP35 Naložbe v predelavo in trženje kmetijskih proizvodov za dvig produktivnosti in tehnološki razvoj, vključno z digitalizacijo, za leto 2025',
+    operationLabel: 'Naziv operacije',
+    operation: 'Naložba v opremo vinske kleti',
+    descriptionLabel: 'Kratek opis',
+    description:
+      'Kmetijsko gospodarstvo Colnar se na 1. Javni razpis za podintervencijo naložbe kmetij v okviru intervencije IRP35 Naložbe v predelavo in trženje kmetijskih proizvodov za dvig produktivnosti in tehnološki razvoj, vključno z digitalizacijo, za leto 2025 prijavlja z naložbo v:',
+    items: ['generator dušika,', 'lesene sode,', 'opremo za skladiščenje vina.'],
+    goalsLabel: 'Cilji operacije',
+    goals:
+      'Razlogi za odločitev o izvedbi naložbe so povezani s potrebami po posodabljanju osnovnih sredstev na kmetijskem gospodarstvu. Oprema za predelavo vina se sčasoma z uporabo amortizira, zaradi česar jo je potrebno zamenjati z novo, ki je poleg tega običajno tudi tehnološko naprednejša. Kmetijsko gospodarstvo na ta način lahko normalno obratuje in se obenem tudi razvija.',
   },
 
   footer: {

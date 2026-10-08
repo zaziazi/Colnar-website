@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import Logo from './Logo.astro';
-import { getContent, type Lang } from '../i18n';
+import fundingLogo from '../assets/brand/sofinanciranje-eu-skp.jpg';
+import { getContent, route, type Lang } from '../i18n';
 
 interface Props {
   lang: Lang;
@@ -42,6 +44,18 @@ const t = getContent(lang);
       ))
     }
   </div>
+
+  {/*
+    The co-financing marking the funding body requires, on every page: the
+    official logo strip as issued, on white, linking to the page with the
+    operation's particulars.
+  */}
+  <a class="funding-strip" href={route(lang, 'funding')}>
+    <span class="funding-plate">
+      <Image class="funding-logo" src={fundingLogo} alt={t.funding.logoAlt} width={406} densities={[1, 2]} />
+    </span>
+    <span class="funding-strip-link">{t.funding.footerLink}</span>
+  </a>
 
   <div class="colophon">
     <Logo class="colophon-mark" label="Colnar" />

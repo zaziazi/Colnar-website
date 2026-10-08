@@ -68,6 +68,11 @@ export const en: Content = {
       description:
         'A tasting of three to six wines with a tour of the cellar at Lešnica, served with a board of local charcuterie. From €16 per person. Book your date.',
     },
+    funding: {
+      title: 'Investment in wine cellar equipment — Vinska klet Colnar',
+      description:
+        'The Colnar farm’s investment in wine cellar equipment: a nitrogen generator, wooden barrels and wine storage equipment. Co-funded by the European Union.',
+    },
   },
 
   home: {
@@ -78,8 +83,7 @@ export const en: Content = {
     ],
     scrollHint: 'Scroll down',
     storyHead: 'Our Story',
-    storyCopy:
-      'The Colnars are an old family, passing on their love of the beautiful Dolenjska hills and of the land itself from one generation to the next.',
+    lead: 'Let us take you through the hills of Dolenjska, and meet the wines they bear.',
     yearsHead: 'Through the years',
     milestones: [
       {
@@ -438,6 +442,25 @@ export const en: Content = {
         ok: 'Thank you — your booking has been sent. We will be in touch shortly.',
       },
     },
+  },
+
+  funding: {
+    eyebrow: 'Co-financing',
+    title: 'Investment in wine cellar equipment',
+    logoAlt: 'Co-funded by the European Union · Republic of Slovenia · Common Agricultural Policy',
+    footerLink: 'Co-financing of our investment in wine cellar equipment',
+    interventionLabel: 'Intervention',
+    intervention:
+      '1st public call for the sub-intervention farm investments under intervention IRP35, Investments in the processing and marketing of agricultural products to increase productivity and for technological development, including digitalisation, for 2025',
+    operationLabel: 'Operation',
+    operation: 'Investment in wine cellar equipment',
+    descriptionLabel: 'Summary',
+    description: 'The Colnar agricultural holding has applied to this call with an investment in:',
+    items: ['a nitrogen generator,', 'wooden barrels,', 'wine storage equipment.'],
+    goalsLabel: 'Objectives',
+    goals:
+      'The investment answers the need to renew the holding’s fixed assets. Winemaking equipment wears out with use and has to be replaced with new equipment, which is usually also more technologically advanced. This lets the holding keep operating normally and continue to develop.',
+    note: 'This is a translation. The Slovenian version of this page is the official one.',
   },
 
   footer: {

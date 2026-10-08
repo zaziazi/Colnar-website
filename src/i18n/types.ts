@@ -61,8 +61,10 @@ export type Content = {
     heroAlt: string;
     heroLinks: Link[];
     scrollHint: string;
+    /** Names the opening line for screen readers; no longer printed. */
     storyHead: string;
-    storyCopy: string;
+    /** The one line the page opens on once the hero gives way. */
+    lead: string;
     yearsHead: string;
     milestones: Milestone[];
     stats: Stat[];
@@ -211,6 +213,30 @@ export type Content = {
       extraItems: { value: string; name: string; note?: string; price: number }[];
       messages: FormMessages;
     };
+  };
+
+  /**
+   * The co-financing notice the funding body requires: the EU / Slovenia /
+   * Skupna kmetijska politika logo on every page, linking to a page with the
+   * operation's official particulars. The Slovenian texts are the official
+   * ones and are carried verbatim.
+   */
+  funding: {
+    eyebrow: string;
+    title: string;
+    logoAlt: string;
+    footerLink: string;
+    interventionLabel: string;
+    intervention: string;
+    operationLabel: string;
+    operation: string;
+    descriptionLabel: string;
+    description: string;
+    items: string[];
+    goalsLabel: string;
+    goals: string;
+    /** English only: says which version is authoritative. */
+    note?: string;
   };
 
   footer: { columns: FooterColumn[] };

@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import fundingLogo from '../assets/brand/sofinanciranje-eu-skp.jpg';
+import { getContent, routes, otherLang, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const f = getContent(lang).funding;
+
+/*
+ * The page the funding body asks for: the logo, then the operation's official
+ * particulars in their own words. No hero photograph — this is a notice, and
+ * it should read like one. The Slovenian text is carried verbatim.
+ */
+---
+
+<Base lang={lang} page="funding">
+  <Nav lang={lang} alwaysVisible toggleHref={routes[otherLang(lang)].funding} />
+
+  <main class="wrap funding-page">
+    <p class="funding-eyebrow">{f.eyebrow}</p>
+    <h1 class="funding-title">{f.title}</h1>
+
+    <div class="funding-plate">
+      <Image
+        class="funding-logo funding-logo--page"
+        src={fundingLogo}
+        alt={f.logoAlt}
+        width={507}
+        densities={[1, 2]}
+        loading="eager"
+      />
+    </div>
+
+    <dl class="funding-facts">
+      <div>
+        <dt>{f.interventionLabel}</dt>
+        <dd>{f.intervention}</dd>
+      </div>
+      <div>
+        <dt>{f.operationLabel}</dt>
+        <dd>{f.operation}</dd>
+      </div>
+      <div>
+        <dt>{f.descriptionLabel}</dt>
+        <dd>
+          <p>{f.description}</p>
+          <ul>{f.items.map((item) => <li>{item}</li>)}</ul>
+        </dd>
+      </div>
+      <div>
+        <dt>{f.goalsLabel}</dt>
+        <dd>{f.goals}</dd>
+      </div>
+    </dl>
+
+    {f.note && <p class="funding-note">{f.note}</p>}
+  </main>
+
+  <Footer lang={lang} />
+</Base>
