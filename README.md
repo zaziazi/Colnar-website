@@ -520,7 +520,7 @@ teaser.
 ## Before this goes live
 
 Four things need the owner, not the developer. Every factual question the
-handoff left open is now closed: the figures are 20 ha / 100.000 trt / 5 leg,
+handoff left open is now closed: the figures are 15 ha / 125.000 trt / 5 leg,
 there are twelve wines, and the first planting year is 2001.
 
 1. **Coordinates for the cellar.** The `Winery` has an address and a map link

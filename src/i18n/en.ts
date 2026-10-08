@@ -56,7 +56,7 @@ export const en: Content = {
     vineyards: {
       title: 'Our vineyards — Vinska klet Colnar',
       description:
-        'Twenty hectares and 100,000 vines on five sunny sites above the Krka valley, facing the Gorjanci — Trška gora, Razbore, Grčevje, Ždinja Vas and Vinji vrh.',
+        'Fifteen hectares and 125,000 vines on five sunny sites above the Krka valley, facing the Gorjanci — Trška gora, Razbore, Grčevje, Ždinja Vas and Vinji vrh.',
     },
     vinoteka: {
       title: 'The wine bar — Vinska klet Colnar',
@@ -113,8 +113,8 @@ export const en: Content = {
       },
     ],
     stats: [
-      { value: 20, unit: 'ha', label: 'Of vineyards' },
-      { value: 100000, grouped: true, label: 'Vines' },
+      { value: 15, unit: 'ha', label: 'Of vineyards' },
+      { value: 125000, grouped: true, label: 'Vines' },
       { value: 5, label: 'Sunny sites' },
     ],
     cards: [
@@ -136,7 +136,7 @@ export const en: Content = {
         id: 'vinogradi',
         title: 'Vineyards',
         alt: 'Vineyards on a sunny slope above the Krka valley',
-        copy: 'Twenty hectares on five sunny sites above the Krka valley — 100,000 vines, which we prune and pick ourselves.',
+        copy: 'Fifteen hectares on five sunny sites above the Krka valley — 125,000 vines, which we prune and pick ourselves.',
         link: { label: 'See our vineyards', to: 'vineyards' },
       },
     ],
@@ -174,7 +174,7 @@ export const en: Content = {
     heroAlt: 'The Colnar name embossed on a bottle label',
     lede: 'Consistent quality comes before everything else — from the vine we prune and pick ourselves, to the bottle.',
     prose: [
-      'The grapes come from twenty hectares on five sunny sites above the Krka valley. Cviček, the speciality of Dolenjska, accounts for 60 % of everything we make; alongside it we produce white wines, chardonnay, rosé, modra frankinja, modri pinot, sparkling wine by the classic method, and Collis, which ages in an acacia cask. The estate has been named Kralj cvička — King of Cviček — in 2008, 2014 and 2022.',
+      'The grapes come from fifteen hectares on five sunny sites above the Krka valley. Cviček, the speciality of Dolenjska, accounts for 60 % of everything we make; alongside it we produce white wines, chardonnay, rosé, modra frankinja, modri pinot, sparkling wine by the classic method, and Collis, which ages in an acacia cask. The estate has been named Kralj cvička — King of Cviček — in 2008, 2014 and 2022.',
       'You can taste the wines at the cellar in Lešnica, or collect them there and at the Colnar wine bar in Novo mesto.',
     ],
     listHead: 'Wines',
@@ -258,9 +258,9 @@ export const en: Content = {
     title: 'Vineyards',
     standfirst: 'above the Krka valley, looking to the Gorjanci',
     heroAlt: 'A vineyard on a sunny slope looking over the valley to the Gorjanci',
-    lede: 'Twenty hectares of vineyard on five sunny sites above the Krka valley, looking across to the Gorjanci.',
+    lede: 'Fifteen hectares of vineyard on five sunny sites above the Krka valley, looking across to the Gorjanci.',
     prose: [
-      'Janez VII and his brother Matjaž planted the first vines in 2001. Today 100,000 vines grow on the five sites, pruned and picked by the family itself.',
+      'Janez VII and his brother Matjaž planted the first vines in 2001. Today 125,000 vines grow on the five sites, pruned and picked by the family itself.',
       'Everything the estate makes comes from these rows — cviček, which is 60% of the crop, and beside it the whites, the rosé, modra frankinja, laški rizling, the sparkling wines and Collis.',
     ],
     sitesHead: 'Sunny sites',

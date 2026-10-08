@@ -5,7 +5,7 @@ import { maps } from '../data/maps';
  * Slovenščina — izvirno besedilo.
  *
  * Prose here is the estate's own, from the design handoff and from colnar.si.
- * The confirmed figures are 20 ha / 100.000 trt / 5 leg, ten wines, and 2001 as
+ * The confirmed figures are 15 ha / 125.000 trt / 5 leg, ten wines, and 2001 as
  * the first planting year.
  */
 export const sl: Content = {
@@ -49,7 +49,7 @@ export const sl: Content = {
     vineyards: {
       title: 'Naši vinogradi — Vinska klet Colnar',
       description:
-        'Dvajset hektarjev in 100.000 trt na petih sončnih legah nad dolino Krke, s pogledom na Gorjance — Trška gora, Razbore, Grčevje, Ždinja Vas in Vinji vrh.',
+        'Petnajst hektarjev in 125.000 trt na petih sončnih legah nad dolino Krke, s pogledom na Gorjance — Trška gora, Razbore, Grčevje, Ždinja Vas in Vinji vrh.',
     },
     vinoteka: {
       title: 'Vinoteka Colnar — Supernova Novo mesto',
@@ -106,8 +106,8 @@ export const sl: Content = {
       },
     ],
     stats: [
-      { value: 20, unit: 'ha', label: 'Vinogradov' },
-      { value: 100000, grouped: true, label: 'Trt' },
+      { value: 15, unit: 'ha', label: 'Vinogradov' },
+      { value: 125000, grouped: true, label: 'Trt' },
       { value: 5, label: 'Sončnih leg' },
     ],
     cards: [
@@ -129,7 +129,7 @@ export const sl: Content = {
         id: 'vinogradi',
         title: 'Vinogradi',
         alt: 'Vinogradi na sončni legi nad dolino Krke',
-        copy: 'Dvajset hektarjev na petih sončnih legah nad dolino Krke — 100.000 trt, ki jih obrezujemo in beremo sami.',
+        copy: 'Petnajst hektarjev na petih sončnih legah nad dolino Krke — 125.000 trt, ki jih obrezujemo in beremo sami.',
         link: { label: 'Spoznajte naše vinograde', to: 'vineyards' },
       },
     ],
@@ -167,7 +167,7 @@ export const sl: Content = {
     heroAlt: 'Vtisnjen napis Colnar na etiketi steklenice',
     lede: 'Na prvem mestu je konstantno zagotavljanje kakovosti — od trte, ki jo obrezujemo in beremo sami, do steklenice.',
     prose: [
-      'Grozdje pridelamo na dvajsetih hektarjih na petih sončnih legah nad dolino Krke. Cviček, posebnost Dolenjske, predstavlja kar 60 % pridelanega vina; ob njem pridelujemo bela vina, chardonnay, rosé, modro frankinjo, modri pinot, penino po klasični metodi in collis, ki zori v akacijevem sodu. Naziv kralja cvička smo prejeli v letih 2008, 2014 in 2022.',
+      'Grozdje pridelamo na petnajstih hektarjih na petih sončnih legah nad dolino Krke. Cviček, posebnost Dolenjske, predstavlja kar 60 % pridelanega vina; ob njem pridelujemo bela vina, chardonnay, rosé, modro frankinjo, modri pinot, penino po klasični metodi in collis, ki zori v akacijevem sodu. Naziv kralja cvička smo prejeli v letih 2008, 2014 in 2022.',
       'Vina lahko pokusite ob degustaciji v kleti na Lešnici ali jih prevzamete tam in v Vinoteki Colnar v Novem mestu.',
     ],
     listHead: 'Vina',
@@ -248,9 +248,9 @@ export const sl: Content = {
     title: 'Vinogradi',
     standfirst: 'nad dolino reke Krke, s pogledom na Gorjance',
     heroAlt: 'Vinograd na sončni legi s pogledom na dolino in Gorjance',
-    lede: 'Dvajset hektarjev vinogradov na petih sončnih legah nad dolino reke Krke, s pogledom na Gorjance.',
+    lede: 'Petnajst hektarjev vinogradov na petih sončnih legah nad dolino reke Krke, s pogledom na Gorjance.',
     prose: [
-      'Prvo trto sta Janez VII. in brat Matjaž posadila leta 2001. Danes na petih legah raste 100.000 trt, ki jih obrezujemo in beremo sami.',
+      'Prvo trto sta Janez VII. in brat Matjaž posadila leta 2001. Danes na petih legah raste 125.000 trt, ki jih obrezujemo in beremo sami.',
       'Iz teh vrst pride vse, kar pridelamo — cviček, ki predstavlja 60 % pridelka, ob njem pa bela vina, rosé, modra frankinja, laški rizling, penina in collis.',
     ],
     sitesHead: 'Sončne lege',
