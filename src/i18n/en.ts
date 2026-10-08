@@ -83,7 +83,7 @@ export const en: Content = {
     ],
     scrollHint: 'Scroll down',
     storyHead: 'Our Story',
-    lead: 'Let us take you through the hills of Dolenjska, and meet the wines they bear.',
+    lead: 'Let us take you through the hills of Dolenjska, and meet our wines.',
     yearsHead: 'Through the years',
     milestones: [
       {

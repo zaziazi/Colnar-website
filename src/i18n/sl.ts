@@ -76,7 +76,7 @@ export const sl: Content = {
     ],
     scrollHint: 'Pomaknite se navzdol',
     storyHead: 'Naša Zgodba',
-    lead: 'Pustite se zapeljati med naše dolenjske griče in spoznajte vina, ki jih rodijo.',
+    lead: 'Pustite se zapeljati med dolenjske griče in spoznajte naša vina.',
     yearsHead: 'Skozi leta',
     milestones: [
       {
