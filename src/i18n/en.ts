@@ -172,6 +172,7 @@ export const en: Content = {
     title: 'Wines',
     standfirst: 'from our own vineyards',
     heroAlt: 'The Colnar name embossed on a bottle label',
+    lead: 'Twelve wines in three lines, all from our own vineyards above the Krka valley.',
     listHead: 'Wines',
     buy: 'Buy at Evino',
     bottleAlt: (name) => `Bottle — ${name}`,

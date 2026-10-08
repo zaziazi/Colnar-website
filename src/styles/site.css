@@ -532,6 +532,16 @@ p {
   color: var(--color-text);
 }
 
+/* The same line on a sub-page: a step smaller, closer to the hero. */
+.lead--page {
+  padding-top: 96px;
+}
+
+.lead--page .lead-line {
+  max-width: 860px;
+  font-size: clamp(28px, 3.4vw, 42px);
+}
+
 /* Space above a section heading. */
 .section-gap {
   padding: 96px 0 0;
@@ -550,6 +560,14 @@ p {
   .lead-line {
     font-size: 27px;
     line-height: 1.26;
+  }
+
+  .lead--page {
+    padding-top: 52px;
+  }
+
+  .lead--page .lead-line {
+    font-size: 24px;
   }
 
   .section-gap {

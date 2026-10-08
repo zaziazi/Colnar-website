@@ -88,6 +88,8 @@ export type Content = {
     title: string;
     standfirst: string;
     heroAlt: string;
+    /** One line of context under the hero, set large. */
+    lead: string;
     listHead: string;
     buy: string;
     bottleAlt: (name: string) => string;
