@@ -88,8 +88,6 @@ export type Content = {
     title: string;
     standfirst: string;
     heroAlt: string;
-    lede: string;
-    prose: string[];
     listHead: string;
     buy: string;
     bottleAlt: (name: string) => string;

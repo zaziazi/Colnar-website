@@ -172,10 +172,6 @@ export const en: Content = {
     title: 'Wines',
     standfirst: 'from our own vineyards',
     heroAlt: 'The Colnar name embossed on a bottle label',
-    lede: 'Twelve wines, all from our own vineyards above the Krka valley.',
-    prose: [
-      'The JC line holds cviček, two fresh whites and a penina; the Colnar line our whites, reds and rosé; Grand Jaenes two sparkling wines made by the classic method. Our cviček has been named Kralj cvička three times.',
-    ],
     listHead: 'Wines',
     buy: 'Buy at Evino',
     bottleAlt: (name) => `Bottle — ${name}`,

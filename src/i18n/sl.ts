@@ -165,10 +165,6 @@ export const sl: Content = {
     title: 'Vina',
     standfirst: 'iz naših vinogradov',
     heroAlt: 'Vtisnjen napis Colnar na etiketi steklenice',
-    lede: 'Dvanajst vin, vsa iz naših vinogradov nad dolino Krke.',
-    prose: [
-      'V liniji JC so cviček, dve sveži beli vini in penina, v liniji Colnar bela in rdeča vina ter rosé, Grand Jaenes pa sta peneči vini po klasični metodi. Za cviček smo trikrat prejeli naziv kralja cvička.',
-    ],
     listHead: 'Vina',
     buy: 'Kupi na Evino',
     bottleAlt: (name) => `Steklenica — ${name}`,
