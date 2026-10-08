@@ -5,12 +5,11 @@ import { Picture } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
-import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/vina-hero.jpg';
 import { wineProduct } from '../data/schema';
-import { getContent, route, routes, otherLang, winesFor, type Lang } from '../i18n';
+import { getContent, routes, otherLang, winesFor, type Lang } from '../i18n';
 
 interface Props {
   lang: Lang;
@@ -104,27 +103,15 @@ const schema = [
     description,
   }}
 >
-  <Nav lang={lang} toggleHref={other} />
+  <Nav lang={lang} alwaysVisible toggleHref={other} />
 
-  <PageHero
-    photo={heroPhoto}
-    alt={t.wines.heroAlt}
-    title={wine.data.ime}
-    standfirst={kind}
-    position="50% 50%"
-  />
-
-  <main class="wrap">
-    <p class="wine-back" data-reveal>
-      <a href={route(lang, 'wines')}>{d.back}</a>
-    </p>
-
-    {/*
-      The bottle beside its own words. Wines without either — the two the
-      estate has not written up — keep the frame and say so by its absence
-      rather than by an apology.
-    */}
-    <div class="wine-detail" data-reveal>
+  {/*
+    No hero to scroll through: the page opens on the bottle and its words.
+    Wines without either — the ones the estate has not written up — keep the
+    frame and say so by its absence rather than by an apology.
+  */}
+  <main class="wrap wine-page">
+    <div class="wine-detail">
       {
         wine.data.slika && (
           <div class="wine-detail-figure">
@@ -144,6 +131,9 @@ const schema = [
       }
 
       <div class="wine-detail-body">
+        <h1 class="wine-detail-name">{wine.data.ime}</h1>
+        {kind && <p class="wine-detail-kind">{kind}</p>}
+
         {body && (
           <div class="wine-copy wine-copy--detail">
             <Content />

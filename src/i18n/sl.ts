@@ -187,7 +187,6 @@ export const sl: Content = {
       'penina rosé': 'penina rosé',
     },
     detail: {
-      back: 'Vsa vina',
       prev: 'Prejšnje',
       next: 'Naslednje',
       specHead: 'Značilnosti',

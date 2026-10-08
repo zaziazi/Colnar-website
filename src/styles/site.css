@@ -1976,18 +1976,26 @@ a.meta-value {
  * The bottle beside its own words, then where to find it, then its
  * neighbours. Same measure and rhythm as the list it came from.
  */
-.wine-back {
-  margin-top: 8px;
+/* The page opens on the bottle: room for the fixed bar, nothing else above. */
+.wine-page {
+  padding-top: 140px;
+}
+
+.wine-detail-name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(40px, 4.6vw, 60px);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.wine-detail-kind {
+  margin: 12px 0 26px;
   font-family: var(--font-heading);
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-accent-700);
-}
-
-.wine-back a {
-  border-bottom: 1px solid var(--color-accent);
-  padding-bottom: 3px;
 }
 
 .wine-detail {
@@ -1998,7 +2006,6 @@ a.meta-value {
   grid-template-columns: var(--wine-figure) minmax(0, 1fr);
   gap: var(--wine-gutter);
   align-items: start;
-  margin-top: 34px;
 }
 
 /* No bottle yet — the words take the width rather than sit beside a gap. */
@@ -2127,10 +2134,21 @@ a.meta-value {
 }
 
 @media (max-width: 759.98px) {
+  .wine-page {
+    padding-top: 100px;
+  }
+
   .wine-detail {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
-    margin-top: 26px;
+  }
+
+  .wine-detail-name {
+    font-size: 38px;
+  }
+
+  .wine-detail-kind {
+    margin-bottom: 18px;
   }
 
   .wine-detail-photo {

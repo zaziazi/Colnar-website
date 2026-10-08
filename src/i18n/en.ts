@@ -194,7 +194,6 @@ export const en: Content = {
       'penina rosé': 'sparkling rosé',
     },
     detail: {
-      back: 'All wines',
       prev: 'Previous',
       next: 'Next',
       specHead: 'Characteristics',

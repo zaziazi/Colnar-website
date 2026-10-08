@@ -101,7 +101,6 @@ export type Content = {
     cta: { heading: string; secondary: Link };
     /** A single wine's own page. */
     detail: {
-      back: string;
       prev: string;
       next: string;
       /** The characteristics table, as the distributor states them. */
