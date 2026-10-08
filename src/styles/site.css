@@ -316,11 +316,11 @@ p {
 }
 
 /*
- * The photograph does not stop at a line. The last stretch of the runway
- * dissolves it into the page ground, so the hero hands over to the content
- * instead of ending against it. The fade belongs to the track, not the pinned
- * pane: it only rises into view as the hero releases, and while the hero is
- * held the photograph and its links are untouched.
+ * The photograph does not stop at a line: its last strip dissolves into the
+ * page ground, so the hero hands over to the content instead of ending against
+ * it. The strip is kept short and starts slowly, so it stays below the two
+ * links (72px up) and never washes them out. It belongs to the track, not the
+ * pinned pane, so it only appears as the hero releases.
  */
 .hero-track::after {
   content: '';
@@ -328,13 +328,13 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 38vh;
+  height: 100px;
   background: linear-gradient(
     to bottom,
     color-mix(in srgb, var(--color-bg) 0%, transparent) 0%,
-    color-mix(in srgb, var(--color-bg) 18%, transparent) 30%,
-    color-mix(in srgb, var(--color-bg) 52%, transparent) 58%,
-    color-mix(in srgb, var(--color-bg) 86%, transparent) 84%,
+    color-mix(in srgb, var(--color-bg) 8%, transparent) 30%,
+    color-mix(in srgb, var(--color-bg) 40%, transparent) 60%,
+    color-mix(in srgb, var(--color-bg) 85%, transparent) 85%,
     var(--color-bg) 100%
   );
   pointer-events: none;
@@ -478,6 +478,10 @@ p {
   .hero-year {
     font-size: 15px;
     text-shadow: 0 1px 14px rgba(24, 22, 20, 0.6);
+  }
+
+  .hero-track::after {
+    height: 70px;
   }
 
   .hero-links {
