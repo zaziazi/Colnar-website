@@ -329,15 +329,21 @@ p {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  height: 100px;
+  /*
+   * 2px past the edge, solid for its last few: the hero's height is a
+   * fraction of a pixel (vh), and the photograph sits on its own layer that
+   * rounds differently from this one — without the overhang a single row of
+   * the photo shows beneath the fade as a thin dark line.
+   */
+  bottom: -2px;
+  height: 102px;
   background: linear-gradient(
     to bottom,
     color-mix(in srgb, var(--color-bg) 0%, transparent) 0%,
     color-mix(in srgb, var(--color-bg) 8%, transparent) 30%,
     color-mix(in srgb, var(--color-bg) 40%, transparent) 60%,
-    color-mix(in srgb, var(--color-bg) 85%, transparent) 85%,
-    var(--color-bg) 100%
+    color-mix(in srgb, var(--color-bg) 85%, transparent) 82%,
+    var(--color-bg) 94%
   );
   pointer-events: none;
   z-index: 1;
@@ -484,7 +490,7 @@ p {
 
   .hero-track::after,
   .page-hero-track::after {
-    height: 70px;
+    height: 72px;
   }
 
   .hero-links {
@@ -1489,7 +1495,7 @@ a.meta-value {
 
   /* A still hero would hold the fade over its links; keep it to the edge. */
   .hero-track::after {
-    height: 56px;
+    height: 58px;
   }
 
   .js .hero-title,
