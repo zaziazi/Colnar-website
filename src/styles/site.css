@@ -851,6 +851,12 @@ p {
   padding: 150px 0 0;
 }
 
+/* Each card is a column, so its link sits on the same line as its neighbours'. */
+.cards > article {
+  display: flex;
+  flex-direction: column;
+}
+
 .card-frame {
   display: block;
   border: 1px solid var(--color-divider);
@@ -883,13 +889,15 @@ p {
   margin: 0 0 18px;
   font-size: 14.5px;
   line-height: 1.75;
-  text-align: justify;
-  hyphens: auto;
+  /* One sentence: justified, its first line would open gaps when it wraps. */
+  text-align: left;
   color: color-mix(in srgb, var(--color-text) 78%, transparent);
 }
 
 .card-link {
   display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
   font-family: var(--font-heading);
   font-size: 12.5px;
   letter-spacing: 0.16em;
