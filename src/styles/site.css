@@ -554,6 +554,11 @@ p {
 
 /* ------------------------------------------------------------ timeline --- */
 
+/* The timeline follows the opening line with no heading of its own. */
+.years {
+  padding-top: 64px;
+}
+
 .timeline {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -741,23 +746,17 @@ p {
 
 /* --------------------------------------------------------------- stats --- */
 
+/* Three figures held apart by space alone: no rules above, below or between. */
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin: 64px 0 0;
-  padding: 34px 0;
-  border-top: 1px solid var(--color-divider);
-  border-bottom: 1px solid var(--color-divider);
+  margin: 72px 0 0;
+  padding: 20px 0;
 }
 
 .stat {
   text-align: center;
   padding: 0 20px;
-  border-right: 1px solid var(--color-divider);
-}
-
-.stat:last-child {
-  border-right: 0;
 }
 
 .stat-figure {
@@ -777,9 +776,13 @@ p {
 }
 
 @media (max-width: 759.98px) {
+  .years {
+    padding-top: 36px;
+  }
+
   .stats {
-    margin: 30px 0 0;
-    padding: 22px 0;
+    margin: 40px 0 0;
+    padding: 10px 0;
   }
 
   .stat {

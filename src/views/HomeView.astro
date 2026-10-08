@@ -32,10 +32,8 @@ const t = getContent(lang);
         <p class="lead-line">{t.home.lead}</p>
       </section>
 
-      <section aria-labelledby="skozi-leta">
-        <div class="section-gap" data-reveal>
-          <h2 class="section-head" id="skozi-leta">{t.home.yearsHead}</h2>
-        </div>
+      {/* No visible heading: the years say what this is. The name stays for screen readers. */}
+      <section class="years" aria-label={t.home.yearsHead}>
         <Timeline lang={lang} />
       </section>
 
