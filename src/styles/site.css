@@ -517,7 +517,7 @@ p {
  * is the house speaking, not a saying it repeats.
  */
 .lead {
-  padding: 96px 0 0;
+  padding: 128px 0 0;
   text-align: center;
 }
 
@@ -544,7 +544,7 @@ p {
 
 @media (max-width: 759.98px) {
   .lead {
-    padding: 44px 0 0;
+    padding: 60px 0 0;
   }
 
   .lead-line {
@@ -565,7 +565,7 @@ p {
 
 /* The timeline follows the opening line, captioned rather than headed. */
 .years {
-  padding-top: 104px;
+  padding-top: 136px;
 }
 
 .years-kicker {
@@ -593,7 +593,7 @@ p {
 .timeline {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  padding: 36px 0 0;
+  padding: 56px 0 0;
   list-style: none;
   margin: 0;
 }
@@ -808,7 +808,7 @@ p {
 
 @media (max-width: 759.98px) {
   .years {
-    padding-top: 60px;
+    padding-top: 76px;
   }
 
   .years-kicker {
@@ -848,7 +848,7 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  padding: 110px 0 0;
+  padding: 150px 0 0;
 }
 
 .card-frame {
@@ -909,7 +909,7 @@ p {
   .cards {
     grid-template-columns: 1fr;
     gap: 44px;
-    padding: 52px 0 0;
+    padding: 72px 0 0;
   }
 
   .card-photo {
@@ -937,7 +937,7 @@ p {
 /* --------------------------------------------------------------- quote --- */
 
 .quote {
-  padding: 130px 0 120px;
+  padding: 170px 0 150px;
   text-align: center;
 }
 
@@ -952,7 +952,7 @@ p {
 
 @media (max-width: 759.98px) {
   .quote {
-    padding: 60px 4px 56px;
+    padding: 80px 4px 72px;
   }
 
   .quote p {
@@ -966,7 +966,7 @@ p {
 .places {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 36px 0 110px;
+  padding: 36px 0 140px;
 }
 
 /* Sub-page variant: the block that follows supplies its own space above. */
@@ -1020,7 +1020,7 @@ p {
 @media (max-width: 759.98px) {
   .places {
     grid-template-columns: 1fr;
-    padding: 0 0 52px;
+    padding: 0 0 68px;
   }
 
   .places--page {
