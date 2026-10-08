@@ -1,8 +1,8 @@
 ---
 ime: Laški rizling
 zvrst: belo
-vrstniRed: 9
-skupina: bela
+vrstniRed: 6
+skupina: colnar
 stil: sveze-belo
 letnik: 2021
 volumen: 0.75

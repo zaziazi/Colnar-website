@@ -1,8 +1,8 @@
 ---
 ime: Penina
 zvrst: penina
-vrstniRed: 3
-skupina: penine
+vrstniRed: 4
+skupina: jc
 stil: penece
 volumen: 0.75
 alkohol: 11.5

@@ -20,8 +20,8 @@ const wines = defineCollection({
       zvrst: z.enum(['belo', 'rdeče', 'rosé', 'penina', 'penina rosé']).optional(),
       /** Vrstni red na strani — čez vse skupine, od prve do zadnje. */
       vrstniRed: z.number(),
-      /** Skupina na strani z vini; vrstni red skupin določa stran sama. */
-      skupina: z.enum(['penine', 'sveza', 'bela', 'rdeca']),
+      /** Linija, v kateri je vino na strani z vini; vrstni red linij določa stran sama. */
+      skupina: z.enum(['jc', 'colnar', 'grand-jaenes']),
       /** Slika steklenice. Brez nje vrstica preprosto nima fotografije. */
       slika: image().optional(),
       /** Stran pri distributerju (evino.si). Brez nje ni povezave. */

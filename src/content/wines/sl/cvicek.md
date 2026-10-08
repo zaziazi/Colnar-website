@@ -1,8 +1,8 @@
 ---
 ime: Cviček
 zvrst: rdeče
-vrstniRed: 4
-skupina: sveza
+vrstniRed: 1
+skupina: jc
 stil: sveze-rdece
 letnik: 2025
 volumen: 0.75

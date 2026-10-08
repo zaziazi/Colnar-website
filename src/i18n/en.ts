@@ -182,10 +182,9 @@ export const en: Content = {
     bottleAlt: (name) => `Bottle — ${name}`,
     photoPending: 'Photograph to follow',
     groups: [
-      { key: 'penine', label: 'Sparkling wines' },
-      { key: 'sveza', label: 'Fresh wines' },
-      { key: 'bela', label: 'White wines' },
-      { key: 'rdeca', label: 'Red wines' },
+      { key: 'jc', label: 'JC' },
+      { key: 'colnar', label: 'Colnar' },
+      { key: 'grand-jaenes', label: 'Grand Jaenes' },
     ],
     kinds: {
       belo: 'white',

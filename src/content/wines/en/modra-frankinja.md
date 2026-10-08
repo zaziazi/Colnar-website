@@ -1,8 +1,8 @@
 ---
 ime: Modra frankinja
 zvrst: rdeče
-vrstniRed: 11
-skupina: rdeca
+vrstniRed: 8
+skupina: colnar
 stil: bogato-rdece
 letnik: 2023
 volumen: 0.75

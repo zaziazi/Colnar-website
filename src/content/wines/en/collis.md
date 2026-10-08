@@ -1,8 +1,8 @@
 ---
 ime: Collis
 zvrst: belo
-vrstniRed: 8
-skupina: bela
+vrstniRed: 5
+skupina: colnar
 stil: bogato-belo
 letnik: 2019
 volumen: 0.75

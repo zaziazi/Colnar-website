@@ -1,8 +1,8 @@
 ---
 ime: Grand Jaenes
 zvrst: penina
-vrstniRed: 1
-skupina: penine
+vrstniRed: 11
+skupina: grand-jaenes
 stil: penece
 volumen: 0.75
 alkohol: 12

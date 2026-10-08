@@ -1,8 +1,8 @@
 ---
 ime: Dolenjsko belo
 zvrst: belo
-vrstniRed: 5
-skupina: sveza
+vrstniRed: 2
+skupina: jc
 stil: sveze-belo
 volumen: 1
 alkohol: 11

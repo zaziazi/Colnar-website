@@ -175,10 +175,9 @@ export const sl: Content = {
     bottleAlt: (name) => `Steklenica — ${name}`,
     photoPending: 'Fotografija sledi',
     groups: [
-      { key: 'penine', label: 'Penine' },
-      { key: 'sveza', label: 'Sveža vina' },
-      { key: 'bela', label: 'Bela vina' },
-      { key: 'rdeca', label: 'Rdeča vina' },
+      { key: 'jc', label: 'JC' },
+      { key: 'colnar', label: 'Colnar' },
+      { key: 'grand-jaenes', label: 'Grand Jaenes' },
     ],
     kinds: {
       belo: 'belo',

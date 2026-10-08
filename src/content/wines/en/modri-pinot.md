@@ -1,8 +1,8 @@
 ---
 ime: Modri pinot
 zvrst: rdeče
-vrstniRed: 12
-skupina: rdeca
+vrstniRed: 9
+skupina: colnar
 volumen: 0.75
 ---
 
