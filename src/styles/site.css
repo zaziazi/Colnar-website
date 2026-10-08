@@ -320,9 +320,11 @@ p {
  * page ground, so the hero hands over to the content instead of ending against
  * it. The strip is kept short and starts slowly, so it stays below the two
  * links (72px up) and never washes them out. It belongs to the track, not the
- * pinned pane, so it only appears as the hero releases.
+ * pinned pane, so it only appears as the hero releases. Every sub-page hero
+ * hands over the same way.
  */
-.hero-track::after {
+.hero-track::after,
+.page-hero-track::after {
   content: '';
   position: absolute;
   left: 0;
@@ -480,7 +482,8 @@ p {
     text-shadow: 0 1px 14px rgba(24, 22, 20, 0.6);
   }
 
-  .hero-track::after {
+  .hero-track::after,
+  .page-hero-track::after {
     height: 70px;
   }
 
