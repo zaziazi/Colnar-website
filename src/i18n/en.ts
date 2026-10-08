@@ -84,7 +84,7 @@ export const en: Content = {
     scrollHint: 'Scroll down',
     storyHead: 'Our Story',
     lead: 'Let us take you through the hills of Dolenjska, and meet our wines.',
-    yearsHead: 'Through the years',
+    yearsHead: 'A family with tradition',
     milestones: [
       {
         year: '1408',

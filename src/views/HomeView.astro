@@ -31,8 +31,12 @@ const t = getContent(lang);
         <p class="lead-line">{t.home.lead}</p>
       </section>
 
-      {/* No visible heading: the years say what this is. The name stays for screen readers. */}
-      <section class="years" aria-label={t.home.yearsHead}>
+      {/*
+        The timeline's title, set as a small gold line between two short rules
+        so it reads as a caption to the years rather than a heading over them.
+      */}
+      <section class="years" aria-labelledby="druzina-s-tradicijo">
+        <h2 class="years-kicker" id="druzina-s-tradicijo" data-reveal>{t.home.yearsHead}</h2>
         <Timeline lang={lang} />
       </section>
 

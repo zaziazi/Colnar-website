@@ -563,9 +563,31 @@ p {
 
 /* ------------------------------------------------------------ timeline --- */
 
-/* The timeline follows the opening line with no heading of its own. */
+/* The timeline follows the opening line, captioned rather than headed. */
 .years {
   padding-top: 64px;
+}
+
+.years-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.years-kicker::before,
+.years-kicker::after {
+  content: '';
+  width: 56px;
+  height: 1px;
+  background: var(--color-accent);
 }
 
 .timeline {
@@ -787,6 +809,17 @@ p {
 @media (max-width: 759.98px) {
   .years {
     padding-top: 36px;
+  }
+
+  .years-kicker {
+    gap: 14px;
+    font-size: 11.5px;
+    letter-spacing: 0.24em;
+  }
+
+  .years-kicker::before,
+  .years-kicker::after {
+    width: 32px;
   }
 
   .stats {
