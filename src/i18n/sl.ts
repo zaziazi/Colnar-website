@@ -165,7 +165,12 @@ export const sl: Content = {
     title: 'Vina',
     standfirst: 'iz naših vinogradov',
     heroAlt: 'Vtisnjen napis Colnar na etiketi steklenice',
-    lead: 'Dvanajst vin v treh linijah, vsa iz naših vinogradov nad dolino Krke.',
+    intro: [
+      'Naša vina rastejo na petnajstih hektarjih nad dolino Krke.',
+      'Iz grozdja jih naredimo v lastni kleti na Lešnici.',
+      'Najdete jih v treh linijah: JC, Colnar in Grand Jaenes.',
+    ],
+    statement: 'Od svežega cvička do penine Grand Jaenes.',
     listHead: 'Vina',
     buy: 'Kupi na Evino',
     bottleAlt: (name) => `Steklenica — ${name}`,

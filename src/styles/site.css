@@ -1918,56 +1918,104 @@ a.meta-value {
  */
 
 /*
- * The range as rows: each wine on a line of its own, bottle on the left and
- * name on the right. The bottles are
- * keyed out, so they stand on the page rather than in boxes.
+ * The range as a gallery: a few quiet centred lines, one line in gold, then
+ * each wine line under a small gold kicker with its bottles side by side and
+ * the names beneath in spaced capitals. The bottles are keyed out, so they
+ * stand on the page rather than in boxes.
  */
-.wine-rows {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.wine-row + .wine-row {
-  border-top: 1px solid var(--color-divider);
-}
-
-.wine-row a {
+.wines-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 104px 0 0;
+  text-align: center;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 56px;
-  padding: 44px 0;
+  gap: 10px;
 }
 
-.wine-row-figure {
+.wines-intro p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.wines-intro .wines-statement {
+  margin-top: 40px;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.3;
+  text-wrap: balance;
+  color: var(--color-accent-700);
+}
+
+.wine-line {
+  padding-top: 112px;
+}
+
+.wine-line-head {
+  margin: 0 0 56px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.wine-grid {
+  --tile: 220px;
+  --gap-x: 28px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: calc(var(--cols) * var(--tile) + (var(--cols) - 1) * var(--gap-x));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 72px var(--gap-x);
+}
+
+.wine-tile {
+  flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap-x)) / var(--cols));
+  min-width: 0;
+}
+
+.wine-tile a {
+  display: grid;
+  justify-items: center;
+  gap: 28px;
+}
+
+.wine-tile-figure {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 440px;
+  height: 400px;
 }
 
-.wine-row-figure .pic {
+.wine-tile-figure .pic {
   height: 100%;
 }
 
-.wine-row-photo {
+.wine-tile-photo {
   height: 100%;
   width: auto;
   object-fit: contain;
   transition: transform 0.5s var(--ease-out-soft);
 }
 
-.wine-row a:hover .wine-row-photo {
+.wine-tile a:hover .wine-tile-photo {
   transform: translateY(-6px);
 }
 
-/* A wine without its photograph keeps its place in the row. */
-.wine-row-pending {
+/* A wine without its photograph keeps its place in the line. */
+.wine-tile-pending {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
+  width: 120px;
   height: 100%;
   border-radius: var(--radius-md);
   background: var(--color-surface);
@@ -1980,29 +2028,34 @@ a.meta-value {
   color: color-mix(in srgb, var(--color-text) 66%, transparent);
 }
 
-.wine-row-name {
+.wine-tile-name {
+  margin: 0;
   font-family: var(--font-heading);
-  font-weight: 300;
-  font-size: clamp(34px, 4vw, 56px);
-  line-height: 1.1;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: balance;
   transition: color 0.3s ease;
 }
 
-.wine-row a:hover .wine-row-name {
+.wine-tile a:hover .wine-tile-name {
   color: var(--color-accent-700);
 }
 
-.wine-row a:focus-visible {
+.wine-tile a:focus-visible {
   outline: 1px solid var(--color-accent-700);
-  outline-offset: 6px;
+  outline-offset: 10px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .wine-row-photo {
+  .wine-tile-photo {
     transition: none;
   }
 
-  .wine-row a:hover .wine-row-photo {
+  .wine-tile a:hover .wine-tile-photo {
     transform: none;
   }
 }
@@ -2270,21 +2323,56 @@ a.meta-value {
 }
 
 @media (max-width: 759.98px) {
-  /* One column: bottle above, name below, every row the same way round. */
-  .wine-row a {
-    grid-template-columns: minmax(0, 1fr);
+  /* Two bottles to a row on a phone, whatever the line. */
+  .wines-intro {
+    padding-top: 52px;
+    gap: 6px;
+  }
+
+  .wines-intro p {
+    font-size: 15.5px;
+  }
+
+  .wines-intro .wines-statement {
+    margin-top: 26px;
+    font-size: 24px;
+  }
+
+  .wine-line {
+    padding-top: 72px;
+  }
+
+  .wine-line-head {
+    margin-bottom: 36px;
+    font-size: 14px;
+  }
+
+  .wine-grid {
+    --gap-x: 16px;
+    max-width: none;
+    row-gap: 48px;
+  }
+
+  .wine-tile {
+    flex-basis: calc(50% - var(--gap-x) / 2);
+  }
+
+  .wine-tile a {
     gap: 18px;
-    padding: 32px 0;
-    text-align: center;
   }
 
-  .wine-row-figure {
-    height: 300px;
+  .wine-tile-figure {
+    height: 260px;
   }
 
-  .wine-row-name {
-    font-size: 30px;
-    text-align: center;
+  .wine-tile-pending {
+    width: 84px;
+    font-size: 9.5px;
+  }
+
+  .wine-tile-name {
+    font-size: 13.5px;
+    letter-spacing: 0.16em;
   }
 
   .wine-link {

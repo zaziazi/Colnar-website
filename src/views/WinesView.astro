@@ -49,34 +49,37 @@ const schema = [
   />
 
   <main class="wrap">
-    {/* One line of context, set large, before the lines and their bottles. */}
-    <section class="lead lead--page" data-reveal>
-      <p class="lead-line">{t.wines.lead}</p>
+    {/*
+      A few quiet lines of context, then one line in gold: the way in before
+      the bottles.
+    */}
+    <section class="wines-intro" data-reveal>
+      {t.wines.intro.map((line) => <p>{line}</p>)}
+      <p class="wines-statement">{t.wines.statement}</p>
     </section>
 
     {/*
-      The range in four sections, each wine on a row of its own: the bottle on
-      one side and its name on the other, sides alternating, so no wine is one
-      tile among many. The whole row opens the wine's page.
+      Each line under a small gold kicker, its bottles standing side by side
+      with the name beneath in spaced capitals. Six bottles sit three and
+      three; any other count stays on one row of up to four, centred.
     */}
     {
-      t.wines.groups.map((group) => (
-        <section aria-labelledby={`vina-${group.key}`}>
-          <div class="section-gap" data-reveal>
-            <h2 class="section-head" id={`vina-${group.key}`}>
+      t.wines.groups.map((group) => {
+        const inGroup = wines.filter((wine) => wine.data.skupina === group.key);
+        const cols = inGroup.length > 4 && inGroup.length % 3 === 0 ? 3 : Math.min(inGroup.length, 4);
+        return (
+          <section class="wine-line" aria-labelledby={`vina-${group.key}`}>
+            <h2 class="wine-line-head" id={`vina-${group.key}`} data-reveal>
               {group.label}
             </h2>
-          </div>
-          <ul class="wine-rows">
-            {wines
-              .filter((wine) => wine.data.skupina === group.key)
-              .map((wine) => (
-                <li class="wine-row" data-reveal>
+            <ul class="wine-grid" style={`--cols: ${cols}`}>
+              {inGroup.map((wine) => (
+                <li class="wine-tile" data-reveal>
                   <a href={pageOf(wine.id)}>
-                    <div class="wine-row-figure">
+                    <div class="wine-tile-figure">
                       {wine.data.slika ? (
                         <Picture
-                          class="wine-row-photo"
+                          class="wine-tile-photo"
                           pictureAttributes={{ class: 'pic' }}
                           src={wine.data.slika}
                           formats={['avif', 'webp']}
@@ -87,16 +90,17 @@ const schema = [
                           alt=""
                         />
                       ) : (
-                        <span class="wine-row-pending">{t.wines.photoPending}</span>
+                        <span class="wine-tile-pending">{t.wines.photoPending}</span>
                       )}
                     </div>
-                    <h3 class="wine-row-name">{wine.data.ime}</h3>
+                    <h3 class="wine-tile-name">{wine.data.ime}</h3>
                   </a>
                 </li>
               ))}
-          </ul>
-        </section>
-      ))
+            </ul>
+          </section>
+        );
+      })
     }
 
     <CtaBand lang={lang} heading={t.wines.cta.heading} secondary={t.wines.cta.secondary} />

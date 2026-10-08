@@ -172,7 +172,12 @@ export const en: Content = {
     title: 'Wines',
     standfirst: 'from our own vineyards',
     heroAlt: 'The Colnar name embossed on a bottle label',
-    lead: 'Twelve wines in three lines, all from our own vineyards above the Krka valley.',
+    intro: [
+      'Our wines grow on fifteen hectares above the Krka valley.',
+      'We make them from the grape in our own cellar at Lešnica.',
+      'They come in three lines: JC, Colnar and Grand Jaenes.',
+    ],
+    statement: 'From a fresh Cviček to Grand Jaenes sparkling.',
     listHead: 'Wines',
     buy: 'Buy at Evino',
     bottleAlt: (name) => `Bottle — ${name}`,
