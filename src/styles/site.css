@@ -2458,7 +2458,7 @@ a.meta-value {
 /* Opening paragraph under a page hero, where a page head would otherwise sit. */
 .page-intro {
   padding: 88px 0 0;
-  max-width: 720px;
+  max-width: 920px;
 }
 
 .page-intro p {
@@ -2470,11 +2470,11 @@ a.meta-value {
 /* Body copy that carries the page, under the opening paragraph. */
 .page-prose {
   padding: 34px 0 0;
-  max-width: 62ch;
+  max-width: 920px;
 }
 
 .page-prose p {
-  font-size: 15.5px;
+  font-size: 16.5px;
   line-height: 1.8;
   color: color-mix(in srgb, var(--color-text) 78%, transparent);
 }

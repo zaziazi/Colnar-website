@@ -172,10 +172,9 @@ export const en: Content = {
     title: 'Wines',
     standfirst: 'from our own vineyards',
     heroAlt: 'The Colnar name embossed on a bottle label',
-    lede: 'Consistent quality comes before everything else — from the vine we prune and pick ourselves, to the bottle.',
+    lede: 'Twelve wines, all from our own vineyards above the Krka valley.',
     prose: [
-      'The grapes come from fifteen hectares on five sunny sites above the Krka valley. Cviček, the speciality of Dolenjska, accounts for 60 % of everything we make; alongside it we produce white wines, chardonnay, rosé, modra frankinja, modri pinot, sparkling wine by the classic method, and Collis, which ages in an acacia cask. The estate has been named Kralj cvička — King of Cviček — in 2008, 2014 and 2022.',
-      'You can taste the wines at the cellar in Lešnica, or collect them there and at the Colnar wine bar in Novo mesto.',
+      'The JC line holds cviček, two fresh whites and a penina; the Colnar line our whites, reds and rosé; Grand Jaenes two sparkling wines made by the classic method. Our cviček has been named Kralj cvička three times.',
     ],
     listHead: 'Wines',
     buy: 'Buy at Evino',

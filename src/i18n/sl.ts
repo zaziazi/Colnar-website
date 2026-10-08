@@ -165,10 +165,9 @@ export const sl: Content = {
     title: 'Vina',
     standfirst: 'iz naših vinogradov',
     heroAlt: 'Vtisnjen napis Colnar na etiketi steklenice',
-    lede: 'Na prvem mestu je konstantno zagotavljanje kakovosti — od trte, ki jo obrezujemo in beremo sami, do steklenice.',
+    lede: 'Dvanajst vin, vsa iz naših vinogradov nad dolino Krke.',
     prose: [
-      'Grozdje pridelamo na petnajstih hektarjih na petih sončnih legah nad dolino Krke. Cviček, posebnost Dolenjske, predstavlja kar 60 % pridelanega vina; ob njem pridelujemo bela vina, chardonnay, rosé, modro frankinjo, modri pinot, penino po klasični metodi in collis, ki zori v akacijevem sodu. Naziv kralja cvička smo prejeli v letih 2008, 2014 in 2022.',
-      'Vina lahko pokusite ob degustaciji v kleti na Lešnici ali jih prevzamete tam in v Vinoteki Colnar v Novem mestu.',
+      'V liniji JC so cviček, dve sveži beli vini in penina, v liniji Colnar bela in rdeča vina ter rosé, Grand Jaenes pa sta peneči vini po klasični metodi. Za cviček smo trikrat prejeli naziv kralja cvička.',
     ],
     listHead: 'Vina',
     buy: 'Kupi na Evino',
