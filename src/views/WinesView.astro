@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
@@ -9,7 +9,6 @@ import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/vina-hero.jpg';
 import { getContent, routes, otherLang, winesFor, type Lang } from '../i18n';
 import { wineList } from '../data/schema';
-import { getImage } from 'astro:assets';
 
 interface Props {
   lang: Lang;
@@ -22,39 +21,18 @@ const wines = (await getCollection('wines', winesFor(lang))).sort(
   (a, b) => a.data.vrstniRed - b.data.vrstniRed
 );
 
-// Every field is optional, so a wine can be listed before its copy, photograph
-// or distributor link exists. Render once here and let the template ask.
-const entries = await Promise.all(
-  wines.map(async (wine) => {
-    const { Content } = await render(wine);
-    const body = (wine.body ?? '').replace(/<!--[\s\S]*?-->/g, '').trim();
-    return { ...wine, Content, hasBody: body.length > 0 };
-  })
-);
+const slugOf = (id: string) => id.split('/').pop()!;
+const pageOf = (id: string) => `${routes[lang].wines}${slugOf(id)}/`;
 
 /*
- * The same ten wines as an ItemList, description and photograph included —
- * both of which the page itself shows. No prices: none are printed here.
+ * A summary list: each wine's description, figures and Product markup live on
+ * its own page, so the list only points at them — which is also all it shows.
  */
-const canonical = new URL(routes[lang].wines, Astro.site).href;
 const schema = [
   wineList(
-    Astro.site!,
-    canonical,
+    new URL(routes[lang].wines, Astro.site).href,
     t,
-    await Promise.all(
-      entries.map(async (wine) => ({
-        name: wine.data.ime,
-        kind: wine.data.zvrst && (t.wines.kinds[wine.data.zvrst] ?? wine.data.zvrst),
-        description: wine.hasBody
-          ? (wine.body ?? '').replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim()
-          : undefined,
-        image: wine.data.slika
-          ? new URL((await getImage({ src: wine.data.slika, format: 'png', width: 800 })).src, Astro.site).href
-          : undefined,
-        url: wine.data.evino,
-      })),
-    ),
+    wines.map((wine) => ({ name: wine.data.ime, url: new URL(pageOf(wine.id), Astro.site).href })),
   ),
 ];
 ---
@@ -84,43 +62,34 @@ const schema = [
         <h2 class="section-head" id="seznam-vin">{t.wines.listHead}</h2>
       </div>
 
-      <ul class="wine-list" data-reveal>
+      {/*
+        The shelf: bottle and name only. Everything else about a wine is one
+        click away on its own page.
+      */}
+      <ul class="wine-grid" data-reveal>
         {
-          entries.map((wine) => (
-            <li class="wine">
-              <div class="wine-figure">
-                {wine.data.slika && (
-                  <Picture
-                    class="wine-photo"
-                    pictureAttributes={{ class: 'pic' }}
-                    src={wine.data.slika}
-                    formats={['avif', 'webp']}
-                    fallbackFormat="png"
-                    widths={[160, 320]}
-                    sizes="120px"
-                    loading="lazy"
-                    alt={t.wines.bottleAlt(wine.data.ime)}
-                  />
-                )}
-              </div>
-              <div class="wine-heading">
-                <h3 class="wine-name">
-                  <a href={`${routes[lang].wines}${wine.id.split('/').pop()}/`}>{wine.data.ime}</a>
-                </h3>
-                {wine.data.zvrst && <p class="wine-kind">{t.wines.kinds[wine.data.zvrst]}</p>}
-              </div>
-              <div class="wine-body">
-                {wine.hasBody && (
-                  <div class="wine-copy">
-                    <wine.Content />
-                  </div>
-                )}
-                {wine.data.evino && (
-                  <a class="wine-link" href={wine.data.evino} target="_blank" rel="noopener">
-                    {t.wines.buy}
-                  </a>
-                )}
-              </div>
+          wines.map((wine) => (
+            <li class="wine-card">
+              <a href={pageOf(wine.id)}>
+                <div class="wine-card-figure">
+                  {wine.data.slika ? (
+                    <Picture
+                      class="wine-card-photo"
+                      pictureAttributes={{ class: 'pic' }}
+                      src={wine.data.slika}
+                      formats={['avif', 'webp']}
+                      fallbackFormat="png"
+                      widths={[110, 160]}
+                      sizes="(max-width: 759.98px) 70px, 105px"
+                      loading="lazy"
+                      alt=""
+                    />
+                  ) : (
+                    <span class="wine-card-pending">{t.wines.photoPending}</span>
+                  )}
+                </div>
+                <h3 class="wine-card-name">{wine.data.ime}</h3>
+              </a>
             </li>
           ))
         }

@@ -93,6 +93,8 @@ export type Content = {
     listHead: string;
     buy: string;
     bottleAlt: (name: string) => string;
+    /** Shown in place of a bottle not yet photographed. */
+    photoPending: string;
     kinds: Record<string, string>;
     cta: { heading: string; secondary: Link };
     /** A single wine's own page. */

@@ -180,6 +180,7 @@ export const en: Content = {
     listHead: 'Wines',
     buy: 'Buy at Evino',
     bottleAlt: (name) => `Bottle — ${name}`,
+    photoPending: 'Photograph to follow',
     kinds: {
       belo: 'white',
       'rdeče': 'red',

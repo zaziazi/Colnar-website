@@ -1841,35 +1841,102 @@ a.meta-value {
  * 4px radius, outlined controls, small caps labels in --color-accent-700.
  */
 
-.wine-list {
+/*
+ * The range as a shelf: each wine is its bottle and its name, and the whole
+ * tile opens the wine's own page, where the description and the figures live.
+ * The bottles are keyed out, so they stand on the page rather than in boxes.
+ */
+.wine-grid {
   list-style: none;
-  margin: 36px 0 0;
+  margin: 44px 0 0;
   padding: 0;
-}
-
-.wine {
   display: grid;
-  grid-template-columns: 120px minmax(0, 0.8fr) minmax(0, 1.7fr);
-  gap: 40px;
-  align-items: start;
-  padding: 30px 0;
-  border-bottom: 1px solid var(--color-divider);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 64px 32px;
 }
 
-.wine:last-child {
-  border-bottom: 0;
-}
-
-/* The bottles are keyed out, so they stand on the page rather than in a box. */
-.wine-figure {
+.wine-card a {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
 }
 
-.wine-photo {
-  height: 200px;
+.wine-card-figure {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 380px;
+}
+
+.wine-card-figure .pic {
+  height: 100%;
+}
+
+.wine-card-photo {
+  height: 100%;
   width: auto;
   object-fit: contain;
+  transition: transform 0.5s var(--ease-out-soft);
+}
+
+.wine-card a:hover .wine-card-photo {
+  transform: translateY(-6px);
+}
+
+/* A wine without its photograph keeps its place on the shelf. */
+.wine-card-pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58%;
+  height: 100%;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 66%, transparent);
+}
+
+.wine-card-name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.wine-card a:hover .wine-card-name {
+  color: var(--color-accent-700);
+}
+
+.wine-card a:focus-visible {
+  outline: 1px solid var(--color-accent-700);
+  outline-offset: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wine-card-photo {
+    transition: none;
+  }
+
+  .wine-card a:hover .wine-card-photo {
+    transform: none;
+  }
+}
+
+@media (max-width: 1039.98px) {
+  .wine-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .wine-card-figure {
+    height: 330px;
+  }
 }
 
 .wine-link {
@@ -1882,51 +1949,6 @@ a.meta-value {
   color: var(--color-accent-700);
   border-bottom: 1px solid var(--color-accent);
   padding-bottom: 3px;
-}
-
-/*
- * Until a wine has a description, its row is just a name — so the text takes
- * the remaining width and the category sits at the far end of the same
- * baseline, rather than leaving an empty column.
- */
-.wine:not(:has(.wine-copy)) {
-  grid-template-columns: 120px minmax(0, 1fr);
-}
-
-.wine:not(:has(.wine-copy)) .wine-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.wine:not(:has(.wine-copy)) .wine-kind {
-  margin-top: 0;
-}
-
-.wine-name {
-  font-family: var(--font-heading);
-  font-weight: 300;
-  font-size: 28px;
-  line-height: 1.2;
-}
-
-/* The name is the way into the wine's own page. */
-.wine-name a {
-  transition: color 0.3s ease;
-}
-
-.wine-name a:hover {
-  color: var(--color-accent-700);
-}
-
-.wine-kind {
-  font-family: var(--font-heading);
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-accent-700);
-  margin-top: 10px;
 }
 
 .wine-copy {
@@ -2162,50 +2184,28 @@ a.meta-value {
 }
 
 @media (max-width: 759.98px) {
-  .wine-list {
-    margin-top: 24px;
+  .wine-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px 16px;
+    margin-top: 28px;
   }
 
-  .wine,
-  .wine:not(:has(.wine-copy)) {
-    grid-template-columns: 84px minmax(0, 1fr);
-    gap: 14px 18px;
-    align-items: center;
-    padding: 24px 0;
+  .wine-card a {
+    gap: 14px;
   }
 
-  .wine-photo {
-    height: 130px;
+  .wine-card-figure {
+    height: 250px;
   }
 
-  /* Bottle beside the name, description across the full width below. */
-  .wine-body {
-    grid-column: 1 / -1;
+  .wine-card-name {
+    font-size: 21px;
   }
 
   .wine-link {
     margin-top: 12px;
     font-size: 11.5px;
     padding: 8px 0 6px;
-  }
-
-  /* A wine with no bottle shot should not sit indented by an empty column. */
-  .wine:not(:has(.wine-photo)),
-  .wine:not(:has(.wine-photo)):not(:has(.wine-copy)) {
-    grid-template-columns: 1fr;
-  }
-
-  .wine:not(:has(.wine-photo)) .wine-figure {
-    display: none;
-  }
-
-  .wine-name {
-    font-size: 25px;
-  }
-
-  .wine-kind {
-    font-size: 10.5px;
-    margin-top: 8px;
   }
 
   .wine-copy {

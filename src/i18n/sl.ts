@@ -173,6 +173,7 @@ export const sl: Content = {
     listHead: 'Vina',
     buy: 'Kupi na Evino',
     bottleAlt: (name) => `Steklenica — ${name}`,
+    photoPending: 'Fotografija sledi',
     kinds: {
       belo: 'belo',
       'rdeče': 'rdeče',

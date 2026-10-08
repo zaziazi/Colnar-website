@@ -274,15 +274,14 @@ export const tasting = (
 
 /* ---------------------------------------------------------------- the wines --
  *
- * The range as an `ItemList` of products. Deliberately without prices: the page
- * does not show any, and marking up figures a visitor cannot see is exactly
- * what the guidelines forbid.
+ * The range as a summary list: each entry is the wine's own page, which carries
+ * the full Product. The list page shows only bottle and name, so that is all
+ * it marks up.
  */
 export const wineList = (
-  site: URL,
   canonical: string,
   t: Content,
-  wines: { name: string; kind?: string; description?: string; image?: string; url?: string }[],
+  wines: { name: string; url: string }[],
 ): Node => ({
   '@type': 'ItemList',
   '@id': `${canonical}#vina`,
@@ -291,16 +290,8 @@ export const wineList = (
   itemListElement: wines.map((wine, i) => ({
     '@type': 'ListItem',
     position: i + 1,
-    item: {
-      '@type': 'Product',
-      name: wine.name,
-      ...(wine.kind ? { category: wine.kind } : {}),
-      ...(wine.description ? { description: wine.description } : {}),
-      ...(wine.image ? { image: wine.image } : {}),
-      ...(wine.url ? { url: wine.url } : {}),
-      brand: { '@id': ids.winery(site) },
-      manufacturer: { '@id': ids.winery(site) },
-    },
+    name: wine.name,
+    url: wine.url,
   })),
 });
 
