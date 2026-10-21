@@ -11,3 +11,21 @@
   # form posts to the root. Point this at a Formspree URL or a function instead
   # and nothing else has to change.
   PUBLIC_FORM_ENDPOINT = "/"
+
+# ------------------------------------------------- Klub zvestobe (Vinoteka)
+# One static page serves every guest's card and every unsubscribe link; the
+# script on it reads the token from the address. The /api/klub/* endpoints are
+# Netlify functions (netlify/functions/klub-*.mts) with their own paths.
+
+[[redirects]]
+  from = "/klub/k/*"
+  to = "/klub/kartica/"
+  status = 200
+
+[[redirects]]
+  from = "/klub/odjava/*"
+  to = "/klub/odjava/"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"

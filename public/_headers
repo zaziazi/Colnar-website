@@ -15,3 +15,8 @@
 
 # No Content-Security-Policy yet: the age gate's script is inline, so a policy
 # tight enough to be worth having needs its hash. Worth doing, not free.
+
+# Loyalty club: personal pages behind a link — never indexed, never cached.
+/klub/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

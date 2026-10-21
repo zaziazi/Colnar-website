@@ -31,6 +31,8 @@ export default defineConfig({
      * the route map is the only thing that knows they belong together.
      */
     sitemap({
+      // The loyalty club is for guests with a link, not for search engines.
+      filter: (page) => !new URL(page).pathname.startsWith('/klub/'),
       serialize(item) {
         const { origin, pathname } = new URL(item.url);
         const pair = Object.keys(routes.sl).find(

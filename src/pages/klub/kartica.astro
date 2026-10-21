@@ -1,0 +1,324 @@
+---
+import Klub from '../../layouts/Klub.astro';
+
+/*
+ * The guest's card. Served for every /klub/k/<token>/ by a rewrite in
+ * netlify.toml; the script reads the token from the address and loads the card
+ * from /api/klub/card. Because the address carries the token, "Add to Home
+ * Screen" saves this guest's own card.
+ */
+---
+
+<Klub title="Moja kartica · Vinoteka Colnar" dark>
+  <div id="welcome" class="note" hidden></div>
+
+  <div id="loading" class="fine center">Nalagam kartico …</div>
+  <div id="missing" class="center" hidden>
+    <p class="display small">Kartice ni</p>
+    <p class="fine">Povezava ni pravilna. <a href="/klub/">Pridružite se klubu</a> ali vprašajte osebje.</p>
+  </div>
+
+  <section id="card" hidden>
+    <div class="plate">
+      <div class="top">
+        <div>
+          <p class="eyebrow" data-f="club"></p>
+          <p class="name" data-f="name"></p>
+        </div>
+        <div class="count"><span data-f="shown"></span><small>/<span data-f="need"></span></small><em>žigov</em></div>
+      </div>
+      <div class="stamps" id="stamps"></div>
+      <p class="reward">Nagrada: <b data-f="reward"></b></p>
+    </div>
+
+    <div id="ready" class="ready" hidden>
+      <p class="ready-title">Nagrada vas čaka</p>
+      <p>Pokažite kodo osebju in prejmite <span data-f="reward"></span>.<span data-f="extra"></span></p>
+    </div>
+
+    <div class="qr">
+      <div id="qr"></div>
+      <p class="code" data-f="code"></p>
+      <p class="hint">Ob plačilu pokažite kodo osebju</p>
+    </div>
+
+    <div class="stats">
+      <div><b data-f="visits"></b><span>obiskov</span></div>
+      <div><b data-f="rewards"></b><span>nagrad</span></div>
+      <div><b data-f="since"></b><span>član od</span></div>
+    </div>
+
+    <div id="save" class="note save" hidden>
+      <button type="button" class="x" aria-label="Skrij">×</button>
+      <p class="save-title">Shranite kartico na telefon</p>
+      <p id="save-ios" class="fine">V Safariju tapnite <b>Deli</b> (kvadrat s puščico), nato <b>Dodaj na začetni zaslon</b>. Kartica bo med aplikacijami.</p>
+      <p id="save-android" class="fine" hidden>V meniju brskalnika <b>⋮</b> izberite <b>Dodaj na začetni zaslon</b>. Kartica bo med aplikacijami.</p>
+    </div>
+  </section>
+</Klub>
+
+<style>
+  .center {
+    text-align: center;
+    padding: 60px 0;
+  }
+  .display.small {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .note {
+    border: 1px solid rgba(225, 173, 102, 0.35);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .plate {
+    border: 1px solid var(--color-accent-400);
+    border-radius: var(--radius-md);
+    padding: 20px 18px 18px;
+    background: linear-gradient(160deg, #383535 0%, #262424 100%);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .name {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 1.1;
+    margin-top: 4px !important;
+  }
+  .count {
+    text-align: right;
+    font-family: var(--font-heading);
+    font-size: 36px;
+    line-height: 1;
+    color: var(--color-accent-400);
+    white-space: nowrap;
+  }
+  .count small {
+    font-size: 20px;
+    opacity: 0.6;
+  }
+  .count em {
+    display: block;
+    font-style: normal;
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(248, 244, 244, 0.55);
+    margin-top: 4px;
+  }
+  .stamps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px 0 16px;
+  }
+  .stamps :global(span) {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    border: 1px dashed rgba(225, 173, 102, 0.45);
+    color: rgba(248, 244, 244, 0.4);
+  }
+  .stamps :global(span.on) {
+    border: 0;
+    background: var(--color-accent-400);
+    color: var(--color-neutral-900);
+  }
+  .stamps :global(span.on svg) {
+    width: 52%;
+    height: 52%;
+  }
+  .reward {
+    font-size: 14px;
+    color: rgba(248, 244, 244, 0.75);
+  }
+  .reward b {
+    font-weight: 400;
+    color: var(--color-neutral-100);
+  }
+  .ready {
+    margin-top: 14px;
+    border-radius: var(--radius-md);
+    background: var(--color-accent-300);
+    color: var(--color-text);
+    padding: 14px 16px;
+    font-size: 14.5px;
+  }
+  .ready-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    line-height: 1.1;
+    margin-bottom: 4px !important;
+  }
+  .qr {
+    margin-top: 16px;
+    background: #fff;
+    color: var(--color-text);
+    border-radius: var(--radius-md);
+    padding: 22px 20px 18px;
+    text-align: center;
+  }
+  #qr {
+    width: 210px;
+    margin: 0 auto;
+  }
+  #qr :global(svg) {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .code {
+    margin-top: 10px !important;
+    font-size: 17px;
+    letter-spacing: 0.16em;
+  }
+  .hint {
+    font-size: 12.5px;
+    color: rgba(32, 31, 29, 0.55);
+  }
+  .stats {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    text-align: center;
+  }
+  .stats div {
+    border: 1px solid rgba(248, 244, 244, 0.12);
+    border-radius: var(--radius-md);
+    padding: 10px 4px;
+  }
+  .stats b {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .stats span {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(248, 244, 244, 0.55);
+  }
+  .save {
+    margin-top: 18px;
+  }
+  .save-title {
+    font-size: 15px;
+    margin-bottom: 4px !important;
+  }
+  .save b {
+    font-weight: 400;
+    color: var(--color-neutral-100);
+  }
+  .x {
+    position: absolute;
+    right: 6px;
+    top: 4px;
+    background: none;
+    border: 0;
+    color: rgba(248, 244, 244, 0.55);
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+</style>
+
+<script>
+  const GLASS =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22h8M12 15v7M7 2h10l-.6 6.2A4.4 4.4 0 0 1 12 12.2 4.4 4.4 0 0 1 7.6 8.2Z"/></svg>';
+  const token = (location.pathname.match(/\/klub\/k\/([a-f0-9]{32})/) ?? [])[1];
+  const $ = (id: string) => document.getElementById(id) as HTMLElement;
+  const fill = (key: string, value: string) =>
+    document.querySelectorAll(`[data-f="${key}"]`).forEach((el) => (el.textContent = value));
+  const day = new Intl.DateTimeFormat('sl-SI', { day: 'numeric', month: 'numeric', year: '2-digit' });
+
+  const nova = new URLSearchParams(location.search).get('nova');
+  if (nova) {
+    $('welcome').hidden = false;
+    $('welcome').textContent =
+      nova === '1'
+        ? 'Dobrodošli v klubu! Povezavo do kartice smo vam poslali tudi po e-pošti.'
+        : 'Dobrodošli v klubu! Shranite si to stran – spodaj piše, kako.';
+    // the note is for the first visit only, not for the saved home-screen copy
+    history.replaceState(null, '', location.pathname);
+  }
+
+  let lastQr = '';
+  async function load() {
+    if (!token) {
+      $('loading').hidden = true;
+      $('missing').hidden = false;
+      return;
+    }
+    const res = await fetch(`/api/klub/card?t=${token}`, { cache: 'no-store' }).catch(() => null);
+    $('loading').hidden = true;
+    if (!res || !res.ok) {
+      if (res?.status === 404) $('missing').hidden = false;
+      return; // offline: keep showing what is there
+    }
+    const c = await res.json();
+    const need = c.stamps_needed as number;
+    const shown = Math.min(c.stamps, need);
+    const extra = c.stamps - need;
+
+    fill('club', c.club_name);
+    fill('name', c.name);
+    fill('shown', String(shown));
+    fill('need', String(need));
+    fill('reward', c.reward);
+    fill('code', c.card_code);
+    fill('visits', String(c.visits));
+    fill('rewards', String(c.rewards_redeemed));
+    fill('since', day.format(new Date(c.since)));
+    fill('extra', extra > 0 ? ` Žigi v rezervi: ${extra}.` : '');
+
+    $('stamps').innerHTML = Array.from({ length: need }, (_, i) =>
+      i < shown ? `<span class="on">${GLASS}</span>` : `<span>${i + 1}</span>`,
+    ).join('');
+    if (c.qr !== lastQr) {
+      $('qr').innerHTML = c.qr;
+      lastQr = c.qr;
+    }
+    $('ready').hidden = c.stamps < need;
+    $('card').hidden = false;
+    document.title = `${c.name} · ${c.club_name}`;
+  }
+
+  void load();
+  // New stamps appear when the guest comes back to the card, and every 15 s while it is open.
+  setInterval(() => document.visibilityState === 'visible' && void load(), 15000);
+  document.addEventListener('visibilitychange', () => document.visibilityState === 'visible' && void load());
+
+  // "Save to home screen" — hidden once it already runs from the home screen, or dismissed.
+  const standalone =
+    matchMedia('(display-mode: standalone)').matches || (navigator as Navigator & { standalone?: boolean }).standalone === true;
+  let dismissed = false;
+  try {
+    dismissed = localStorage.getItem('colnar:klub-save') === '1';
+  } catch {}
+  if (token && !standalone && !dismissed) {
+    $('save').hidden = false;
+    const ios = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    $('save-ios').hidden = !ios;
+    $('save-android').hidden = ios;
+  }
+  document.querySelector('.save .x')?.addEventListener('click', () => {
+    $('save').hidden = true;
+    try {
+      localStorage.setItem('colnar:klub-save', '1');
+    } catch {}
+  });
+</script>

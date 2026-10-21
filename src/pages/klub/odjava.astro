@@ -1,0 +1,58 @@
+---
+import Klub from '../../layouts/Klub.astro';
+
+/*
+ * Unsubscribe from club e-mails. Served for /klub/odjava/<token>/ by a rewrite
+ * in netlify.toml. It takes a click, so mail scanners that open every link do
+ * not unsubscribe anyone.
+ */
+---
+
+<Klub title="Odjava od novic · Vinoteka Colnar">
+  <p class="eyebrow">Vinoteka Colnar</p>
+  <h1 class="display" id="title">Odjava od novic</h1>
+  <hr class="rule" />
+  <p id="text">Ne boste več prejemali novic kluba zvestobe. Vaša kartica in žigi ostanejo.</p>
+  <button class="btn" id="go" type="button">Odjavi me od novic</button>
+  <a id="card" class="back" href="/klub/" hidden>Odpri mojo kartico →</a>
+</Klub>
+
+<style>
+  #text {
+    margin-bottom: 24px !important;
+  }
+  .back {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--color-accent-700) !important;
+  }
+</style>
+
+<script>
+  const token = (location.pathname.match(/\/klub\/odjava\/([a-f0-9]{32})/) ?? [])[1];
+  const btn = document.getElementById('go') as HTMLButtonElement;
+  const text = document.getElementById('text') as HTMLElement;
+  const card = document.getElementById('card') as HTMLAnchorElement;
+  if (!token) {
+    btn.hidden = true;
+    text.textContent = 'Povezava ni pravilna.';
+  }
+  btn.addEventListener('click', async () => {
+    btn.disabled = true;
+    const res = await fetch('/api/klub/unsubscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    }).catch(() => null);
+    if (res?.ok) {
+      (document.getElementById('title') as HTMLElement).textContent = 'Odjavljeni ste';
+      text.textContent = 'Ne bomo vam več pošiljali novic. Vaša kartica zvestobe in žigi ostanejo.';
+      btn.hidden = true;
+      card.href = `/klub/k/${token}/`;
+      card.hidden = false;
+    } else {
+      text.textContent = 'Odjava ni uspela. Poskusite znova ali nam pišite.';
+      btn.disabled = false;
+    }
+  });
+</script>

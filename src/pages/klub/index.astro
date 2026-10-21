@@ -1,0 +1,243 @@
+---
+import Klub from '../../layouts/Klub.astro';
+import Logo from '../../components/Logo.astro';
+
+/*
+ * colnar.si/klub — join the Vinoteka loyalty club. The QR on the counter points
+ * here. Static page; the form posts to /api/klub/join (a Netlify function) and
+ * the current rules (stamps, reward) are filled in from /api/klub/settings.
+ */
+const STAMPS = 10;
+---
+
+<Klub title="Klub zvestobe · Vinoteka Colnar">
+  <Logo class="mark" />
+  <p class="eyebrow">Vinoteka Colnar</p>
+  <h1 class="display" data-club-name>Klub zvestobe</h1>
+  <hr class="rule" />
+  <p class="lead">
+    Ob vsakem obisku Vinoteke dobite žig. Pri <b data-stamps>{STAMPS}</b> žigih vas čaka
+    <b data-reward>kozarec vina po izbiri</b>. Brez aplikacije – kartica je v vašem telefonu.
+  </p>
+
+  <div class="dots" aria-hidden="true">
+    {Array.from({ length: STAMPS }, (_, i) => <span class:list={{ on: i < 3 }} />)}
+  </div>
+
+  <form id="join" class="form" novalidate>
+    <label>
+      <span>Ime in priimek</span>
+      <input name="name" autocomplete="name" required minlength="2" maxlength="120" />
+    </label>
+    <label>
+      <span>E-naslov</span>
+      <input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="200" />
+    </label>
+    <label>
+      <span>Telefon <i>(neobvezno)</i></span>
+      <input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" />
+    </label>
+    <input name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+
+    <label class="check">
+      <input type="checkbox" name="terms" required />
+      <span>Strinjam se, da Vinska klet Colnar hrani moje podatke za vodenje kartice zvestobe.</span>
+    </label>
+    <label class="check">
+      <input type="checkbox" name="marketing" />
+      <span>Želim prejemati novice: nove letnike, degustacije in posebne ponudbe (neobvezno).</span>
+    </label>
+
+    <p class="error" role="alert" hidden></p>
+    <button class="btn" type="submit">Ustvari mojo kartico</button>
+  </form>
+
+  <div id="done" class="done" hidden>
+    <p class="done-title"></p>
+    <p class="done-text"></p>
+  </div>
+
+  <p class="fine privacy">
+    Upravljavec podatkov je Vinska klet Colnar. Ime, e-naslov in obiske hranimo samo za vodenje vaše kartice
+    zvestobe. Novice pošiljamo le, če to označite, in se od njih lahko kadarkoli odjavite. Za izbris kartice
+    povejte osebju ali nam pišite.
+  </p>
+</Klub>
+
+<style>
+  :global(.mark) {
+    display: block;
+    width: 96px;
+    margin-bottom: 26px;
+    color: var(--color-text);
+  }
+  :global(.mark svg) {
+    width: 100%;
+    height: auto;
+  }
+  .eyebrow {
+    margin-bottom: 8px;
+  }
+  .lead {
+    font-size: 16.5px;
+  }
+  .lead b {
+    font-weight: 400;
+    color: var(--color-accent-700);
+  }
+  .dots {
+    display: flex;
+    gap: 6px;
+    margin: 22px 0 26px;
+  }
+  .dots span {
+    flex: 1;
+    aspect-ratio: 1;
+    max-width: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--color-accent);
+  }
+  .dots span.on {
+    background: var(--color-accent);
+  }
+  .form {
+    display: grid;
+    gap: 14px;
+    padding-top: 22px;
+    border-top: 1px solid var(--color-divider);
+  }
+  .form label > span {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: rgba(32, 31, 29, 0.72);
+  }
+  .form i {
+    font-style: normal;
+    opacity: 0.6;
+  }
+  .form input:not([type='checkbox']) {
+    width: 100%;
+    height: 48px;
+    padding: 0 12px;
+    border: 1px solid rgba(32, 31, 29, 0.28);
+    border-radius: var(--radius-md);
+    background: #fff;
+    font: inherit;
+    font-size: 16px; /* 16px or iPhone zooms in on focus */
+    color: var(--color-text);
+  }
+  .form input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(182, 130, 53, 0.18);
+  }
+  .form input[aria-invalid='true'] {
+    border-color: var(--color-error);
+  }
+  .check {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .check input {
+    width: 20px;
+    height: 20px;
+    margin: 1px 0 0;
+    flex-shrink: 0;
+    accent-color: var(--color-neutral-900);
+  }
+  .check span {
+    margin: 0 !important;
+    font-size: 14px !important;
+    color: var(--color-text) !important;
+  }
+  .hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+  }
+  .error {
+    color: var(--color-error);
+    font-size: 14px;
+  }
+  .btn {
+    margin-top: 4px;
+  }
+  .done {
+    padding: 24px 0;
+    border-top: 1px solid var(--color-divider);
+  }
+  .done-title {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 6px !important;
+  }
+  .privacy {
+    margin-top: 28px !important;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('join') as HTMLFormElement;
+  const err = form.querySelector('.error') as HTMLElement;
+  const btn = form.querySelector('button') as HTMLButtonElement;
+  const done = document.getElementById('done') as HTMLElement;
+
+  // The current rules, so the page never promises a reward the till does not give.
+  fetch('/api/klub/settings')
+    .then((r) => (r.ok ? r.json() : null))
+    .then((s) => {
+      if (!s) return;
+      document.querySelectorAll('[data-stamps]').forEach((el) => (el.textContent = String(s.stamps_needed)));
+      document.querySelectorAll('[data-reward]').forEach((el) => (el.textContent = s.reward));
+      document.querySelectorAll('[data-club-name]').forEach((el) => (el.textContent = s.club_name));
+    })
+    .catch(() => {});
+
+  function fail(msg: string, field?: string) {
+    err.textContent = msg;
+    err.hidden = false;
+    form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
+    if (field) (form.elements.namedItem(field) as HTMLInputElement | null)?.setAttribute('aria-invalid', 'true');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get('name') ?? '').trim();
+    const email = String(data.get('email') ?? '').trim();
+    if (name.length < 2) return fail('Vpišite ime in priimek.', 'name');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fail('E-naslov ni pravilen.', 'email');
+    if (!data.get('terms')) return fail('Za kartico potrebujemo vaše soglasje.', 'terms');
+
+    err.hidden = true;
+    btn.disabled = true;
+    btn.textContent = 'Ustvarjam kartico …';
+    try {
+      const res = await fetch('/api/klub/join', { method: 'POST', body: data });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.error || 'Prijava ni uspela. Poskusite znova ali vprašajte osebje.');
+
+      if (body.status === 'created' && body.token) {
+        location.href = `/klub/k/${body.token}/?nova=${body.mailed ? 1 : 2}`;
+        return;
+      }
+      form.hidden = true;
+      done.hidden = false;
+      (done.querySelector('.done-title') as HTMLElement).textContent = 'Ta e-naslov je že v klubu';
+      (done.querySelector('.done-text') as HTMLElement).textContent =
+        body.status === 'mailed'
+          ? `Povezavo do vaše kartice smo poslali na ${email}.`
+          : 'Vašo kartico vam z veseljem poišče osebje na blagajni.';
+    } catch (e) {
+      fail(e instanceof Error ? e.message : 'Prijava ni uspela.');
+      btn.disabled = false;
+      btn.textContent = 'Ustvari mojo kartico';
+    }
+  });
+</script>

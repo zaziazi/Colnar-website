@@ -10,3 +10,6 @@ node_modules/
 # on purpose: macOS is case-insensitive, so an unanchored `Photos/` also matches
 # src/assets/photos/ and would quietly drop every image on the site from git.
 /Photos/
+
+# Local Netlify folder
+.netlify

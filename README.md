@@ -641,3 +641,26 @@ markup posts there.
 Cloudflare Pages or Vercel: build command `npm run build`, output `dist`, Node
 22+, and set `PUBLIC_FORM_ENDPOINT` yourself — neither has a forms service, so
 it needs Formspree or a small function.
+
+## Klub zvestobe (`/klub`)
+
+The Vinoteka loyalty club's guest side. Staff stamp cards in Colnix (the
+winery's internal app); everything a guest sees lives here.
+
+| Address | What |
+| --- | --- |
+| `/klub/` | Join form. The QR poster on the Vinoteka counter (printed from Colnix → Klub zvestobe → Pregled) points here. |
+| `/klub/k/<token>/` | The guest's card: stamps, reward, QR for the till. Rewritten to `/klub/kartica/` in `netlify.toml`; saved to the home screen it opens this guest's card. |
+| `/klub/odjava/<token>/` | Unsubscribe from club e-mails (a button, so mail scanners cannot trigger it). |
+
+The browser only talks to colnar.si: `/api/klub/{join,card,settings,unsubscribe}`
+are Netlify functions (`netlify/functions/klub-*.mts`) that call the Colnix
+database's public, token-guarded RPCs with the anon key (`netlify/lib/supabase-public.ts`).
+None of these pages are indexed or in the sitemap.
+
+**Netlify environment variables (scope: Functions)** for the welcome e-mail:
+`SMTP_HOST`, `SMTP_PORT` (465), `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM`, optional
+`MAIL_REPLY_TO`. Without them joining still works; the welcome mail is skipped
+and an e-mail already in the club is told to ask the staff.
+
+Local test with functions and rewrites: `npx netlify-cli serve --offline` (port 8888).
