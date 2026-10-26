@@ -616,7 +616,8 @@ p {
 }
 
 .tree-caption {
-  margin-top: 18px;
+  max-width: 62ch;
+  margin: 22px auto 0;
   text-align: center;
   font-size: 14.5px;
   line-height: 1.7;

@@ -232,8 +232,9 @@ export const en: Content = {
     heroAlt: 'By the red tractor under the vine pergola, harvest 2019',
     tree: {
       head: 'Family tree',
-      alt: 'The hand-written family tree of the Colnars of Lešnica, from Mihael, born 1590, to Janez, born 1936',
-      caption: 'The hand-written family tree of the Colnars of Lešnica — from Mihael, born 1590, to Janez, born 1936.',
+      alt: 'The hand-written family tree of the Colnar – Zollner family of Lešnica, with records from around 1400',
+      caption:
+        'The hand-written family tree of the Colnar – Zollner family of Lešnica. Its records reach back to around 1400; in 1747 the first Janez is born, and every firstborn son has carried the name since. At Lešnica the family lived at house no. 1 until 1790, at no. 2 until 1840, and from then on at no. 3.',
       open: 'Open full size',
     },
     slides: {
