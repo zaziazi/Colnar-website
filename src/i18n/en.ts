@@ -165,7 +165,7 @@ export const en: Content = {
       hours: 'Mon – Sat · 9.00 – 21.00',
       menuLabel: 'Menu',
       menuLink: 'What the wine bar offers',
-      alt: 'Glasses at a tasting',
+      alt: 'Vinoteka Colnar: shelves of wine, the counter and bar tables',
     },
     ctaBar: 'Book a tasting',
   },
@@ -272,7 +272,7 @@ export const en: Content = {
 
   vinoteka: {
     title: 'Wine bar',
-    heroAlt: 'A bottle of Colnar Chardonnay on a table among greenery',
+    heroAlt: 'Vinoteka Colnar: shelves of wine, the counter and bar tables',
     whereHead: 'How to find us',
     addressLabel: 'Address',
     addressName: 'Otoška cesta 5',

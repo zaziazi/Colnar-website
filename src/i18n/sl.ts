@@ -158,7 +158,7 @@ export const sl: Content = {
       hours: 'Pon – Sob · 9.00 – 21.00',
       menuLabel: 'Meni',
       menuLink: 'Ponudba vinoteke',
-      alt: 'Kozarci na degustaciji',
+      alt: 'Vinoteka Colnar: police z vini, pult in barske mize',
     },
     ctaBar: 'Rezerviraj degustacijo',
   },
@@ -262,7 +262,7 @@ export const sl: Content = {
 
   vinoteka: {
     title: 'Vinoteka',
-    heroAlt: 'Steklenica Colnar Chardonnay na mizi med zelenjem',
+    heroAlt: 'Vinoteka Colnar: police z vini, pult in barske mize',
     whereHead: 'Kako do nas',
     addressLabel: 'Naslov',
     addressName: 'Otoška cesta 5',
