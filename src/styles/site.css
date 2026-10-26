@@ -105,6 +105,12 @@ p {
   padding-bottom: 14px;
 }
 
+/* A head whose list below opens with its own rule: no second line. */
+.section-head--bare {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
 @media (max-width: 759.98px) {
   .section-head {
     font-size: 27px;
