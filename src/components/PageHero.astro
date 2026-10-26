@@ -11,9 +11,15 @@ interface Props {
   standfirst?: string;
   /** `object-position` for the crop. */
   position?: string;
+  /**
+   * Never crop the sides: on a screen narrower than 3:2 (any phone) the whole
+   * photograph is shown, over a blurred copy of itself that fills the rest.
+   * For group photos, where a side crop cuts people off.
+   */
+  whole?: boolean;
 }
 
-const { photo, alt, title, standfirst, position = '50% 50%' } = Astro.props;
+const { photo, alt, title, standfirst, position = '50% 50%', whole = false } = Astro.props;
 
 /*
  * The photo covers a full-height pane, so on a tall screen a wide photo is
@@ -34,7 +40,23 @@ const sizes = `max(100vw, ${Math.ceil((photo.width / photo.height) * 100)}vh)`;
   ramps live in `scripts/motion.js`.
 */}
 <div class="page-hero-track" data-page-hero-track>
-  <header class="page-hero" data-page-hero>
+  <header class:list={['page-hero', { 'page-hero--whole': whole }]} data-page-hero>
+    {
+      whole && (
+        <Picture
+          class="page-hero-backdrop"
+          pictureAttributes={{ class: 'pic' }}
+          src={photo}
+          formats={['avif', 'webp']}
+          fallbackFormat="jpg"
+          widths={[480]}
+          sizes="480px"
+          loading="eager"
+          alt=""
+          aria-hidden="true"
+        />
+      )
+    }
     <Picture
       class="page-hero-photo"
       pictureAttributes={{ class: 'pic' }}
