@@ -6,7 +6,8 @@ skupina: jc
 stil: sveze-belo
 volumen: 1
 alkohol: 11
-# Ni na evino.si — brez slike in povezave, dokler ne bo listan.
+slika: ../../../assets/photos/wines/dolenjsko-belo.png
+# Ni na evino.si — brez povezave za nakup, dokler ne bo listan.
 ---
 
 V belem namiznem vinu Colnar najdemo sorte kraljevina, laški rizling in beli pinot. Pridobiva se po

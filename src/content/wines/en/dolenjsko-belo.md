@@ -6,7 +6,8 @@ skupina: jc
 stil: sveze-belo
 volumen: 1
 alkohol: 11
-# Not listed on evino.si — no bottle shot and no buy link until it is.
+slika: ../../../assets/photos/wines/dolenjsko-belo.png
+# Not listed on evino.si — no buy link until it is.
 ---
 
 The white table wine from Colnar is built from kraljevina, laški rizling and beli pinot. It is made
