@@ -5,7 +5,7 @@ import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/vinoteka-hero.jpg';
-import { menu } from '../data/vinoteka-menu';
+import { menuIn } from '../data/vinoteka-menu';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
 import { menu as menuSchema } from '../data/schema';
 
@@ -25,6 +25,7 @@ const euro = new Intl.NumberFormat(t.numberLocale, {
 const litres = new Intl.NumberFormat(t.numberLocale, { maximumFractionDigits: 3 });
 
 const canonical = new URL(routes[lang].vinoteka, Astro.site).href;
+const menu = menuIn(lang);
 const schema = menuSchema(Astro.site!, canonical, t, c.menu.sections.bar, menu, c.menu);
 
 const size = (item: { ml?: number; g?: number }) => {

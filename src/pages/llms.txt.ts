@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { getContent, routes, winesFor } from '../i18n';
-import { menu } from '../data/vinoteka-menu';
+import { menuIn } from '../data/vinoteka-menu';
 import { maps } from '../data/maps';
 
 /*
@@ -25,7 +25,7 @@ export const GET: APIRoute = async ({ site }) => {
   const size = (item: { ml?: number; g?: number }) =>
     item.ml ? `${item.ml / 1000} l` : item.g ? `${item.g} g` : '';
 
-  const menuLines = menu
+  const menuLines = menuIn('en')
     .map((section) => {
       const groups = section.groups
         .map((group) => {

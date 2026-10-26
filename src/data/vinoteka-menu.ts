@@ -324,3 +324,84 @@ export const menu: MenuSection[] = [
     ],
   },
 ];
+
+/*
+ * English names for the rows that are not simply a wine's or a brand's own
+ * name: drinks, coffees, delicacies, packaging, and the describing words in a
+ * wine's name (polsladko, ledeno vino, iz magnuma). Anything not listed here
+ * is a name, and stays as it is in both languages.
+ */
+const EN_NAMES: Record<string, string> = {
+  'Modra frankinja, iz magnuma': 'Modra frankinja, from a magnum',
+  'Rumeni muškat, polsladko, Šturm': 'Rumeni muškat, semi-sweet, Šturm',
+  'Renski rizling, sladko, Šturm': 'Renski rizling, sweet, Šturm',
+  'Akord, oranžno, Šturm': 'Akord, orange wine, Šturm',
+  'Rumeni muškat, jagodni izbor, Šturm': 'Rumeni muškat, berry selection, Šturm',
+  'Chardonnay, ledeno vino, Šturm': 'Chardonnay, ice wine, Šturm',
+  'Škropec, beli': 'Škropec, white',
+  'Škropec, rdeči': 'Škropec, red',
+  'Špricar, beli': 'Špricar, white',
+  'Špricar, rdeči': 'Špricar, red',
+  'Heineken, 0,0 %': 'Heineken, 0.0 %',
+  'Bernard, svetlo': 'Bernard, lager',
+  'Bernard, temno': 'Bernard, dark',
+  'Grozdni sok Colnar': 'Colnar grape juice',
+  'Karlovček, jabolčni sok': 'Karlovček, apple juice',
+  'Karlovček, sok': 'Karlovček, juice',
+  'Karlovček, breskov sok': 'Karlovček, peach juice',
+  'Dana, z okusom': 'Dana, flavoured',
+  Limonada: 'Lemonade',
+  'Ledeni čaj': 'Iced tea',
+  'Grozdna limonada': 'Grape lemonade',
+  Kava: 'Espresso',
+  'Kava z mlekom': 'Espresso with milk',
+  'Kava s smetano': 'Espresso with cream',
+  'Bela kava': 'White coffee',
+  Kakav: 'Cocoa',
+  'Brezkofeinska kava': 'Decaf espresso',
+  'Brezkofeinski macchiato': 'Decaf macchiato',
+  'Brezkofeinska kava z mlekom': 'Decaf espresso with milk',
+  'Brezkofeinska kava s smetano': 'Decaf espresso with cream',
+  'Brezkofeinski cappuccino': 'Decaf cappuccino',
+  'Brezkofeinska bela kava': 'Decaf white coffee',
+  'Kuhano belo vino': 'Mulled white wine',
+  'Kuhano rdeče vino': 'Mulled red wine',
+  Mleko: 'Milk',
+  Smetana: 'Cream',
+  Med: 'Honey',
+  Limona: 'Lemon',
+  Sirup: 'Syrup',
+  'Magnum, več vrst': 'Magnum, several wines',
+  'Burja Bela, eko': 'Burja Bela, organic',
+  'Charles Heidsieck, Brut Réserve, darilna': 'Charles Heidsieck, Brut Réserve, gift box',
+  'Sončnično olje': 'Sunflower oil',
+  'Liofilizirana jabolka': 'Freeze-dried apples',
+  'Eko čaj, za njo': 'Organic tea, for her',
+  'Eko čaj, za njega': 'Organic tea, for him',
+  'Zeliščna sol': 'Herb salt',
+  'Nošenka, enojna': 'Bottle carrier, single',
+  'Darilna embalaža, enojna': 'Gift packaging, single',
+  'Darilna embalaža, dvojna': 'Gift packaging, double',
+  'Lesena embalaža, 1 × 0,75 l': 'Wooden box, 1 × 0.75 l',
+  'Lesena embalaža za penino, 1 × 0,75 l': 'Wooden box for sparkling wine, 1 × 0.75 l',
+  'Lesena embalaža, 2 × 0,75 l': 'Wooden box, 2 × 0.75 l',
+  'Lesena embalaža, magnum 1 × 1,5 l': 'Wooden box, magnum 1 × 1.5 l',
+  'Lesena embalaža, 6 × 0,75 l': 'Wooden box, 6 × 0.75 l',
+  'Riedel Bar Rock Glass, set 2 kozarcev': 'Riedel Bar Rock Glass, set of 2 glasses',
+};
+
+/** The list with each row's name in the given language. */
+export const menuIn = (lang: 'sl' | 'en'): MenuSection[] =>
+  lang === 'sl'
+    ? menu
+    : menu.map((section) => ({
+        ...section,
+        groups: section.groups.map((group) => {
+          const name = (item: MenuItem): MenuItem => ({ ...item, name: EN_NAMES[item.name] ?? item.name });
+          return {
+            ...group,
+            items: group.items?.map(name),
+            parts: group.parts?.map((part) => ({ ...part, items: part.items.map(name) })),
+          };
+        }),
+      }));
