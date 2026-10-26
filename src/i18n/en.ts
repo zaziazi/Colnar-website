@@ -224,8 +224,8 @@ export const en: Content = {
     standfirst: 'above the Krka valley, looking to the Gorjanci',
     heroAlt: 'Rows of vines with dandelion clocks between them',
     quote: {
-      text: '“Wine is bottled poetry.”',
-      author: 'Robert Louis Stevenson',
+      text: '“Wine is the song of the earth rising to the sky.”',
+      author: 'Luigi Veronelli',
     },
     sitesHead: 'Our vineyards',
     sites: ['Trška gora', 'Razbore', 'Grčevje', 'Ždinja Vas', 'Vinji vrh'],

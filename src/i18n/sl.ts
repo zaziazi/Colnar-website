@@ -214,8 +214,8 @@ export const sl: Content = {
     standfirst: 'nad dolino reke Krke, s pogledom na Gorjance',
     heroAlt: 'Vrste trt v vinogradu, med njimi regratove lučke',
     quote: {
-      text: '»Vino je ustekleničena poezija.«',
-      author: 'Robert Louis Stevenson',
+      text: '»Vino je pesem zemlje, ki se dviga k nebu.«',
+      author: 'Luigi Veronelli',
     },
     sitesHead: 'Naši vinogradi',
     sites: ['Trška gora', 'Razbore', 'Grčevje', 'Ždinja Vas', 'Vinji vrh'],
