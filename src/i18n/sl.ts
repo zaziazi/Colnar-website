@@ -224,7 +224,7 @@ export const sl: Content = {
       head: 'Družinsko drevo',
       alt: 'Ročno zapisan rodovnik družine Colnar – Zollner z Lešnice, z zapisi od okoli leta 1400',
       caption:
-        'Ročno zapisan rodovnik družine Colnar – Zollner z Lešnice. Zapisi segajo v čas okoli leta 1400, leta 1747 pa se rodi prvi Janez — od takrat to ime nosi vsak prvorojeni sin. Na Lešnici je družina živela na hišni številki 1 do leta 1790, na številki 2 do leta 1840, nato pa na številki 3.',
+        'Zapisi o družini segajo v čas okoli leta 1400, leta 1747 pa se rodi prvi Janez. Od takrat to ime nosi vsak prvorojeni sin. Na Lešnici je družina živela na hišni številki 1 do leta 1790, na številki 2 do leta 1840, nato pa na številki 3.',
       open: 'Odpri v polni velikosti',
     },
     slides: {
