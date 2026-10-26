@@ -8,6 +8,10 @@ import Stats from '../components/Stats.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/vinogradi-hero.jpg';
+import trskaGora from '../assets/photos/vineyards/trska-gora.jpg';
+import razbore from '../assets/photos/vineyards/razbore.jpg';
+import grcevje from '../assets/photos/vineyards/grcevje.jpg';
+import zdinjaVas from '../assets/photos/vineyards/zdinja-vas.jpg';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
 
 interface Props {
@@ -18,17 +22,18 @@ const { lang } = Astro.props;
 const v = getContent(lang).vineyards;
 
 /*
- * The five sunny positions — placeholders until the owner supplies a photograph
- * for each. The names come from the translation file (they are the same in both
- * languages, being place names); a photo goes here, keyed by name:
- *
- *   import trskaGora from '../assets/photos/vineyards/trska-gora.jpg';
- *   const photos = { 'Trška gora': trskaGora };
- *
- * Rows render either way — without a photo the frame stays an empty plate, on
- * purpose, so an unfinished vineyard is obvious rather than quietly missing.
+ * The five sunny positions, each with an aerial photograph keyed by its name.
+ * The names come from the translation file (they are the same in both
+ * languages, being place names). A position without a photo keeps an empty
+ * plate, on purpose, so an unfinished vineyard is obvious rather than quietly
+ * missing.
  */
-const photos: Record<string, ImageMetadata> = {};
+const photos: Record<string, ImageMetadata> = {
+  'Trška gora': trskaGora,
+  Razbore: razbore,
+  Grčevje: grcevje,
+  'Ždinja Vas': zdinjaVas,
+};
 ---
 
 <Base lang={lang} page="vineyards" ogImage={heroPhoto} ogImageAlt={v.heroAlt}>
