@@ -145,8 +145,8 @@ export type Content = {
     title: string;
     standfirst: string;
     heroAlt: string;
-    lede: string;
-    prose: string[];
+    /** A quotation found in print, set under the hero, with its author. */
+    quote: { text: string; author: string };
     sitesHead: string;
     sites: string[];
     photoPending: string;

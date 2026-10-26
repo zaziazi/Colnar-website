@@ -263,11 +263,10 @@ export const en: Content = {
     title: 'Vineyards',
     standfirst: 'above the Krka valley, looking to the Gorjanci',
     heroAlt: 'Rows of vines with dandelion clocks between them',
-    lede: 'Fifteen hectares of vineyard on five sunny sites above the Krka valley, looking across to the Gorjanci.',
-    prose: [
-      'Janez VII and his brother Matjaž planted the first vines in 2001. Today 125,000 vines grow on the five sites, pruned and picked by the family itself.',
-      'Everything the estate makes comes from these rows — cviček, which is 60% of the crop, and beside it the whites, the rosé, modra frankinja, laški rizling, the sparkling wines and Collis.',
-    ],
+    quote: {
+      text: '“Wine is bottled poetry.”',
+      author: 'Robert Louis Stevenson',
+    },
     sitesHead: 'Our vineyards',
     sites: ['Trška gora', 'Razbore', 'Grčevje', 'Ždinja Vas', 'Vinji vrh'],
     photoPending: 'Photograph to follow',

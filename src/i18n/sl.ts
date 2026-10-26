@@ -253,11 +253,10 @@ export const sl: Content = {
     title: 'Vinogradi',
     standfirst: 'nad dolino reke Krke, s pogledom na Gorjance',
     heroAlt: 'Vrste trt v vinogradu, med njimi regratove lučke',
-    lede: 'Petnajst hektarjev vinogradov na petih sončnih legah nad dolino reke Krke, s pogledom na Gorjance.',
-    prose: [
-      'Prvo trto sta Janez VII. in brat Matjaž posadila leta 2001. Danes na petih legah raste 125.000 trt, ki jih obrezujemo in beremo sami.',
-      'Iz teh vrst pride vse, kar pridelamo — cviček, ki predstavlja 60 % pridelka, ob njem pa bela vina, rosé, modra frankinja, laški rizling, penina in collis.',
-    ],
+    quote: {
+      text: '»Vino je ustekleničena poezija.«',
+      author: 'Robert Louis Stevenson',
+    },
     sitesHead: 'Naši vinogradi',
     sites: ['Trška gora', 'Razbore', 'Grčevje', 'Ždinja Vas', 'Vinji vrh'],
     photoPending: 'Fotografija sledi',

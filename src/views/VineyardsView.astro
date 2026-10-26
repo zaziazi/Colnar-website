@@ -48,13 +48,13 @@ const photos: Record<string, ImageMetadata> = {
   />
 
   <main class="wrap">
-    <div class="page-intro" data-reveal>
-      <p>{v.lede}</p>
-    </div>
-
-    <div class="page-prose" data-reveal>
-      {v.prose.map((para) => <p>{para}</p>)}
-    </div>
+    {/* One line from someone else, set like the homepage quote, then the figures. */}
+    <figure class="quote quote--page" data-reveal>
+      <blockquote>
+        <p>{v.quote.text}</p>
+      </blockquote>
+      <figcaption>{v.quote.author}</figcaption>
+    </figure>
 
     <div class="stats-lead">
       <Stats lang={lang} />
