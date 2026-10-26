@@ -126,6 +126,8 @@ export type Content = {
     title: string;
     standfirst: string;
     heroAlt: string;
+    /** The hand-written family tree, shown as the document itself. */
+    tree: { head: string; alt: string; caption: string; open: string };
     /** The slideshow under the timeline: its name, its arrows, one alt per photo in order. */
     slides: { label: string; prev: string; next: string; alts: string[] };
     cta: { heading: string; secondary: Link };

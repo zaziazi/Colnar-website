@@ -230,6 +230,12 @@ export const en: Content = {
     title: 'Our story',
     standfirst: 'since 1408',
     heroAlt: 'By the red tractor under the vine pergola, harvest 2019',
+    tree: {
+      head: 'Family tree',
+      alt: 'The hand-written family tree of the Colnars of Lešnica, from Mihael, born 1590, to Janez, born 1936',
+      caption: 'The hand-written family tree of the Colnars of Lešnica — from Mihael, born 1590, to Janez, born 1936.',
+      open: 'Open full size',
+    },
     slides: {
       label: 'Family photographs',
       prev: 'Previous photograph',

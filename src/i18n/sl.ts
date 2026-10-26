@@ -220,6 +220,12 @@ export const sl: Content = {
     title: 'Naša zgodba',
     standfirst: 'od leta 1408',
     heroAlt: 'Ob rdečem traktorju pod brajdami v vinogradu, trgatev 2019',
+    tree: {
+      head: 'Družinsko drevo',
+      alt: 'Ročno zapisan rodovnik družine Colnar z Lešnice, od Mihaela, rojenega leta 1590, do Janeza, rojenega leta 1936',
+      caption: 'Ročno zapisan rodovnik družine Colnar z Lešnice — od Mihaela, rojenega leta 1590, do Janeza, rojenega leta 1936.',
+      open: 'Odpri v polni velikosti',
+    },
     slides: {
       label: 'Fotografije družine',
       prev: 'Prejšnja fotografija',

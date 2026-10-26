@@ -591,6 +591,62 @@ p {
   padding-top: 136px;
 }
 
+/* The hand-written family tree, shown as the paper itself. */
+.tree {
+  padding-top: 120px;
+}
+
+.tree-figure {
+  margin: 48px auto 0;
+  max-width: 720px;
+}
+
+.tree-link {
+  display: block;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.tree-scan {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tree-caption {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+}
+
+.tree-open {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.tree-open:hover {
+  color: var(--color-text);
+}
+
+@media (max-width: 759.98px) {
+  .tree {
+    padding-top: 64px;
+  }
+
+  .tree-figure {
+    margin-top: 28px;
+  }
+}
+
 /*
  * Family photographs under the timeline, as a filmstrip: the current photo
  * centred at full strength, its neighbours half in view and quieter on either

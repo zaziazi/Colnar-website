@@ -1,4 +1,5 @@
 ---
+import { Picture, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import PageHero from '../components/PageHero.astro';
@@ -7,6 +8,7 @@ import Slideshow from '../components/Slideshow.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/zgodba-hero.jpg';
+import treeScan from '../assets/photos/zgodba/druzinsko-drevo.jpg';
 import toast from '../assets/photos/zgodba/01-nazdravljamo.jpg';
 import pergola from '../assets/photos/zgodba/02-brajde.jpg';
 import youngest from '../assets/photos/zgodba/03-najmlajsi.jpg';
@@ -26,6 +28,9 @@ interface Props {
 const { lang } = Astro.props;
 const t = getContent(lang);
 const s = t.story;
+
+/* The family tree at full resolution, for reading the hand-writing up close. */
+const treeFull = await getImage({ src: treeScan, format: 'jpg', width: treeScan.width });
 
 /* The photographs in order; their alt text lives with the copy, in the same order. */
 const slides = [
@@ -52,6 +57,30 @@ const slides = [
     <section class="years years--page" aria-labelledby="druzina-s-tradicijo">
       <h2 class="years-kicker" id="druzina-s-tradicijo" data-reveal>{t.home.yearsHead}</h2>
       <Timeline lang={lang} />
+    </section>
+
+    {/* The family tree as the document itself — names and dates in the original hand. */}
+    <section class="tree" aria-labelledby="druzinsko-drevo">
+      <h2 class="years-kicker" id="druzinsko-drevo" data-reveal>{s.tree.head}</h2>
+      <figure class="tree-figure" data-reveal>
+        <a class="tree-link" href={treeFull.src} target="_blank" rel="noopener" aria-label={s.tree.open}>
+          <Picture
+            class="tree-scan"
+            pictureAttributes={{ class: 'pic' }}
+            src={treeScan}
+            formats={['avif', 'webp']}
+            fallbackFormat="jpg"
+            widths={[480, 720, 1080, 1440]}
+            sizes="(max-width: 759.98px) 100vw, 720px"
+            loading="lazy"
+            alt={s.tree.alt}
+          />
+        </a>
+        <figcaption class="tree-caption">
+          {s.tree.caption}
+          <a class="tree-open" href={treeFull.src} target="_blank" rel="noopener">{s.tree.open}</a>
+        </figcaption>
+      </figure>
     </section>
 
     <Slideshow slides={slides} label={s.slides.label} prev={s.slides.prev} next={s.slides.next} />
