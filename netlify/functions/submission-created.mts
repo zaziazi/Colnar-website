@@ -36,6 +36,7 @@ const LABELS: Record<Lang, Record<string, string>> = {
     email: 'E-pošta',
     phone: 'Telefon',
     date: 'Želeni datum',
+    time: 'Ura prihoda',
     guests: 'Število gostov',
     size: 'Obseg degustacije',
     extras: 'Dodatno',
@@ -47,6 +48,7 @@ const LABELS: Record<Lang, Record<string, string>> = {
     email: 'E-mail',
     phone: 'Phone',
     date: 'Preferred date',
+    time: 'Arrival time',
     guests: 'Guests',
     size: 'Tasting',
     extras: 'Extras',
@@ -79,6 +81,7 @@ function summary(data: Data, lang: Lang): [string, string][] {
   const L = LABELS[lang];
   const rows: [string, string][] = [
     [L.date, formatDate(one(data.datum), lang)],
+    [L.time, one(data.ura)],
     [L.guests, one(data.gostje)],
     [L.size, SIZES[one(data.obseg)]?.[lang] ?? one(data.obseg)],
   ];
@@ -104,7 +107,8 @@ export function buildMails(data: Data, to: string): Mail[] {
     ...summary(data, 'sl'),
     [S.lang, lang === 'en' ? 'angleščina' : 'slovenščina'],
   ];
-  const cellarSubject = `Nova rezervacija degustacije: ${name}, ${formatDate(one(data.datum), 'sl')}, ${one(data.gostje)} os.`;
+  const when = [formatDate(one(data.datum), 'sl'), one(data.ura) && `ob ${one(data.ura)}`].filter(Boolean).join(' ');
+  const cellarSubject = `Nova rezervacija degustacije: ${name}, ${when}, ${one(data.gostje)} os.`;
   mails.push({
     to,
     replyTo: guestEmail || undefined,

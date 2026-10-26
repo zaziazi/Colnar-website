@@ -44,6 +44,7 @@ if (form) {
       if (Number.isNaN(chosen.getTime())) return t.invalid.datumBad;
       return chosen < today() ? t.invalid.datumPast : '';
     },
+    ura: (v) => (v.trim() ? '' : t.required.ura),
     gostje: (v) => {
       if (!v.trim()) return t.required.gostje;
       const count = Number(v);

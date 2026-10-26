@@ -131,12 +131,6 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
               </div>
 
               <div class="field">
-                <label for="datum">{f.date}</label>
-                <input id="datum" name="datum" type="date" required />
-                <p class="field-error" data-error-for="datum" role="alert"></p>
-              </div>
-
-              <div class="field">
                 <label for="gostje">{f.guests}</label>
                 <input
                   id="gostje"
@@ -151,6 +145,18 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
               </div>
 
               <div class="field">
+                <label for="datum">{f.date}</label>
+                <input id="datum" name="datum" type="date" required />
+                <p class="field-error" data-error-for="datum" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="ura">{f.time}</label>
+                <input id="ura" name="ura" type="time" required />
+                <p class="field-error" data-error-for="ura" role="alert"></p>
+              </div>
+
+              <div class="field field--wide">
                 <fieldset class="choices">
                   <legend class="fieldset-label">{f.extras}</legend>
                   <div class="choice-row">

@@ -198,6 +198,7 @@ export type Content = {
       email: string;
       phone: string;
       date: string;
+      time: string;
       guests: string;
       extras: string;
       size: string;
