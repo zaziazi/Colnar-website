@@ -2621,25 +2621,30 @@ a.meta-value {
   object-fit: cover;
 }
 
-/* Only drawn for a `whole` hero, and only where its sides would be cropped. */
-.page-hero-backdrop {
-  display: none;
-}
-
+/*
+ * A `whole` hero on a screen narrower than the photo: no pinned full-height
+ * pane, just the photograph at its own proportions across the full width, so
+ * nobody in a group photo is cropped out. The fade below it is kept short.
+ */
 @media (max-aspect-ratio: 3 / 2) {
-  .page-hero--whole .page-hero-photo {
-    object-fit: contain;
+  .page-hero-track--whole,
+  .js .page-hero-track--whole {
+    height: auto;
+    /* The menu is shown from the start here, so the photo sits below it. */
+    padding-top: var(--whole-nav, 56px);
   }
 
-  .page-hero--whole .page-hero-backdrop {
-    display: block;
-    position: absolute;
-    inset: 0;
+  .page-hero-track--whole .page-hero,
+  .js .page-hero-track--whole .page-hero,
+  .js .page-hero-track.page-hero-track--whole.is-flat .page-hero {
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: blur(28px) saturate(0.85);
-    transform: scale(1.15);
+    height: auto;
+    aspect-ratio: var(--hero-ratio);
+  }
+
+  .page-hero-track--whole::after {
+    height: 40px;
   }
 }
 

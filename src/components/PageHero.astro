@@ -12,9 +12,9 @@ interface Props {
   /** `object-position` for the crop. */
   position?: string;
   /**
-   * Never crop the sides: on a screen narrower than 3:2 (any phone) the whole
-   * photograph is shown, over a blurred copy of itself that fills the rest.
-   * For group photos, where a side crop cuts people off.
+   * Never crop: on a screen narrower than 3:2 (any phone) the hero stops being
+   * a full-height pane and becomes the photograph at its own proportions, full
+   * width. For group photos, where a side crop cuts people off.
    */
   whole?: boolean;
 }
@@ -39,24 +39,12 @@ const sizes = `max(100vw, ${Math.ceil((photo.width / photo.height) * 100)}vh)`;
   hero release into the content. That is the rule for every sub-page, and the
   ramps live in `scripts/motion.js`.
 */}
-<div class="page-hero-track" data-page-hero-track>
-  <header class:list={['page-hero', { 'page-hero--whole': whole }]} data-page-hero>
-    {
-      whole && (
-        <Picture
-          class="page-hero-backdrop"
-          pictureAttributes={{ class: 'pic' }}
-          src={photo}
-          formats={['avif', 'webp']}
-          fallbackFormat="jpg"
-          widths={[480]}
-          sizes="480px"
-          loading="eager"
-          alt=""
-          aria-hidden="true"
-        />
-      )
-    }
+<div
+  class:list={['page-hero-track', { 'page-hero-track--whole': whole }]}
+  style={whole ? `--hero-ratio: ${photo.width} / ${photo.height}` : undefined}
+  data-page-hero-track
+>
+  <header class="page-hero" data-page-hero>
     <Picture
       class="page-hero-photo"
       pictureAttributes={{ class: 'pic' }}

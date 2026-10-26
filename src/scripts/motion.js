@@ -23,8 +23,14 @@ function initHero() {
   const cta = document.querySelector('[data-cta-bar]');
   const parallax = document.querySelector('[data-parallax]');
 
+  // A `whole` page hero on a screen narrower than its photo is just the photo
+  // at its own proportions, with nothing to pin — the chrome is there from the start.
+  const wholeHere =
+    pageHero?.classList.contains('page-hero-track--whole') &&
+    window.matchMedia('(max-aspect-ratio: 3 / 2)').matches;
+
   // Nothing to drive the chrome from (or motion is off): it is simply always there.
-  if ((!track && !pageHero) || reduceMotion.matches) {
+  if ((!track && !pageHero) || reduceMotion.matches || wholeHere) {
     nav.forEach((el) => el.classList.add('is-visible'));
     cta?.classList.add('is-visible');
     pageHero?.querySelector('[data-page-hero-standfirst]')?.classList.add('is-visible');
