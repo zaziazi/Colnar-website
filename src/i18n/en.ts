@@ -283,7 +283,7 @@ export const en: Content = {
   tasting: {
     title: 'Tasting',
     standfirst: 'and a tour of the cellar',
-    heroAlt: 'Corks stamped Colnar on an oak table',
+    heroAlt: 'Young vine shoots in spring sunlight',
     photoAlt: 'On the cellar tour: a bottle of sparkling wine held up to the light',
     intro:
       'Follow wine from the grape to the glass. We take you through our cellar, built in 2022, and show you how our wines are made.',

@@ -273,7 +273,7 @@ export const sl: Content = {
   tasting: {
     title: 'Degustacija',
     standfirst: 'in ogled kleti',
-    heroAlt: 'Zamaška z napisom Colnar na hrastovi mizi',
+    heroAlt: 'Mladi poganjki trte v spomladanskem soncu',
     photoAlt: 'Med ogledom kleti: steklenico penine držimo proti svetlobi',
     intro:
       'Doživite pot vina od grozda do kozarca. Popeljemo vas skozi našo klet, zgrajeno leta 2022, in vam pokažemo, kako nastajajo naša vina.',
