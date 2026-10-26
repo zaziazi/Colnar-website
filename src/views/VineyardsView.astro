@@ -12,6 +12,10 @@ import trskaGora from '../assets/photos/vineyards/trska-gora.jpg';
 import razbore from '../assets/photos/vineyards/razbore.jpg';
 import grcevje from '../assets/photos/vineyards/grcevje.jpg';
 import zdinjaVas from '../assets/photos/vineyards/zdinja-vas.jpg';
+import trskaGoraSoft from '../assets/photos/vineyards/trska-gora-soft.jpg';
+import razboreSoft from '../assets/photos/vineyards/razbore-soft.jpg';
+import grcevjeSoft from '../assets/photos/vineyards/grcevje-soft.jpg';
+import zdinjaVasSoft from '../assets/photos/vineyards/zdinja-vas-soft.jpg';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
 
 interface Props {
@@ -37,11 +41,16 @@ const sizesFor = (photo: ImageMetadata) => {
   return `(max-width: 759.98px) ${Math.ceil(100 * over)}vw, ${Math.ceil(45 * over)}vw`;
 };
 
-const photos: Record<string, ImageMetadata> = {
-  'Trška gora': trskaGora,
-  Razbore: razbore,
-  Grčevje: grcevje,
-  'Ždinja Vas': zdinjaVas,
+/*
+ * Each aerial comes as a pair: the parcel in focus with the land around it
+ * soft, and the same photo soft all over. The page starts on the soft one and
+ * brings the parcel into focus as the row scrolls up into view.
+ */
+const photos: Record<string, { sharp: ImageMetadata; soft: ImageMetadata }> = {
+  'Trška gora': { sharp: trskaGora, soft: trskaGoraSoft },
+  Razbore: { sharp: razbore, soft: razboreSoft },
+  Grčevje: { sharp: grcevje, soft: grcevjeSoft },
+  'Ždinja Vas': { sharp: zdinjaVas, soft: zdinjaVasSoft },
 };
 ---
 
@@ -78,19 +87,33 @@ const photos: Record<string, ImageMetadata> = {
         {
           v.sites.map((site) => (
             <li class="vineyard" data-reveal>
-              <div class="vineyard-figure">
+              <div class="vineyard-figure" data-focus>
                 {photos[site] ? (
-                  <Picture
-                    class="vineyard-photo"
-                    pictureAttributes={{ class: 'pic' }}
-                    src={photos[site]}
-                    formats={['avif', 'webp']}
-                    fallbackFormat="jpg"
-                    widths={[400, 640, 900, 1280, 1600]}
-                    sizes={sizesFor(photos[site])}
-                    loading="lazy"
-                    alt={site}
-                  />
+                  <>
+                    <Picture
+                      class="vineyard-photo"
+                      pictureAttributes={{ class: 'pic' }}
+                      src={photos[site].soft}
+                      formats={['avif', 'webp']}
+                      fallbackFormat="jpg"
+                      widths={[400, 640, 900, 1280]}
+                      sizes={sizesFor(photos[site].soft)}
+                      loading="lazy"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    <Picture
+                      class="vineyard-photo vineyard-photo--focus"
+                      pictureAttributes={{ class: 'pic' }}
+                      src={photos[site].sharp}
+                      formats={['avif', 'webp']}
+                      fallbackFormat="jpg"
+                      widths={[400, 640, 900, 1280, 1600]}
+                      sizes={sizesFor(photos[site].sharp)}
+                      loading="lazy"
+                      alt={site}
+                    />
+                  </>
                 ) : (
                   <p class="vineyard-placeholder">{v.photoPending}</p>
                 )}
@@ -109,3 +132,36 @@ const photos: Record<string, ImageMetadata> = {
 
   <Footer lang={lang} />
 </Base>
+
+<script>
+  /*
+   * Focus pull on scroll: --focus runs from 0, as a row's photo comes up from
+   * the bottom of the screen, to 1 by the time it reaches the middle. The
+   * stylesheet fades the in-focus layer in and settles the slight zoom on it.
+   * With reduced motion, or no script, the parcel is simply in focus.
+   */
+  const frames = Array.from(document.querySelectorAll<HTMLElement>('[data-focus]'));
+  if (frames.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let queued = false;
+    const update = () => {
+      queued = false;
+      const vh = window.innerHeight;
+      for (const frame of frames) {
+        const r = frame.getBoundingClientRect();
+        const middle = r.top + r.height / 2;
+        const p = Math.min(1, Math.max(0, (vh - middle) / (vh * 0.45)));
+        frame.style.setProperty('--focus', (p * p * (3 - 2 * p)).toFixed(3));
+      }
+    };
+    const request = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    };
+    document.documentElement.classList.add('has-focus-pull');
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request, { passive: true });
+    update();
+  }
+</script>

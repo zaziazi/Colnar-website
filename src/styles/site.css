@@ -3395,8 +3395,24 @@ a.meta-value {
 }
 
 .vineyard-figure .pic {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+}
+
+/*
+ * The focus pull: the soft layer sits underneath, the in-focus layer on top
+ * fades in with --focus (set by the page as the row scrolls into view), and
+ * both settle from a slight zoom. Without the script it is simply in focus.
+ */
+.has-focus-pull .vineyard-photo {
+  transform: scale(calc(1.06 - 0.06 * var(--focus, 0)));
+  will-change: transform;
+}
+
+.has-focus-pull .vineyard-photo--focus {
+  opacity: var(--focus, 0);
 }
 
 .vineyard-photo {
