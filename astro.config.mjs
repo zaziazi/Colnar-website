@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, sharpImageService } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { routes } from './src/i18n/index.ts';
 
@@ -68,8 +68,14 @@ export default defineConfig({
     format: 'directory',
   },
   image: {
-    // The five client photographs are the only images on the site; AVIF/WebP
-    // variants are produced at build time by sharp.
+    // AVIF/WebP variants are produced at build time by sharp. Its own defaults
+    // (AVIF at 50) smear fine detail — vine rows, leaves, label texture — so
+    // every format is encoded a good step higher.
+    service: sharpImageService({
+      avif: { quality: 72 },
+      webp: { quality: 84 },
+      jpeg: { quality: 84, mozjpeg: true },
+    }),
     responsiveStyles: false,
   },
   compressHTML: true,
