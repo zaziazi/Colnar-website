@@ -3402,15 +3402,10 @@ a.meta-value {
 }
 
 /*
- * The focus pull: the soft layer sits underneath, the in-focus layer on top
- * fades in with --focus (set by the page as the row scrolls into view), and
- * both settle from a slight zoom. Without the script it is simply in focus.
+ * The focus pull: the clear photo underneath, and on top the one where only
+ * the parcel is sharp, fading in with --focus as the row scrolls into view —
+ * so the land around slowly blurs away. Without the script it simply shows.
  */
-.has-focus-pull .vineyard-photo {
-  transform: scale(calc(1.06 - 0.06 * var(--focus, 0)));
-  will-change: transform;
-}
-
 .has-focus-pull .vineyard-photo--focus {
   opacity: var(--focus, 0);
 }

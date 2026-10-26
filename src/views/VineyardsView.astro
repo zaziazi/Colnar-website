@@ -8,14 +8,14 @@ import Stats from '../components/Stats.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/vinogradi-hero.jpg';
-import trskaGora from '../assets/photos/vineyards/trska-gora.jpg';
-import razbore from '../assets/photos/vineyards/razbore.jpg';
-import grcevje from '../assets/photos/vineyards/grcevje.jpg';
-import zdinjaVas from '../assets/photos/vineyards/zdinja-vas.jpg';
-import trskaGoraSoft from '../assets/photos/vineyards/trska-gora-soft.jpg';
-import razboreSoft from '../assets/photos/vineyards/razbore-soft.jpg';
-import grcevjeSoft from '../assets/photos/vineyards/grcevje-soft.jpg';
-import zdinjaVasSoft from '../assets/photos/vineyards/zdinja-vas-soft.jpg';
+import trskaGora from '../assets/photos/vineyards/trska-gora-jasno.jpg';
+import razbore from '../assets/photos/vineyards/razbore-jasno.jpg';
+import grcevje from '../assets/photos/vineyards/grcevje-jasno.jpg';
+import zdinjaVas from '../assets/photos/vineyards/zdinja-vas-jasno.jpg';
+import trskaGoraFocus from '../assets/photos/vineyards/trska-gora-fokus.jpg';
+import razboreFocus from '../assets/photos/vineyards/razbore-fokus.jpg';
+import grcevjeFocus from '../assets/photos/vineyards/grcevje-fokus.jpg';
+import zdinjaVasFocus from '../assets/photos/vineyards/zdinja-vas-fokus.jpg';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
 
 interface Props {
@@ -42,15 +42,16 @@ const sizesFor = (photo: ImageMetadata) => {
 };
 
 /*
- * Each aerial comes as a pair: the parcel in focus with the land around it
- * soft, and the same photo soft all over. The page starts on the soft one and
- * brings the parcel into focus as the row scrolls up into view.
+ * Each aerial comes as a pair: the photo clear all over, and the same photo
+ * with only our parcel left sharp and the land around it soft. The row opens
+ * on the clear one; as it scrolls up into view the land around blurs away and
+ * the parcel is left standing out.
  */
-const photos: Record<string, { sharp: ImageMetadata; soft: ImageMetadata }> = {
-  'Trška gora': { sharp: trskaGora, soft: trskaGoraSoft },
-  Razbore: { sharp: razbore, soft: razboreSoft },
-  Grčevje: { sharp: grcevje, soft: grcevjeSoft },
-  'Ždinja Vas': { sharp: zdinjaVas, soft: zdinjaVasSoft },
+const photos: Record<string, { clear: ImageMetadata; focus: ImageMetadata }> = {
+  'Trška gora': { clear: trskaGora, focus: trskaGoraFocus },
+  Razbore: { clear: razbore, focus: razboreFocus },
+  Grčevje: { clear: grcevje, focus: grcevjeFocus },
+  'Ždinja Vas': { clear: zdinjaVas, focus: zdinjaVasFocus },
 };
 ---
 
@@ -93,25 +94,25 @@ const photos: Record<string, { sharp: ImageMetadata; soft: ImageMetadata }> = {
                     <Picture
                       class="vineyard-photo"
                       pictureAttributes={{ class: 'pic' }}
-                      src={photos[site].soft}
+                      src={photos[site].clear}
                       formats={['avif', 'webp']}
                       fallbackFormat="jpg"
-                      widths={[400, 640, 900, 1280]}
-                      sizes={sizesFor(photos[site].soft)}
+                      widths={[400, 640, 900, 1280, 1600]}
+                      sizes={sizesFor(photos[site].clear)}
                       loading="lazy"
-                      alt=""
-                      aria-hidden="true"
+                      alt={site}
                     />
                     <Picture
                       class="vineyard-photo vineyard-photo--focus"
                       pictureAttributes={{ class: 'pic' }}
-                      src={photos[site].sharp}
+                      src={photos[site].focus}
                       formats={['avif', 'webp']}
                       fallbackFormat="jpg"
                       widths={[400, 640, 900, 1280, 1600]}
-                      sizes={sizesFor(photos[site].sharp)}
+                      sizes={sizesFor(photos[site].focus)}
                       loading="lazy"
-                      alt={site}
+                      alt=""
+                      aria-hidden="true"
                     />
                   </>
                 ) : (
@@ -136,9 +137,9 @@ const photos: Record<string, { sharp: ImageMetadata; soft: ImageMetadata }> = {
 <script>
   /*
    * Focus pull on scroll: --focus runs from 0, as a row's photo comes up from
-   * the bottom of the screen, to 1 by the time it reaches the middle. The
-   * stylesheet fades the in-focus layer in and settles the slight zoom on it.
-   * With reduced motion, or no script, the parcel is simply in focus.
+   * the bottom of the screen, to 1 by the time it reaches the middle, and the
+   * stylesheet fades in the layer where the land around the parcel is soft.
+   * With reduced motion, or no script, the parcel simply stands out.
    */
   const frames = Array.from(document.querySelectorAll<HTMLElement>('[data-focus]'));
   if (frames.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
