@@ -276,7 +276,7 @@ export const sl: Content = {
     heroAlt: 'Zamaška z napisom Colnar na hrastovi mizi',
     photoAlt: 'Med ogledom kleti: steklenico penine držimo proti svetlobi',
     intro:
-      'Doživite pot vina od grozda do kozarca. Popeljemo vas skozi našo klet, zgrajeno leta 2022, in vam pokažemo, kako nastajajo naša vina. Ogled traja približno pol ure.',
+      'Doživite pot vina od grozda do kozarca. Popeljemo vas skozi našo klet, zgrajeno leta 2022, in vam pokažemo, kako nastajajo naša vina.',
     prose: [
       'Nato pride na vrsto pokušina: od treh do šestih vin, ob njih narezki domačih dobrot in zgodbe, ki stojijo za vsakim kozarcem. Sprejmemo vsako družbo, po dogovoru pa pripravimo tudi kosilo ali večerjo iz domačih, sezonskih sestavin.',
       'Obisk dogovorimo vnaprej — prek obrazca spodaj ali po telefonu. Povejte nam, koliko vas bo in ob kakšni priložnosti prihajate, pa degustacijo pripravimo po vaši meri.',
@@ -350,8 +350,6 @@ export const sl: Content = {
       extras: 'Dodatno',
       size: 'Obseg degustacije',
       note: 'Opomba',
-      noteHelp:
-        'Narezki domačih dobrot, kosilo ali večerja po predhodnem naročilu, prilagoditve zaradi alergij, priložnost — karkoli nam pomaga pripraviti termin.',
       submit: 'Pošlji prijavo',
       sending: 'Pošiljam …',
       doneHead: 'Hvala za prijavo',

@@ -190,7 +190,6 @@ export type Content = {
       extras: string;
       size: string;
       note: string;
-      noteHelp: string;
       submit: string;
       sending: string;
       doneHead: string;
