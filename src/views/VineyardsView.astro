@@ -29,11 +29,11 @@ const v = getContent(lang).vineyards;
  * missing.
  */
 /*
- * The frame is 4:3 and the aerials are wider, so each is drawn wider than its
- * column; `sizes` scales up to match, or the browser fetches too small a file.
+ * The frame is 16:9, the aerials' own shape; a wider photo would be drawn wider
+ * than its column, so `sizes` scales up to match rather than fetch too small a file.
  */
 const sizesFor = (photo: ImageMetadata) => {
-  const over = Math.max(1, photo.width / photo.height / (4 / 3));
+  const over = Math.max(1, photo.width / photo.height / (16 / 9));
   return `(max-width: 759.98px) ${Math.ceil(100 * over)}vw, ${Math.ceil(45 * over)}vw`;
 };
 

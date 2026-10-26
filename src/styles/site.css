@@ -3386,7 +3386,8 @@ a.meta-value {
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 4 / 3;
+  /* The aerials' own shape, so no parcel outline is cropped at the sides. */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-divider);
