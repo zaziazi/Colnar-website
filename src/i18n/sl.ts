@@ -274,6 +274,7 @@ export const sl: Content = {
     title: 'Degustacija',
     standfirst: 'in ogled kleti',
     heroAlt: 'Zamaška z napisom Colnar na hrastovi mizi',
+    photoAlt: 'Med ogledom kleti: steklenico penine držimo proti svetlobi',
     intro:
       'Našim gostom predstavimo naša vina in njihovo pridelavo, obenem pa izpeljemo ogled vinske kleti, zgrajene leta 2022.',
     prose: [

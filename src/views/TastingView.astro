@@ -1,9 +1,11 @@
 ---
+import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/degustacija-hero.jpg';
+import tourPhoto from '../assets/photos/degustacija-ogled.jpg';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
 import { tasting as tastingSchema, faq as faqSchema } from '../data/schema';
 
@@ -40,12 +42,29 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
   />
 
   <main class="wrap">
-    <div class="page-intro" data-reveal>
-      <p>{d.intro}</p>
-    </div>
+    {/* The opening copy beside a photograph from the cellar tour; stacked, the photo leads. */}
+    <div class="tasting-open">
+      <figure class="tasting-photo" data-reveal>
+        <Picture
+          pictureAttributes={{ class: 'pic' }}
+          src={tourPhoto}
+          formats={['avif', 'webp']}
+          fallbackFormat="jpg"
+          widths={[400, 640, 900]}
+          sizes="(max-width: 759.98px) 100vw, 40vw"
+          alt={d.photoAlt}
+        />
+      </figure>
 
-    <div class="page-prose" data-reveal>
-      {d.prose.map((para) => <p>{para}</p>)}
+      <div class="tasting-copy">
+        <div class="page-intro" data-reveal>
+          <p>{d.intro}</p>
+        </div>
+
+        <div class="page-prose" data-reveal>
+          {d.prose.map((para) => <p>{para}</p>)}
+        </div>
+      </div>
     </div>
 
     <section id="prijava" aria-labelledby="rezervacija">

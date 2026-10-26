@@ -161,6 +161,8 @@ export type Content = {
     title: string;
     standfirst: string;
     heroAlt: string;
+    /** The photograph beside the opening copy. */
+    photoAlt: string;
     intro: string;
     prose: string[];
     bookingHead: string;
