@@ -229,6 +229,12 @@ export const sl: Content = {
         'Med brajdami v vinogradu pod modrim nebom',
         'Z najmlajšim članom družine',
         'Za mizo s steklenicami JC',
+        'Nazdravljamo, eden izmed nas v rdečem kraljevskem plašču',
+        'S priznanjem Agrobiznis konference 2023 za premik proti energetski in okoljski nevtralnosti',
+        'Pod vhodom z vklesanim napisom J. C. 1897',
+        'Na predstavitvi naših vin',
+        'Ekipa pred kletjo',
+        'Za mizo z vrčem domačega vina',
       ],
     },
     cta: {

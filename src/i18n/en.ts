@@ -239,6 +239,12 @@ export const en: Content = {
         'Among the vine pergolas under a blue sky',
         'With the youngest member of the family',
         'At the table with bottles from the JC line',
+        'Raising a glass, one of us in a red royal robe',
+        'With the 2023 Agrobiznis conference award for moving towards energy and environmental neutrality',
+        'Under the doorway carved J. C. 1897',
+        'Presenting our wines',
+        'The team outside the cellar',
+        'At the table with a carafe of our own wine',
       ],
     },
     cta: {

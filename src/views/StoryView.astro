@@ -11,6 +11,12 @@ import toast from '../assets/photos/zgodba/01-nazdravljamo.jpg';
 import pergola from '../assets/photos/zgodba/02-brajde.jpg';
 import youngest from '../assets/photos/zgodba/03-najmlajsi.jpg';
 import table from '../assets/photos/zgodba/04-za-mizo.jpg';
+import robe from '../assets/photos/zgodba/05-kraljevski-plasc.jpg';
+import award from '../assets/photos/zgodba/06-priznanje.jpg';
+import doorway from '../assets/photos/zgodba/07-vrata-1897.jpg';
+import presenting from '../assets/photos/zgodba/08-predstavitev.jpg';
+import team from '../assets/photos/zgodba/09-ekipa.jpg';
+import carafe from '../assets/photos/zgodba/10-domace-vino.jpg';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
 
 interface Props {
@@ -27,6 +33,12 @@ const slides = [
   { src: pergola, position: '45% 60%' },
   { src: youngest, position: '50% 58%' },
   { src: table, position: '50% 45%' },
+  { src: robe, position: '50% 40%' },
+  { src: award, position: '50% 42%' },
+  { src: doorway, position: '50% 42%' },
+  { src: presenting, position: '50% 24%' },
+  { src: team, position: '50% 55%' },
+  { src: carafe, position: '50% 45%' },
 ].map((slide, i) => ({ ...slide, alt: s.slides.alts[i] }));
 ---
 
