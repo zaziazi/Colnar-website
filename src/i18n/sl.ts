@@ -276,11 +276,10 @@ export const sl: Content = {
     heroAlt: 'Zamaška z napisom Colnar na hrastovi mizi',
     photoAlt: 'Med ogledom kleti: steklenico penine držimo proti svetlobi',
     intro:
-      'Našim gostom predstavimo naša vina in njihovo pridelavo, obenem pa izpeljemo ogled vinske kleti, zgrajene leta 2022.',
+      'Doživite pot vina od grozda do kozarca. Popeljemo vas skozi našo klet, zgrajeno leta 2022, in vam pokažemo, kako nastajajo naša vina. Ogled traja približno pol ure.',
     prose: [
-      'Pri degustaciji nudimo različne pakete, glede na želje gostov — od treh do šestih vin. K vinom postrežemo narezke domačih dobrot, ogled kleti pa traja približno pol ure.',
-      'Sprejmemo vse vrste skupin. Po predhodnem naročilu se lahko dogovorimo tudi za kosilo ali večerjo.',
-      'Predelamo in porabimo vse stranske produkte pri pridelavi vina: iz grozdnih pešk pridobimo olje in moko ter tako pripomoremo k trajnostnemu razvoju kmetijstva. Pri degustaciji lahko poskusite oboje.',
+      'Nato pride na vrsto pokušina: od treh do šestih vin, ob njih narezki domačih dobrot in zgodbe, ki stojijo za vsakim kozarcem. Sprejmemo vsako družbo, po dogovoru pa pripravimo tudi kosilo ali večerjo iz domačih, sezonskih sestavin.',
+      'Obisk dogovorimo vnaprej — prek obrazca spodaj ali po telefonu. Povejte nam, koliko vas bo in ob kakšni priložnosti prihajate, pa degustacijo pripravimo po vaši meri.',
     ],
     bookingHead: 'Rezerviraj degustacijo',
     priceHead: 'Cenik',

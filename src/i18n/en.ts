@@ -286,11 +286,10 @@ export const en: Content = {
     heroAlt: 'Corks stamped Colnar on an oak table',
     photoAlt: 'On the cellar tour: a bottle of sparkling wine held up to the light',
     intro:
-      'We introduce our wines and how they are made, and take you through the cellar we built in 2022.',
+      'Follow wine from the grape to the glass. We take you through our cellar, built in 2022, and show you how our wines are made. The tour takes about half an hour.',
     prose: [
-      'Tastings come in several sizes, to suit the party — from three wines to six. They are served with a board of local charcuterie, and the cellar tour takes about half an hour.',
-      'We welcome groups of every kind. Lunch or dinner can be arranged alongside the tasting, if you let us know in advance.',
-      'We use every by-product of winemaking: the grape seeds give us oil and flour, which is our small contribution to farming sustainably. You can try both at the tasting.',
+      'Then comes the tasting: three to six wines, with a board of local delicacies and the stories behind every glass. We welcome groups of every kind, and with notice we can also prepare lunch or dinner from local, seasonal produce.',
+      'Book your visit in advance, using the form below or by phone. Tell us how many of you there will be and what the occasion is, and we will shape the tasting around you.',
     ],
     bookingHead: 'Book a tasting',
     priceHead: 'Prices',
