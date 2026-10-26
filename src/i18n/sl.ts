@@ -226,8 +226,8 @@ export const sl: Content = {
       next: 'Naslednja fotografija',
       alts: [
         'Nazdravljamo pred domačo hišo',
-        'Med brajdami v vinogradu pod modrim nebom',
         'Z najmlajšim članom družine',
+        'Med brajdami v vinogradu pod modrim nebom',
         'Za mizo s steklenicami JC',
         'Nazdravljamo, eden izmed nas v rdečem kraljevskem plašču',
         'S priznanjem Agrobiznis konference 2023 za premik proti energetski in okoljski nevtralnosti',

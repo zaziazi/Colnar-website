@@ -236,8 +236,8 @@ export const en: Content = {
       next: 'Next photograph',
       alts: [
         'Raising a glass outside the house',
-        'Among the vine pergolas under a blue sky',
         'With the youngest member of the family',
+        'Among the vine pergolas under a blue sky',
         'At the table with bottles from the JC line',
         'Raising a glass, one of us in a red royal robe',
         'With the 2023 Agrobiznis conference award for moving towards energy and environmental neutrality',
