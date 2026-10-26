@@ -260,7 +260,7 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
         <h2 class="section-head" id="pogosta-vprasanja">{d.faq.head}</h2>
       </div>
 
-      <div class="menu-groups" data-reveal>
+      <div class="menu-groups menu-groups--flush" data-reveal>
         {
           d.faq.items.map((item) => (
             <details class="menu-group">

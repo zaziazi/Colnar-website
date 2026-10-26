@@ -2772,6 +2772,11 @@ a.meta-value {
   border-top: 1px solid var(--color-divider);
 }
 
+/* Under a plain section head, whose own rule already opens the list. */
+.menu-groups--flush {
+  border-top: 0;
+}
+
 .menu-group {
   border-bottom: 1px solid var(--color-divider);
   scroll-margin-top: 88px;
