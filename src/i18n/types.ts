@@ -88,10 +88,8 @@ export type Content = {
     title: string;
     standfirst: string;
     heroAlt: string;
-    /** A few short lines of context under the hero, set quietly and centred. */
-    intro: string[];
-    /** The one line after them, set larger in gold. */
-    statement: string;
+    /** A quotation found in print, set under the hero, with its author. */
+    quote: { text: string; author: string };
     listHead: string;
     buy: string;
     bottleAlt: (name: string) => string;

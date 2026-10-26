@@ -1946,37 +1946,10 @@ a.meta-value {
  */
 
 /*
- * The range as a gallery: a few quiet centred lines, one line in gold, then
- * each wine line under a small gold kicker with its bottles side by side and
- * the names beneath in spaced capitals. The bottles are keyed out, so they
+ * The range as a gallery: each wine line under its name in gold capitals,
+ * its bottles side by side with the names beneath in spaced capitals. The bottles are keyed out, so they
  * stand on the page rather than in boxes.
  */
-.wines-intro {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 104px 0 0;
-  text-align: center;
-  display: grid;
-  gap: 10px;
-}
-
-.wines-intro p {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.7;
-  color: color-mix(in srgb, var(--color-text) 78%, transparent);
-}
-
-.wines-intro .wines-statement {
-  margin-top: 40px;
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: clamp(26px, 2.6vw, 34px);
-  line-height: 1.3;
-  text-wrap: balance;
-  color: var(--color-accent-700);
-}
-
 .wine-line {
   padding-top: 112px;
 }
@@ -1985,9 +1958,10 @@ a.meta-value {
   margin: 0 0 56px;
   text-align: center;
   font-family: var(--font-heading);
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 0.32em;
+  font-weight: 400;
+  font-size: clamp(28px, 2.8vw, 36px);
+  line-height: 1.2;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--color-accent-700);
 }
@@ -2352,27 +2326,14 @@ a.meta-value {
 
 @media (max-width: 759.98px) {
   /* Two bottles to a row on a phone, whatever the line. */
-  .wines-intro {
-    padding-top: 52px;
-    gap: 6px;
-  }
-
-  .wines-intro p {
-    font-size: 15.5px;
-  }
-
-  .wines-intro .wines-statement {
-    margin-top: 26px;
-    font-size: 24px;
-  }
-
   .wine-line {
     padding-top: 72px;
   }
 
   .wine-line-head {
     margin-bottom: 36px;
-    font-size: 14px;
+    font-size: 24px;
+    letter-spacing: 0.2em;
   }
 
   .wine-grid {

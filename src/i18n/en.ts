@@ -172,12 +172,10 @@ export const en: Content = {
     title: 'Wines',
     standfirst: 'from our own vineyards',
     heroAlt: 'The Colnar name embossed on a bottle label',
-    intro: [
-      'For every day.',
-      'For the festive table.',
-      'For the moments that call for sparkling.',
-    ],
-    statement: 'Choose your wine.',
+    quote: {
+      text: '“Wine is bottled poetry.”',
+      author: 'Robert Louis Stevenson',
+    },
     listHead: 'Wines',
     buy: 'Buy at Evino',
     bottleAlt: (name) => `Bottle — ${name}`,

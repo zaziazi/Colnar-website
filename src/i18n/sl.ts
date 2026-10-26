@@ -165,12 +165,10 @@ export const sl: Content = {
     title: 'Vina',
     standfirst: 'iz naših vinogradov',
     heroAlt: 'Vtisnjen napis Colnar na etiketi steklenice',
-    intro: [
-      'Za vsak dan.',
-      'Za praznično mizo.',
-      'Za trenutke, ki si zaslužijo penino.',
-    ],
-    statement: 'Izberite svoje vino.',
+    quote: {
+      text: '»Vino je ustekleničena poezija.«',
+      author: 'Robert Louis Stevenson',
+    },
     listHead: 'Vina',
     buy: 'Kupi na Evino',
     bottleAlt: (name) => `Steklenica — ${name}`,

@@ -49,17 +49,16 @@ const schema = [
   />
 
   <main class="wrap">
-    {/*
-      A few quiet lines of context, then one line in gold: the way in before
-      the bottles.
-    */}
-    <section class="wines-intro" data-reveal>
-      {t.wines.intro.map((line) => <p>{line}</p>)}
-      <p class="wines-statement">{t.wines.statement}</p>
-    </section>
+    {/* One line from someone else, set like the homepage quote, then the bottles. */}
+    <figure class="quote quote--page" data-reveal>
+      <blockquote>
+        <p>{t.wines.quote.text}</p>
+      </blockquote>
+      <figcaption>{t.wines.quote.author}</figcaption>
+    </figure>
 
     {/*
-      Each line under a small gold kicker, its bottles standing side by side
+      Each line under its name in gold capitals, its bottles standing side by side
       with the name beneath in spaced capitals. Six bottles sit three and
       three; any other count stays on one row of up to four, centred.
     */}
