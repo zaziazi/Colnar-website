@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import PageHero from '../components/PageHero.astro';
+import Timeline from '../components/Timeline.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import heroPhoto from '../assets/photos/zgodba-hero.jpg';
+import { getContent, routes, otherLang, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const s = t.story;
+---
+
+<Base lang={lang} page="story" ogImage={heroPhoto} ogImageAlt={s.heroAlt}>
+  <Nav lang={lang} toggleHref={routes[otherLang(lang)].story} />
+
+  <PageHero photo={heroPhoto} alt={s.heroAlt} title={s.title} standfirst={s.standfirst} position="50% 60%" />
+
+  <main class="wrap">
+    {/* The family's years, the same timeline the homepage carries, under its gold caption. */}
+    <section class="years years--page" aria-labelledby="druzina-s-tradicijo">
+      <h2 class="years-kicker" id="druzina-s-tradicijo" data-reveal>{t.home.yearsHead}</h2>
+      <Timeline lang={lang} />
+    </section>
+
+    <CtaBand lang={lang} heading={s.cta.heading} secondary={s.cta.secondary} />
+  </main>
+
+  <Footer lang={lang} />
+</Base>

@@ -19,12 +19,14 @@ export const sl: Content = {
 
   nav: {
     left: [
+      { label: 'Naša zgodba', to: 'story' },
       { label: 'Vina', to: 'wines' },
-      { label: 'Degustacija', to: 'tasting' },
       { label: 'Vinogradi', to: 'vineyards' },
+    ],
+    right: [
+      { label: 'Degustacija', to: 'tasting' },
       { label: 'Vinoteka', to: 'vinoteka' },
     ],
-    right: [],
     toggle: 'EN',
     menu: 'Meni',
     menuAria: 'Glavni meni',
@@ -35,6 +37,11 @@ export const sl: Content = {
       title: 'Vinska klet Colnar — družinska klet na Dolenjskem od 1747',
       description:
         'Družina Colnar prideluje vino v Lešnici pri Otočcu. Rezervirajte degustacijo z ogledom kleti ali se oglasite v Vinoteki Colnar v Novem mestu.',
+    },
+    story: {
+      title: 'Naša zgodba — Vinska klet Colnar',
+      description:
+        'Zgodba družine Colnar: prvi zapisi iz leta 1408, tradicija Janezov od leta 1747, prva trta leta 2001 in nova klet na Lešnici leta 2022.',
     },
     wines: {
       title: 'Naša vina — Vinska klet Colnar',
@@ -208,6 +215,16 @@ export const sl: Content = {
     cta: { heading: 'Spoznajte jih v kleti.', secondary: { label: 'Poglejte vinograde', to: 'vineyards' } },
   },
 
+
+  story: {
+    title: 'Naša zgodba',
+    standfirst: 'od leta 1408',
+    heroAlt: 'Stare trte v spomladanskem vinogradu',
+    cta: {
+      heading: 'Zgodbo nadaljujemo v kleti.',
+      secondary: { label: 'Naša vina', to: 'wines' },
+    },
+  },
 
   vineyards: {
     title: 'Vinogradi',

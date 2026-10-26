@@ -121,6 +121,14 @@ export type Content = {
     };
   };
 
+  /** The family's story: the timeline under its own hero. */
+  story: {
+    title: string;
+    standfirst: string;
+    heroAlt: string;
+    cta: { heading: string; secondary: Link };
+  };
+
   vineyards: {
     title: string;
     standfirst: string;

@@ -123,6 +123,7 @@ ${menuLines}
 ## Pages
 
 - ${url(routes.en.home)} — the estate
+- ${url(routes.en.story)} — the family's story, from 1408
 - ${url(routes.en.wines)} — the wines
 - ${url(routes.en.vineyards)} — the five vineyard sites
 - ${url(routes.en.vinoteka)} — the wine bar and the full price list

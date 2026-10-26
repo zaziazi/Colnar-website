@@ -26,12 +26,14 @@ export const en: Content = {
 
   nav: {
     left: [
+      { label: 'Our story', to: 'story' },
       { label: 'Wines', to: 'wines' },
-      { label: 'Tasting', to: 'tasting' },
       { label: 'Vineyards', to: 'vineyards' },
+    ],
+    right: [
+      { label: 'Tasting', to: 'tasting' },
       { label: 'Wine bar', to: 'vinoteka' },
     ],
-    right: [],
     toggle: 'SL',
     menu: 'Menu',
     menuAria: 'Main menu',
@@ -42,6 +44,11 @@ export const en: Content = {
       title: 'Vinska klet Colnar — a family cellar in Dolenjska since 1747',
       description:
         'The Colnar family has made wine at Lešnica near Otočec for generations. Book a tasting with a tour of the cellar, or call in at the Colnar wine bar in Novo mesto.',
+    },
+    story: {
+      title: 'Our story — Vinska klet Colnar',
+      description:
+        'The Colnar family story: first records from 1408, a line of Janezes since 1747, the first vines in 2001 and a new cellar at Lešnica in 2022.',
     },
     wines: {
       title: 'Our wines — Vinska klet Colnar',
@@ -218,6 +225,16 @@ export const en: Content = {
     },
   },
 
+
+  story: {
+    title: 'Our story',
+    standfirst: 'since 1408',
+    heroAlt: 'Old vines in a spring vineyard',
+    cta: {
+      heading: 'The story continues at the cellar.',
+      secondary: { label: 'Our wines', to: 'wines' },
+    },
+  },
 
   vineyards: {
     title: 'Vineyards',

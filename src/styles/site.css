@@ -172,9 +172,8 @@ p {
 }
 
 /*
- * Narrow desktop. Four links on the left and the mark dead centre leave little
- * room between them here — `Vinoteka` / `Wine bar` runs right up to the mark at
- * ~790px. Tightening the tracking a step buys the clearance back; the phone bar
+ * Narrow desktop. Three links a side and the mark dead centre leave little
+ * room between them here. Tightening the tracking a step buys the clearance back; the phone bar
  * takes over below 760.
  */
 @media (min-width: 760px) and (max-width: 899.98px) {
@@ -213,7 +212,7 @@ p {
 
 .nav-mark-glyph svg {
   display: block;
-  height: 21px;
+  height: 31.5px;
   width: auto;
 }
 
@@ -234,7 +233,7 @@ p {
 }
 
 .nav--phone .nav-mark-glyph svg {
-  height: 17px;
+  height: 25.5px;
 }
 
 .nav-menu-button {
@@ -592,6 +591,11 @@ p {
   padding-top: 136px;
 }
 
+/* On its own page, straight under the hero. */
+.years--page {
+  padding-top: 112px;
+}
+
 .years-kicker {
   display: flex;
   align-items: center;
@@ -833,6 +837,10 @@ p {
 @media (max-width: 759.98px) {
   .years {
     padding-top: 76px;
+  }
+
+  .years--page {
+    padding-top: 56px;
   }
 
   .years-kicker {
