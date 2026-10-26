@@ -22,6 +22,18 @@ const photos: Record<string, { photo: ImageMetadata; position: string }> = {
   degustacija: { photo: degustacijaPhoto, position: '50% 50%' },
   vinogradi: { photo: vinogradiPhoto, position: '50% 50%' },
 };
+
+/*
+ * The frame is a fixed height (360px, 300px on a phone) and the photo covers
+ * it, so a wide photo is drawn much wider than its card: the Grčevje aerial
+ * ends up ~640px across. `sizes` has to say so, or the browser fetches a file
+ * sized to the card and stretches it — soft on every retina screen.
+ */
+const sizesFor = (photo: ImageMetadata) => {
+  const ratio = photo.width / photo.height;
+  const at = (height: number) => Math.ceil(height * ratio);
+  return `(max-width: 759.98px) max(100vw, ${at(300)}px), (max-width: 1039.98px) max(45vw, ${at(360)}px), max(380px, ${at(360)}px)`;
+};
 ---
 
 <div class="cards">
@@ -40,8 +52,8 @@ const photos: Record<string, { photo: ImageMetadata; position: string }> = {
             src={photos[card.id].photo}
             formats={['avif', 'webp']}
             fallbackFormat="jpg"
-            widths={[400, 640, 900]}
-            sizes="(max-width: 759.98px) 100vw, (max-width: 1039.98px) 45vw, 340px"
+            widths={[400, 640, 900, 1280, 1600]}
+            sizes={sizesFor(photos[card.id].photo)}
             style={`object-position: ${photos[card.id].position}`}
             loading="lazy"
             alt={card.alt}

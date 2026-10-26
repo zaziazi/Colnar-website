@@ -14,6 +14,13 @@ interface Props {
 }
 
 const { photo, alt, title, standfirst, position = '50% 50%' } = Astro.props;
+
+/*
+ * The photo covers a full-height pane, so on a tall screen a wide photo is
+ * drawn far wider than the screen. `sizes` says how wide it really is, so a
+ * phone or a retina display fetches a file big enough not to go soft.
+ */
+const sizes = `max(100vw, ${Math.ceil((photo.width / photo.height) * 100)}vh)`;
 ---
 
 {/*
@@ -35,8 +42,8 @@ const { photo, alt, title, standfirst, position = '50% 50%' } = Astro.props;
       src={photo}
       formats={['avif', 'webp']}
       fallbackFormat="jpg"
-      widths={[640, 960, 1280, 1600, 2000]}
-      sizes="100vw"
+      widths={[640, 960, 1280, 1600, 2000, 2400, 3000]}
+      sizes={sizes}
       style={`object-position: ${position}`}
       loading="eager"
       fetchpriority="high"

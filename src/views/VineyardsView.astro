@@ -28,6 +28,15 @@ const v = getContent(lang).vineyards;
  * plate, on purpose, so an unfinished vineyard is obvious rather than quietly
  * missing.
  */
+/*
+ * The frame is 4:3 and the aerials are wider, so each is drawn wider than its
+ * column; `sizes` scales up to match, or the browser fetches too small a file.
+ */
+const sizesFor = (photo: ImageMetadata) => {
+  const over = Math.max(1, photo.width / photo.height / (4 / 3));
+  return `(max-width: 759.98px) ${Math.ceil(100 * over)}vw, ${Math.ceil(45 * over)}vw`;
+};
+
 const photos: Record<string, ImageMetadata> = {
   'Trška gora': trskaGora,
   Razbore: razbore,
@@ -77,8 +86,8 @@ const photos: Record<string, ImageMetadata> = {
                     src={photos[site]}
                     formats={['avif', 'webp']}
                     fallbackFormat="jpg"
-                    widths={[400, 640, 900]}
-                    sizes="(max-width: 759.98px) 100vw, 45vw"
+                    widths={[400, 640, 900, 1280, 1600]}
+                    sizes={sizesFor(photos[site])}
                     loading="lazy"
                     alt={site}
                   />
