@@ -234,7 +234,7 @@ export const en: Content = {
       head: 'Family tree',
       alt: 'The hand-written family tree of the Colnar – Zollner family of Lešnica, with records from around 1400',
       caption:
-        'The family records reach back to around 1400, and in 1747 the first Janez is born. Every firstborn son has carried the name since. The tree links eleven generations, all of them at Lešnica, from Mihael, born in 1590, to Janez, born in 1936. Today the name is carried by the eighth Janez.',
+        'The family records reach back to around 1400, and in 1747 the first Janez is born. Every firstborn son has carried the name since. The tree links eleven generations, all of them at Lešnica, from Mihael, born in 1590, to Janez, born in 1936. Today the name is carried by the ninth Janez.',
       open: 'Open full size',
     },
     slides: {
