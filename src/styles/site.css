@@ -3401,15 +3401,6 @@ a.meta-value {
   height: 100%;
 }
 
-/*
- * The focus pull: the clear photo underneath, and on top the one where only
- * the parcel is sharp, fading in with --focus as the row scrolls into view —
- * so the land around slowly blurs away. Without the script it simply shows.
- */
-.has-focus-pull .vineyard-photo--focus {
-  opacity: var(--focus, 0);
-}
-
 .vineyard-photo {
   width: 100%;
   height: 100%;
