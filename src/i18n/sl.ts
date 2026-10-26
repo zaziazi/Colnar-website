@@ -220,6 +220,17 @@ export const sl: Content = {
     title: 'Naša zgodba',
     standfirst: 'od leta 1408',
     heroAlt: 'Ob rdečem traktorju pod brajdami v vinogradu, trgatev 2019',
+    slides: {
+      label: 'Fotografije družine',
+      prev: 'Prejšnja fotografija',
+      next: 'Naslednja fotografija',
+      alts: [
+        'Nazdravljamo pred domačo hišo',
+        'Med brajdami v vinogradu pod modrim nebom',
+        'Z najmlajšim članom družine',
+        'Za mizo s steklenicami JC',
+      ],
+    },
     cta: {
       heading: 'Zgodbo nadaljujemo v kleti.',
       secondary: { label: 'Naša vina', to: 'wines' },

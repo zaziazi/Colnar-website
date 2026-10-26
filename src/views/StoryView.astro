@@ -3,9 +3,14 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import PageHero from '../components/PageHero.astro';
 import Timeline from '../components/Timeline.astro';
+import Slideshow from '../components/Slideshow.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
 import heroPhoto from '../assets/photos/zgodba-hero.jpg';
+import toast from '../assets/photos/zgodba/01-nazdravljamo.jpg';
+import pergola from '../assets/photos/zgodba/02-brajde.jpg';
+import youngest from '../assets/photos/zgodba/03-najmlajsi.jpg';
+import table from '../assets/photos/zgodba/04-za-mizo.jpg';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
 
 interface Props {
@@ -15,6 +20,14 @@ interface Props {
 const { lang } = Astro.props;
 const t = getContent(lang);
 const s = t.story;
+
+/* The photographs in order; their alt text lives with the copy, in the same order. */
+const slides = [
+  { src: toast, position: '50% 35%' },
+  { src: pergola, position: '45% 60%' },
+  { src: youngest, position: '50% 58%' },
+  { src: table, position: '50% 45%' },
+].map((slide, i) => ({ ...slide, alt: s.slides.alts[i] }));
 ---
 
 <Base lang={lang} page="story" ogImage={heroPhoto} ogImageAlt={s.heroAlt}>
@@ -28,6 +41,8 @@ const s = t.story;
       <h2 class="years-kicker" id="druzina-s-tradicijo" data-reveal>{t.home.yearsHead}</h2>
       <Timeline lang={lang} />
     </section>
+
+    <Slideshow slides={slides} label={s.slides.label} prev={s.slides.prev} next={s.slides.next} />
 
     <CtaBand lang={lang} heading={s.cta.heading} secondary={s.cta.secondary} />
   </main>

@@ -230,6 +230,17 @@ export const en: Content = {
     title: 'Our story',
     standfirst: 'since 1408',
     heroAlt: 'By the red tractor under the vine pergola, harvest 2019',
+    slides: {
+      label: 'Family photographs',
+      prev: 'Previous photograph',
+      next: 'Next photograph',
+      alts: [
+        'Raising a glass outside the house',
+        'Among the vine pergolas under a blue sky',
+        'With the youngest member of the family',
+        'At the table with bottles from the JC line',
+      ],
+    },
     cta: {
       heading: 'The story continues at the cellar.',
       secondary: { label: 'Our wines', to: 'wines' },
