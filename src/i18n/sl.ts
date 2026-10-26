@@ -130,7 +130,7 @@ export const sl: Content = {
       {
         id: 'vinogradi',
         title: 'Vinogradi',
-        alt: 'Vinogradi na sončni legi nad dolino Krke',
+        alt: 'Vinogradi na Grčevju od zgoraj',
         copy: 'Petnajst hektarjev nad Krko, s pogledom na Gorjance.',
         link: { label: 'Spoznajte naše vinograde', to: 'vineyards' },
       },

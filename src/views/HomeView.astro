@@ -36,7 +36,9 @@ const t = getContent(lang);
         so it reads as a caption to the years rather than a heading over them.
       */}
       <section class="years" aria-labelledby="druzina-s-tradicijo">
-        <h2 class="years-kicker" id="druzina-s-tradicijo" data-reveal>{t.home.yearsHead}</h2>
+        <h2 class="years-kicker" id="druzina-s-tradicijo" data-reveal>
+          <a href={route(lang, 'story')}>{t.home.yearsHead}</a>
+        </h2>
         <Timeline lang={lang} />
       </section>
 

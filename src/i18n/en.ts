@@ -137,7 +137,7 @@ export const en: Content = {
       {
         id: 'vinogradi',
         title: 'Vineyards',
-        alt: 'Vineyards on a sunny slope above the Krka valley',
+        alt: 'The Grčevje vineyards from above',
         copy: 'Fifteen hectares above the Krka, looking out to the Gorjanci.',
         link: { label: 'See our vineyards', to: 'vineyards' },
       },

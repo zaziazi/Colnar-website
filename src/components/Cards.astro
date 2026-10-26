@@ -2,7 +2,7 @@
 import { Picture } from 'astro:assets';
 import vinaPhoto from '../assets/photos/vina.jpg';
 import degustacijaPhoto from '../assets/photos/degustacija.jpg';
-import vinogradiPhoto from '../assets/photos/vinogradi.jpg';
+import vinogradiPhoto from '../assets/photos/vineyards/grcevje.jpg';
 import { getContent, route, type Lang } from '../i18n';
 
 interface Props {
@@ -20,7 +20,7 @@ const t = getContent(lang);
 const photos: Record<string, { photo: ImageMetadata; position: string }> = {
   vina: { photo: vinaPhoto, position: '50% 58%' },
   degustacija: { photo: degustacijaPhoto, position: '50% 50%' },
-  vinogradi: { photo: vinogradiPhoto, position: '50% 55%' },
+  vinogradi: { photo: vinogradiPhoto, position: '50% 50%' },
 };
 ---
 

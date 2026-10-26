@@ -747,6 +747,22 @@ p {
   color: var(--color-accent-700);
 }
 
+/* On the homepage the caption opens the family's own page. */
+.years-kicker a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.years-kicker a:hover,
+.years-kicker a:focus-visible {
+  color: var(--color-text);
+  text-decoration-color: var(--color-accent);
+}
+
 .years-kicker::before,
 .years-kicker::after {
   content: '';
