@@ -229,7 +229,7 @@ export const en: Content = {
   story: {
     title: 'Our story',
     standfirst: 'since 1408',
-    heroAlt: 'Old vines in a spring vineyard',
+    heroAlt: 'By the red tractor under the vine pergola, harvest 2019',
     cta: {
       heading: 'The story continues at the cellar.',
       secondary: { label: 'Our wines', to: 'wines' },

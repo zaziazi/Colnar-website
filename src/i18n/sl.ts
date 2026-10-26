@@ -219,7 +219,7 @@ export const sl: Content = {
   story: {
     title: 'Naša zgodba',
     standfirst: 'od leta 1408',
-    heroAlt: 'Stare trte v spomladanskem vinogradu',
+    heroAlt: 'Ob rdečem traktorju pod brajdami v vinogradu, trgatev 2019',
     cta: {
       heading: 'Zgodbo nadaljujemo v kleti.',
       secondary: { label: 'Naša vina', to: 'wines' },
