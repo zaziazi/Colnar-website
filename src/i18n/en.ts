@@ -27,11 +27,11 @@ export const en: Content = {
   nav: {
     left: [
       { label: 'Wines', to: 'wines' },
-      { label: 'Cellar', to: 'cellar' },
+      { label: 'Tasting', to: 'tasting' },
       { label: 'Vineyards', to: 'vineyards' },
       { label: 'Wine bar', to: 'vinoteka' },
     ],
-    right: [{ label: 'Tasting', to: 'tasting' }],
+    right: [],
     toggle: 'SL',
     menu: 'Menu',
     menuAria: 'Main menu',
@@ -47,11 +47,6 @@ export const en: Content = {
       title: 'Our wines — Vinska klet Colnar',
       description:
         'Twelve wines from the Colnar family at Lešnica near Otočec: cviček, penina, Grand Jaenes, the Dolenjsko and house whites, chardonnay, laški rizling, rosé, modra frankinja, modri pinot and Collis.',
-    },
-    cellar: {
-      title: 'The cellar — Vinska klet Colnar',
-      description:
-        'The Colnar family cellar at Lešnica 8 near Otočec, built in 2022: reds age in oak, whites in steel. Cellar tours, tastings and wine collection.',
     },
     vineyards: {
       title: 'Our vineyards — Vinska klet Colnar',
@@ -223,39 +218,6 @@ export const en: Content = {
     },
   },
 
-  cellar: {
-    title: 'The cellar',
-    standfirst: 'at Lešnica',
-    heroAlt: 'Oak barrels bearing the Colnar winery monogram',
-    lede: 'A modern cellar built in 2022. Cellar tours, tastings and wine collection.',
-    prose: [
-      'In 2022 we built a new cellar with modern equipment for making wine — everything from the arrival of the grapes to the bottle, under one roof. The red wines age in oak, the whites in stainless steel and, in the case of Collis, in a large acacia cask.',
-      'This is where we introduce our wines and how they are made, and where the cellar tour takes place. You can also collect wine here.',
-    ],
-    inCellarHead: 'In the cellar',
-    inCellar: [
-      {
-        label: '2022',
-        name: 'A new cellar',
-        copy: 'We build a new cellar with modern equipment for making wine.',
-      },
-      {
-        label: 'Tasting',
-        name: 'A tour and a glass',
-        copy: 'We introduce our wines and how they are made, and take you through the modern cellar at Lešnica. Tastings run from three to six wines, served with a board of local charcuterie.',
-      },
-    ],
-    whereHead: 'Where to find us',
-    addressLabel: 'Address',
-    addressName: 'Lešnica 8',
-    addressCopy: '8222 Otočec, Slovenia',
-    addressMap: maps.cellar,
-    contactLabel: 'Contact',
-    cta: {
-      heading: 'Tours and tastings are arranged in advance.',
-      secondary: { label: 'Meet our wines', to: 'wines' },
-    },
-  },
 
   vineyards: {
     title: 'Vineyards',

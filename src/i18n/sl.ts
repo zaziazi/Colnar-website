@@ -20,11 +20,11 @@ export const sl: Content = {
   nav: {
     left: [
       { label: 'Vina', to: 'wines' },
-      { label: 'Klet', to: 'cellar' },
+      { label: 'Degustacija', to: 'tasting' },
       { label: 'Vinogradi', to: 'vineyards' },
       { label: 'Vinoteka', to: 'vinoteka' },
     ],
-    right: [{ label: 'Degustacija', to: 'tasting' }],
+    right: [],
     toggle: 'EN',
     menu: 'Meni',
     menuAria: 'Glavni meni',
@@ -40,11 +40,6 @@ export const sl: Content = {
       title: 'Naša vina — Vinska klet Colnar',
       description:
         'Dvanajst vin družine Colnar iz Lešnice pri Otočcu: cviček, penina, Grand Jaenes, dolenjsko in hišno belo, chardonnay, laški rizling, rosé, modra frankinja, modri pinot in collis.',
-    },
-    cellar: {
-      title: 'Vinska klet — Vinska klet Colnar',
-      description:
-        'Sodobna klet družine Colnar iz leta 2022 na Lešnici 8 pri Otočcu. Rdeča vina zorimo v hrastovih sodih. Možen je ogled kleti, degustacija in prevzem vina.',
     },
     vineyards: {
       title: 'Naši vinogradi — Vinska klet Colnar',
@@ -213,39 +208,6 @@ export const sl: Content = {
     cta: { heading: 'Spoznajte jih v kleti.', secondary: { label: 'Poglejte vinograde', to: 'vineyards' } },
   },
 
-  cellar: {
-    title: 'Vinska klet',
-    standfirst: 'na Lešnici',
-    heroAlt: 'Hrastovi sodi z monogramom Vinske kleti Colnar',
-    lede: 'Sodobna vinska klet iz leta 2022. Možen je ogled kleti, degustacija in prevzem vina.',
-    prose: [
-      'Leta 2022 smo zgradili novo klet s sodobno opremo za pridelavo vina — od sprejema grozdja do steklenice pod eno streho. Rdeča vina zorimo v hrastovih sodih, bela pa v inox posodah in, pri collisu, v velikem akacijevem sodu.',
-      'Gostom tu predstavimo vina in njihovo pridelavo ter izpeljemo ogled kleti. Vino lahko v kleti tudi prevzamete.',
-    ],
-    inCellarHead: 'V kleti',
-    inCellar: [
-      {
-        label: '2022',
-        name: 'Nova klet',
-        copy: 'Zgradimo novo klet s sodobno opremo za pridelavo vina.',
-      },
-      {
-        label: 'Degustacija',
-        name: 'Ogled in pokušina',
-        copy: 'Gostom predstavimo vina in njihovo pridelavo, obenem pa izpeljemo ogled sodobne kleti na Lešnici. Možne so degustacije od treh do šestih vin, z narezki domačih dobrot.',
-      },
-    ],
-    whereHead: 'Kje nas najdete',
-    addressLabel: 'Naslov',
-    addressName: 'Lešnica 8',
-    addressCopy: '8222 Otočec',
-    addressMap: maps.cellar,
-    contactLabel: 'Kontakt',
-    cta: {
-      heading: 'Ogled in degustacijo dogovorimo vnaprej.',
-      secondary: { label: 'Spoznajte naša vina', to: 'wines' },
-    },
-  },
 
   vineyards: {
     title: 'Vinogradi',

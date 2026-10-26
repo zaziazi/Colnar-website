@@ -113,12 +113,6 @@ Fifteen hectares, 125,000 vines, five sunny sites above the Krka valley facing
 the Gorjanci hills: Trška gora, Razbore, Grčevje, Ždinja Vas, Vinji vrh. First
 planted by Janez VII and his brother Matjaž in 2001. ${url(routes.en.vineyards)}
 
-## The cellar
-
-Built in 2022 at Lešnica: grape reception to bottle under one roof. Reds age in
-oak, whites in stainless steel, and the Collis in a large acacia cask.
-${url(routes.en.cellar)}
-
 ## The wine bar price list
 
 Everything below is served or sold at Otoška cesta 5, Novo mesto. Prices are in
@@ -130,7 +124,6 @@ ${menuLines}
 
 - ${url(routes.en.home)} — the estate
 - ${url(routes.en.wines)} — the wines
-- ${url(routes.en.cellar)} — the cellar at Lešnica
 - ${url(routes.en.vineyards)} — the five vineyard sites
 - ${url(routes.en.vinoteka)} — the wine bar and the full price list
 - ${url(routes.en.tasting)} — tastings, prices, and the booking form

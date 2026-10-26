@@ -12,6 +12,19 @@
   # and nothing else has to change.
   PUBLIC_FORM_ENDPOINT = "/"
 
+# ------------------------------------------------------------ old pages
+# The cellar page was folded into the tasting page; its old addresses follow.
+
+[[redirects]]
+  from = "/klet/"
+  to = "/degustacija/"
+  status = 301
+
+[[redirects]]
+  from = "/en/cellar/"
+  to = "/en/tasting/"
+  status = 301
+
 # ------------------------------------------------- Klub zvestobe (Vinoteka)
 # One static page serves every guest's card and every unsubscribe link; the
 # script on it reads the token from the address. The /api/klub/* endpoints are

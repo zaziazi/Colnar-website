@@ -34,7 +34,6 @@ export type FooterColumn = { label: string; lines: FooterItem[][] };
 
 export type PriceRow = { name: string; note?: string; price: number };
 
-
 export type Content = {
   /** `lang` attribute and Open Graph locale. */
   htmlLang: string;
@@ -120,23 +119,6 @@ export type Content = {
       /** Meta description for a wine that has no copy of its own yet. */
       fallbackDescription: (name: string, kind?: string) => string;
     };
-  };
-
-  cellar: {
-    title: string;
-    standfirst: string;
-    heroAlt: string;
-    lede: string;
-    prose: string[];
-    inCellarHead: string;
-    inCellar: Place[];
-    whereHead: string;
-    addressLabel: string;
-    addressName: string;
-    addressCopy: string;
-    addressMap: string;
-    contactLabel: string;
-    cta: { heading: string; secondary: Link };
   };
 
   vineyards: {
