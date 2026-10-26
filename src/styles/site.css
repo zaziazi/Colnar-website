@@ -2800,10 +2800,23 @@ a.meta-value {
     padding-top: 48px;
   }
 
+  /* Stacked: the opening line, then the photo, then the rest of the copy. */
   .tasting-open {
     grid-template-columns: minmax(0, 1fr);
     gap: 32px;
     padding-top: 48px;
+  }
+
+  .tasting-copy {
+    display: contents;
+  }
+
+  .tasting-copy .page-intro {
+    order: -1;
+  }
+
+  .tasting-copy .page-prose {
+    padding-top: 0;
   }
 
   .tasting-photo {
