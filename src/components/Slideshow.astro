@@ -21,22 +21,29 @@ const { slides, label, prev, next } = Astro.props;
 ---
 
 {/*
-  One photograph at a time, on a scroll-snapped track: swipe on a phone, the
-  arrows or the keyboard elsewhere. No autoplay — the visitor turns the pages.
-  Without script the track still scrolls sideways on its own.
+  A filmstrip: one photograph centred and in full colour, its neighbours half
+  in view on either side. It turns by itself every few seconds and loops, but
+  stops while the visitor is pointing at it, touching it or tabbed into it,
+  and never moves for anyone who has asked for reduced motion. Swipe, the
+  arrows or the keyboard turn it by hand. Without script it is a plain strip
+  that scrolls sideways.
 */}
 <section class="slideshow" aria-roledescription="carousel" aria-label={label} data-slideshow data-reveal>
   <ul class="slideshow-track" data-slideshow-track tabindex="0">
     {
       slides.map((slide, i) => (
-        <li class="slideshow-slide" aria-roledescription="slide" aria-label={`${i + 1} / ${slides.length}`}>
+        <li
+          class:list={['slideshow-slide', { 'is-current': i === 0 }]}
+          aria-roledescription="slide"
+          aria-label={`${i + 1} / ${slides.length}`}
+        >
           <Picture
             pictureAttributes={{ class: 'pic' }}
             src={slide.src}
             formats={['avif', 'webp']}
             fallbackFormat="jpg"
-            widths={[480, 800, 1200]}
-            sizes="(max-width: 759.98px) 100vw, 1040px"
+            widths={[400, 640, 1000]}
+            sizes="(max-width: 759.98px) 78vw, 500px"
             loading="lazy"
             alt={slide.alt}
             style={slide.position ? `object-position: ${slide.position}` : undefined}
@@ -60,24 +67,85 @@ const { slides, label, prev, next } = Astro.props;
 </section>
 
 <script>
+  const STEP_MS = 4500;
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   for (const root of document.querySelectorAll<HTMLElement>('[data-slideshow]')) {
     const track = root.querySelector<HTMLElement>('[data-slideshow-track]')!;
-    const slides = Array.from(track.children) as HTMLElement[];
+    const originals = Array.from(track.children) as HTMLElement[];
+    const count = originals.length;
     const current = root.querySelector<HTMLElement>('[data-slideshow-current]')!;
     const prev = root.querySelector<HTMLButtonElement>('[data-slideshow-prev]')!;
     const next = root.querySelector<HTMLButtonElement>('[data-slideshow-next]')!;
 
-    const index = () => Math.round(track.scrollLeft / track.clientWidth);
-    const go = (i: number) => {
-      const target = Math.max(0, Math.min(slides.length - 1, i));
-      track.scrollTo({ left: target * track.clientWidth });
+    /*
+     * An endless strip: a copy of the set goes on either side of the real one,
+     * hidden from assistive tech. Whenever the strip comes to rest on a copy,
+     * it jumps — invisibly — to the same photo in the middle set, so there is
+     * always a neighbour on both sides and the loop never rewinds.
+     */
+    const copy = () =>
+      originals.map((slide) => {
+        const clone = slide.cloneNode(true) as HTMLElement;
+        clone.setAttribute('aria-hidden', 'true');
+        clone.inert = true;
+        clone.querySelectorAll('img').forEach((img) => (img.loading = 'eager'));
+        return clone;
+      });
+    track.prepend(...copy());
+    track.append(...copy());
+    const slides = Array.from(track.children) as HTMLElement[];
+
+    const centreOf = (slide: HTMLElement) => slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2;
+
+    /* The slide whose middle is nearest the middle of the strip. */
+    const index = () => {
+      const middle = track.scrollLeft + track.clientWidth / 2;
+      let best = 0;
+      let bestD = Infinity;
+      slides.forEach((slide, i) => {
+        const d = Math.abs(slide.offsetLeft + slide.offsetWidth / 2 - middle);
+        if (d < bestD) {
+          best = i;
+          bestD = d;
+        }
+      });
+      return best;
     };
+
+    const go = (i: number) => track.scrollTo({ left: centreOf(slides[i]) });
+
+    const jump = (i: number) => {
+      track.style.scrollBehavior = 'auto';
+      track.style.scrollSnapType = 'none';
+      track.scrollLeft = centreOf(slides[i]);
+      track.offsetWidth; // flush before snapping is restored
+      track.style.scrollSnapType = '';
+      track.style.scrollBehavior = '';
+    };
+
     const sync = () => {
       const i = index();
-      current.textContent = String(i + 1);
-      prev.disabled = i === 0;
-      next.disabled = i === slides.length - 1;
+      current.textContent = String((i % count) + 1);
+      slides.forEach((slide, n) => slide.classList.toggle('is-current', n === i));
     };
+
+    /* At rest on a copy: move to the twin in the middle set. */
+    let settle: number | undefined;
+    const onScroll = () => {
+      requestAnimationFrame(sync);
+      clearTimeout(settle);
+      settle = window.setTimeout(() => {
+        const i = index();
+        if (i < count || i >= count * 2) {
+          jump((i % count) + count);
+          sync();
+        }
+      }, 140);
+    };
+
+    jump(count);
+    sync();
 
     prev.addEventListener('click', () => go(index() - 1));
     next.addEventListener('click', () => go(index() + 1));
@@ -90,7 +158,24 @@ const { slides, label, prev, next } = Astro.props;
         go(index() + 1);
       }
     });
-    track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
-    sync();
+    track.addEventListener('scroll', onScroll, { passive: true });
+
+    /* Turning by itself — only while on screen and nobody is handling it. */
+    if (!still) {
+      let held = false;
+      let seen = false;
+      const hold = () => (held = true);
+      const release = () => (held = false);
+      root.addEventListener('pointerenter', hold);
+      root.addEventListener('pointerleave', release);
+      root.addEventListener('focusin', hold);
+      root.addEventListener('focusout', release);
+      track.addEventListener('touchstart', hold, { passive: true });
+      track.addEventListener('touchend', () => setTimeout(release, STEP_MS), { passive: true });
+      new IntersectionObserver(([entry]) => (seen = entry.isIntersecting), { threshold: 0.5 }).observe(track);
+      setInterval(() => {
+        if (seen && !held && !document.hidden) go(index() + 1);
+      }, STEP_MS);
+    }
   }
 </script>
