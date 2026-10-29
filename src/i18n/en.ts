@@ -160,7 +160,7 @@ export const en: Content = {
     ],
     vinoteka: {
       title: 'Colnar Wine Bar',
-      copy: 'Our wine bar in the Supernova shopping centre in Novo mesto, where you can stop for a coffee or a glass of wine. You can also collect wine to take home.',
+      copy: 'Our wine bar in the Supernova shopping centre in Novo mesto, where you can stop for a glass of wine. You can also collect wine to take home.',
       hoursLabel: 'Opening hours',
       hours: 'Mon – Sat · 9.00 – 21.00',
       menuLabel: 'Menu',

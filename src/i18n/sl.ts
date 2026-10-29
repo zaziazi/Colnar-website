@@ -153,7 +153,7 @@ export const sl: Content = {
     ],
     vinoteka: {
       title: 'Vinoteka Colnar',
-      copy: 'Vinoteka v nakupovalnem središču Supernova Novo mesto, kjer se lahko ustavite na kavi ali kozarčku vina. Možen tudi prevzem vina za domov.',
+      copy: 'Vinoteka v nakupovalnem središču Supernova Novo mesto, kjer se lahko ustavite na kozarcu vina. Možen tudi prevzem vina za domov.',
       hoursLabel: 'Delovni čas',
       hours: 'Pon – Sob · 9.00 – 21.00',
       menuLabel: 'Meni',
