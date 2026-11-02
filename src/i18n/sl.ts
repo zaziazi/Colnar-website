@@ -6,7 +6,7 @@ import { maps } from '../data/maps';
  *
  * Prose here is the estate's own, from the design handoff and from colnar.si.
  * The confirmed figures are 16,5 ha / 125.000 trt / 5 leg, ten wines, and 2001 as
- * the first planting year.
+ * the year the vineyards grew to this scale.
  */
 export const sl: Content = {
   htmlLang: 'sl',
@@ -41,7 +41,7 @@ export const sl: Content = {
     story: {
       title: 'Naša zgodba — Vinska klet Colnar',
       description:
-        'Zgodba družine Colnar: prvi zapisi iz leta 1408, tradicija Janezov od leta 1747, prva trta leta 2001 in nova klet na Lešnici leta 2022.',
+        'Zgodba družine Colnar: prvi zapisi iz leta 1408, tradicija Janezov od leta 1747, širitev vinogradov leta 2001 in nova klet na Lešnici leta 2022.',
     },
     wines: {
       title: 'Naša vina — Vinska klet Colnar',
@@ -93,7 +93,7 @@ export const sl: Content = {
       },
       {
         year: '2001',
-        kicker: 'Prva trta',
+        kicker: 'Širitev',
         copy: 'Janez VII. in brat Matjaž posadita tri hektarje in pol trte, obenem povečamo obstoječo zidanico.',
       },
       {

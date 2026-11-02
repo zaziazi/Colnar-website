@@ -48,7 +48,7 @@ export const en: Content = {
     story: {
       title: 'Our story — Vinska klet Colnar',
       description:
-        'The Colnar family story: first records from 1408, a line of Janezes since 1747, the first vines in 2001 and a new cellar at Lešnica in 2022.',
+        'The Colnar family story: first records from 1408, a line of Janezes since 1747, the vineyards expanded in 2001 and a new cellar at Lešnica in 2022.',
     },
     wines: {
       title: 'Our wines — Vinska klet Colnar',
@@ -100,7 +100,7 @@ export const en: Content = {
       },
       {
         year: '2001',
-        kicker: 'First vines',
+        kicker: 'Expansion',
         copy: 'Janez VII and his brother Matjaž plant three and a half hectares of vines, and enlarge the old vineyard cottage.',
       },
       {
