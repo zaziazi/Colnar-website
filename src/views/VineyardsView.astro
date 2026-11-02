@@ -23,13 +23,6 @@ const { lang } = Astro.props;
 const v = getContent(lang).vineyards;
 
 /*
- * The five sunny positions, each with an aerial photograph keyed by its name.
- * The names come from the translation file (they are the same in both
- * languages, being place names). A position without a photo keeps an empty
- * plate, on purpose, so an unfinished vineyard is obvious rather than quietly
- * missing.
- */
-/*
  * The frame is 16:9, the aerials' own shape; a wider photo would be drawn wider
  * than its column, so `sizes` scales up to match rather than fetch too small a file.
  */
@@ -46,7 +39,7 @@ const photos: Record<string, ImageMetadata> = {
   'Trška gora': trskaGora,
   Razbore: razbore,
   Grčevje: grcevje,
-  'Ždinja Vas': zdinjaVas,
+  'Ždinja vas': zdinjaVas,
   'Vinji vrh': vinjiVrh,
 };
 ---
@@ -85,24 +78,27 @@ const photos: Record<string, ImageMetadata> = {
           v.sites.map((site) => (
             <li class="vineyard" data-reveal>
               <div class="vineyard-figure">
-                {photos[site] ? (
+                {photos[site.name] ? (
                   <Picture
                     class="vineyard-photo"
                     pictureAttributes={{ class: 'pic' }}
-                    src={photos[site]}
+                    src={photos[site.name]}
                     formats={['avif', 'webp']}
                     fallbackFormat="jpg"
                     widths={[400, 640, 900, 1280, 1600]}
-                    sizes={sizesFor(photos[site])}
+                    sizes={sizesFor(photos[site.name])}
                     loading="lazy"
-                    alt={site}
+                    alt={site.name}
                   />
                 ) : (
                   <p class="vineyard-placeholder">{v.photoPending}</p>
                 )}
               </div>
               <div class="vineyard-body">
-                <h3 class="vineyard-name">{site}</h3>
+                <h3 class="vineyard-name">{site.name}</h3>
+                <div class="vineyard-copy">
+                  {site.copy.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
               </div>
             </li>
           ))

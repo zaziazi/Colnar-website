@@ -140,7 +140,8 @@ export type Content = {
     /** A quotation found in print, set under the hero, with its author. */
     quote: { text: string; author: string };
     sitesHead: string;
-    sites: string[];
+    /** In the estate's own order; `name` also picks the photograph. */
+    sites: { name: string; copy: string[] }[];
     photoPending: string;
     cta: { heading: string; secondary: Link };
   };

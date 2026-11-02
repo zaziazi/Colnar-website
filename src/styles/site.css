@@ -3367,7 +3367,7 @@ a.meta-value {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 56px;
-  align-items: center;
+  align-items: start;
   padding: 48px 0;
   border-top: 1px solid var(--color-divider);
 }
@@ -3381,8 +3381,10 @@ a.meta-value {
   order: 2;
 }
 
+/* The copy runs longer than the photograph, which stays in view beside it. */
 .vineyard-figure {
-  position: relative;
+  position: sticky;
+  top: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3431,6 +3433,10 @@ a.meta-value {
   color: color-mix(in srgb, var(--color-text) 78%, transparent);
 }
 
+.vineyard-copy p + p {
+  margin-top: 12px;
+}
+
 @media (max-width: 759.98px) {
   .stats-lead {
     padding-top: 48px;
@@ -3446,7 +3452,12 @@ a.meta-value {
     padding: 32px 0;
   }
 
-  /* Stacked, the photograph always leads. */
+  /* Stacked, the photograph always leads and scrolls away with the page. */
+  .vineyard-figure {
+    position: relative;
+    top: auto;
+  }
+
   .vineyard:nth-child(even) .vineyard-figure {
     order: 0;
   }

@@ -110,7 +110,7 @@ Prices include VAT. Payment on site, cash or card.
 ## The vineyards
 
 Fifteen hectares, 125,000 vines, five sunny sites above the Krka valley facing
-the Gorjanci hills: Trška gora, Razbore, Grčevje, Ždinja Vas, Vinji vrh. First
+the Gorjanci hills: Trška gora, Razbore, Grčevje, Ždinja vas, Vinji vrh. First
 planted by Janez VII and his brother Matjaž in 2001. ${url(routes.en.vineyards)}
 
 ## The wine bar price list
