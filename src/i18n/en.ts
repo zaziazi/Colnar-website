@@ -43,32 +43,37 @@ export const en: Content = {
     home: {
       title: 'Vinska klet Colnar — a family cellar in Dolenjska since 1747',
       description:
-        'The Colnar family has made wine at Lešnica near Otočec for generations. Book a tasting with a tour of the cellar, or call in at the Colnar wine bar in Novo mesto.',
+        'The Colnar family makes wine at Lešnica near Otočec, Slovenia. Book a tasting at the cellar, or call in at the Colnar wine bar in Novo mesto.',
     },
     story: {
-      title: 'Our story — Vinska klet Colnar',
+      title: 'Our story: the Colnar family since 1408 — Vinska klet Colnar',
+      crumb: 'Our story',
       description:
         'The Colnar family story: first records from 1408, a line of Janezes since 1747, the vineyards expanded in 2001 and a new cellar at Lešnica in 2022.',
     },
     wines: {
-      title: 'Our wines — Vinska klet Colnar',
+      title: 'Cviček, sparkling and Dolenjska wines — Vinska klet Colnar',
+      crumb: 'Wines',
       description:
-        'Twelve wines from the Colnar family at Lešnica near Otočec: cviček, penina, Grand Jaenes, the Dolenjsko and house whites, chardonnay, laški rizling, rosé, modra frankinja, modri pinot and Collis.',
+        'Twelve wines from the Colnar family in Dolenjska, Slovenia: award-winning cviček, Grand Jaenes sparkling wines, Chardonnay, Modri pinot, Collis and more.',
     },
     vineyards: {
-      title: 'Our vineyards — Vinska klet Colnar',
+      title: 'Our vineyards in Dolenjska, Slovenia — Vinska klet Colnar',
+      crumb: 'Vineyards',
       description:
         '16.5 hectares and 125,000 vines on five sunny sites above the Krka valley, facing the Gorjanci — Trška gora, Razbore, Grčevje, Ždinja vas and Vinji vrh.',
     },
     vinoteka: {
-      title: 'The wine bar — Vinska klet Colnar',
+      title: 'Colnar wine bar — Supernova, Novo mesto, Slovenia',
+      crumb: 'Wine bar',
       description:
-        'The Colnar wine bar in the Supernova shopping centre, Novo mesto. Every one of our wines and sparkling wines by the glass or the bottle, open Mon – Sat 9.00 – 21.00.',
+        'The Colnar wine bar in the Supernova shopping centre, Novo mesto. All our wines and sparkling wines by the glass or bottle, open Mon – Sat 9.00 – 21.00.',
     },
     tasting: {
-      title: 'Tasting — Vinska klet Colnar',
+      title: 'Wine tasting in Dolenjska, Slovenia — Vinska klet Colnar',
+      crumb: 'Tasting',
       description:
-        'A tasting of three to six wines with a tour of the cellar at Lešnica, served with a board of local charcuterie. From €16 per person. Book your date.',
+        'A tasting of three to six wines at the cellar in Lešnica near Otočec, from €16 per person. Cellar tour and charcuterie board optional. Book in advance.',
     },
     funding: {
       title: 'Investment in wine cellar equipment — Vinska klet Colnar',
@@ -205,6 +210,7 @@ export const en: Content = {
         alcohol: 'Alcohol',
         region: 'Region',
         country: 'Country',
+        awards: 'Awards',
       },
       styles: {
         'sveze-belo': 'Fresh white',
@@ -216,6 +222,11 @@ export const en: Content = {
       },
       regionName: 'Dolenjska',
       countryName: 'Slovenia',
+      pageTitle: (name, zvrst) => {
+        const noun = { belo: 'white wine', 'rdeče': 'red wine', 'rosé': 'rosé', penina: 'sparkling wine', 'penina rosé': 'sparkling rosé' }[zvrst ?? ''];
+        if (!noun) return `${name} — Colnar`;
+        return `${name}${noun === name.toLowerCase() ? '' : `, ${noun}`} from Dolenjska — Colnar`;
+      },
       fallbackDescription: (name, kind) =>
         `${name}${kind ? `, a ${kind} wine` : ''} from Vinska klet Colnar at Lešnica near Otočec. Taste it at the cellar or at the Colnar wine bar in Novo mesto.`,
     },

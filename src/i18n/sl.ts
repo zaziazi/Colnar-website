@@ -5,8 +5,8 @@ import { maps } from '../data/maps';
  * Slovenščina — izvirno besedilo.
  *
  * Prose here is the estate's own, from the design handoff and from colnar.si.
- * The confirmed figures are 16,5 ha / 125.000 trt / 5 leg, ten wines, and 2001 as
- * the year the vineyards grew to this scale.
+ * The confirmed figures are 16,5 ha / 125.000 trt / 5 leg, twelve wines, and 2001
+ * as the year the vineyards grew to this scale.
  */
 export const sl: Content = {
   htmlLang: 'sl',
@@ -39,29 +39,34 @@ export const sl: Content = {
         'Družina Colnar prideluje vino v Lešnici pri Otočcu. Rezervirajte degustacijo z ogledom kleti ali se oglasite v Vinoteki Colnar v Novem mestu.',
     },
     story: {
-      title: 'Naša zgodba — Vinska klet Colnar',
+      title: 'Naša zgodba: družina Colnar od leta 1408 — Vinska klet Colnar',
+      crumb: 'Naša zgodba',
       description:
         'Zgodba družine Colnar: prvi zapisi iz leta 1408, tradicija Janezov od leta 1747, širitev vinogradov leta 2001 in nova klet na Lešnici leta 2022.',
     },
     wines: {
-      title: 'Naša vina — Vinska klet Colnar',
+      title: 'Cviček, penine in dolenjska vina — Vinska klet Colnar',
+      crumb: 'Vina',
       description:
-        'Dvanajst vin družine Colnar iz Lešnice pri Otočcu: cviček, penina, Grand Jaenes, dolenjsko in hišno belo, chardonnay, laški rizling, rosé, modra frankinja, modri pinot in collis.',
+        'Dvanajst vin družine Colnar z Dolenjske: cviček z nazivom Kralj cvička, penine Grand Jaenes, chardonnay, modri pinot, collis in druga.',
     },
     vineyards: {
-      title: 'Naši vinogradi — Vinska klet Colnar',
+      title: 'Naši vinogradi na Dolenjskem — Vinska klet Colnar',
+      crumb: 'Vinogradi',
       description:
         '16,5 hektarja in 125.000 trt na petih sončnih legah nad dolino Krke, s pogledom na Gorjance — Trška gora, Razbore, Grčevje, Ždinja vas in Vinji vrh.',
     },
     vinoteka: {
-      title: 'Vinoteka Colnar — Supernova Novo mesto',
+      title: 'Vinoteka Colnar — vinski bar v Supernovi, Novo mesto',
+      crumb: 'Vinoteka',
       description:
         'Vinoteka Colnar v nakupovalnem središču Supernova Novo mesto. Vsa naša vina in penine na kozarec ali na steklenico, odprto Pon – Sob 9.00 – 21.00.',
     },
     tasting: {
-      title: 'Degustacija — Vinska klet Colnar',
+      title: 'Degustacija vin na Dolenjskem, Otočec — Vinska klet Colnar',
+      crumb: 'Degustacija',
       description:
-        'Degustacija treh do šestih vin z ogledom sodobne kleti na Lešnici, z narezki domačih dobrot. Od 16 € na osebo. Prijavite se na termin.',
+        'Degustacija treh do šestih vin v kleti na Lešnici pri Otočcu, od 16 € na osebo. Po želji ogled kleti in narezek domačih dobrot. Rezervacija vnaprej.',
     },
     funding: {
       title: 'Naložba v opremo vinske kleti — Vinska klet Colnar',
@@ -198,6 +203,7 @@ export const sl: Content = {
         alcohol: 'Delež alkohola',
         region: 'Regija',
         country: 'Država',
+        awards: 'Priznanja',
       },
       styles: {
         'sveze-belo': 'Sveže belo',
@@ -209,6 +215,11 @@ export const sl: Content = {
       },
       regionName: 'Dolenjska',
       countryName: 'Slovenija',
+      pageTitle: (name, zvrst) => {
+        const noun = { belo: 'belo vino', 'rdeče': 'rdeče vino', 'rosé': 'rosé', penina: 'penina', 'penina rosé': 'rosé penina' }[zvrst ?? ''];
+        if (!noun) return `${name} — Colnar`;
+        return `${name}${noun === name.toLowerCase() ? '' : `, ${noun}`} z Dolenjske — Colnar`;
+      },
       fallbackDescription: (name, kind) =>
         `${name}${kind ? `, ${kind} vino` : ''} Vinske kleti Colnar iz Lešnice pri Otočcu. Pokusite ga na degustaciji v kleti ali v Vinoteki Colnar v Novem mestu.`,
     },

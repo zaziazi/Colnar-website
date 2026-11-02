@@ -49,6 +49,8 @@ export const GET: APIRoute = async ({ site }) => {
     })
     .join('\n\n');
 
+  const plain = (text?: string) => (text ?? '').replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim();
+
   const tastingLines = en.tasting.priceGroups
     .flatMap((group) => group.rows.map((row) => `- ${row.name} — ${money(row.price)} ${en.tasting.perPerson}`))
     .join('\n');
@@ -88,30 +90,42 @@ Sold online through the distributor Evino: https://www.evino.si/znamke/colnar/
 ${wines
   .map(
     (w) =>
-      `- ${w.data.ime}${w.data.zvrst ? ` (${en.wines.kinds[w.data.zvrst] ?? w.data.zvrst})` : ''} — ${url(
+      `### ${w.data.ime}${w.data.zvrst ? ` (${en.wines.kinds[w.data.zvrst] ?? w.data.zvrst})` : ''}\n${url(
         `${routes.en.wines}${w.id.split('/').pop()}/`,
-      )}`,
+      )}\n${[plain(w.body), w.data.priznanja?.length ? `Awards: ${w.data.priznanja.join('; ')}.` : ''].filter(Boolean).join('\n')}`,
   )
-  .join('\n')}
+  .join('\n\n')}
 
 Cviček, the speciality of the Dolenjska region, is 60% of what the estate makes.
 Each wine has its own page; the list is at ${url(routes.en.wines)}
 
 ## Tastings
 
-Three to six wines with a tour of the cellar at Lešnica, with boards of local
-charcuterie and cheese. Booked in advance through the form at
+Three to six wines at the cellar in Lešnica. A cellar tour and a charcuterie
+board are optional extras. Booked in advance through the form at
 ${url(routes.en.tasting)}.
 
 ${tastingLines}
 
 Prices include VAT. Payment on site, cash or card.
 
+### Questions guests ask
+
+${en.tasting.faq.items.map((item) => `**${item.q}** ${item.a}`).join('\n\n')}
+
+## The family
+
+${en.home.milestones.map((m) => `- ${m.year}, ${m.kicker}: ${m.copy}`).join('\n')}
+
+More at ${url(routes.en.story)}
+
 ## The vineyards
 
 16.5 hectares, 125,000 vines, five sunny sites above the Krka valley facing
-the Gorjanci hills: Trška gora, Razbore, Grčevje, Ždinja vas, Vinji vrh. Janez VII
-and his brother Matjaž expanded the vineyards in 2001. ${url(routes.en.vineyards)}
+the Gorjanci hills. Janez VII and his brother Matjaž expanded the vineyards in
+2001. ${url(routes.en.vineyards)}
+
+${en.vineyards.sites.map((site) => `### ${site.name}\n${site.copy.join(' ')}`).join('\n\n')}
 
 ## The wine bar price list
 
@@ -129,7 +143,7 @@ ${menuLines}
 - ${url(routes.en.vinoteka)} — the wine bar and the full price list
 - ${url(routes.en.tasting)} — tastings, prices, and the booking form
 
-Slovenian originals live at the same paths without the /en/ prefix.
+Slovenian originals: ${url(routes.sl.home)} · ${url(routes.sl.story)} · ${url(routes.sl.wines)} · ${url(routes.sl.vineyards)} · ${url(routes.sl.vinoteka)} · ${url(routes.sl.tasting)}
 `;
 
   return new Response(body, {

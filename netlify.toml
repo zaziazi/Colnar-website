@@ -25,6 +25,49 @@
   to = "/en/tasting/"
   status = 301
 
+# The addresses of the previous site (Webflow), so links and search results
+# that point at them land on the matching page after colnar.si moves here.
+
+[[redirects]]
+  from = "/kontakt"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/en/contact"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/en/home"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/trgovina"
+  to = "/vina/"
+  status = 301
+
+[[redirects]]
+  from = "/checkout"
+  to = "/vina/"
+  status = 301
+
+[[redirects]]
+  from = "/product/penina-colnar"
+  to = "/vina/penina/"
+  status = 301
+
+[[redirects]]
+  from = "/product/grozdni-sok"
+  to = "/vinoteka/"
+  status = 301
+
+[[redirects]]
+  from = "/product/:slug"
+  to = "/vina/:slug/"
+  status = 301
+
 # ------------------------------------------------- Klub zvestobe (Vinoteka)
 # One static page serves every guest's card and every unsubscribe link; the
 # script on it reads the token from the address. The /api/klub/* endpoints are

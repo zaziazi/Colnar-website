@@ -26,7 +26,14 @@ const { photo, alt, title, standfirst, position = '50% 50%', whole = false } = A
  * drawn far wider than the screen. `sizes` says how wide it really is, so a
  * phone or a retina display fetches a file big enough not to go soft.
  */
-const sizes = `max(100vw, ${Math.ceil((photo.width / photo.height) * 100)}vh)`;
+const wide = `max(100vw, ${Math.ceil((photo.width / photo.height) * 100)}vh)`;
+/*
+ * A phone needs less: the pane is small, the veil softens the detail anyway, and
+ * this photograph is what the page is waiting for on a mobile connection.
+ */
+const sizes = whole
+  ? `(max-aspect-ratio: 3/2) 100vw, ${wide}`
+  : `(max-aspect-ratio: 1/1) min(${Math.ceil((photo.width / photo.height) * 100)}vh, 700px), ${wide}`;
 ---
 
 {/*
@@ -54,6 +61,7 @@ const sizes = `max(100vw, ${Math.ceil((photo.width / photo.height) * 100)}vh)`;
       fallbackFormat="jpg"
       widths={[640, 960, 1280, 1600, 2000, 2400, 3000]}
       sizes={sizes}
+      quality={62}
       style={`object-position: ${position}`}
       loading="eager"
       fetchpriority="high"

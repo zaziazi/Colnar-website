@@ -9,6 +9,9 @@ volumen: 0.75
 alkohol: 10
 slika: ../../../assets/photos/wines/cvicek.png
 evino: https://www.evino.si/izdelek/cvicek-2025-colnar/
+priznanja:
+  - King of Cviček 2008, 2014, 2022
+  - Decanter 2024, bronze
 ---
 
 Cviček is the speciality of Dolenjska, and it accounts for a full 60 % of the wine we make. You could

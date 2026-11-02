@@ -86,7 +86,7 @@ const schema = [
                           widths={[120, 160, 240]}
                           sizes="120px"
                           loading="lazy"
-                          alt=""
+                          alt={t.wines.bottleAlt(wine.data.ime)}
                         />
                       ) : (
                         <span class="wine-tile-pending">{t.wines.photoPending}</span>

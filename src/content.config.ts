@@ -42,6 +42,8 @@ const wines = defineCollection({
       volumen: z.number().optional(),
       /** Delež alkohola v odstotkih. */
       alkohol: z.number().optional(),
+      /** Priznanja vina, kot se izpišejo v vrstici značilnosti. */
+      priznanja: z.array(z.string()).optional(),
     }),
 });
 

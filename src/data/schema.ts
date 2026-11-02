@@ -26,7 +26,9 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
   '@type': 'Winery',
   '@id': ids.winery(site),
   name: t.siteName,
+  alternateName: ['Colnar', 'Vina Colnar', 'Klet Colnar', 'Colnar Winery'],
   legalName: t.legalName,
+  description: t.meta.home.description,
   url: homeUrl,
   image,
   logo: new URL('/logo-colnar.svg', site).href,
@@ -42,6 +44,8 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
     addressRegion: 'Dolenjska',
     addressCountry: 'SI',
   },
+  geo: { '@type': 'GeoCoordinates', latitude: 45.8314, longitude: 15.20681 },
+  priceRange: '€€',
   hasMap: maps.cellar,
   sameAs: [
     'https://www.instagram.com/vinskakletcolnar/',
@@ -68,6 +72,7 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
         addressLocality: 'Novo mesto',
         addressCountry: 'SI',
       },
+      geo: { '@type': 'GeoCoordinates', latitude: 45.82758, longitude: 15.18371 },
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
@@ -108,8 +113,9 @@ export const webPage = (
   title: string,
   description: string,
   image: string,
+  type: 'WebPage' | 'AboutPage' = 'WebPage',
 ): Node => ({
-  '@type': 'WebPage',
+  '@type': type,
   '@id': `${canonical}#webpage`,
   url: canonical,
   name: title,
@@ -148,6 +154,7 @@ export const wineProduct = (
     description?: string;
     image?: string;
     buy?: string;
+    awards?: string[];
     /** The same rows the page prints, as `PropertyValue`s. */
     specs?: { label: string; value: string }[];
   },
@@ -160,6 +167,7 @@ export const wineProduct = (
   ...(wine.description ? { description: wine.description } : {}),
   ...(wine.image ? { image: wine.image } : {}),
   ...(wine.buy ? { sameAs: wine.buy } : {}),
+  ...(wine.awards?.length ? { award: wine.awards } : {}),
   brand: { '@id': ids.winery(site) },
   manufacturer: { '@id': ids.winery(site) },
   ...(wine.specs?.length

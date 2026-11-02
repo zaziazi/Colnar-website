@@ -7,7 +7,8 @@ import type { RouteKey } from './index';
  */
 
 export type Link = { label: string; to: RouteKey };
-export type Meta = { title: string; description: string };
+/** `crumb` is the page's short name in the breadcrumb, when the title is longer. */
+export type Meta = { title: string; description: string; crumb?: string };
 
 export type Milestone = { year: string; kicker: string; copy: string };
 
@@ -111,6 +112,7 @@ export type Content = {
         alcohol: string;
         region: string;
         country: string;
+        awards: string;
       };
       /** Keyed by the `stil` in a wine's frontmatter. */
       styles: Record<string, string>;
@@ -118,6 +120,8 @@ export type Content = {
       countryName: string;
       /** Meta description for a wine that has no copy of its own yet. */
       fallbackDescription: (name: string, kind?: string) => string;
+      /** The `<title>` of a wine's page, from its name and `zvrst`. */
+      pageTitle: (name: string, zvrst?: string) => string;
     };
   };
 
