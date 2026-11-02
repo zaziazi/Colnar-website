@@ -449,6 +449,7 @@ export const en: Content = {
       extras: 'Extras',
       size: 'Size of tasting',
       note: 'Anything else',
+      notePlaceholder: 'Allergies and other notes',
       submit: 'Send booking',
       sending: 'Sending …',
       doneHead: 'Thank you',

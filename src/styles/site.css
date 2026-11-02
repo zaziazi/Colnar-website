@@ -1905,6 +1905,11 @@ a.meta-value {
   resize: vertical;
 }
 
+.field textarea::placeholder {
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+  opacity: 1;
+}
+
 .field input:hover,
 .field textarea:hover {
   border-color: color-mix(in srgb, var(--color-text) 32%, transparent);

@@ -439,6 +439,7 @@ export const sl: Content = {
       extras: 'Dodatno',
       size: 'Obseg degustacije',
       note: 'Opomba',
+      notePlaceholder: 'Alergeni in druge opombe',
       submit: 'Pošlji prijavo',
       sending: 'Pošiljam …',
       doneHead: 'Hvala za prijavo',

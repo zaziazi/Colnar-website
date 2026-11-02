@@ -205,6 +205,7 @@ export type Content = {
       extras: string;
       size: string;
       note: string;
+      notePlaceholder: string;
       submit: string;
       sending: string;
       doneHead: string;
