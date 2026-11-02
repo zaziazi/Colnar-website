@@ -249,20 +249,25 @@ function initReveals() {
 
 /* -------------------------------------------------------------- counters -- */
 
-// 100.000 in Slovenian, 100,000 in English — taken from the page's own lang.
+// 100.000 and 16,5 in Slovenian, 100,000 and 16.5 in English — taken from the
+// page's own lang.
 const numberLocale = document.documentElement.lang || 'sl';
 
 const formatFigure = (span, value) =>
-  span.hasAttribute('data-thousands') ? value.toLocaleString(numberLocale) : String(value);
+  span.hasAttribute('data-thousands') || !Number.isInteger(value)
+    ? value.toLocaleString(numberLocale)
+    : String(value);
 
 function countUp(root) {
   root.querySelectorAll('[data-count]').forEach((span) => {
-    const target = Number.parseInt(span.getAttribute('data-count'), 10);
+    const target = Number.parseFloat(span.getAttribute('data-count'));
+    // Whole figures count in ones, a figure like 16.5 in tenths.
+    const scale = Number.isInteger(target) ? 1 : 10;
     const duration = 1100;
     const start = performance.now();
     const step = (now) => {
       const k = clamp01((now - start) / duration);
-      span.textContent = formatFigure(span, Math.round(target * easeOutCubic(k)));
+      span.textContent = formatFigure(span, Math.round(target * easeOutCubic(k) * scale) / scale);
       if (k < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -271,7 +276,7 @@ function countUp(root) {
 
 function settleCounters(root) {
   root.querySelectorAll('[data-count]').forEach((span) => {
-    span.textContent = formatFigure(span, Number.parseInt(span.getAttribute('data-count'), 10));
+    span.textContent = formatFigure(span, Number.parseFloat(span.getAttribute('data-count')));
   });
 }
 

@@ -73,6 +73,10 @@ const photos: Record<string, ImageMetadata> = {
         <h2 class="section-head" id="lege">{v.sitesHead}</h2>
       </div>
 
+      <div class="page-prose" data-reveal>
+        {v.sitesIntro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
       <ul class="vineyard-list">
         {
           v.sites.map((site) => (

@@ -58,7 +58,7 @@ export const en: Content = {
     vineyards: {
       title: 'Our vineyards — Vinska klet Colnar',
       description:
-        'Fifteen hectares and 125,000 vines on five sunny sites above the Krka valley, facing the Gorjanci — Trška gora, Razbore, Grčevje, Ždinja vas and Vinji vrh.',
+        '16.5 hectares and 125,000 vines on five sunny sites above the Krka valley, facing the Gorjanci — Trška gora, Razbore, Grčevje, Ždinja vas and Vinji vrh.',
     },
     vinoteka: {
       title: 'The wine bar — Vinska klet Colnar',
@@ -115,7 +115,7 @@ export const en: Content = {
       },
     ],
     stats: [
-      { value: 15, unit: 'ha', label: 'Of vineyards' },
+      { value: 16.5, unit: 'ha', label: 'Of vineyards' },
       { value: 125000, grouped: true, label: 'Vines' },
       { value: 5, label: 'Sunny sites' },
     ],
@@ -138,7 +138,7 @@ export const en: Content = {
         id: 'vinogradi',
         title: 'Vineyards',
         alt: 'The Grčevje vineyards from above',
-        copy: 'Fifteen hectares above the Krka, looking out to the Gorjanci.',
+        copy: '16.5 hectares above the Krka, looking out to the Gorjanci.',
         link: { label: 'See our vineyards', to: 'vineyards' },
       },
     ],
@@ -269,40 +269,42 @@ export const en: Content = {
       author: 'Luigi Veronelli',
     },
     sitesHead: 'Our vineyards',
+    sitesIntro: [
+      'Across five winegrowing sites in Dolenjska, together covering 16.5 hectares, varied soils, winegrowing tradition and a modern approach to growing grapes come together.',
+      'Each site has its own character and its own part in shaping our wines. From the marl soils of Grčevje, where we follow the Burgundian way of planting, to the traditional Dolenjska vineyards, where we grow grapes for fresh, fruity, lively wines.',
+      'The diversity of the vineyards lets us create different styles of wine, joined by respect for nature, careful work and the wish to keep in every wine a part of the landscape it comes from.',
+    ],
     sites: [
       {
         name: 'Grčevje',
         copy: [
-          'Grčevje is a chapter of its own in our winegrowing story. Across 6 hectares of vineyards we distinguish an older part of 1.5 ha, where Laški rizling, Chardonnay and Sivi pinot grow, and a new part of 4.5 ha, planted in stages in 2020, 2022 and 2024.',
-          'The new vineyard is planted in the Burgundian style, with the vines set exceptionally close together: depending on the plot, from 15,000, 20,000 and 25,000 up to 33,000 vines per hectare. The different densities are part of a considered approach to working the vineyard and to finding the balance between the vine’s growth, its yield and the quality of the grapes. Planting like this demands a great deal of precision, persistence and handwork in the vineyard.',
+          'Grčevje is a chapter of its own in our winegrowing story. Across 6 hectares of vineyards we distinguish an older part (1.5 ha), where Laški rizling, Chardonnay and Sivi pinot grow, and a new part (4.5 ha), planted in stages in 2020, 2022 and 2024. The new vineyard expresses our modern, Burgundy-inspired direction.',
+          'The new part of Grčevje is planted in the Burgundian style at exceptionally high densities: on individual plots 15,000, 20,000, 25,000 and 33,000 vines per hectare. The different densities are part of a considered approach to working the vineyard and to finding the balance between the vine’s growth, its yield and the quality of the grapes.',
           'The marl soils play an important part. Their structure and their ability to hold moisture shape particular growing conditions. Together with the climate, the position and the way the vineyard is worked, they lay the foundations for wines of distinct character.',
-          'In the older part of Grčevje we grow Laški rizling, Chardonnay and Sivi pinot. The new part grows Modri pinot, Merlot, Chardonnay, Modra frankinja and Laški rizling.',
           'Grčevje is the expression of our long-term vision. We believe that considered winegrowing, knowledge and respect for what nature gives us can make wines that join their Dolenjska origin with an ambition for the highest quality.',
         ],
       },
       {
         name: 'Razbore',
         copy: [
-          'On 3.5 hectares of marl soil at Razbore lies the vineyard planted in 2001, when the family decided to turn its farm towards winegrowing.',
-          'The make-up of marl affects how the soil holds water, how the root system develops and how the vine grows. Understanding these traits lets us adapt the way we work to the natural conditions and the potential of each vineyard.',
+          'On 3.5 hectares of vineyards at Razbore lies one of our characteristic Dolenjska sites. The vineyard was planted in 2001, and its character is shaped by marl soils.',
           'At Razbore we grow Žametna črnina, Laški rizling, Kraljevina and Beli pinot. This range of varieties gives us grapes for wines that express authenticity and the rich winegrowing heritage of Dolenjska.',
-          'Razbore is where our larger story began, a story in which tradition and knowledge of the land are woven together.',
         ],
       },
       {
         name: 'Ždinja vas',
         copy: [
-          'Stony soils prevail across the 3.5 hectares of vineyards at Ždinja vas, planted in 2014. Their structure creates particular growing conditions and plays a key part in making our fresh, fruity, lively wines.',
-          'In the vineyard we work to preserve the grapes’ natural freshness, a pleasant balance of acidity and the aromatic expression that are the key elements of this style of wine. We pay particular attention to choosing the right moment to harvest: for wines where we want to bring out freshness, what matters is not only sugar ripeness but also keeping the natural acids and the aromas of the variety.',
+          'Stony soils prevail across the 3.5 hectares of vineyards at Ždinja vas, planted in 2014.',
+          'Ždinja vas plays an important part in making our fresh, fruity, lively wines. In the vineyard we work to preserve the grapes’ natural freshness, a pleasant balance of acidity and the aromatic expression that are the key elements of this style of wine.',
           'Ždinja vas grows Kraljevina, Žametna črnina, Modra frankinja, Laški rizling, Chardonnay, Beli pinot, Sivi pinot and Traminec. This wide choice of traditional and international varieties gives us grapes for many styles of wine, from fresh and lively to more aromatic.',
         ],
       },
       {
         name: 'Trška gora',
         copy: [
-          'Trška gora is one of the best-known winegrowing landscapes in Dolenjska. For centuries its slopes, threaded with vineyards and zidanice, the small vineyard cottages of the region, have been a symbol of the wine culture here. In our cellar too this vineyard has a special place, because this is where our winegrowing story began.',
-          'On about 2 hectares of vineyards, where marl and stony soils intertwine, we grow Kraljevina, Žametna črnina, Modra frankinja, Laški rizling and Beli pinot. The original planting dates back to 1994, and in 2008 we added new vines.',
-          'The vineyard mainly gives grapes for fresh, light, harmonious wines. In these wines we want to bring out the liveliness, the fruit and the easy drinkability that have long been hallmarks of Dolenjska’s wine tradition.',
+          'Trška gora is one of the best-known winegrowing landscapes in Dolenjska. For centuries its slopes, threaded with vineyards and zidanice, the small vineyard cottages of the region, have been a symbol of the wine culture here.',
+          'On about 2 hectares of vineyards, where marl and stony soils intertwine, we continue the rich winegrowing tradition of the area. The original planting dates back to 1994, and in 2008 we added new vines.',
+          'On Trška gora we grow Kraljevina, Žametna črnina, Modra frankinja, Laški rizling and Beli pinot. These varieties help shape the face of Dolenjska winegrowing and remain an important part of our identity today.',
           'For us Trška gora is more than a vineyard site. It is part of our heritage, a place where tradition meets everyday life and where wine has always brought people together.',
         ],
       },
@@ -310,9 +312,8 @@ export const en: Content = {
         name: 'Vinji vrh',
         copy: [
           'White marl prevails across the roughly 1.5 hectares of vineyards at Vinji vrh, giving this site a geological identity of its own and setting it apart from our other vineyards.',
-          'The make-up and structure of the pale marl soils affect how much water is available, how the root system develops and how the vine grows. Understanding these traits matters when we plan the work in the vineyard and secure the best conditions for the grapes to ripen.',
-          'Here we grow Žametna črnina, Laški rizling and Modra frankinja.',
-          'Vinji vrh reflects the diversity of our landscape. It reminds us that every piece of land has its own story, and that the richness of Dolenjska winegrowing lies in exactly these differences.',
+          'The make-up and structure of the pale marl soils affect how much water is available, how the root system develops and how the vine grows.',
+          'At Vinji vrh, where we work about 1.5 hectares of vineyards, we grow Žametna črnina, Laški rizling and Modra frankinja. These traditional varieties are closely tied to Dolenjska’s wine culture and allow us to create different styles of wine.',
         ],
       },
     ],

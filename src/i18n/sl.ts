@@ -5,7 +5,7 @@ import { maps } from '../data/maps';
  * Slovenščina — izvirno besedilo.
  *
  * Prose here is the estate's own, from the design handoff and from colnar.si.
- * The confirmed figures are 15 ha / 125.000 trt / 5 leg, ten wines, and 2001 as
+ * The confirmed figures are 16,5 ha / 125.000 trt / 5 leg, ten wines, and 2001 as
  * the first planting year.
  */
 export const sl: Content = {
@@ -51,7 +51,7 @@ export const sl: Content = {
     vineyards: {
       title: 'Naši vinogradi — Vinska klet Colnar',
       description:
-        'Petnajst hektarjev in 125.000 trt na petih sončnih legah nad dolino Krke, s pogledom na Gorjance — Trška gora, Razbore, Grčevje, Ždinja vas in Vinji vrh.',
+        '16,5 hektarja in 125.000 trt na petih sončnih legah nad dolino Krke, s pogledom na Gorjance — Trška gora, Razbore, Grčevje, Ždinja vas in Vinji vrh.',
     },
     vinoteka: {
       title: 'Vinoteka Colnar — Supernova Novo mesto',
@@ -108,7 +108,7 @@ export const sl: Content = {
       },
     ],
     stats: [
-      { value: 15, unit: 'ha', label: 'Vinogradov' },
+      { value: 16.5, unit: 'ha', label: 'Vinogradov' },
       { value: 125000, grouped: true, label: 'Trt' },
       { value: 5, label: 'Sončnih leg' },
     ],
@@ -131,7 +131,7 @@ export const sl: Content = {
         id: 'vinogradi',
         title: 'Vinogradi',
         alt: 'Vinogradi na Grčevju od zgoraj',
-        copy: 'Petnajst hektarjev nad Krko, s pogledom na Gorjance.',
+        copy: '16,5 hektarja nad Krko, s pogledom na Gorjance.',
         link: { label: 'Spoznajte naše vinograde', to: 'vineyards' },
       },
     ],
@@ -259,40 +259,42 @@ export const sl: Content = {
       author: 'Luigi Veronelli',
     },
     sitesHead: 'Naši vinogradi',
+    sitesIntro: [
+      'Na petih vinogradniških legah Dolenjske, ki skupaj obsegajo 16,5 hektarja, se prepletajo raznolika tla, vinogradniška tradicija in sodoben pristop k pridelavi grozdja.',
+      'Vsaka lega ima svoj značaj in svojo vlogo pri oblikovanju naših vin. Od lapornih tal Grčevja, kjer sledimo burgundskemu načinu sajenja, do tradicionalnih dolenjskih vinogradov, kjer pridelujemo grozdje za sveža, sadna in živahna vina.',
+      'Raznolikost vinogradov nam omogoča ustvarjanje različnih vinskih slogov, ki jih povezujejo spoštovanje narave, skrbno delo in želja, da v vsakem vinu ohranimo del pokrajine, iz katere prihaja.',
+    ],
     sites: [
       {
         name: 'Grčevje',
         copy: [
-          'Grčevje predstavlja posebno poglavje naše vinogradniške zgodbe. Na skupno 6 hektarjih vinogradov ločimo starejši del, ki predstavlja 1,5 ha, tam uspevajo laški rizling, chardonnay in sivi pinot, ter novi del na površini 4,5 ha, zasajen postopoma v letih 2020, 2022 in 2024.',
-          'Novi vinograd je zasajen v burgundskem slogu z izjemno gostim sajenjem trt, kar pomeni, da na posameznih površinah raste od 15.000, 20.000, 25.000 vse do 33.000 trt na hektar. Različne gostote so del premišljenega pristopa k obdelavi in iskanju ravnovesja med rastjo trte, pridelkom in kakovostjo grozdja. Takšna zasaditev zahteva veliko preciznosti, vztrajnosti in ročno vloženega truda v vinogradu.',
+          'Grčevje predstavlja posebno poglavje naše vinogradniške zgodbe. Na skupno 6 hektarjih vinogradov ločimo starejši del (1,5 ha), kjer uspevajo laški rizling, chardonnay in sivi pinot, ter novi del (4,5 ha), zasajen postopoma v letih 2020, 2022 in 2024. Novi vinograd je izraz naše sodobne, burgundsko navdihnjene usmeritve.',
+          'Novi del Grčevja je zasajen v burgundskem slogu z izjemno visokimi gostotami sajenja: na posameznih površinah 15.000, 20.000, 25.000 in 33.000 trt na hektar. Različne gostote so del premišljenega pristopa k obdelavi in iskanju ravnovesja med rastjo trte, pridelkom in kakovostjo grozdja.',
           'Pomembno vlogo imajo laporna tla, ki s svojo strukturo in sposobnostjo zadrževanja vlage oblikujejo posebne rastne razmere. V povezavi s podnebjem, lego in načinom obdelave ustvarjajo temelje za vina z izrazitim značajem.',
-          'V starejšem delu Grčevja gojimo laški rizling, chardonnay in sivi pinot. V novem delu uspevajo modri pinot, merlot, chardonnay, modra frankinja in laški rizling.',
           'Grčevje je izraz naše dolgoročne vizije. Verjamemo, da lahko s premišljenim vinogradništvom, znanjem in spoštovanjem naravnih danosti ustvarjamo vina, ki povezujejo dolenjsko poreklo z ambicijo po najvišji kakovosti.',
         ],
       },
       {
         name: 'Razbore',
         copy: [
-          'Na površini 3,5 hektarja v Razborah se na lapornih tleh razprostira vinograd, zasajen leta 2001, ko se je družina odločila, da kmetijsko obrt preusmeri v vinogradniške vode.',
-          'Lapor s svojo sestavo vpliva na vodni režim tal, razvoj koreninskega sistema in rast vinske trte. Prav razumevanje teh značilnosti nam omogoča, da način obdelave prilagajamo naravnim razmeram in potencialu posameznega vinograda.',
+          'Na 3,5 hektarja vinogradov v Razborah se razprostira ena naših značilnih dolenjskih vinogradniških leg. Vinograd je bil zasajen leta 2001, njegovo podobo pa oblikujejo laporna tla.',
           'V Razborah gojimo žametno črnino, laški rizling, kraljevino in beli pinot. Raznolikost sort nam omogoča pridelavo grozdja za vina, ki izražajo pristnost in bogato vinogradniško dediščino Dolenjske.',
-          'Razbore so začetki naše velike zgodbe, v kateri se prepletata tradicija in poznavanje zemlje.',
         ],
       },
       {
         name: 'Ždinja vas',
         copy: [
-          'Na 3,5 hektarja vinogradov v Ždinji vasi, zasajenih leta 2014, prevladujejo kamnita tla. Njihova struktura ustvarja posebne rastne razmere in ima ključno vlogo pri pridelavi naših svežih, sadnih in živahnih vin.',
-          'Pri vinogradniškem delu si prizadevamo ohranjati naravno svežino grozdja, prijetno kislinsko ravnovesje in aromatsko izraznost, ki so ključni elementi takšnega vinskega sloga. Posebno pozornost namenjamo izbiri primernega trenutka trgatve. Pri vinih, kjer želimo poudariti svežino, namreč ni pomembna zgolj sladkorna zrelost, temveč tudi ohranjanje naravnih kislin in sortnih arom.',
+          'Na 3,5 hektarja vinogradov v Ždinji vasi, zasajenih leta 2014, prevladujejo kamnita tla.',
+          'Ždinja vas ima pomembno vlogo pri pridelavi naših svežih, sadnih in živahnih vin. Pri vinogradniškem delu si prizadevamo ohranjati naravno svežino grozdja, prijetno kislinsko ravnovesje in aromatsko izraznost, ki so ključni elementi takšnega vinskega sloga.',
           'V Ždinji vasi uspevajo kraljevina, žametna črnina, modra frankinja, laški rizling, chardonnay, beli pinot, sivi pinot in traminec. Širok izbor tradicionalnih in mednarodnih sort omogoča pridelavo grozdja za raznolike vinske sloge, od svežih in živahnih do aromatsko izrazitejših vin.',
         ],
       },
       {
         name: 'Trška gora',
         copy: [
-          'Trška gora je ena najbolj prepoznavnih vinogradniških pokrajin Dolenjske. Njena pobočja, prepletena z vinogradi in zidanicami, že stoletja predstavljajo simbol tukajšnje vinske kulture. Tudi v naši vinski kleti ima ta vinograd prav poseben mozaik, saj se je prav tukaj naša vinogradniška zgodba začela.',
-          'Na približno 2 hektarjih vinogradov, kjer se prepletajo laporna in kamnita tla, gojimo kraljevino, žametno črnino, modro frankinjo, laški rizling in beli pinot. Prvotna zasaditev sega v leto 1994, leta 2008 pa smo vinograd dopolnili z novimi trtami.',
-          'Vinograd je namenjen predvsem pridelavi grozdja za sveža, lahkotna in harmonična vina. Pri teh vinih želimo poudariti živahnost, sadnost in prijetno pitnost, ki so že od nekdaj pomembne značilnosti dolenjskega vinskega izročila.',
+          'Trška gora je ena najbolj prepoznavnih vinogradniških pokrajin Dolenjske. Njena pobočja, prepletena z vinogradi in zidanicami, že stoletja predstavljajo simbol tukajšnje vinske kulture.',
+          'Na približno 2 hektarjih vinogradov, kjer se prepletajo laporna in kamnita tla, nadaljujemo bogato vinogradniško tradicijo tega območja. Prvotna zasaditev sega v leto 1994, leta 2008 pa smo vinograd dopolnili z novimi trtami.',
+          'Na Trški gori gojimo kraljevino, žametno črnino, modro frankinjo, laški rizling in beli pinot. Te sorte sooblikujejo podobo dolenjskega vinogradništva in še danes predstavljajo pomemben del naše identitete.',
           'Trška gora za nas ni zgolj vinogradniška lega. Je del naše dediščine, kraj, kjer se tradicija srečuje z vsakdanjim življenjem in kjer vino že od nekdaj povezuje ljudi.',
         ],
       },
@@ -300,9 +302,8 @@ export const sl: Content = {
         name: 'Vinji vrh',
         copy: [
           'Na približno 1,5 hektarja vinogradov Vinjega vrha prevladuje beli lapor, ki tej legi daje posebno geološko identiteto in jo razlikuje od preostalih naših vinogradov.',
-          'Svetla laporna tla s svojo sestavo in strukturo vplivajo na razpoložljivost vode, razvoj koreninskega sistema in rast trte. Razumevanje teh značilnosti je pomembno pri načrtovanju vinogradniških opravil in zagotavljanju optimalnih razmer za dozorevanje grozdja.',
-          'Tukaj gojimo žametno črnino, laški rizling in modro frankinjo.',
-          'Vinji vrh je odraz raznolikosti naše pokrajine. Spominja nas, da ima vsaka zemlja svojo zgodbo in da se prav v teh razlikah skriva bogastvo dolenjskega vinogradništva.',
+          'Svetla laporna tla s svojo sestavo in strukturo vplivajo na razpoložljivost vode, razvoj koreninskega sistema in rast trte.',
+          'Na Vinjem vrhu, kjer obdelujemo približno 1,5 hektarja vinogradov, gojimo žametno črnino, laški rizling in modro frankinjo. Te tradicionalne sorte so tesno povezane z dolenjsko vinsko kulturo in nam omogočajo ustvarjanje različnih vinskih slogov.',
         ],
       },
     ],

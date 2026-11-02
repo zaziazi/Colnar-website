@@ -57,7 +57,7 @@ export const GET: APIRoute = async ({ site }) => {
 
 > A family wine estate in Lešnica pri Otočcu, Dolenjska, Slovenia. The Colnar
 > family has farmed these hills since the first records of 1408; every first son
-> since 1747 has been named Janez. Fifteen hectares on five sunny sites above the
+> since 1747 has been named Janez. 16.5 hectares on five sunny sites above the
 > Krka valley, 125,000 vines, ${wines.length} wines, a cellar built in 2022, and a wine bar
 > in Novo mesto.
 
@@ -109,7 +109,7 @@ Prices include VAT. Payment on site, cash or card.
 
 ## The vineyards
 
-Fifteen hectares, 125,000 vines, five sunny sites above the Krka valley facing
+16.5 hectares, 125,000 vines, five sunny sites above the Krka valley facing
 the Gorjanci hills: Trška gora, Razbore, Grčevje, Ždinja vas, Vinji vrh. First
 planted by Janez VII and his brother Matjaž in 2001. ${url(routes.en.vineyards)}
 

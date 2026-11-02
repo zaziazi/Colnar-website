@@ -10,7 +10,7 @@ interface Props {
 const { lang, animate = true } = Astro.props;
 const t = getContent(lang);
 const fmt = (stat: (typeof t.home.stats)[number]) =>
-  stat.grouped ? stat.value.toLocaleString(t.numberLocale) : String(stat.value);
+  stat.grouped || !Number.isInteger(stat.value) ? stat.value.toLocaleString(t.numberLocale) : String(stat.value);
 ---
 
 <div class="stats" data-reveal data-stats={animate ? '' : undefined}>
