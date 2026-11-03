@@ -47,6 +47,15 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
   geo: { '@type': 'GeoCoordinates', latitude: 45.8314, longitude: 15.20681 },
   priceRange: '€€',
   hasMap: maps.cellar,
+  /* Weekdays only: at weekends it is open by arrangement, which has no markup. */
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '07:00',
+      closes: '17:00',
+    },
+  ],
   sameAs: [
     'https://www.instagram.com/vinskakletcolnar/',
     'https://www.facebook.com/vinskakletcolnar/',
@@ -154,6 +163,8 @@ export const wineProduct = (
     description?: string;
     image?: string;
     buy?: string;
+    /** The bottle's price at `buy`, in euros with VAT. */
+    price?: number;
     awards?: string[];
     /** The same rows the page prints, as `PropertyValue`s. */
     specs?: { label: string; value: string }[];
@@ -167,6 +178,17 @@ export const wineProduct = (
   ...(wine.description ? { description: wine.description } : {}),
   ...(wine.image ? { image: wine.image } : {}),
   ...(wine.buy ? { sameAs: wine.buy } : {}),
+  ...(wine.buy && wine.price
+    ? {
+        offers: {
+          '@type': 'Offer',
+          url: wine.buy,
+          price: wine.price.toFixed(2),
+          priceCurrency: 'EUR',
+          seller: { '@type': 'Organization', name: 'Evino', url: 'https://www.evino.si/' },
+        },
+      }
+    : {}),
   ...(wine.awards?.length ? { award: wine.awards } : {}),
   brand: { '@id': ids.winery(site) },
   manufacturer: { '@id': ids.winery(site) },

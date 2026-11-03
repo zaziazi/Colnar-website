@@ -8,6 +8,7 @@ volumen: 0.75
 alkohol: 12
 slika: ../../../assets/photos/wines/grand-jaenes.png
 evino: https://www.evino.si/izdelek/grand-jaenes-colnar/
+cena: 19.9
 ---
 
 An elegant sparkling wine made by the classic method from žametna črnina. Twenty months on its own

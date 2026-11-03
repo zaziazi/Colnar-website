@@ -9,6 +9,7 @@ volumen: 0.75
 alkohol: 13
 slika: ../../../assets/photos/wines/modra-frankinja.png
 evino: https://www.evino.si/izdelek/modra-frankinja-2023-colnar/
+cena: 15.49
 ---
 
 Modra frankinja ripens into first-rate fruit on a chosen sunny site of marl soils. The wine spends a

@@ -419,7 +419,7 @@ export const en: Content = {
       items: [
         {
           q: 'What does a tasting include?',
-          a: 'Three to six wines, an account of how they are made, and a tour of the modern cellar at Lešnica. A board of local charcuterie and cheese can be added.',
+          a: 'Three to six wines and an account of how they are made. A tour of the modern cellar at Lešnica and a board of local charcuterie and cheese can be added, €10 per person each.',
         },
         {
           q: 'What does a tasting cost?',
@@ -428,6 +428,10 @@ export const en: Content = {
         {
           q: 'Do I need to book?',
           a: 'Yes. Tours and tastings are arranged in advance, through the form on this page or by phone on +386 31 288 724.',
+        },
+        {
+          q: 'When can we come?',
+          a: 'On weekdays from 7.00 to 17.00. At weekends we open by prior arrangement.',
         },
         {
           q: 'Where does the tasting take place?',
@@ -441,6 +445,10 @@ export const en: Content = {
           q: 'How can I pay?',
           a: 'On site, in cash or by card.',
         },
+        {
+          q: 'What is cviček?',
+          a: 'The speciality of Dolenjska: a wine blended from both white and red grapes — žametna črnina, kraljevina, laški rizling and modra frankinja. It is fresh, and at home with red meat and cured sausage. It accounts for 60 % of the wine we make.',
+        },
       ],
     },
     aside: {
@@ -448,6 +456,9 @@ export const en: Content = {
       whereName: 'Vinska klet Colnar',
       whereCopy: 'Lešnica 8, 8222 Otočec, Slovenia',
       whereMap: maps.cellar,
+      whenLabel: 'When',
+      whenHours: 'Mon – Fri · 7.00 – 17.00',
+      whenNote: 'Weekends by arrangement',
       phoneLabel: 'Rather by phone',
     },
     form: {

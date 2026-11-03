@@ -8,6 +8,7 @@ volumen: 0.75
 alkohol: 12
 slika: ../../../assets/photos/wines/grand-jaenes.png
 evino: https://www.evino.si/izdelek/grand-jaenes-colnar/
+cena: 19.9
 ---
 
 Elegantna penina, pridelana po klasični metodi iz žametne črnine. 20-mesečno zorenje na lastnih

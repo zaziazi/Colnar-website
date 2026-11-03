@@ -409,7 +409,7 @@ export const sl: Content = {
       items: [
         {
           q: 'Kaj vključuje degustacija?',
-          a: 'Pokušino treh do šestih vin s predstavitvijo vin in njihove pridelave ter ogled sodobne kleti na Lešnici. Po želji dodamo narezek domačih dobrot.',
+          a: 'Pokušino treh do šestih vin s predstavitvijo vin in njihove pridelave. Po želji dodamo ogled sodobne kleti na Lešnici in narezek domačih dobrot, vsakega po 10 € na osebo.',
         },
         {
           q: 'Koliko stane degustacija?',
@@ -418,6 +418,10 @@ export const sl: Content = {
         {
           q: 'Ali je potrebna rezervacija?',
           a: 'Da, ogled in degustacijo dogovorimo vnaprej — prek obrazca na tej strani ali po telefonu +386 31 288 724.',
+        },
+        {
+          q: 'Kdaj lahko pridemo?',
+          a: 'Med tednom od 7. do 17. ure. Ob vikendih smo odprti po predhodnem dogovoru.',
         },
         {
           q: 'Kje poteka degustacija?',
@@ -431,6 +435,10 @@ export const sl: Content = {
           q: 'Kako lahko plačam?',
           a: 'Na lokaciji z gotovino ali s kartico.',
         },
+        {
+          q: 'Kaj je cviček?',
+          a: 'Posebnost Dolenjske: vino, sestavljeno iz belih in rdečih sort grozdja — žametne črnine, kraljevine, laškega rizlinga in modre frankinje. Je sveže in prija ob rdečem mesu in suhih mesninah. V naši kleti predstavlja 60 % pridelanega vina.',
+        },
       ],
     },
     aside: {
@@ -438,6 +446,9 @@ export const sl: Content = {
       whereName: 'Vinska klet Colnar',
       whereCopy: 'Lešnica 8, 8222 Otočec',
       whereMap: maps.cellar,
+      whenLabel: 'Kdaj',
+      whenHours: 'Pon – Pet · 7.00 – 17.00',
+      whenNote: 'Ob vikendih po dogovoru',
       phoneLabel: 'Raje po telefonu',
     },
     form: {

@@ -9,6 +9,7 @@ volumen: 0.75
 alkohol: 12
 slika: ../../../assets/photos/wines/hisno-belo.png
 evino: https://www.evino.si/izdelek/hisno-belo-2024/
+cena: 7.91
 ---
 
 Hišno belo vino je sveža linija vina, sestavljena iz enakih delov kraljevine, laškega rizlinga in

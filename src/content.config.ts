@@ -26,6 +26,11 @@ const wines = defineCollection({
       slika: image().optional(),
       /** Stran pri distributerju (evino.si). Brez nje ni povezave. */
       evino: z.url().optional(),
+      /**
+       * Cena steklenice na evino.si v evrih, z DDV — prepisana ročno, zato jo
+       * ob novi ceni ali letniku popravite tudi tu. Brez povezave nima pomena.
+       */
+      cena: z.number().optional(),
 
       /*
        * Značilnosti, kot jih navaja distributer. Vsaka je neobvezna: vrstica se

@@ -197,6 +197,9 @@ export type Content = {
       whereName: string;
       whereCopy: string;
       whereMap: string;
+      whenLabel: string;
+      whenHours: string;
+      whenNote: string;
       phoneLabel: string;
     };
     form: {

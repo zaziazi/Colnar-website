@@ -9,6 +9,7 @@ volumen: 0.75
 alkohol: 13.5
 slika: ../../../assets/photos/wines/collis.png
 evino: https://www.evino.si/izdelek/collis-2019-colnar/
+cena: 14.9
 ---
 
 Collis is the speciality of our cellar, ageing for 24 months in a 2,500-litre acacia cask. The result

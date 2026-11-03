@@ -9,6 +9,7 @@ volumen: 0.75
 alkohol: 13
 slika: ../../../assets/photos/wines/rose.png
 evino: https://www.evino.si/izdelek/rose-2025-colnar/
+cena: 10.49
 ---
 
 A short cold maceration gives it a lovely salmon colour, while the extended fermentation keeps the

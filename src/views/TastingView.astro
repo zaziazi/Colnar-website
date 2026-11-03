@@ -234,6 +234,12 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
           </div>
 
           <div class="aside-block">
+            <h2>{d.aside.whenLabel}</h2>
+            <p class="aside-name tnum">{d.aside.whenHours}</p>
+            <p class="aside-detail">{d.aside.whenNote}</p>
+          </div>
+
+          <div class="aside-block">
             <h2>{d.aside.phoneLabel}</h2>
             <p class="aside-name tnum">
               <a href="tel:+38631288724">+386 31 288 724</a>
@@ -275,9 +281,9 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
     </section>
 
     {/*
-      What people ring up and ask. Every answer is already somewhere on this
-      page — the price list, the aside, the copy — so the block adds no new
-      claims, only the shape a question comes in. Same <details> as the cenik.
+      What people ring up and ask. Every answer is already somewhere on the
+      site — the price list, the aside, the copy, the cviček's own page — so
+      the block adds no new claims, only the shape a question comes in. Same <details> as the cenik.
     */}
     <section aria-labelledby="pogosta-vprasanja">
       <div class="section-gap" data-reveal>

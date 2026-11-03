@@ -9,6 +9,7 @@ volumen: 0.75
 alkohol: 13
 slika: ../../../assets/photos/wines/modra-frankinja.png
 evino: https://www.evino.si/izdelek/modra-frankinja-2023-colnar/
+cena: 15.49
 ---
 
 Modra frankinja dozori v vrhunsko grozdje na izbrani sončni legi lapornatih tal. Vino je starano leto

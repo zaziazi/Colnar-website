@@ -9,6 +9,7 @@ volumen: 0.75
 alkohol: 13.5
 slika: ../../../assets/photos/wines/collis.png
 evino: https://www.evino.si/izdelek/collis-2019-colnar/
+cena: 14.9
 ---
 
 Vino Collis je posebnost naše kleti, ki 24 mesecev zori v 2.500-litrskem akacijevem sodu. Rezultat je

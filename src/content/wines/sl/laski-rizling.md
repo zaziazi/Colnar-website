@@ -9,6 +9,7 @@ volumen: 0.75
 alkohol: 13.5
 slika: ../../../assets/photos/wines/laski-rizling.png
 evino: https://www.evino.si/izdelek/laski-rizling-2021-colnar/
+cena: 14.9
 ---
 
 Laški rizling je suho, sveže in aromatično vino, pri katerem je potekala 24-urna hladna maceracija in

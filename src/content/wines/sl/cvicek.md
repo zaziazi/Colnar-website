@@ -9,6 +9,7 @@ volumen: 0.75
 alkohol: 10
 slika: ../../../assets/photos/wines/cvicek.png
 evino: https://www.evino.si/izdelek/cvicek-2025-colnar/
+cena: 5.9
 priznanja:
   - Kralj cvička 2008, 2014, 2022
   - Decanter 2024, bron

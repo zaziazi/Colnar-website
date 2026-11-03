@@ -8,6 +8,7 @@ volumen: 0.75
 alkohol: 11.5
 slika: ../../../assets/photos/wines/penina.png
 evino: https://www.evino.si/izdelek/penina-brut-nature-colnar/
+cena: 14.9
 ---
 
 We have made Penina Colnar since 2016, by the classic method. It is non-vintage and made from
