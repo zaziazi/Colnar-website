@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { getContent, routes, otherLang, type Lang, type LegalKey } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  page: LegalKey;
+}
+
+const { lang, page } = Astro.props;
+const t = getContent(lang);
+const l = t.legal;
+const p = l.pages[page];
+
+/*
+ * A notice, set like the funding page: eyebrow, title, then each section as a
+ * label beside its text. E-mail and web addresses in the copy become links on
+ * their own, so the texts in sl.ts / en.ts stay plain sentences. A section
+ * that is a single list is an address block and goes without bullets.
+ */
+const pattern = /(https:\/\/[^\s,]+[^\s,.]|[\w.+-]+@[\w-]+\.[\w.]+\w)/g;
+const esc = (s: string) =>
+  s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+/* Built as a string so no whitespace slips in between a link and its full stop. */
+const linked = (text: string) =>
+  text
+    .split(pattern)
+    .map((part, i) =>
+      i % 2 === 0
+        ? esc(part)
+        : part.includes('@')
+          ? `<a href="mailto:${esc(part)}">${esc(part)}</a>`
+          : `<a href="${esc(part)}" target="_blank" rel="noopener">${esc(part)}</a>`,
+    )
+    .join('');
+---
+
+<Base lang={lang} page={page}>
+  <Nav lang={lang} alwaysVisible toggleHref={routes[otherLang(lang)][page]} />
+
+  <main class="wrap funding-page legal-page">
+    <p class="funding-eyebrow">{p.eyebrow}</p>
+    <h1 class="funding-title">{p.title}</h1>
+    {p.intro && <p class="legal-intro">{p.intro}</p>}
+
+    <dl class="funding-facts">
+      {
+        p.sections.map((section) => (
+          <div>
+            <dt>{section.head}</dt>
+            <dd>
+              {section.blocks.map((block) =>
+                Array.isArray(block) ? (
+                  <ul class:list={{ 'legal-lines': section.blocks.length === 1 }}>
+                    {block.map((line) => <li set:html={linked(line)} />)}
+                  </ul>
+                ) : (
+                  <p set:html={linked(block)} />
+                ),
+              )}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <p class="funding-note">
+      {l.updatedLabel} {l.updated}.{l.note && ` ${l.note}`}
+    </p>
+  </main>
+
+  <Footer lang={lang} />
+</Base>

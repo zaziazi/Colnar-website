@@ -213,6 +213,9 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
             </div>
 
             <p class="form-terms">{d.paymentNote}</p>
+            <p class="form-terms">
+              {d.privacyNote}<a href={routes[lang].privacy}>{d.privacyLink}</a>.
+            </p>
           </form>
 
           <div class="form-done" data-form-done hidden tabindex="-1">

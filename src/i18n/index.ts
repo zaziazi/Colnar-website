@@ -11,7 +11,20 @@ const content: Record<Lang, Content> = { sl, en };
 
 export const getContent = (lang: Lang): Content => content[lang];
 
-export type RouteKey = 'home' | 'story' | 'wines' | 'vineyards' | 'vinoteka' | 'tasting' | 'funding';
+export type RouteKey =
+  | 'home'
+  | 'story'
+  | 'wines'
+  | 'vineyards'
+  | 'vinoteka'
+  | 'tasting'
+  | 'funding'
+  | 'terms'
+  | 'privacy'
+  | 'cookies';
+
+/** The three legal notices, which share one view. */
+export type LegalKey = 'terms' | 'privacy' | 'cookies';
 
 /**
  * Slovenian is the site; English sits under /en/. Both sets are spelled out
@@ -34,6 +47,9 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
     vinoteka: '/vinoteka/',
     tasting: '/degustacija/',
     funding: '/sofinanciranje/',
+    terms: '/splosni-pogoji/',
+    privacy: '/zasebnost/',
+    cookies: '/piskotki/',
   },
   en: {
     home: '/en/',
@@ -43,6 +59,9 @@ export const routes: Record<Lang, Record<RouteKey, string>> = {
     vinoteka: '/en/wine-bar/',
     tasting: '/en/tasting/',
     funding: '/en/eu-funding/',
+    terms: '/en/terms/',
+    privacy: '/en/privacy/',
+    cookies: '/en/cookies/',
   },
 };
 

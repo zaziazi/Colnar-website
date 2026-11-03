@@ -1,4 +1,4 @@
-import type { RouteKey } from './index';
+import type { LegalKey, RouteKey } from './index';
 
 /**
  * The shape both languages implement. Every user-visible string on the site is
@@ -9,6 +9,15 @@ import type { RouteKey } from './index';
 export type Link = { label: string; to: RouteKey };
 /** `crumb` is the page's short name in the breadcrumb, when the title is longer. */
 export type Meta = { title: string; description: string; crumb?: string };
+
+export type LegalPage = {
+  eyebrow: string;
+  title: string;
+  /** Short name in the footer. */
+  link: string;
+  intro?: string;
+  sections: { head: string; blocks: (string | string[])[] }[];
+};
 
 export type Milestone = { year: string; kicker: string; copy: string };
 
@@ -190,6 +199,9 @@ export type Content = {
     perPersonShort: string;
     vatNote: string;
     paymentNote: string;
+    /** Under the form: what happens to the details, with a link to the privacy notice. */
+    privacyNote: string;
+    privacyLink: string;
     /** Answers to what people ring up and ask, every one of them from this page. */
     faq: { head: string; items: { q: string; a: string }[] };
     aside: {
@@ -244,11 +256,26 @@ export type Content = {
     items: string[];
     goalsLabel: string;
     goals: string;
+    resultsLabel: string;
+    results: string;
     /** English only: says which version is authoritative. */
     note?: string;
   };
 
-  footer: { columns: FooterColumn[] };
+  footer: { columns: FooterColumn[]; legalLabel: string };
+
+  /**
+   * Splošni pogoji, zasebnost, piškotki: plain notices, one view. A section is
+   * a heading and blocks — a string is a paragraph, an array a list. E-mail
+   * and web addresses in the text become links by themselves.
+   */
+  legal: {
+    updatedLabel: string;
+    updated: string;
+    /** English only: the Slovenian text is the binding one. */
+    note?: string;
+    pages: Record<LegalKey, LegalPage>;
+  };
 };
 
 /** Handed to the browser as JSON — see scripts/reservation.js. */

@@ -68,6 +68,59 @@
   to = "/vina/:slug/"
   status = 301
 
+# The old "Vinarstvo" pages. The cellar and tourism pages fold into the
+# tasting page, as /klet/ did; the wine-lab page has no counterpart.
+
+[[redirects]]
+  from = "/vinarstvo/degustacija-vina"
+  to = "/degustacija/"
+  status = 301
+
+[[redirects]]
+  from = "/vinarstvo/vinogradi"
+  to = "/vinogradi/"
+  status = 301
+
+[[redirects]]
+  from = "/vinarstvo/vinska-klet"
+  to = "/degustacija/"
+  status = 301
+
+[[redirects]]
+  from = "/vinarstvo/turizem"
+  to = "/degustacija/"
+  status = 301
+
+[[redirects]]
+  from = "/vinarstvo/analiza-vina"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/vinarstvo-en/wine-tasting"
+  to = "/en/tasting/"
+  status = 301
+
+[[redirects]]
+  from = "/vinarstvo-en/vineyards"
+  to = "/en/vineyards/"
+  status = 301
+
+[[redirects]]
+  from = "/vinarstvo-en/new-wine-cellar"
+  to = "/en/tasting/"
+  status = 301
+
+[[redirects]]
+  from = "/vinarstvo-en/tourism"
+  to = "/en/tasting/"
+  status = 301
+
+[[redirects]]
+  from = "/vinarstvo-en/wine-analysis"
+  to = "/en/"
+  status = 301
+
 # ------------------------------------------------- Klub zvestobe (Vinoteka)
 # One static page serves every guest's card and every unsubscribe link; the
 # script on it reads the token from the address. The /api/klub/* endpoints are

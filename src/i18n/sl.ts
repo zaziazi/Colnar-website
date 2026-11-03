@@ -73,6 +73,22 @@ export const sl: Content = {
       description:
         'Naložba Kmetijskega gospodarstva Colnar v opremo vinske kleti: generator dušika, lesene sode in opremo za skladiščenje vina. Sofinancira Evropska unija.',
     },
+    terms: {
+      title: 'Splošni pogoji — Vinska klet Colnar',
+      description:
+        'Podatki o ponudniku, pogoji uporabe spletne strani, prijave na degustacijo, cene ter reševanje pritožb in sporov.',
+    },
+    privacy: {
+      title: 'Pravilnik o zasebnosti — Vinska klet Colnar',
+      crumb: 'Zasebnost',
+      description:
+        'Katere osebne podatke zbiramo prek spletne strani in prijav na degustacijo, zakaj, kako dolgo jih hranimo in kakšne so vaše pravice.',
+    },
+    cookies: {
+      title: 'Piškotki — Vinska klet Colnar',
+      description:
+        'Spletna stran ne uporablja piškotkov in orodij za sledenje. V brskalniku si zapomni le, da ste potrdili polnoletnost.',
+    },
   },
 
   home: {
@@ -404,6 +420,8 @@ export const sl: Content = {
     perPersonShort: '/ osebo',
     vatNote: 'Vse cene vključujejo DDV.',
     paymentNote: 'Plačilo je možno na lokaciji, z gotovino ali s kartico.',
+    privacyNote: 'Podatke iz prijave uporabimo samo za dogovor o degustaciji. Več v ',
+    privacyLink: 'pravilniku o zasebnosti',
     faq: {
       head: 'Pogosta vprašanja',
       items: [
@@ -531,9 +549,187 @@ export const sl: Content = {
     goalsLabel: 'Cilji operacije',
     goals:
       'Razlogi za odločitev o izvedbi naložbe so povezani s potrebami po posodabljanju osnovnih sredstev na kmetijskem gospodarstvu. Oprema za predelavo vina se sčasoma z uporabo amortizira, zaradi česar jo je potrebno zamenjati z novo, ki je poleg tega običajno tudi tehnološko naprednejša. Kmetijsko gospodarstvo na ta način lahko normalno obratuje in se obenem tudi razvija.',
+    resultsLabel: 'Rezultati operacije',
+    results:
+      'Nova oprema vinske kleti — generator dušika, leseni sodi in oprema za skladiščenje vina —, ki nadomesti iztrošeno opremo ter posodobi predelavo in skladiščenje vina na kmetijskem gospodarstvu.',
+  },
+
+  legal: {
+    updatedLabel: 'Velja od',
+    updated: '3. 11. 2026',
+    pages: {
+      terms: {
+        eyebrow: 'Pravno obvestilo',
+        title: 'Splošni pogoji',
+        link: 'Splošni pogoji',
+        intro:
+          'Ti pogoji veljajo za uporabo spletne strani colnar.si in za prijave na degustacijo prek nje. Spletne trgovine nimamo: naša vina kupite pri distributerju Evino, v kleti na Lešnici ali v Vinoteki Colnar.',
+        sections: [
+          {
+            head: 'Ponudnik',
+            blocks: [
+              [
+                'Janez Colnar, vinogradništvo in vinarstvo',
+                'Lešnica 8, 8222 Otočec, Slovenija',
+                'ID za DDV: SI43099807',
+                'E-pošta: info@colnar.si',
+                'Telefon: +386 31 288 724',
+              ],
+            ],
+          },
+          {
+            head: 'Uporaba spletne strani',
+            blocks: [
+              'Spletna stran predstavlja alkoholne pijače, zato je namenjena polnoletnim osebam.',
+              'Besedila, fotografije, logotipi in druge vsebine na strani so last Vinske kleti Colnar ali njihovih avtorjev. Brez našega pisnega dovoljenja jih ni dovoljeno kopirati, objavljati ali drugače uporabljati, razen za osebno rabo.',
+            ],
+          },
+          {
+            head: 'Cene in nakup vin',
+            blocks: [
+              'Vse cene na strani vključujejo DDV. Cene steklenic na straneh posameznih vin so cene pri distributerju Evino na dan objave in so informativne. Nakup prek povezave »Kupi na Evino« opravite pri Evinu, po njegovih pogojih poslovanja.',
+              'Trudimo se, da so cene, delovni čas in drugi podatki na strani točni. Če se razlikujejo od podatkov na prodajnem mestu, velja cena na prodajnem mestu.',
+            ],
+          },
+          {
+            head: 'Prijava na degustacijo',
+            blocks: [
+              'Prijava prek obrazca ali po telefonu ni zavezujoča, dokler vam termina ne potrdimo po e-pošti ali telefonu.',
+              'Cene degustacij in dodatkov so v ceniku na strani Degustacija. Plačilo je na lokaciji, z gotovino ali s kartico; vnaprejšnjega plačila ne zahtevamo.',
+              'Če termina ne morete izkoristiti, nam to čim prej sporočite na +386 31 288 724 ali info@colnar.si.',
+              'Alkoholne pijače strežemo samo polnoletnim osebam.',
+            ],
+          },
+          {
+            head: 'Pritožbe in spori',
+            blocks: [
+              'Pritožbo pošljite na info@colnar.si ali po pošti na naš naslov. V petih delovnih dneh vam potrdimo, da smo jo prejeli, sporočimo, v kolikšnem času jo bomo obravnavali, in vas obveščamo o poteku postopka.',
+              'Spore skušamo rešiti sporazumno. Nobenega izvajalca izvensodnega reševanja potrošniških sporov ne priznavamo kot pristojnega za reševanje sporov z nami. Če spora ne rešimo sporazumno, je pristojno sodišče po stalnem prebivališču potrošnika.',
+            ],
+          },
+          {
+            head: 'Odgovornost',
+            blocks: [
+              'Vsebine na strani so informativne. Za vsebino zunanjih strani, na katere vodijo povezave — Evino, zemljevidi, družbena omrežja —, ne odgovarjamo.',
+            ],
+          },
+          {
+            head: 'Spremembe',
+            blocks: [
+              'Pogoje lahko spremenimo. Velja različica, objavljena na tej strani; za prijavo na degustacijo veljajo pogoji, objavljeni ob prijavi.',
+            ],
+          },
+        ],
+      },
+      privacy: {
+        eyebrow: 'Varstvo osebnih podatkov',
+        title: 'Pravilnik o zasebnosti',
+        link: 'Zasebnost',
+        intro:
+          'Tu pojasnjujemo, katere osebne podatke zbiramo prek spletne strani, zakaj, kako dolgo jih hranimo in kakšne pravice imate. Pravilnik sledi Splošni uredbi o varstvu podatkov (GDPR) in Zakonu o varstvu osebnih podatkov (ZVOP-2).',
+        sections: [
+          {
+            head: 'Upravljavec',
+            blocks: [
+              [
+                'Janez Colnar, vinogradništvo in vinarstvo',
+                'Lešnica 8, 8222 Otočec, Slovenija',
+                'E-pošta: info@colnar.si',
+                'Telefon: +386 31 288 724',
+              ],
+            ],
+          },
+          {
+            head: 'Prijava na degustacijo',
+            blocks: [
+              'Ko oddate prijavo, prejmemo vaše ime in priimek, e-naslov, telefonsko številko, želeni datum in uro, število gostov, izbrano degustacijo in dodatke ter opombo, če jo napišete. Na vpisani e-naslov vam samodejno pošljemo potrditev prejema.',
+              'Podatke uporabimo za dogovor in izvedbo degustacije: da potrdimo termin, vas obvestimo o morebitnih spremembah in degustacijo pripravimo. Pravna podlaga je sklenitev in izvedba pogodbe (točka b 1. odstavka 6. člena GDPR).',
+              'Če v opombo napišete alergije ali druge prehranske omejitve, so to podatki o zdravju. Vpis je prostovoljen; z njim privolite, da jih uporabimo samo za pripravo degustacije in narezka (točka a 2. odstavka 9. člena GDPR). Privolitev lahko kadarkoli prekličete.',
+              'Prijave, skupaj z opombo, hranimo eno leto po datumu degustacije, nato jih izbrišemo.',
+            ],
+          },
+          {
+            head: 'E-pošta in telefon',
+            blocks: [
+              'Ko nam pišete ali nas pokličete, vaše podatke in vsebino sporočila uporabimo za odgovor. Pravna podlaga je naš zakoniti interes, da odgovorimo na vaše vprašanje (točka f 1. odstavka 6. člena GDPR), oziroma priprava pogodbe, če gre za rezervacijo. Sporočila hranimo, dokler jih potrebujemo za obravnavo vašega vprašanja.',
+            ],
+          },
+          {
+            head: 'Obisk spletne strani',
+            blocks: [
+              'Strani ne uporabljamo za analitiko, oglaševanje ali sledenje in nanjo ne vključujemo vtičnikov družbenih omrežij. Ponudnik gostovanja ob vsakem obisku samodejno beleži tehnične podatke — IP-naslov, čas obiska, obiskano stran in vrsto brskalnika —, ki so potrebni za delovanje in varnost strani. Pravna podlaga je zakoniti interes (točka f 1. odstavka 6. člena GDPR).',
+              'Kaj stran shrani v vašem brskalniku, piše na strani Piškotki.',
+            ],
+          },
+          {
+            head: 'Komu podatke posredujemo',
+            blocks: [
+              'Podatkov ne prodajamo in jih ne posredujemo za oglaševanje. Dostop do njih imajo le obdelovalci, ki nam pomagajo pri delovanju strani, na podlagi pogodbe o obdelavi podatkov:',
+              [
+                'Netlify, Inc. (ZDA) — gostovanje spletne strani in sprejem prijav. Netlify je vključen v okvir EU-ZDA za zasebnost podatkov (EU-U.S. Data Privacy Framework), zato prenos podatkov v ZDA temelji na sklepu Evropske komisije o ustreznosti.',
+                'NEOSERV d.o.o. (Slovenija) — e-poštni predal info@colnar.si, prek katerega prejemamo prijave in vam pošiljamo sporočila.',
+              ],
+              'Državnim organom podatke posredujemo samo, kadar to zahteva zakon.',
+            ],
+          },
+          {
+            head: 'Vaše pravice',
+            blocks: [
+              'Kadarkoli lahko zahtevate:',
+              [
+                'dostop do podatkov, ki jih hranimo o vas,',
+                'popravek netočnih podatkov,',
+                'izbris podatkov,',
+                'omejitev obdelave,',
+                'prenos podatkov k drugemu upravljavcu,',
+                'ugovor obdelavi, ki temelji na zakonitem interesu,',
+                'preklic privolitve, ne da bi to vplivalo na obdelavo pred preklicem.',
+              ],
+              'Zahtevo pošljite na info@colnar.si ali po pošti na naš naslov. Odgovorimo najpozneje v enem mesecu.',
+              'Če menite, da vaše podatke obdelujemo v nasprotju s predpisi, lahko vložite pritožbo pri Informacijskem pooblaščencu, Dunajska cesta 22, 1000 Ljubljana, https://www.ip-rs.si.',
+            ],
+          },
+          {
+            head: 'Spremembe',
+            blocks: [
+              'Pravilnik dopolnimo, ko se spremeni način obdelave podatkov. Velja različica, objavljena na tej strani.',
+            ],
+          },
+        ],
+      },
+      cookies: {
+        eyebrow: 'Piškotki',
+        title: 'Piškotki in shranjevanje v brskalniku',
+        link: 'Piškotki',
+        intro:
+          'Spletna stran ne uporablja piškotkov. Nimamo orodij za analitiko, oglaševanje ali sledenje, zato vas za soglasje ne sprašujemo.',
+        sections: [
+          {
+            head: 'Kaj shranimo v vašem brskalniku',
+            blocks: [
+              'Ko potrdite, da ste polnoletni, si to zapomni vaš brskalnik, da vprašanja ne ponavljamo ob vsakem obisku. V lokalno shrambo brskalnika (localStorage) zapišemo le ključ colnar:age-ok s časom potrditve. Podatek ostane v vašem brskalniku, nam se ne pošlje in ga ne uporabljamo za nič drugega.',
+              'Ker je ta zapis nujen za delovanje strani, ki jo prikažemo samo polnoletnim, zanj soglasje ni potrebno (2. odstavek 225. člena ZEKom-2).',
+            ],
+          },
+          {
+            head: 'Vsebine drugih ponudnikov',
+            blocks: [
+              'Pisave so shranjene na našem strežniku, zato ob obisku ne kličemo Googla ali drugih ponudnikov. Zemljevidi, Instagram, Facebook in Evino so na strani samo povezave: ko jim sledite, veljajo pravila tistih strani.',
+            ],
+          },
+          {
+            head: 'Kako zapis izbrišete',
+            blocks: [
+              'Zapis izbrišete v nastavitvah brskalnika, z brisanjem podatkov spletnih mest za colnar.si. Ob naslednjem obisku vas bomo znova vprašali po starosti.',
+            ],
+          },
+        ],
+      },
+    },
   },
 
   footer: {
+    legalLabel: 'Pravna obvestila',
     columns: [
       {
         label: 'Vinska klet',

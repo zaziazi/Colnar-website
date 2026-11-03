@@ -1617,6 +1617,34 @@ a.meta-value {
   padding-left: 1.2em;
 }
 
+/* The legal notices reuse the funding page's frame; these are their extras. */
+.legal-intro {
+  max-width: 680px;
+  margin-top: 22px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.legal-page .funding-facts dd > * + * {
+  margin-top: 12px;
+}
+
+.legal-page .funding-facts ul {
+  margin-top: 12px;
+}
+
+/* A section that is only a list is an address block: lines, not bullets. */
+.legal-page .funding-facts ul.legal-lines {
+  margin-top: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.legal-page .funding-facts a {
+  border-bottom: 1px solid var(--color-accent);
+  overflow-wrap: anywhere;
+}
+
 .funding-note {
   margin-top: 26px;
   font-size: 14px;
@@ -1649,6 +1677,16 @@ a.meta-value {
   gap: 12px;
   font-size: 13px;
   color: color-mix(in srgb, var(--color-text) 60%, transparent);
+}
+
+.colophon-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+
+.colophon-legal a:hover {
+  color: var(--color-text);
 }
 
 .colophon-mark {
@@ -2043,6 +2081,14 @@ a.meta-value {
   font-size: 13.5px;
   line-height: 1.7;
   color: color-mix(in srgb, var(--color-text) 62%, transparent);
+}
+
+.form-terms + .form-terms {
+  margin-top: 6px;
+}
+
+.form-terms a {
+  border-bottom: 1px solid var(--color-accent);
 }
 
 .form-status[data-state='error'] {

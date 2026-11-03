@@ -59,6 +59,11 @@ const t = getContent(lang);
 
   <div class="colophon">
     <Logo class="colophon-mark" label="Colnar" />
+    <nav class="colophon-legal" aria-label={t.footer.legalLabel}>
+      {(['terms', 'privacy', 'cookies'] as const).map((key) => (
+        <a href={route(lang, key)}>{t.legal.pages[key].link}</a>
+      ))}
+    </nav>
     <span>
       {t.legalName} &nbsp;·&nbsp; <span class="tnum">{t.vatLabel}: SI43099807</span>
     </span>

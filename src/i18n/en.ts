@@ -80,6 +80,23 @@ export const en: Content = {
       description:
         'The Colnar farm’s investment in wine cellar equipment: a nitrogen generator, wooden barrels and wine storage equipment. Co-funded by the European Union.',
     },
+    terms: {
+      title: 'Terms and conditions — Vinska klet Colnar',
+      crumb: 'Terms',
+      description:
+        'Who runs this site, terms of use, tasting bookings, prices, and how complaints and disputes are handled.',
+    },
+    privacy: {
+      title: 'Privacy notice — Vinska klet Colnar',
+      crumb: 'Privacy',
+      description:
+        'What personal data we collect through this site and tasting bookings, why, how long we keep it, and your rights.',
+    },
+    cookies: {
+      title: 'Cookies — Vinska klet Colnar',
+      description:
+        'This site uses no cookies and no tracking. Your browser only remembers that you have confirmed you are of legal drinking age.',
+    },
   },
 
   home: {
@@ -414,6 +431,8 @@ export const en: Content = {
     perPersonShort: '/ person',
     vatNote: 'All prices include VAT.',
     paymentNote: 'Payment is taken on site, in cash or by card.',
+    privacyNote: 'We use the details you give only to arrange your tasting. More in our ',
+    privacyLink: 'privacy notice',
     faq: {
       head: 'Common questions',
       items: [
@@ -536,10 +555,189 @@ export const en: Content = {
     goalsLabel: 'Objectives',
     goals:
       'The investment answers the need to renew the holding’s fixed assets. Winemaking equipment wears out with use and has to be replaced with new equipment, which is usually also more technologically advanced. This lets the holding keep operating normally and continue to develop.',
+    resultsLabel: 'Results',
+    results:
+      'New equipment for the wine cellar — a nitrogen generator, wooden barrels and wine storage equipment — replacing worn equipment and modernising how the holding makes and stores its wine.',
     note: 'This is a translation. The Slovenian version of this page is the official one.',
   },
 
+  legal: {
+    updatedLabel: 'In force from',
+    updated: '3 November 2026',
+    note: 'This is a translation. The Slovenian version is the binding one.',
+    pages: {
+      terms: {
+        eyebrow: 'Legal notice',
+        title: 'Terms and conditions',
+        link: 'Terms',
+        intro:
+          'These terms apply to the use of colnar.si and to tasting bookings made through it. We do not run an online shop: our wines are sold by the distributor Evino, at the cellar in Lešnica and at the Colnar wine bar.',
+        sections: [
+          {
+            head: 'Who we are',
+            blocks: [
+              [
+                'Janez Colnar, vinogradništvo in vinarstvo',
+                'Lešnica 8, 8222 Otočec, Slovenia',
+                'VAT ID: SI43099807',
+                'Email: info@colnar.si',
+                'Phone: +386 31 288 724',
+              ],
+            ],
+          },
+          {
+            head: 'Using this site',
+            blocks: [
+              'This site presents alcoholic drinks and is meant for people of legal drinking age.',
+              'The texts, photographs, logos and other content on this site belong to Vinska klet Colnar or to their authors. They may not be copied, published or otherwise used without our written permission, except for personal use.',
+            ],
+          },
+          {
+            head: 'Prices and buying wine',
+            blocks: [
+              'All prices on this site include VAT. Bottle prices on the wine pages are Evino’s prices on the day of publication and are for information. A purchase through the “Buy at Evino” link is made with Evino, under Evino’s terms.',
+              'We do our best to keep prices, opening hours and other details accurate. Where they differ from those at the point of sale, the price at the point of sale applies.',
+            ],
+          },
+          {
+            head: 'Tasting bookings',
+            blocks: [
+              'A booking made through the form or by phone is not binding until we confirm the date by email or phone.',
+              'Tasting and extra prices are in the price list on the Tasting page. Payment is on site, in cash or by card; we do not take payment in advance.',
+              'If you cannot make it, please let us know as soon as you can on +386 31 288 724 or at info@colnar.si.',
+              'We serve alcoholic drinks only to adults.',
+            ],
+          },
+          {
+            head: 'Complaints and disputes',
+            blocks: [
+              'Send complaints to info@colnar.si or by post to our address. Within five working days we confirm that we have received it, tell you how long we will need, and keep you informed.',
+              'We try to settle disputes by agreement. We do not recognise any out-of-court consumer dispute resolution provider as competent for disputes with us. If a dispute cannot be settled by agreement, the court of the consumer’s permanent residence has jurisdiction.',
+            ],
+          },
+          {
+            head: 'Liability',
+            blocks: [
+              'The content of this site is for information. We are not responsible for the content of external sites we link to — Evino, maps, social networks.',
+            ],
+          },
+          {
+            head: 'Changes',
+            blocks: [
+              'We may change these terms. The version published on this page applies; a tasting booking is governed by the terms published when it was made.',
+            ],
+          },
+        ],
+      },
+      privacy: {
+        eyebrow: 'Data protection',
+        title: 'Privacy notice',
+        link: 'Privacy',
+        intro:
+          'This notice explains what personal data we collect through this site, why, how long we keep it and what rights you have. It follows the General Data Protection Regulation (GDPR) and the Slovenian Personal Data Protection Act (ZVOP-2).',
+        sections: [
+          {
+            head: 'Controller',
+            blocks: [
+              [
+                'Janez Colnar, vinogradništvo in vinarstvo',
+                'Lešnica 8, 8222 Otočec, Slovenia',
+                'Email: info@colnar.si',
+                'Phone: +386 31 288 724',
+              ],
+            ],
+          },
+          {
+            head: 'Tasting bookings',
+            blocks: [
+              'When you send a booking we receive your name, email address, phone number, preferred date and time, number of guests, the tasting and extras you chose, and your note if you write one. We send an automatic confirmation of receipt to the email address you give.',
+              'We use these details to arrange and hold the tasting: to confirm the date, tell you about any change and prepare for your visit. The legal basis is entering into and performing a contract (Article 6(1)(b) GDPR).',
+              'If your note mentions allergies or other dietary restrictions, that is health data. Giving it is voluntary; by giving it you consent to our using it only to prepare your tasting and board (Article 9(2)(a) GDPR). You can withdraw that consent at any time.',
+              'We keep bookings, note included, for one year after the date of the tasting and then delete them.',
+            ],
+          },
+          {
+            head: 'Email and phone',
+            blocks: [
+              'When you write or call, we use your details and your message to reply. The legal basis is our legitimate interest in answering you (Article 6(1)(f) GDPR), or preparing a contract when it is a booking. We keep messages for as long as we need them to deal with your enquiry.',
+            ],
+          },
+          {
+            head: 'Visiting this site',
+            blocks: [
+              'We do not use this site for analytics, advertising or tracking, and it carries no social media plugins. Our hosting provider automatically logs technical data with each visit — IP address, time, page visited and browser type — which is needed to run and secure the site. The legal basis is legitimate interest (Article 6(1)(f) GDPR).',
+              'What the site stores in your browser is described on the Cookies page.',
+            ],
+          },
+          {
+            head: 'Who receives your data',
+            blocks: [
+              'We do not sell your data or pass it on for advertising. Only the processors who help us run the site have access to it, under a data processing agreement:',
+              [
+                'Netlify, Inc. (USA) — hosts the site and receives bookings. Netlify participates in the EU-U.S. Data Privacy Framework, so the transfer to the USA rests on the European Commission’s adequacy decision.',
+                'NEOSERV d.o.o. (Slovenia) — hosts the info@colnar.si mailbox, through which we receive bookings and write to you.',
+              ],
+              'We pass data to public authorities only when the law requires it.',
+            ],
+          },
+          {
+            head: 'Your rights',
+            blocks: [
+              'You can ask at any time for:',
+              [
+                'access to the data we hold about you,',
+                'correction of inaccurate data,',
+                'erasure of your data,',
+                'restriction of processing,',
+                'transfer of your data to another controller,',
+                'objection to processing based on legitimate interest,',
+                'withdrawal of consent, without affecting processing before the withdrawal.',
+              ],
+              'Send your request to info@colnar.si or by post to our address. We reply within one month at the latest.',
+              'If you believe we process your data unlawfully, you can complain to the Slovenian Information Commissioner (Informacijski pooblaščenec), Dunajska cesta 22, 1000 Ljubljana, https://www.ip-rs.si.',
+            ],
+          },
+          {
+            head: 'Changes',
+            blocks: [
+              'We update this notice when the way we process data changes. The version published on this page applies.',
+            ],
+          },
+        ],
+      },
+      cookies: {
+        eyebrow: 'Cookies',
+        title: 'Cookies and browser storage',
+        link: 'Cookies',
+        intro:
+          'This site uses no cookies. We have no analytics, advertising or tracking tools, so we do not ask for your consent.',
+        sections: [
+          {
+            head: 'What we store in your browser',
+            blocks: [
+              'When you confirm that you are of legal drinking age, your browser remembers it so that we do not ask on every visit. We write a single key, colnar:age-ok, with the time of confirmation, to your browser’s local storage (localStorage). It stays in your browser, is never sent to us and is used for nothing else.',
+              'Because it is strictly necessary for a site we show only to adults, it needs no consent (Article 225(2) of the Slovenian Electronic Communications Act, ZEKom-2).',
+            ],
+          },
+          {
+            head: 'Content from other providers',
+            blocks: [
+              'Our fonts are served from our own server, so a visit does not call Google or any other provider. Maps, Instagram, Facebook and Evino are plain links: when you follow one, that site’s own rules apply.',
+            ],
+          },
+          {
+            head: 'How to delete it',
+            blocks: [
+              'Clear the site data for colnar.si in your browser settings. On your next visit we will ask your age again.',
+            ],
+          },
+        ],
+      },
+    },
+  },
+
   footer: {
+    legalLabel: 'Legal',
     columns: [
       {
         label: 'Winery',
