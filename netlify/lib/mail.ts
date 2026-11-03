@@ -3,8 +3,7 @@
  *
  * SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS / MAIL_FROM are set in the
  * Netlify dashboard (Site configuration → Environment variables, scope:
- * Functions) — the same ones the loyalty club's mail uses. Without them
- * nothing is sent and the form itself still works.
+ * Functions). Without them nothing is sent and the form itself still works.
  */
 import nodemailer from 'nodemailer';
 

@@ -66,7 +66,9 @@ export const GET: APIRoute = async ({ site }) => {
 Named Kralj cvička — King of Cviček, the region's award for the best cviček —
 in 2008, 2014 and 2022.
 
-Legal name: ${sl.legalName}. VAT: SI43099807.
+Legal name: ${sl.legalName}, Lešnica 8, 8222 Otočec. VAT: SI24422363.
+The vineyards and the EU-co-funded cellar investment are the family farm's:
+JANEZ COLNAR – NOSILEC DOPOLNILNE DEJAVNOSTI NA KMETIJI, VAT SI43099807.
 Website: ${url(routes.sl.home)} (Slovenian) · ${url(routes.en.home)} (English)
 
 ## Where

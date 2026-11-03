@@ -35,7 +35,7 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
   email: 'info@colnar.si',
   telephone: '+386 31 288 724',
   foundingDate: '1747',
-  vatID: 'SI43099807',
+  vatID: 'SI24422363',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Lešnica 8',

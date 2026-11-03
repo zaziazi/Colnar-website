@@ -17,8 +17,8 @@ const p = l.pages[page];
 /*
  * A notice, set like the funding page: eyebrow, title, then each section as a
  * label beside its text. E-mail and web addresses in the copy become links on
- * their own, so the texts in sl.ts / en.ts stay plain sentences. A section
- * that is a single list is an address block and goes without bullets.
+ * their own, so the texts in sl.ts / en.ts stay plain sentences. Lists in the
+ * first section are the businesses' particulars: lines, not bullets.
  */
 const pattern = /(https:\/\/[^\s,]+[^\s,.]|[\w.+-]+@[\w-]+\.[\w.]+\w)/g;
 const esc = (s: string) =>
@@ -47,13 +47,13 @@ const linked = (text: string) =>
 
     <dl class="funding-facts">
       {
-        p.sections.map((section) => (
+        p.sections.map((section, n) => (
           <div>
             <dt>{section.head}</dt>
             <dd>
               {section.blocks.map((block) =>
                 Array.isArray(block) ? (
-                  <ul class:list={{ 'legal-lines': section.blocks.length === 1 }}>
+                  <ul class:list={{ 'legal-lines': n === 0 }}>
                     {block.map((line) => <li set:html={linked(line)} />)}
                   </ul>
                 ) : (

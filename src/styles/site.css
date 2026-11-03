@@ -1633,9 +1633,8 @@ a.meta-value {
   margin-top: 12px;
 }
 
-/* A section that is only a list is an address block: lines, not bullets. */
+/* The businesses' particulars in the first section: lines, not bullets. */
 .legal-page .funding-facts ul.legal-lines {
-  margin-top: 0;
   padding-left: 0;
   list-style: none;
 }

@@ -14,7 +14,7 @@ export const sl: Content = {
   numberLocale: 'sl-SI',
 
   siteName: 'Vinska klet Colnar',
-  legalName: 'Janez Colnar, vinogradništvo in vinarstvo',
+  legalName: 'COLNAR VINA, trgovina in storitve d.o.o.',
   vatLabel: 'ID za DDV',
 
   nav: {
@@ -568,12 +568,21 @@ export const sl: Content = {
           {
             head: 'Ponudnik',
             blocks: [
+              'Spletno stran in Vinoteko Colnar upravlja:',
               [
-                'Janez Colnar, vinogradništvo in vinarstvo',
+                'COLNAR VINA, trgovina in storitve d.o.o.',
                 'Lešnica 8, 8222 Otočec, Slovenija',
-                'ID za DDV: SI43099807',
+                'Matična številka: 9467963000',
+                'ID za DDV: SI24422363',
                 'E-pošta: info@colnar.si',
                 'Telefon: +386 31 288 724',
+              ],
+              'Vinogradi in klet sta del kmetije, ki je tudi nosilec naložbe, sofinancirane iz Evropske unije:',
+              [
+                'JANEZ COLNAR – NOSILEC DOPOLNILNE DEJAVNOSTI NA KMETIJI',
+                'Lešnica 8, 8222 Otočec, Slovenija',
+                'Matična številka: 2605139000',
+                'ID za DDV: SI43099807',
               ],
             ],
           },
@@ -632,7 +641,7 @@ export const sl: Content = {
             head: 'Upravljavec',
             blocks: [
               [
-                'Janez Colnar, vinogradništvo in vinarstvo',
+                'COLNAR VINA, trgovina in storitve d.o.o.',
                 'Lešnica 8, 8222 Otočec, Slovenija',
                 'E-pošta: info@colnar.si',
                 'Telefon: +386 31 288 724',
