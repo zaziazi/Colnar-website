@@ -77,6 +77,15 @@ export const GET: APIRoute = async ({ site }) => {
 Named Kralj cvička — King of Cviček, the region's award for the best cviček —
 in 2008, 2014 and 2022.
 
+Decanter World Wine Awards (each result links to Decanter's own record):
+- 2024: Rosé 2023, Silver, 92 points — https://awards.decanter.com/dwwa/any/wines/760896
+- 2024: Cviček 2023, Bronze, 87 points — https://awards.decanter.com/dwwa/any/wines/760877
+- 2021: Laški rizling 2018, Bronze, 87 points — https://awards.decanter.com/dwwa/any/wines/697500
+- 2020: Cviček 2019, Bronze, 86 points — https://awards.decanter.com/dwwa/any/wines/577896
+- 2020: Laški rizling 2018, Bronze, 86 points — https://awards.decanter.com/dwwa/any/wines/577904
+- 2019: Rosé 2018, Gold, 95 points — https://awards.decanter.com/dwwa/any/wines/574255
+- 2019: Cviček PTP 2018, Bronze, 86 points — https://awards.decanter.com/dwwa/any/wines/574254
+
 Legal name: ${sl.legalName}, Lešnica 8, 8222 Otočec. VAT: SI24422363.
 The vineyards and the EU-co-funded cellar investment are the family farm's:
 JANEZ COLNAR – NOSILEC DOPOLNILNE DEJAVNOSTI NA KMETIJI, VAT SI43099807.
@@ -106,7 +115,7 @@ ${wines
     (w) =>
       `### ${w.data.ime}${w.data.zvrst ? ` (${en.wines.kinds[w.data.zvrst] ?? w.data.zvrst})` : ''}\n${url(
         `${routes.en.wines}${w.id.split('/').pop()}/`,
-      )}\n${[plain(w.body), facts(w), w.data.priznanja?.length ? `Awards: ${w.data.priznanja.join('; ')}.` : '', w.data.evino && w.data.cena ? `Price at Evino: €${w.data.cena.toFixed(2)} (${w.data.evino}).` : ''].filter(Boolean).join('\n')}`,
+      )}\n${[plain(w.body), facts(w), w.data.priznanja?.length ? `Awards: ${w.data.priznanja.map((a) => (typeof a === 'string' ? a : `${a.ime} (${a.vir})`)).join('; ')}.` : '', w.data.evino && w.data.cena ? `Price at Evino: €${w.data.cena.toFixed(2)} (${w.data.evino}).` : ''].filter(Boolean).join('\n')}`,
   )
   .join('\n\n')}
 

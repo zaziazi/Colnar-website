@@ -13,6 +13,11 @@ cena: 14.9
 sorte: "Welschriesling (laški rizling)"
 sladkost: "dry"
 zorenje: "6 months in oak casks"
+priznanja:
+  - ime: "Decanter 2021, bronze, 87 points (2018 vintage)"
+    vir: https://awards.decanter.com/dwwa/any/wines/697500
+  - ime: "Decanter 2020, bronze, 86 points (2018 vintage)"
+    vir: https://awards.decanter.com/dwwa/any/wines/577904
 ---
 
 Laški rizling is a dry, fresh and aromatic wine, made with a 24-hour cold maceration, fermented in

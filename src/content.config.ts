@@ -48,7 +48,10 @@ const wines = defineCollection({
       /** Delež alkohola v odstotkih. */
       alkohol: z.number().optional(),
       /** Priznanja vina, kot se izpišejo v vrstici značilnosti. */
-      priznanja: z.array(z.string()).optional(),
+      /** Priznanja; `vir` je povezava na uradni zapis tekmovanja, kjer obstaja. */
+      priznanja: z
+        .array(z.union([z.string(), z.object({ ime: z.string(), vir: z.string().url() })]))
+        .optional(),
       /** Sorte grozdja, kot jih navaja opis. */
       sorte: z.string().optional(),
       /** Vsebnost sladkorja (suho, brut nature …), le če jo opis navaja. */

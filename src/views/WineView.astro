@@ -63,6 +63,10 @@ const percent = new Intl.NumberFormat(t.numberLocale, {
 /** First letter up, so these rows read like the distributor's ones above. */
 const cap = (text: string) => text.charAt(0).toLocaleUpperCase(t.numberLocale) + text.slice(1);
 
+const awards = (wine.data.priznanja ?? []).map((award) =>
+  typeof award === 'string' ? { text: award } : { text: award.ime, href: award.vir },
+);
+
 const specs = [
   wine.data.stil && { label: d.spec.style, value: d.styles[wine.data.stil] },
   wine.data.sorte && { label: d.spec.grapes, value: cap(wine.data.sorte), dataOnly: true },
@@ -82,8 +86,19 @@ const specs = [
   { label: d.spec.region, value: d.regionName },
   { label: d.spec.country, value: d.countryName },
   wine.data.hrana && { label: d.spec.pairing, value: cap(wine.data.hrana) },
-  wine.data.priznanja && { label: d.spec.awards, value: wine.data.priznanja.join(' · ') },
-].filter(Boolean) as { label: string; value: string; tnum?: boolean; dataOnly?: boolean }[];
+  wine.data.priznanja && {
+    label: d.spec.awards,
+    value: awards.map((award) => award.text).join(' · '),
+    lines: awards,
+  },
+].filter(Boolean) as {
+  label: string;
+  value: string;
+  tnum?: boolean;
+  dataOnly?: boolean;
+  /** One per line, each linked to its source where it has one. */
+  lines?: { text: string; href?: string }[];
+}[];
 
 /* Grapes and ageing are already in the wine's own text, so the table leaves
    them out; the structured data and llms.txt still carry them as facts. */
@@ -105,7 +120,7 @@ const schema = [
     image: bottle ? new URL(bottle.src, Astro.site).href : undefined,
     buy: wine.data.evino,
     price: wine.data.evino ? wine.data.cena : undefined,
-    awards: wine.data.priznanja,
+    awards: awards.map((award) => award.text),
     specs,
   }),
 ];
@@ -186,7 +201,21 @@ const schema = [
           shownSpecs.map((spec) => (
             <div class="wine-spec-row">
               <dt class="wine-spec-label">{spec.label}</dt>
-              <dd class:list={['wine-spec-value', { tnum: spec.tnum }]}>{spec.value}</dd>
+              <dd class:list={['wine-spec-value', { tnum: spec.tnum }]}>
+                {spec.lines
+                  ? spec.lines.map((line) => (
+                      <span class="wine-spec-line">
+                        {line.href ? (
+                          <a href={line.href} target="_blank" rel="noopener">
+                            {line.text}
+                          </a>
+                        ) : (
+                          line.text
+                        )}
+                      </span>
+                    ))
+                  : spec.value}
+              </dd>
             </div>
           ))
         }

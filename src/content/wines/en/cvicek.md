@@ -10,11 +10,16 @@ alkohol: 10
 slika: ../../../assets/photos/wines/cvicek.png
 evino: https://www.evino.si/izdelek/cvicek-2025-colnar/
 cena: 5.9
-priznanja:
-  - King of Cviček 2008, 2014, 2022
-  - Decanter 2024, bronze
 sorte: "žametna črnina, kraljevina, Welschriesling (laški rizling), blaufränkisch (modra frankinja)"
 hrana: "red meat, cured meats"
+priznanja:
+  - King of Cviček 2008, 2014, 2022
+  - ime: "Decanter 2024, bronze, 87 points (2023 vintage)"
+    vir: https://awards.decanter.com/dwwa/any/wines/760877
+  - ime: "Decanter 2020, bronze, 86 points (2019 vintage)"
+    vir: https://awards.decanter.com/dwwa/any/wines/577896
+  - ime: "Decanter 2019, bronze, 86 points (2018 vintage)"
+    vir: https://awards.decanter.com/dwwa/any/wines/574254
 ---
 
 Cviček is the speciality of Dolenjska, and it accounts for a full 60 % of the wine we make. You could

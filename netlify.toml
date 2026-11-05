@@ -63,6 +63,27 @@
   to = "/vinoteka/"
   status = 301
 
+# Addresses search engines still try from the old site.
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
+
+[[redirects]]
+  from = "/menu"
+  to = "/vinoteka/"
+  status = 301
+
+[[redirects]]
+  from = "/meni"
+  to = "/vinoteka/"
+  status = 301
+
+[[redirects]]
+  from = "/en/menu"
+  to = "/en/wine-bar/"
+  status = 301
+
 # Old shop products that are not on this site.
 [[redirects]]
   from = "/product/red-velvet"

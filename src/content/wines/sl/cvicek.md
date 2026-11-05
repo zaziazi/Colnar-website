@@ -10,11 +10,16 @@ alkohol: 10
 slika: ../../../assets/photos/wines/cvicek.png
 evino: https://www.evino.si/izdelek/cvicek-2025-colnar/
 cena: 5.9
-priznanja:
-  - Kralj cvička 2008, 2014, 2022
-  - Decanter 2024, bron
 sorte: "žametna črnina, kraljevina, laški rizling, modra frankinja"
 hrana: "rdeče meso, suhe mesnine"
+priznanja:
+  - Kralj cvička 2008, 2014, 2022
+  - ime: "Decanter 2024, bron, 87 točk (letnik 2023)"
+    vir: https://awards.decanter.com/dwwa/any/wines/760877
+  - ime: "Decanter 2020, bron, 86 točk (letnik 2019)"
+    vir: https://awards.decanter.com/dwwa/any/wines/577896
+  - ime: "Decanter 2019, bron, 86 točk (letnik 2018)"
+    vir: https://awards.decanter.com/dwwa/any/wines/574254
 ---
 
 Cviček je posebnost Dolenjske in v naši vinski kleti predstavlja kar 60 % pridelanega vina. Lahko bi

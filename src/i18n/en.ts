@@ -41,7 +41,7 @@ export const en: Content = {
 
   meta: {
     home: {
-      title: 'Vinska klet Colnar — a family cellar in Dolenjska since 1747',
+      title: 'Colnar Winery — family wine estate in Dolenjska, Slovenia, since 1747',
       description:
         'The Colnar family makes wine at Lešnica near Otočec, Slovenia. Book a tasting at the cellar, or call in at the Colnar wine bar in Novo mesto.',
     },

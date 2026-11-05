@@ -71,7 +71,13 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
     'https://www.evino.si/znamke/colnar/',
     'https://www.tripadvisor.com/Attraction_Review-g635653-d21239648-Reviews-Vinska_Klet_Colnar-Otocec_Novo_Mesto_Lower_Carniola_Region.html',
   ],
-  award: ['Kralj cvička 2008', 'Kralj cvička 2014', 'Kralj cvička 2022'],
+  award: [
+    'Kralj cvička 2008',
+    'Kralj cvička 2014',
+    'Kralj cvička 2022',
+    'Decanter World Wine Awards 2019, Gold, 95 points — Rosé 2018',
+    'Decanter World Wine Awards 2024, Silver, 92 points — Rosé 2023',
+  ],
   areaServed: 'SI',
   knowsLanguage: ['sl', 'en', 'hr'],
   department: [
@@ -101,7 +107,9 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
       ],
     },
     {
-      '@type': 'Winery',
+      // A department of the business and a place for private parties.
+      '@type': ['LocalBusiness', 'EventVenue'],
+      '@id': new URL('/#zidanica', site).href,
       name: 'Zidanica Colnar',
       telephone: '+386 31 725 830',
       hasMap: maps.zidanica,

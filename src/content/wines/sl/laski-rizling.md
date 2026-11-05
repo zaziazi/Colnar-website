@@ -13,6 +13,11 @@ cena: 14.9
 sorte: "laški rizling"
 sladkost: "suho"
 zorenje: "6 mesecev v hrastovih sodih"
+priznanja:
+  - ime: "Decanter 2021, bron, 87 točk (letnik 2018)"
+    vir: https://awards.decanter.com/dwwa/any/wines/697500
+  - ime: "Decanter 2020, bron, 86 točk (letnik 2018)"
+    vir: https://awards.decanter.com/dwwa/any/wines/577904
 ---
 
 Laški rizling je suho, sveže in aromatično vino, pri katerem je potekala 24-urna hladna maceracija in
