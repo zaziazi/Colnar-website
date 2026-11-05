@@ -332,20 +332,15 @@ export const sl: Content = {
       {
         head: 'Nova klet na Lešnici',
         paragraphs: [
-          'Leta 2022 smo sredi Lešnice zgradili novo klet: zgornja etaža meri 47 × 27 metrov, spodnja, vkopana v zemljo, 57 × 20 metrov. Grozdje gre čez sortirno mizo, ki odstrani poškodovane jagode, od prevzema naprej pa nadzorujemo temperaturo in vino varujemo pred kisikom. Žveplo dodamo šele pred polnjenjem.',
-          'V laboratoriju kleti z analizatorjem Foss WineScan spremljamo grozdje, mošt in vino; po teh meritvah za vsako sorto posebej določimo dan trgatve.',
+          'Leta 2022 smo sredi Lešnice zgradili novo klet. Gradili smo sredi gradbene krize, ko so se cene materiala in dela dvignile za polovico. Za družinsko kmetijo je bil to velik zalogaj, a odločitev, ki smo jo sprejeli skupaj.',
+          'Trgatve so iz leta v leto toplejše, zato smo klet zasnovali tako, da grozdje na poti od vinograda do steklenice ostane sveže in z njim ravnamo čim bolj nežno. Za vsako sorto posebej počakamo na dan, ko je grozdje res pripravljeno.',
+          'V kleti nič ne gre v nič. Streho pokriva sončna elektrarna, iz grozdnih pešk in sončnic stiskamo olje, iz žametne črnine pa delamo grozdni sok za otroke. Polnimo ga v buteljke, da si ga lahko natočijo tako kot starši vino in že zgodaj spoznajo kulturo pitja ob mizi. Leta 2023 smo za to na konferenci Agrobiznis prejeli priznanje za premik proti energetski in okoljski nevtralnosti.',
         ],
       },
       {
         head: 'V vinogradu',
         paragraphs: [
           'Trte sadimo gosteje kot je običajno, da vsaka nosi manj grozdja — v novem delu Grčevja tudi do 33.000 trt na hektar. Vinograde obdelujemo sonaravno, z najmanj gnojil in škropiv, dvakrat v sezoni pa trte zaščitimo in nahranimo z izvlečkom iz kopriv.',
-        ],
-      },
-      {
-        head: 'Nič ne gre v nič',
-        paragraphs: [
-          'Na strehi kleti stoji sončna elektrarna z močjo 140 kW, ki na leto proizvede okoli 170 MWh. Iz grozdnih pešk stiskamo olje, iz sončnic sončnično olje, iz žametne črnine pa grozdni sok, ki ga za otroke polnimo v buteljke. Leta 2023 smo na konferenci Agrobiznis prejeli priznanje za premik proti energetski in okoljski nevtralnosti.',
         ],
       },
     ],

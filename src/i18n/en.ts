@@ -343,20 +343,15 @@ export const en: Content = {
       {
         head: 'The new cellar at Lešnica',
         paragraphs: [
-          'In 2022 we built a new cellar in the middle of Lešnica: the upper floor measures 47 × 27 metres, the lower one, dug into the hillside, 57 × 20 metres. The grapes pass over a sorting table that removes damaged berries, and from the moment they arrive we control the temperature and keep the wine away from oxygen. Sulphur is added only before bottling.',
-          'In the cellar laboratory a Foss WineScan analyser follows the grapes, the must and the wine; from those readings we set the day of the harvest for each variety separately.',
+          'In 2022 we built a new cellar in the middle of Lešnica. We built it in the middle of a construction crisis, when the cost of materials and labour rose by half. For a family farm it was a big step, and one we took together.',
+          'Harvests get warmer every year, so we designed the cellar to keep the grapes fresh all the way from the vineyard to the bottle, and to handle them as gently as we can. For each variety we wait for the day the grapes are truly ready.',
+          'In the cellar nothing goes to waste. Solar panels cover the roof, we press oil from grape seeds and sunflowers, and from žametna črnina we make a grape juice for children. We bottle it like wine, so they can pour it the way their parents pour wine and learn early how a drink belongs at the table. In 2023 the Agrobiznis conference gave us an award for our move towards energy and environmental neutrality.',
         ],
       },
       {
         head: 'In the vineyard',
         paragraphs: [
           'We plant the vines closer together than usual, so that each carries less fruit — in the new part of Grčevje up to 33,000 vines per hectare. We farm the vineyards close to nature, with as little fertiliser and spraying as we can, and twice a season we protect and feed the vines with a nettle extract.',
-        ],
-      },
-      {
-        head: 'Nothing goes to waste',
-        paragraphs: [
-          'A 140 kW solar plant on the cellar roof produces about 170 MWh a year. We press oil from grape seeds and from sunflowers, and make a grape juice from žametna črnina that we bottle for children like wine. In 2023 the Agrobiznis conference gave us an award for our move towards energy and environmental neutrality.',
         ],
       },
     ],
