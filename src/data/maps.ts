@@ -16,6 +16,6 @@ export const maps = {
   cellar: `${search('Vinska klet Colnar, Lešnica 8, 8222 Otočec')}&query_place_id=ChIJxQHzq34AZUcR2ICwcNJHNMo`,
   /** The old zidanica above the vineyards. */
   zidanica: search('Črešnjice 124, 8222 Otočec'),
-  /** The wine bar in the Supernova centre in Novo mesto. */
-  vinoteka: search('Otoška cesta 5, 8000 Novo mesto'),
+  /** The wine bar in the Supernova centre in Novo mesto: its own Google profile, by its Maps id. */
+  vinoteka: 'https://maps.google.com/?cid=13613115928895871911',
 };
