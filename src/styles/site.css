@@ -2981,7 +2981,7 @@ a.meta-value {
 /* Story page: the opening paragraph beside a photograph of the family. */
 .story-split {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
   gap: 56px;
   align-items: center;
   padding-top: 34px;
@@ -2995,7 +2995,9 @@ a.meta-value {
   display: block;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  max-width: 100%;
+  width: 100%;
+  max-width: 380px;
+  justify-self: end;
 }
 
 .story-photo {
