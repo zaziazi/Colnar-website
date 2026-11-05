@@ -219,6 +219,10 @@ export const sl: Content = {
           a: 'Naš cviček je bil trikrat razglašen za kralja cvička — leta 2008 in 2014 (Janez Colnar) ter leta 2022 (Janez Colnar ml.). Na Decanter World Wine Awards v Londonu je Rosé 2018 prejel zlato medaljo s 95 točkami (2019), Rosé 2023 srebrno z 92 točkami (2024), bronaste medalje pa cviček (2019, 2020, 2024) in laški rizling (2020, 2021).',
         },
         {
+          q: 'Kaj je cviček?',
+          a: 'Posebnost Dolenjske: vino, sestavljeno iz belih in rdečih sort grozdja — žametne črnine, kraljevine, laškega rizlinga in modre frankinje. Je sveže in prija ob rdečem mesu in suhih mesninah. V naši kleti predstavlja 60 % pridelanega vina.',
+        },
+        {
           q: 'Kaj je kraljevina?',
           a: 'Avtohtona dolenjska sorta grozdja, ki je zaščitena. Ima visoko kislino, nizko aromatiko in nizek alkohol, zato je kot ustvarjena za penino. Najdete jo v Penini Colnar, v cvičku, Dolenjskem belem in Hišnem belem.',
         },
@@ -582,10 +586,6 @@ export const sl: Content = {
         {
           q: 'Ali organizirate zaključene družbe?',
           a: 'Da — izlete podjetij, praznovanja in druge zaključene družbe, v kleti na Lešnici ali v naši zidanici med vinogradi v Črešnjicah. Pokličite nas na +386 31 288 724 ali pišite na info@colnar.si.',
-        },
-        {
-          q: 'Kaj je cviček?',
-          a: 'Posebnost Dolenjske: vino, sestavljeno iz belih in rdečih sort grozdja — žametne črnine, kraljevine, laškega rizlinga in modre frankinje. Je sveže in prija ob rdečem mesu in suhih mesninah. V naši kleti predstavlja 60 % pridelanega vina.',
         },
       ],
     },

@@ -227,6 +227,10 @@ export const en: Content = {
           a: 'Our cviček has been named King of Cviček three times — in 2008 and 2014 (Janez Colnar) and in 2022 (Janez Colnar Jr). At the Decanter World Wine Awards in London, our Rosé 2018 won gold with 95 points (2019) and our Rosé 2023 silver with 92 points (2024); our cviček (2019, 2020, 2024) and laški rizling (2020, 2021) won bronze.',
         },
         {
+          q: 'What is cviček?',
+          a: 'The speciality of Dolenjska: a wine blended from both white and red grapes — žametna črnina, kraljevina, laški rizling and modra frankinja. It is fresh, and at home with red meat and cured sausage. It accounts for 60 % of the wine we make.',
+        },
+        {
           q: 'What is kraljevina?',
           a: 'An indigenous Dolenjska grape, and a protected variety. It has high acidity, low aromatics and low alcohol, which makes it ideal for sparkling wine. You will find it in Penina Colnar, in cviček, Dolenjsko belo and Hišno belo.',
         },
@@ -593,10 +597,6 @@ export const en: Content = {
         {
           q: 'Do you host private events?',
           a: 'Yes — company outings, celebrations and other private parties, at the cellar in Lešnica or at our vineyard cottage in Črešnjice. Call us on +386 31 288 724 or write to info@colnar.si.',
-        },
-        {
-          q: 'What is cviček?',
-          a: 'The speciality of Dolenjska: a wine blended from both white and red grapes — žametna črnina, kraljevina, laški rizling and modra frankinja. It is fresh, and at home with red meat and cured sausage. It accounts for 60 % of the wine we make.',
         },
       ],
     },
