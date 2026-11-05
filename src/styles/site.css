@@ -3289,7 +3289,8 @@ a.meta-value {
 }
 
 .faq-answer {
-  max-width: 62ch;
+  /* Across the row, stopping short of the open/close mark on the right. */
+  max-width: calc(100% - 48px);
   margin: 0 0 26px;
   font-size: 16px;
   line-height: 1.75;
