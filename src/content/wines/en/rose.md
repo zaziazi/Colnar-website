@@ -10,7 +10,7 @@ alkohol: 13
 slika: ../../../assets/photos/wines/rose.png
 evino: https://www.evino.si/izdelek/rose-2025-colnar/
 cena: 10.49
-hrana: "scampi, lobster, sushi, strawberries"
+hrana: "prawns, lobster, sushi, strawberries"
 priznanja:
   - ime: "Decanter 2024, silver, 92 points (2023 vintage)"
     vir: https://awards.decanter.com/dwwa/any/wines/760896
