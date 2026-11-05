@@ -63,6 +63,17 @@
   to = "/vinoteka/"
   status = 301
 
+# Old shop products that are not on this site.
+[[redirects]]
+  from = "/product/red-velvet"
+  to = "/vina/"
+  status = 301
+
+[[redirects]]
+  from = "/en/shop"
+  to = "/en/wines/"
+  status = 301
+
 [[redirects]]
   from = "/product/:slug"
   to = "/vina/:slug/"
