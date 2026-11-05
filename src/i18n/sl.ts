@@ -560,7 +560,7 @@ export const sl: Content = {
       items: [
         { name: 'Grad Otočec', time: '5 minut', copy: 'Grad na otoku sredi reke Krke.', map: search('Grad Otočec') },
         { name: 'Trška gora', time: '5 minut', copy: 'Vinogradniški hrib, posejan z zidanicami, za sprehod med vinogradi.', map: search('Trška gora, Novo mesto') },
-        { name: 'Novo mesto', time: '10 minut', copy: 'Mesto na okljuku Krke z Glavnim trgom — in naša Vinoteka.', map: search('Glavni trg, Novo mesto') },
+        { name: 'Novo mesto', time: '10 minut', copy: 'Mesto na okljuku Krke z Glavnim trgom in našo Vinoteko.', map: search('Glavni trg, Novo mesto') },
         { name: 'Šmarješke Toplice', time: '13 minut', copy: 'Termalno zdravilišče sredi zelenja.', map: search('Šmarješke Toplice') },
         { name: 'Dolenjske Toplice', time: '25 minut', copy: 'Termalno zdravilišče ob robu Kočevskega roga.', map: search('Dolenjske Toplice') },
         { name: 'Kartuzija Pleterje', time: '25 minut', copy: 'Samostan kartuzijanov s skansnom in samostansko trgovino.', map: search('Kartuzija Pleterje') },

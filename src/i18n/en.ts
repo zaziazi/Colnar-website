@@ -571,7 +571,7 @@ export const en: Content = {
       items: [
         { name: 'Otočec Castle', time: '5 minutes', copy: 'A castle on an island in the river Krka.', map: search('Grad Otočec') },
         { name: 'Trška gora', time: '5 minutes', copy: 'A vineyard hill dotted with vineyard cottages, for a walk among the vines.', map: search('Trška gora, Novo mesto') },
-        { name: 'Novo mesto', time: '10 minutes', copy: 'A town in a bend of the Krka, with its main square — and our wine bar.', map: search('Glavni trg, Novo mesto') },
+        { name: 'Novo mesto', time: '10 minutes', copy: 'A town in a bend of the Krka, with its main square and our wine bar.', map: search('Glavni trg, Novo mesto') },
         { name: 'Šmarješke Toplice', time: '13 minutes', copy: 'A thermal spa set in green countryside.', map: search('Šmarješke Toplice') },
         { name: 'Dolenjske Toplice', time: '25 minutes', copy: 'A thermal spa at the edge of the Kočevski rog forest.', map: search('Dolenjske Toplice') },
         { name: 'Pleterje Charterhouse', time: '25 minutes', copy: 'A Carthusian monastery with an open-air museum and a monastery shop.', map: search('Kartuzija Pleterje') },
