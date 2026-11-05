@@ -2993,10 +2993,10 @@ a.meta-value {
 
 .story-photo-frame {
   display: block;
-  width: 240px;
+  width: 300px;
   max-width: 100%;
-  aspect-ratio: 1;
-  border-radius: 50%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
   overflow: hidden;
 }
 
@@ -3004,7 +3004,7 @@ a.meta-value {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 85%;
+  object-position: 50% 58%;
 }
 
 @media (max-width: 759.98px) {
@@ -3014,8 +3014,8 @@ a.meta-value {
   }
 
   .story-photo-frame {
-    width: 200px;
-    justify-self: center;
+    width: 100%;
+    max-width: 360px;
   }
 }
 
