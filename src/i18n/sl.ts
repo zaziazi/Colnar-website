@@ -54,7 +54,7 @@ export const sl: Content = {
       title: 'Naši vinogradi na Dolenjskem — Vinska klet Colnar',
       crumb: 'Vinogradi',
       description:
-        '16,5 hektarja in 125.000 trt na petih sončnih legah nad dolino Krke, s pogledom na Gorjance — Trška gora, Razbore, Grčevje, Ždinja vas in Vinji vrh.',
+        '16,5 hektarja in 125.000 trt na petih sončnih legah nad dolino Krke, s pogledom na Gorjance: Trška gora, Razbore, Grčevje, Ždinja vas in Vinji vrh.',
     },
     vinoteka: {
       title: 'Vinoteka Colnar — vinski bar v Supernovi, Novo mesto',
@@ -197,7 +197,7 @@ export const sl: Content = {
     },
     listHead: 'Vina',
     buy: 'Kupi na Evino',
-    bottleAlt: (name) => `Steklenica — ${name}`,
+    bottleAlt: (name) => `Steklenica: ${name}`,
     photoPending: 'Fotografija sledi',
     groups: [
       { key: 'jc', label: 'JC' },
@@ -216,11 +216,11 @@ export const sl: Content = {
       items: [
         {
           q: 'Katera vaša vina so prejela priznanja?',
-          a: 'Naš cviček je bil trikrat razglašen za kralja cvička — leta 2008 in 2014 (Janez Colnar) ter leta 2022 (Janez Colnar ml.). Na Decanter World Wine Awards v Londonu je Rosé 2018 prejel zlato medaljo s 95 točkami (2019), Rosé 2023 srebrno z 92 točkami (2024), bronaste medalje pa cviček (2019, 2020, 2024) in laški rizling (2020, 2021).',
+          a: 'Naš cviček je bil trikrat razglašen za kralja cvička, leta 2008 in 2014 (Janez Colnar) ter leta 2022 (Janez Colnar ml.). Na Decanter World Wine Awards v Londonu je Rosé 2018 prejel zlato medaljo s 95 točkami (2019), Rosé 2023 srebrno z 92 točkami (2024), bronaste medalje pa cviček (2019, 2020, 2024) in laški rizling (2020, 2021).',
         },
         {
           q: 'Kaj je cviček?',
-          a: 'Posebnost Dolenjske: vino, sestavljeno iz belih in rdečih sort grozdja — žametne črnine, kraljevine, laškega rizlinga in modre frankinje. Je sveže in prija ob rdečem mesu in suhih mesninah. V naši kleti predstavlja 60 % pridelanega vina.',
+          a: 'Posebnost Dolenjske: vino, sestavljeno iz belih in rdečih sort grozdja: žametne črnine, kraljevine, laškega rizlinga in modre frankinje. Je sveže in prija ob rdečem mesu in suhih mesninah. V naši kleti predstavlja 60 % pridelanega vina.',
         },
         {
           q: 'Kaj je kraljevina?',
@@ -228,7 +228,7 @@ export const sl: Content = {
         },
         {
           q: 'Kaj je žametna črnina?',
-          a: 'Ena najstarejših slovenskih rdečih sort, ki jo danes gojijo predvsem na Dolenjskem — drugod je skoraj ne najdete. Je glavna sorta cvička in daje vina svetle rubinaste barve, sveže kisline in nežnih taninov. Pri nas raste v Razborah, Ždinji vasi, na Trški gori in Vinjem vrhu, najdete pa jo v cvičku ter v peninah Grand Jaenes in Grand Jaenes Rosé.',
+          a: 'Ena najstarejših slovenskih rdečih sort, ki jo danes gojijo predvsem na Dolenjskem; drugod je skoraj ne najdete. Je glavna sorta cvička in daje vina svetle rubinaste barve, sveže kisline in nežnih taninov. Pri nas raste v Razborah, Ždinji vasi, na Trški gori in Vinjem vrhu, najdete pa jo v cvičku ter v peninah Grand Jaenes in Grand Jaenes Rosé.',
         },
         {
           q: 'Kaj je laški rizling?',
@@ -244,7 +244,7 @@ export const sl: Content = {
         },
         {
           q: 'Kje lahko kupim vaša vina?',
-          a: 'Ob obisku v kleti na Lešnici, v Vinoteki Colnar v središču Supernova v Novem mestu in na spletu pri distributerju Evino. Vino pošljemo tudi po Sloveniji in v tujino — pišite nam na info@colnar.si.',
+          a: 'Ob obisku v kleti na Lešnici, v Vinoteki Colnar v središču Supernova v Novem mestu in na spletu pri distributerju Evino. Vino pošljemo tudi po Sloveniji in v tujino, pišite nam na info@colnar.si.',
         },
       ],
     },
@@ -319,7 +319,7 @@ export const sl: Content = {
       {
         head: 'Vsak prvi sin je Janez',
         paragraphs: [
-          'Družina Colnar živi in kmetuje na Lešnici pri Otočcu. Prvi zapisi o družini segajo v leto 1408, leta 1747 pa se rodi prvi Janez — od takrat to ime nosi vsak prvorojeni sin. Tradicija se nadaljuje tudi v kleti: oče Janez je bil kralj cvička v letih 2008 in 2014, sin Janez ml. pa leta 2022.',
+          'Družina Colnar živi in kmetuje na Lešnici pri Otočcu. Prvi zapisi o družini segajo v leto 1408, leta 1747 pa se rodi prvi Janez. Od takrat to ime nosi vsak prvorojeni sin. Tradicija se nadaljuje tudi v kleti: oče Janez je bil kralj cvička v letih 2008 in 2014, sin Janez ml. pa leta 2022.',
         ],
       },
       {
@@ -334,7 +334,7 @@ export const sl: Content = {
         paragraphs: [
           'Leta 2022 smo sredi Lešnice zgradili novo klet. Za družinsko kmetijo je bil to velik zalogaj, a odločitev, ki smo jo sprejeli skupaj.',
           'Trgatve so iz leta v leto toplejše, zato smo klet zasnovali tako, da grozdje na poti od vinograda do steklenice ostane sveže in z njim ravnamo čim bolj nežno. Za vsako sorto posebej počakamo na dan, ko je grozdje res pripravljeno.',
-          'V kleti nič ne gre v nič. Streho pokriva sončna elektrarna, iz grozdnih pešk stiskamo olje, iz žametne črnine pa delamo grozdni sok za otroke. Polnimo ga v buteljke, da si ga lahko natočijo tako kot starši vino in že zgodaj spoznajo kulturo pitja ob mizi. Leta 2023 smo za to na konferenci Agrobiznis prejeli priznanje za premik proti energetski in okoljski nevtralnosti.',
+          'Klet smo zgradili z mislijo na rodove, ki pridejo za nami. Streho pokriva sončna elektrarna, leta 2023 pa smo na konferenci Agrobiznis prejeli priznanje za premik proti energetski in okoljski nevtralnosti.',
         ],
       },
     ],
@@ -411,11 +411,11 @@ export const sl: Content = {
         },
         {
           q: 'Katere sorte gojite?',
-          a: 'Tradicionalne dolenjske sorte — kraljevino, žametno črnino, modro frankinjo in laški rizling — ter chardonnay, beli pinot, sivi pinot in traminec.',
+          a: 'Tradicionalne dolenjske sorte kraljevino, žametno črnino, modro frankinjo in laški rizling ter chardonnay, beli pinot, sivi pinot in traminec.',
         },
         {
           q: 'Kakšna so tla v vaših vinogradih?',
-          a: 'Večinoma lapor, ki dobro zadržuje vlago — v Grčevju in Razborah, na Vinjem vrhu pa beli lapor. V Ždinji vasi so tla kamnita, na Trški gori se prepletata lapor in kamen.',
+          a: 'Večinoma lapor, ki dobro zadržuje vlago, v Grčevju in Razborah, na Vinjem vrhu pa beli lapor. V Ždinji vasi so tla kamnita, na Trški gori se prepletata lapor in kamen.',
         },
         {
           q: 'Kaj je posebnega v Grčevju?',
@@ -474,7 +474,7 @@ export const sl: Content = {
       },
     },
     menuNote:
-      'Cene so v evrih in vključujejo DDV. Ponudba se sproti spreminja — za vino, ki ga ni na seznamu, vprašajte pri pultu.',
+      'Cene so v evrih in vključujejo DDV. Ponudba se sproti spreminja. Za vino, ki ga ni na seznamu, vprašajte pri pultu.',
     faq: {
       head: 'Pogosta vprašanja',
       items: [
@@ -492,7 +492,7 @@ export const sl: Content = {
         },
         {
           q: 'Ali imate kaj brez alkohola?',
-          a: 'Da — brezalkoholne pijače, kavo, kakav in naš grozdni sok Colnar.',
+          a: 'Da: brezalkoholne pijače, kavo, kakav in naš grozdni sok Colnar.',
         },
         {
           q: 'Ali lahko vina pokusim tukaj, preden obiščem klet?',
@@ -515,7 +515,7 @@ export const sl: Content = {
       'Doživite pot vina od grozda do kozarca. Popeljemo vas skozi našo klet, zgrajeno leta 2022, in vam pokažemo, kako nastajajo naša vina.',
     prose: [
       'Nato pride na vrsto pokušina: od treh do šestih vin, ob njih narezki domačih dobrot in zgodbe, ki stojijo za vsakim kozarcem. Sprejmemo vsako družbo, po dogovoru pa pripravimo tudi kosilo ali večerjo iz domačih, sezonskih sestavin.',
-      'Obisk dogovorimo vnaprej — prek obrazca spodaj ali po telefonu. Povejte nam, koliko vas bo in ob kakšni priložnosti prihajate, pa degustacijo pripravimo po vaši meri.',
+      'Obisk dogovorimo vnaprej, prek obrazca spodaj ali po telefonu. Povejte nam, koliko vas bo in ob kakšni priložnosti prihajate, pa degustacijo pripravimo po vaši meri.',
     ],
     bookingHead: 'Rezerviraj degustacijo',
     priceHead: 'Cenik',
@@ -568,7 +568,7 @@ export const sl: Content = {
         },
         {
           q: 'Ali je potrebna rezervacija?',
-          a: 'Da. Najbolje je, da se oglasite dva do tri dni prej — prek obrazca na tej strani ali po telefonu +386 31 288 724. Če imamo prosto, se lahko dogovorimo tudi za isti dan.',
+          a: 'Da. Najbolje je, da se oglasite dva do tri dni prej, prek obrazca na tej strani ali po telefonu +386 31 288 724. Če imamo prosto, se lahko dogovorimo tudi za isti dan.',
         },
         {
           q: 'Kdaj lahko pridemo?',
@@ -596,7 +596,7 @@ export const sl: Content = {
         },
         {
           q: 'Ali sprejmete tudi večje skupine?',
-          a: 'Da, od para do skupin z več kot sto gosti — podjetja, društva in avtobusne skupine. Večje skupine prosimo, da se najavijo nekaj dni prej.',
+          a: 'Da, od para do skupin z več kot sto gosti: podjetja, društva in avtobusne skupine. Večje skupine prosimo, da se najavijo nekaj dni prej.',
         },
         {
           q: 'Ali je pri kleti parkirišče?',
@@ -608,7 +608,7 @@ export const sl: Content = {
         },
         {
           q: 'Kje lahko kupim vaša vina?',
-          a: 'Ob obisku v kleti na Lešnici, v Vinoteki Colnar v središču Supernova v Novem mestu (Otoška cesta 5, pon – sob 9.00 – 21.00) in na spletu pri distributerju Evino. Vino pošljemo tudi po Sloveniji in v tujino — pišite nam na info@colnar.si.',
+          a: 'Ob obisku v kleti na Lešnici, v Vinoteki Colnar v središču Supernova v Novem mestu (Otoška cesta 5, pon – sob 9.00 – 21.00) in na spletu pri distributerju Evino. Vino pošljemo tudi po Sloveniji in v tujino, pišite nam na info@colnar.si.',
         },
         {
           q: 'Ali lahko pridemo z otroki ali s psom?',
@@ -620,7 +620,7 @@ export const sl: Content = {
         },
         {
           q: 'Ali organizirate zaključene družbe?',
-          a: 'Da — izlete podjetij, praznovanja in druge zaključene družbe, v kleti na Lešnici ali v naši zidanici med vinogradi v Črešnjicah. Pokličite nas na +386 31 288 724 ali pišite na info@colnar.si.',
+          a: 'Da: izlete podjetij, praznovanja in druge zaključene družbe, v kleti na Lešnici ali v naši zidanici med vinogradi v Črešnjicah. Pokličite nas na +386 31 288 724 ali pišite na info@colnar.si.',
         },
       ],
     },
@@ -648,7 +648,7 @@ export const sl: Content = {
       sending: 'Pošiljam …',
       doneHead: 'Hvala za prijavo',
       doneCopy:
-        'Prijavo smo prejeli. Oglasimo se vam v najkrajšem času s potrditvijo termina — če se nam mudi, nas lahko pokličete na ',
+        'Prijavo smo prejeli. Oglasimo se vam v najkrajšem času s potrditvijo termina. Če se vam mudi, nas lahko pokličete na ',
       doneCopyTail: '.',
       sizes: [
         { value: '3', label: '3 vina', price: 16 },
@@ -691,7 +691,7 @@ export const sl: Content = {
         noEndpoint:
           'Obrazec trenutno ni povezan s poštnim strežnikom. Pišite nam na info@colnar.si ali pokličite +386 31 288 724.',
         failed: 'Prijave ni bilo mogoče oddati. Poskusite znova ali nam pišite na info@colnar.si.',
-        ok: 'Hvala — vaša prijava je oddana. Oglasimo se v najkrajšem času.',
+        ok: 'Hvala, vaša prijava je oddana. Oglasimo se v najkrajšem času.',
       },
     },
   },
@@ -715,7 +715,7 @@ export const sl: Content = {
       'Razlogi za odločitev o izvedbi naložbe so povezani s potrebami po posodabljanju osnovnih sredstev na kmetijskem gospodarstvu. Oprema za predelavo vina se sčasoma z uporabo amortizira, zaradi česar jo je potrebno zamenjati z novo, ki je poleg tega običajno tudi tehnološko naprednejša. Kmetijsko gospodarstvo na ta način lahko normalno obratuje in se obenem tudi razvija.',
     resultsLabel: 'Rezultati operacije',
     results:
-      'Nova oprema vinske kleti — generator dušika, leseni sodi in oprema za skladiščenje vina —, ki nadomesti iztrošeno opremo ter posodobi predelavo in skladiščenje vina na kmetijskem gospodarstvu.',
+      'Nova oprema vinske kleti (generator dušika, leseni sodi in oprema za skladiščenje vina), ki nadomesti iztrošeno opremo ter posodobi predelavo in skladiščenje vina na kmetijskem gospodarstvu.',
   },
 
   legal: {
@@ -783,7 +783,7 @@ export const sl: Content = {
           {
             head: 'Odgovornost',
             blocks: [
-              'Vsebine na strani so informativne. Za vsebino zunanjih strani, na katere vodijo povezave — Evino, zemljevidi, družbena omrežja —, ne odgovarjamo.',
+              'Vsebine na strani so informativne. Za vsebino zunanjih strani, na katere vodijo povezave (Evino, zemljevidi, družbena omrežja), ne odgovarjamo.',
             ],
           },
           {
@@ -830,7 +830,7 @@ export const sl: Content = {
           {
             head: 'Obisk spletne strani',
             blocks: [
-              'Strani ne uporabljamo za analitiko, oglaševanje ali sledenje in nanjo ne vključujemo vtičnikov družbenih omrežij. Ponudnik gostovanja ob vsakem obisku samodejno beleži tehnične podatke — IP-naslov, čas obiska, obiskano stran in vrsto brskalnika —, ki so potrebni za delovanje in varnost strani. Pravna podlaga je zakoniti interes (točka f 1. odstavka 6. člena GDPR).',
+              'Strani ne uporabljamo za analitiko, oglaševanje ali sledenje in nanjo ne vključujemo vtičnikov družbenih omrežij. Ponudnik gostovanja ob vsakem obisku samodejno beleži tehnične podatke (IP-naslov, čas obiska, obiskano stran in vrsto brskalnika), ki so potrebni za delovanje in varnost strani. Pravna podlaga je zakoniti interes (točka f 1. odstavka 6. člena GDPR).',
               'Kaj stran shrani v vašem brskalniku, piše na strani Piškotki.',
             ],
           },
@@ -839,8 +839,8 @@ export const sl: Content = {
             blocks: [
               'Podatkov ne prodajamo in jih ne posredujemo za oglaševanje. Dostop do njih imajo le obdelovalci, ki nam pomagajo pri delovanju strani, na podlagi pogodbe o obdelavi podatkov:',
               [
-                'Netlify, Inc. (ZDA) — gostovanje spletne strani in sprejem prijav. Netlify je vključen v okvir EU-ZDA za zasebnost podatkov (EU-U.S. Data Privacy Framework), zato prenos podatkov v ZDA temelji na sklepu Evropske komisije o ustreznosti.',
-                'NEOSERV d.o.o. (Slovenija) — e-poštni predal info@colnar.si, prek katerega prejemamo prijave in vam pošiljamo sporočila.',
+                'Netlify, Inc. (ZDA): gostovanje spletne strani in sprejem prijav. Netlify je vključen v okvir EU-ZDA za zasebnost podatkov (EU-U.S. Data Privacy Framework), zato prenos podatkov v ZDA temelji na sklepu Evropske komisije o ustreznosti.',
+                'NEOSERV d.o.o. (Slovenija): e-poštni predal info@colnar.si, prek katerega prejemamo prijave in vam pošiljamo sporočila.',
               ],
               'Državnim organom podatke posredujemo samo, kadar to zahteva zakon.',
             ],

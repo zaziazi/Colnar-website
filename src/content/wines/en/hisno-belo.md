@@ -10,7 +10,7 @@ alkohol: 12
 slika: ../../../assets/photos/wines/hisno-belo.png
 evino: https://www.evino.si/izdelek/hisno-belo-2024/
 cena: 7.91
-sorte: "kraljevina, Welschriesling (laški rizling), sauvignon blanc — in equal parts"
+sorte: "kraljevina, Welschriesling (laški rizling), sauvignon blanc, in equal parts"
 sladkost: "dry"
 zorenje: "stainless steel"
 hrana: "aperitif, fresh salads, fish, poultry"

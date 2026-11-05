@@ -61,7 +61,7 @@ export const en: Content = {
       title: 'Our vineyards in Dolenjska, Slovenia — Vinska klet Colnar',
       crumb: 'Vineyards',
       description:
-        '16.5 hectares and 125,000 vines on five sunny sites above the Krka valley, facing the Gorjanci — Trška gora, Razbore, Grčevje, Ždinja vas and Vinji vrh.',
+        '16.5 hectares and 125,000 vines on five sunny sites above the Krka valley, facing the Gorjanci: Trška gora, Razbore, Grčevje, Ždinja vas and Vinji vrh.',
     },
     vinoteka: {
       title: 'Colnar wine bar — Supernova, Novo mesto, Slovenia',
@@ -205,7 +205,7 @@ export const en: Content = {
     },
     listHead: 'Wines',
     buy: 'Buy at Evino',
-    bottleAlt: (name) => `Bottle — ${name}`,
+    bottleAlt: (name) => `Bottle: ${name}`,
     photoPending: 'Photograph to follow',
     groups: [
       { key: 'jc', label: 'JC' },
@@ -224,11 +224,11 @@ export const en: Content = {
       items: [
         {
           q: 'Which of your wines have won awards?',
-          a: 'Our cviček has been named King of Cviček three times — in 2008 and 2014 (Janez Colnar) and in 2022 (Janez Colnar Jr). At the Decanter World Wine Awards in London, our Rosé 2018 won gold with 95 points (2019) and our Rosé 2023 silver with 92 points (2024); our cviček (2019, 2020, 2024) and laški rizling (2020, 2021) won bronze.',
+          a: 'Our cviček has been named King of Cviček three times: in 2008 and 2014 (Janez Colnar) and in 2022 (Janez Colnar Jr). At the Decanter World Wine Awards in London, our Rosé 2018 won gold with 95 points (2019) and our Rosé 2023 silver with 92 points (2024); our cviček (2019, 2020, 2024) and laški rizling (2020, 2021) won bronze.',
         },
         {
           q: 'What is cviček?',
-          a: 'The speciality of Dolenjska: a wine blended from both white and red grapes — žametna črnina, kraljevina, laški rizling and modra frankinja. It is fresh, and at home with red meat and cured sausage. It accounts for 60 % of the wine we make.',
+          a: 'The speciality of Dolenjska: a wine blended from both white and red grapes: žametna črnina, kraljevina, laški rizling and modra frankinja. It is fresh, and at home with red meat and cured sausage. It accounts for 60 % of the wine we make.',
         },
         {
           q: 'What is kraljevina?',
@@ -236,7 +236,7 @@ export const en: Content = {
         },
         {
           q: 'What is žametna črnina?',
-          a: 'One of the oldest Slovenian red varieties, grown today mainly in Dolenjska — you will hardly find it anywhere else. It is the main grape of cviček, and gives wines of a bright ruby colour, fresh acidity and gentle tannins. We grow it at Razbore, Ždinja vas, Trška gora and Vinji vrh; you will find it in our cviček and in the sparkling Grand Jaenes and Grand Jaenes Rosé.',
+          a: 'One of the oldest Slovenian red varieties, grown today mainly in Dolenjska; you will hardly find it anywhere else. It is the main grape of cviček, and gives wines of a bright ruby colour, fresh acidity and gentle tannins. We grow it at Razbore, Ždinja vas, Trška gora and Vinji vrh; you will find it in our cviček and in the sparkling Grand Jaenes and Grand Jaenes Rosé.',
         },
         {
           q: 'What is laški rizling?',
@@ -252,7 +252,7 @@ export const en: Content = {
         },
         {
           q: 'Where can I buy your wines?',
-          a: 'At the cellar in Lešnica when you visit, at our wine bar Vinoteka Colnar in the Supernova centre in Novo mesto, and online from the distributor Evino. We also ship within Slovenia and abroad — write to us at info@colnar.si.',
+          a: 'At the cellar in Lešnica when you visit, at our wine bar Vinoteka Colnar in the Supernova centre in Novo mesto, and online from the distributor Evino. We also ship within Slovenia and abroad; write to us at info@colnar.si.',
         },
       ],
     },
@@ -330,7 +330,7 @@ export const en: Content = {
       {
         head: 'Every first son is a Janez',
         paragraphs: [
-          'The Colnar family lives and farms at Lešnica near Otočec. The first records of the family go back to 1408, and in 1747 the first Janez was born — every firstborn son has carried the name since. The tradition carries on in the cellar too: Janez the father was King of Cviček in 2008 and 2014, and his son Janez Jr in 2022.',
+          'The Colnar family lives and farms at Lešnica near Otočec. The first records of the family go back to 1408, and in 1747 the first Janez was born. Every firstborn son has carried the name since. The tradition carries on in the cellar too: Janez the father was King of Cviček in 2008 and 2014, and his son Janez Jr in 2022.',
         ],
       },
       {
@@ -345,7 +345,7 @@ export const en: Content = {
         paragraphs: [
           'In 2022 we built a new cellar in the middle of Lešnica. For a family farm it was a big step, and one we took together.',
           'Harvests get warmer every year, so we designed the cellar to keep the grapes fresh all the way from the vineyard to the bottle, and to handle them as gently as we can. For each variety we wait for the day the grapes are truly ready.',
-          'In the cellar nothing goes to waste. Solar panels cover the roof, we press oil from grape seeds, and from žametna črnina we make a grape juice for children. We bottle it like wine, so they can pour it the way their parents pour wine and learn early how a drink belongs at the table. In 2023 the Agrobiznis conference gave us an award for our move towards energy and environmental neutrality.',
+          'We built the cellar with the generations who come after us in mind. Solar panels cover the roof, and in 2023 the Agrobiznis conference gave us an award for our move towards energy and environmental neutrality.',
         ],
       },
     ],
@@ -422,11 +422,11 @@ export const en: Content = {
         },
         {
           q: 'Which grape varieties do you grow?',
-          a: 'The traditional Dolenjska varieties — kraljevina, žametna črnina, modra frankinja (blaufränkisch) and laški rizling (Welschriesling) — alongside chardonnay, pinot blanc, pinot gris and traminer.',
+          a: 'The traditional Dolenjska varieties kraljevina, žametna črnina, modra frankinja (blaufränkisch) and laški rizling (Welschriesling), alongside chardonnay, pinot blanc, pinot gris and traminer.',
         },
         {
           q: 'What are the soils like?',
-          a: 'Mostly marl, which holds moisture well — at Grčevje and Razbore, and white marl at Vinji vrh. At Ždinja vas the soil is stony; on Trška gora marl and stone meet.',
+          a: 'Mostly marl, which holds moisture well, at Grčevje and Razbore, and white marl at Vinji vrh. At Ždinja vas the soil is stony; on Trška gora marl and stone meet.',
         },
         {
           q: 'What is special about Grčevje?',
@@ -485,7 +485,7 @@ export const en: Content = {
       },
     },
     menuNote:
-      'Prices are in euros and include VAT. The list changes as the cellar does — if a wine is not on it, ask at the counter.',
+      'Prices are in euros and include VAT. The list changes as the cellar does. If a wine is not on it, ask at the counter.',
     faq: {
       head: 'Common questions',
       items: [
@@ -503,7 +503,7 @@ export const en: Content = {
         },
         {
           q: 'Do you have anything without alcohol?',
-          a: 'Yes — soft drinks, coffee, cocoa and our own Colnar grape juice.',
+          a: 'Yes: soft drinks, coffee, cocoa and our own Colnar grape juice.',
         },
         {
           q: 'Can I taste the wines here before visiting the cellar?',
@@ -607,7 +607,7 @@ export const en: Content = {
         },
         {
           q: 'Do you take larger groups?',
-          a: 'Yes, from couples to groups of more than a hundred guests — companies, clubs and coach parties. We ask larger groups to let us know a few days ahead.',
+          a: 'Yes, from couples to groups of more than a hundred guests: companies, clubs and coach parties. We ask larger groups to let us know a few days ahead.',
         },
         {
           q: 'Is there parking at the cellar?',
@@ -619,7 +619,7 @@ export const en: Content = {
         },
         {
           q: 'Where can I buy your wines?',
-          a: 'At the cellar in Lešnica when you visit, at our wine bar Vinoteka Colnar in the Supernova centre in Novo mesto (Otoška cesta 5, Mon – Sat 9.00 – 21.00), and online from the distributor Evino. We also ship within Slovenia and abroad — write to us at info@colnar.si.',
+          a: 'At the cellar in Lešnica when you visit, at our wine bar Vinoteka Colnar in the Supernova centre in Novo mesto (Otoška cesta 5, Mon – Sat 9.00 – 21.00), and online from the distributor Evino. We also ship within Slovenia and abroad; write to us at info@colnar.si.',
         },
         {
           q: 'Can we bring children or a dog?',
@@ -631,7 +631,7 @@ export const en: Content = {
         },
         {
           q: 'Do you host private events?',
-          a: 'Yes — company outings, celebrations and other private parties, at the cellar in Lešnica or at our vineyard cottage in Črešnjice. Call us on +386 31 288 724 or write to info@colnar.si.',
+          a: 'Yes: company outings, celebrations and other private parties, at the cellar in Lešnica or at our vineyard cottage in Črešnjice. Call us on +386 31 288 724 or write to info@colnar.si.',
         },
       ],
     },
@@ -659,7 +659,7 @@ export const en: Content = {
       sending: 'Sending …',
       doneHead: 'Thank you',
       doneCopy:
-        'We have your booking, and will come back to you shortly to confirm the date — if it is urgent, call us on ',
+        'We have your booking, and will come back to you shortly to confirm the date. If it is urgent, call us on ',
       doneCopyTail: '.',
       sizes: [
         { value: '3', label: '3 wines', price: 16 },
@@ -698,7 +698,7 @@ export const en: Content = {
         noEndpoint:
           'The form is not connected to a mail server yet. Please write to info@colnar.si or call +386 31 288 724.',
         failed: 'The booking could not be sent. Please try again, or write to info@colnar.si.',
-        ok: 'Thank you — your booking has been sent. We will be in touch shortly.',
+        ok: 'Thank you, your booking has been sent. We will be in touch shortly.',
       },
     },
   },
@@ -721,7 +721,7 @@ export const en: Content = {
       'The investment answers the need to renew the holding’s fixed assets. Winemaking equipment wears out with use and has to be replaced with new equipment, which is usually also more technologically advanced. This lets the holding keep operating normally and continue to develop.',
     resultsLabel: 'Results',
     results:
-      'New equipment for the wine cellar — a nitrogen generator, wooden barrels and wine storage equipment — replacing worn equipment and modernising how the holding makes and stores its wine.',
+      'New equipment for the wine cellar (a nitrogen generator, wooden barrels and wine storage equipment), replacing worn equipment and modernising how the holding makes and stores its wine.',
     note: 'This is a translation. The Slovenian version of this page is the official one.',
   },
 
@@ -791,7 +791,7 @@ export const en: Content = {
           {
             head: 'Liability',
             blocks: [
-              'The content of this site is for information. We are not responsible for the content of external sites we link to — Evino, maps, social networks.',
+              'The content of this site is for information. We are not responsible for the content of external sites we link to: Evino, maps, social networks.',
             ],
           },
           {
@@ -838,7 +838,7 @@ export const en: Content = {
           {
             head: 'Visiting this site',
             blocks: [
-              'We do not use this site for analytics, advertising or tracking, and it carries no social media plugins. Our hosting provider automatically logs technical data with each visit — IP address, time, page visited and browser type — which is needed to run and secure the site. The legal basis is legitimate interest (Article 6(1)(f) GDPR).',
+              'We do not use this site for analytics, advertising or tracking, and it carries no social media plugins. Our hosting provider automatically logs technical data with each visit (IP address, time, page visited and browser type), which is needed to run and secure the site. The legal basis is legitimate interest (Article 6(1)(f) GDPR).',
               'What the site stores in your browser is described on the Cookies page.',
             ],
           },
@@ -847,8 +847,8 @@ export const en: Content = {
             blocks: [
               'We do not sell your data or pass it on for advertising. Only the processors who help us run the site have access to it, under a data processing agreement:',
               [
-                'Netlify, Inc. (USA) — hosts the site and receives bookings. Netlify participates in the EU-U.S. Data Privacy Framework, so the transfer to the USA rests on the European Commission’s adequacy decision.',
-                'NEOSERV d.o.o. (Slovenia) — hosts the info@colnar.si mailbox, through which we receive bookings and write to you.',
+                'Netlify, Inc. (USA): hosts the site and receives bookings. Netlify participates in the EU-U.S. Data Privacy Framework, so the transfer to the USA rests on the European Commission’s adequacy decision.',
+                'NEOSERV d.o.o. (Slovenia): hosts the info@colnar.si mailbox, through which we receive bookings and write to you.',
               ],
               'We pass data to public authorities only when the law requires it.',
             ],
