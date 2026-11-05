@@ -334,7 +334,7 @@ export const sl: Content = {
         paragraphs: [
           'Leta 2022 smo sredi Lešnice zgradili novo klet. Za družinsko kmetijo je bil to velik zalogaj, a odločitev, ki smo jo sprejeli skupaj.',
           'Trgatve so iz leta v leto toplejše, zato smo klet zasnovali tako, da grozdje na poti od vinograda do steklenice ostane sveže in z njim ravnamo čim bolj nežno. Za vsako sorto posebej počakamo na dan, ko je grozdje res pripravljeno.',
-          'V kleti nič ne gre v nič. Streho pokriva sončna elektrarna, iz grozdnih pešk in sončnic stiskamo olje, iz žametne črnine pa delamo grozdni sok za otroke. Polnimo ga v buteljke, da si ga lahko natočijo tako kot starši vino in že zgodaj spoznajo kulturo pitja ob mizi. Leta 2023 smo za to na konferenci Agrobiznis prejeli priznanje za premik proti energetski in okoljski nevtralnosti.',
+          'V kleti nič ne gre v nič. Streho pokriva sončna elektrarna, iz grozdnih pešk stiskamo olje, iz žametne črnine pa delamo grozdni sok za otroke. Polnimo ga v buteljke, da si ga lahko natočijo tako kot starši vino in že zgodaj spoznajo kulturo pitja ob mizi. Leta 2023 smo za to na konferenci Agrobiznis prejeli priznanje za premik proti energetski in okoljski nevtralnosti.',
         ],
       },
       {

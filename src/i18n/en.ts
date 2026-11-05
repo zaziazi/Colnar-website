@@ -345,7 +345,7 @@ export const en: Content = {
         paragraphs: [
           'In 2022 we built a new cellar in the middle of Lešnica. For a family farm it was a big step, and one we took together.',
           'Harvests get warmer every year, so we designed the cellar to keep the grapes fresh all the way from the vineyard to the bottle, and to handle them as gently as we can. For each variety we wait for the day the grapes are truly ready.',
-          'In the cellar nothing goes to waste. Solar panels cover the roof, we press oil from grape seeds and sunflowers, and from žametna črnina we make a grape juice for children. We bottle it like wine, so they can pour it the way their parents pour wine and learn early how a drink belongs at the table. In 2023 the Agrobiznis conference gave us an award for our move towards energy and environmental neutrality.',
+          'In the cellar nothing goes to waste. Solar panels cover the roof, we press oil from grape seeds, and from žametna črnina we make a grape juice for children. We bottle it like wine, so they can pour it the way their parents pour wine and learn early how a drink belongs at the table. In 2023 the Agrobiznis conference gave us an award for our move towards energy and environmental neutrality.',
         ],
       },
       {
