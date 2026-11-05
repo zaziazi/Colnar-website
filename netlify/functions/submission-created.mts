@@ -11,12 +11,14 @@
  * The submission is stored in Netlify Forms either way, so nothing is lost if
  * the mailbox settings are missing or a send fails.
  */
-import { page, paragraphs, send, table, type Mail } from '../lib/mail';
+import { esc, page, paragraphs, send, table, type Mail } from '../lib/mail';
 
 type Lang = 'sl' | 'en';
 type Data = Record<string, string | string[] | undefined>;
 
 const PHONE = '+386 31 288 724';
+/** The cellar's Google profile, straight to writing a review. */
+const REVIEW_URL = 'https://g.page/r/CdiAsHDSRzTKEBM/review';
 
 const SIZES: Record<string, Record<Lang, string>> = {
   '3': { sl: '3 vina (16 € / osebo)', en: '3 wines (€16 / person)' },
@@ -133,6 +135,8 @@ export function buildMails(data: Data, to: string): Mail[] {
             heading: 'Hvala za vašo rezervacijo',
             intro: `Pozdravljeni${first ? `, ${first}` : ''}!\n\nVašo rezervacijo degustacije smo prejeli. Oglasili se vam bomo v najkrajšem času in potrdili termin.`,
             outro: `Če se vam mudi, nas lahko pokličete na ${PHONE}.\n\nLep pozdrav,\nVinska klet Colnar\nLešnica 8, 8222 Otočec`,
+            review: 'Po obisku nam boste v veliko pomoč, če nam pustite mnenje na Googlu.',
+            reviewLink: 'Oddajte mnenje',
           }
         : {
             subject: 'We have received your tasting booking',
@@ -140,13 +144,22 @@ export function buildMails(data: Data, to: string): Mail[] {
             heading: 'Thank you for your booking',
             intro: `Hello${first ? ` ${first}` : ''},\n\nWe have received your tasting booking. We will be in touch shortly to confirm the date.`,
             outro: `If it is urgent, you can call us on ${PHONE}.\n\nKind regards,\nVinska klet Colnar\nLešnica 8, 8222 Otočec, Slovenia`,
+            review: 'After your visit, a short review on Google would help us a lot.',
+            reviewLink: 'Leave a review',
           };
     mails.push({
       to: guestEmail,
       replyTo: to,
       subject: copy.subject,
-      text: `${copy.intro}\n\n${plain(rows)}\n\n${copy.outro}`,
-      html: page(copy.kicker, copy.heading, paragraphs(copy.intro) + table(rows) + paragraphs(copy.outro)),
+      text: `${copy.intro}\n\n${plain(rows)}\n\n${copy.outro}\n\n${copy.review} ${REVIEW_URL}`,
+      html: page(
+        copy.kicker,
+        copy.heading,
+        paragraphs(copy.intro) +
+          table(rows) +
+          paragraphs(copy.outro) +
+          `<p style="margin:22px 0 0;padding-top:16px;border-top:1px solid #d9d6d2;line-height:1.6;font-size:14px">${esc(copy.review)} <a href="${REVIEW_URL}" style="color:#7d5411">${esc(copy.reviewLink)}</a></p>`,
+      ),
     });
   }
 
