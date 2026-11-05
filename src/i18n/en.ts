@@ -453,11 +453,11 @@ export const en: Content = {
         },
         {
           q: 'Do I need to book?',
-          a: 'Yes. Tours and tastings are arranged in advance, through the form on this page or by phone on +386 31 288 724.',
+          a: 'Yes. Two or three days ahead is best, through the form on this page or by phone on +386 31 288 724. If we have room, we can also arrange a tasting for the same day.',
         },
         {
           q: 'When can we come?',
-          a: 'On weekdays from 8.00 to 16.00. At weekends we open by prior arrangement.',
+          a: 'On weekdays we are at the cellar from 8.00 to 16.00, and at weekends we are glad to welcome you if we arrange it beforehand.',
         },
         {
           q: 'Where does the tasting take place?',
@@ -468,12 +468,36 @@ export const en: Content = {
           a: 'About 30 minutes.',
         },
         {
+          q: 'In which languages do you hold tastings?',
+          a: 'Slovenian, English and Croatian.',
+        },
+        {
+          q: 'Do you take larger groups?',
+          a: 'Yes, from couples to groups of more than a hundred guests — companies, clubs and coach parties. We ask larger groups to let us know a few days ahead.',
+        },
+        {
+          q: 'Is there parking at the cellar?',
+          a: 'Yes, there is room for cars and coaches at the cellar.',
+        },
+        {
           q: 'How can I pay?',
           a: 'On site, in cash or by card.',
         },
         {
           q: 'Where can I buy your wines?',
-          a: 'At the cellar in Lešnica when you visit, at our wine bar Vinoteka Colnar in the Supernova centre in Novo mesto (Otoška cesta 5, Mon – Sat 9.00 – 21.00), and online from the distributor Evino.',
+          a: 'At the cellar in Lešnica when you visit, at our wine bar Vinoteka Colnar in the Supernova centre in Novo mesto (Otoška cesta 5, Mon – Sat 9.00 – 21.00), and online from the distributor Evino. We also ship within Slovenia and abroad — write to us at info@colnar.si.',
+        },
+        {
+          q: 'Can we bring children or a dog?',
+          a: 'Of course. Children are welcome and we have soft drinks for them, and dogs are welcome too.',
+        },
+        {
+          q: 'Is the cellar wheelchair accessible?',
+          a: 'The tasting room is accessible; the cellar tour has steps.',
+        },
+        {
+          q: 'Do you host private events?',
+          a: 'Yes — company outings, celebrations and other private parties, at the cellar in Lešnica or at our vineyard cottage in Črešnjice. Call us on +386 31 288 724 or write to info@colnar.si.',
         },
         {
           q: 'What is cviček?',

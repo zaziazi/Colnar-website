@@ -442,11 +442,11 @@ export const sl: Content = {
         },
         {
           q: 'Ali je potrebna rezervacija?',
-          a: 'Da, ogled in degustacijo dogovorimo vnaprej — prek obrazca na tej strani ali po telefonu +386 31 288 724.',
+          a: 'Da. Najbolje je, da se oglasite dva do tri dni prej — prek obrazca na tej strani ali po telefonu +386 31 288 724. Če imamo prosto, se lahko dogovorimo tudi za isti dan.',
         },
         {
           q: 'Kdaj lahko pridemo?',
-          a: 'Med tednom od 8. do 16. ure. Ob vikendih smo odprti po predhodnem dogovoru.',
+          a: 'Med tednom smo v kleti od 8. do 16. ure, ob vikendih pa vas z veseljem sprejmemo, če se prej dogovorimo.',
         },
         {
           q: 'Kje poteka degustacija?',
@@ -457,12 +457,36 @@ export const sl: Content = {
           a: 'Približno 30 minut.',
         },
         {
+          q: 'V katerih jezikih vodite degustacije?',
+          a: 'V slovenščini, angleščini in hrvaščini.',
+        },
+        {
+          q: 'Ali sprejmete tudi večje skupine?',
+          a: 'Da, od para do skupin z več kot sto gosti — podjetja, društva in avtobusne skupine. Večje skupine prosimo, da se najavijo nekaj dni prej.',
+        },
+        {
+          q: 'Ali je pri kleti parkirišče?',
+          a: 'Da, pri kleti je prostor za avtomobile in avtobuse.',
+        },
+        {
           q: 'Kako lahko plačam?',
           a: 'Na lokaciji z gotovino ali s kartico.',
         },
         {
           q: 'Kje lahko kupim vaša vina?',
-          a: 'Ob obisku v kleti na Lešnici, v Vinoteki Colnar v središču Supernova v Novem mestu (Otoška cesta 5, pon – sob 9.00 – 21.00) in na spletu pri distributerju Evino.',
+          a: 'Ob obisku v kleti na Lešnici, v Vinoteki Colnar v središču Supernova v Novem mestu (Otoška cesta 5, pon – sob 9.00 – 21.00) in na spletu pri distributerju Evino. Vino pošljemo tudi po Sloveniji in v tujino — pišite nam na info@colnar.si.',
+        },
+        {
+          q: 'Ali lahko pridemo z otroki ali s psom?',
+          a: 'Seveda. Otroci so dobrodošli in zanje imamo brezalkoholno pijačo, dobrodošli so tudi psi.',
+        },
+        {
+          q: 'Ali je klet dostopna z invalidskim vozičkom?',
+          a: 'Prostor za degustacijo je dostopen, pri ogledu kleti pa so stopnice.',
+        },
+        {
+          q: 'Ali organizirate zaključene družbe?',
+          a: 'Da — izlete podjetij, praznovanja in druge zaključene družbe, v kleti na Lešnici ali v naši zidanici med vinogradi v Črešnjicah. Pokličite nas na +386 31 288 724 ali pišite na info@colnar.si.',
         },
         {
           q: 'Kaj je cviček?',

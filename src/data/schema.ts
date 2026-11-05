@@ -65,7 +65,7 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
   ],
   award: ['Kralj cvička 2008', 'Kralj cvička 2014', 'Kralj cvička 2022'],
   areaServed: 'SI',
-  knowsLanguage: ['sl', 'en'],
+  knowsLanguage: ['sl', 'en', 'hr'],
   department: [
     {
       '@type': ['BarOrPub', 'LiquorStore'],
