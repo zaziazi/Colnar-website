@@ -61,6 +61,7 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
     'https://www.facebook.com/vinskakletcolnar/',
     'https://www.instagram.com/vinotekacolnar/',
     'https://www.evino.si/znamke/colnar/',
+    'https://www.tripadvisor.com/Attraction_Review-g635653-d21239648-Reviews-Vinska_Klet_Colnar-Otocec_Novo_Mesto_Lower_Carniola_Region.html',
   ],
   award: ['Kralj cvička 2008', 'Kralj cvička 2014', 'Kralj cvička 2022'],
   areaServed: 'SI',

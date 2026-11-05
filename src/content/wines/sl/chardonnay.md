@@ -5,6 +5,8 @@ vrstniRed: 7
 skupina: colnar
 volumen: 0.75
 slika: ../../../assets/photos/wines/chardonnay.png
+sorte: "chardonnay"
+zorenje: "12 mesecev v hrastovih barrique sodih (225 l)"
 ---
 
 Chardonnay, ki svojo prefinjenost in bogastvo razvija skozi 12 mesecev zorenja v hrastovih 225-litrskih

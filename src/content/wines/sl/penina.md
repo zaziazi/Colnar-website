@@ -9,6 +9,10 @@ alkohol: 11.5
 slika: ../../../assets/photos/wines/penina.png
 evino: https://www.evino.si/izdelek/penina-brut-nature-colnar/
 cena: 14.9
+sorte: "kraljevina"
+sladkost: "brut nature (manj kot 2,6 g/l sladkorja)"
+zorenje: "klasična metoda, najmanj 30 mesecev na kvasovkah"
+hrana: "sveže ostrige, siri, bela riba"
 ---
 
 Penino Colnar pridelujemo od leta 2016, po klasični metodi. Je neletniška in pridelujemo jo iz

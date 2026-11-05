@@ -5,6 +5,8 @@ vrstniRed: 9
 skupina: colnar
 volumen: 0.75
 slika: ../../../assets/photos/wines/modri-pinot.png
+sorte: "pinot noir (modri pinot)"
+zorenje: "12 months in oak barriques"
 ---
 
 An elegant Modri pinot that gains extra depth, complexity and refined character over 12 months of

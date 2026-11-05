@@ -5,6 +5,8 @@ vrstniRed: 7
 skupina: colnar
 volumen: 0.75
 slika: ../../../assets/photos/wines/chardonnay.png
+sorte: "Chardonnay"
+zorenje: "12 months in 225-litre oak barriques"
 ---
 
 A Chardonnay that develops its refinement and richness over 12 months of ageing in 225-litre oak

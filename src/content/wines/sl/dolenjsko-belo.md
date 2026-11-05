@@ -8,6 +8,9 @@ volumen: 1
 alkohol: 11
 slika: ../../../assets/photos/wines/dolenjsko-belo.png
 # Ni na evino.si — brez povezave za nakup, dokler ne bo listan.
+sorte: "kraljevina, laški rizling, beli pinot"
+sladkost: "suho"
+zorenje: "nerjaveče jeklo, ustekleničeno kmalu po trgatvi"
 ---
 
 V belem namiznem vinu Colnar najdemo sorte kraljevina, laški rizling in beli pinot. Pridobiva se po

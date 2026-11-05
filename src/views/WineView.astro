@@ -48,8 +48,9 @@ const clip = (text: string, max = 158) => {
 const description = body ? clip(body) : d.fallbackDescription(wine.data.ime, kind);
 
 /*
- * The characteristics, in the distributor's own set: style, vintage, volume,
- * alcohol, region, country. Rows with nothing behind them are dropped rather
+ * The characteristics: the distributor's own set (style, vintage, volume,
+ * alcohol, region, country) plus grapes, sweetness, ageing and pairing, taken
+ * only from what the wine's own text says. Rows with nothing behind them are dropped rather
  * than printed empty, so a wine we have not been given figures for shows the
  * two or three we do have and no blanks.
  */
@@ -59,8 +60,13 @@ const percent = new Intl.NumberFormat(t.numberLocale, {
   maximumFractionDigits: 2,
 });
 
+/** First letter up, so these rows read like the distributor's ones above. */
+const cap = (text: string) => text.charAt(0).toLocaleUpperCase(t.numberLocale) + text.slice(1);
+
 const specs = [
   wine.data.stil && { label: d.spec.style, value: d.styles[wine.data.stil] },
+  wine.data.sorte && { label: d.spec.grapes, value: cap(wine.data.sorte) },
+  wine.data.sladkost && { label: d.spec.sweetness, value: cap(wine.data.sladkost) },
   wine.data.letnik && { label: d.spec.vintage, value: String(wine.data.letnik), tnum: true },
   wine.data.volumen && {
     label: d.spec.volume,
@@ -72,8 +78,10 @@ const specs = [
     value: `${percent.format(wine.data.alkohol)} %`,
     tnum: true,
   },
+  wine.data.zorenje && { label: d.spec.ageing, value: cap(wine.data.zorenje) },
   { label: d.spec.region, value: d.regionName },
   { label: d.spec.country, value: d.countryName },
+  wine.data.hrana && { label: d.spec.pairing, value: cap(wine.data.hrana) },
   wine.data.priznanja && { label: d.spec.awards, value: wine.data.priznanja.join(' · ') },
 ].filter(Boolean) as { label: string; value: string; tnum?: boolean }[];
 

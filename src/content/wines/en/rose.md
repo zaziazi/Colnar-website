@@ -10,6 +10,7 @@ alkohol: 13
 slika: ../../../assets/photos/wines/rose.png
 evino: https://www.evino.si/izdelek/rose-2025-colnar/
 cena: 10.49
+hrana: "scampi, lobster, sushi, strawberries"
 ---
 
 A short cold maceration gives it a lovely salmon colour, while the extended fermentation keeps the

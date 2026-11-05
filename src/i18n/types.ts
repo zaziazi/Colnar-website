@@ -119,6 +119,10 @@ export type Content = {
       specHead: string;
       spec: {
         style: string;
+        grapes: string;
+        sweetness: string;
+        ageing: string;
+        pairing: string;
         vintage: string;
         volume: string;
         alcohol: string;

@@ -5,6 +5,8 @@ vrstniRed: 9
 skupina: colnar
 volumen: 0.75
 slika: ../../../assets/photos/wines/modri-pinot.png
+sorte: "modri pinot"
+zorenje: "12 mesecev v hrastovih barrique sodih"
 ---
 
 Eleganten modri pinot, ki skozi 12 mesecev zorenja v hrastovih barrique sodih razvije dodatno globino,

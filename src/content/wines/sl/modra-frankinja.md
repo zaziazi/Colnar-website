@@ -10,6 +10,8 @@ alkohol: 13
 slika: ../../../assets/photos/wines/modra-frankinja.png
 evino: https://www.evino.si/izdelek/modra-frankinja-2023-colnar/
 cena: 15.49
+sorte: "modra frankinja"
+zorenje: "18 mesecev v novih barrique sodih (225 l), na lastnih kvasovkah"
 ---
 
 Modra frankinja dozori v vrhunsko grozdje na izbrani sončni legi lapornatih tal. Vino je starano leto

@@ -225,6 +225,10 @@ export const en: Content = {
       specHead: 'Characteristics',
       spec: {
         style: 'Style',
+        grapes: 'Grapes',
+        sweetness: 'Sweetness',
+        ageing: 'Ageing',
+        pairing: 'Pairs with',
         vintage: 'Vintage',
         volume: 'Volume',
         alcohol: 'Alcohol',
@@ -466,6 +470,10 @@ export const en: Content = {
         {
           q: 'How can I pay?',
           a: 'On site, in cash or by card.',
+        },
+        {
+          q: 'Where can I buy your wines?',
+          a: 'At the cellar in Lešnica when you visit, at our wine bar Vinoteka Colnar in the Supernova centre in Novo mesto (Otoška cesta 5, Mon – Sat 9.00 – 21.00), and online from the distributor Evino.',
         },
         {
           q: 'What is cviček?',

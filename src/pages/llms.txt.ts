@@ -50,6 +50,17 @@ export const GET: APIRoute = async ({ site }) => {
     .join('\n\n');
 
   const plain = (text?: string) => (text ?? '').replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim();
+  /** Grapes · sweetness · ageing · pairing, as one line, from the wine's frontmatter. */
+  const facts = (w: (typeof wines)[number]) => {
+    const d = en.wines.detail.spec;
+    const rows: [string, string | undefined][] = [
+      [d.grapes, w.data.sorte],
+      [d.sweetness, w.data.sladkost],
+      [d.ageing, w.data.zorenje],
+      [d.pairing, w.data.hrana],
+    ];
+    return rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}.`).join(' ');
+  };
 
   const tastingLines = en.tasting.priceGroups
     .flatMap((group) => group.rows.map((row) => `- ${row.name} — ${money(row.price)} ${en.tasting.perPerson}`))
@@ -95,7 +106,7 @@ ${wines
     (w) =>
       `### ${w.data.ime}${w.data.zvrst ? ` (${en.wines.kinds[w.data.zvrst] ?? w.data.zvrst})` : ''}\n${url(
         `${routes.en.wines}${w.id.split('/').pop()}/`,
-      )}\n${[plain(w.body), w.data.priznanja?.length ? `Awards: ${w.data.priznanja.join('; ')}.` : '', w.data.evino && w.data.cena ? `Price at Evino: €${w.data.cena.toFixed(2)} (${w.data.evino}).` : ''].filter(Boolean).join('\n')}`,
+      )}\n${[plain(w.body), facts(w), w.data.priznanja?.length ? `Awards: ${w.data.priznanja.join('; ')}.` : '', w.data.evino && w.data.cena ? `Price at Evino: €${w.data.cena.toFixed(2)} (${w.data.evino}).` : ''].filter(Boolean).join('\n')}`,
   )
   .join('\n\n')}
 

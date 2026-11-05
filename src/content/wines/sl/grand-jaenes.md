@@ -9,6 +9,8 @@ alkohol: 12
 slika: ../../../assets/photos/wines/grand-jaenes.png
 evino: https://www.evino.si/izdelek/grand-jaenes-colnar/
 cena: 19.9
+sorte: "žametna črnina"
+zorenje: "klasična metoda, 20 mesecev na kvasovkah"
 ---
 
 Elegantna penina, pridelana po klasični metodi iz žametne črnine. 20-mesečno zorenje na lastnih

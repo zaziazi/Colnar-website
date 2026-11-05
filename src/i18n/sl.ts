@@ -217,6 +217,10 @@ export const sl: Content = {
       specHead: 'Značilnosti',
       spec: {
         style: 'Slog vina',
+        grapes: 'Sorte',
+        sweetness: 'Vsebnost sladkorja',
+        ageing: 'Zorenje',
+        pairing: 'Ob hrani',
         vintage: 'Letnik',
         volume: 'Prostornina',
         alcohol: 'Delež alkohola',
@@ -455,6 +459,10 @@ export const sl: Content = {
         {
           q: 'Kako lahko plačam?',
           a: 'Na lokaciji z gotovino ali s kartico.',
+        },
+        {
+          q: 'Kje lahko kupim vaša vina?',
+          a: 'Ob obisku v kleti na Lešnici, v Vinoteki Colnar v središču Supernova v Novem mestu (Otoška cesta 5, pon – sob 9.00 – 21.00) in na spletu pri distributerju Evino.',
         },
         {
           q: 'Kaj je cviček?',

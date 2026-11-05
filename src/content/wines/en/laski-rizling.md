@@ -10,6 +10,9 @@ alkohol: 13.5
 slika: ../../../assets/photos/wines/laski-rizling.png
 evino: https://www.evino.si/izdelek/laski-rizling-2021-colnar/
 cena: 14.9
+sorte: "Welschriesling (laški rizling)"
+sladkost: "dry"
+zorenje: "6 months in oak casks"
 ---
 
 Laški rizling is a dry, fresh and aromatic wine, made with a 24-hour cold maceration, fermented in

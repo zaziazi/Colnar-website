@@ -13,6 +13,8 @@ cena: 5.9
 priznanja:
   - Kralj cvička 2008, 2014, 2022
   - Decanter 2024, bron
+sorte: "žametna črnina, kraljevina, laški rizling, modra frankinja"
+hrana: "rdeče meso, suhe mesnine"
 ---
 
 Cviček je posebnost Dolenjske in v naši vinski kleti predstavlja kar 60 % pridelanega vina. Lahko bi

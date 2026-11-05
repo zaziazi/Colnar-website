@@ -8,6 +8,9 @@ volumen: 1
 alkohol: 11
 slika: ../../../assets/photos/wines/dolenjsko-belo.png
 # Not listed on evino.si — no buy link until it is.
+sorte: "kraljevina, Welschriesling (laški rizling), pinot blanc"
+sladkost: "dry"
+zorenje: "stainless steel, bottled soon after the harvest"
 ---
 
 The white table wine from Colnar is built from kraljevina, laški rizling and beli pinot. It is made
