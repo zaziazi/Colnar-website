@@ -1,6 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import vinotekaPhoto from '../assets/photos/vinoteka.jpg';
+import { maps } from '../data/maps';
 import { getContent, route, type Lang } from '../i18n';
 
 interface Props {
@@ -15,6 +16,9 @@ const v = getContent(lang).home.vinoteka;
 <section class="vinoteka" aria-labelledby="vinoteka-naslov">
   <div class="vinoteka-text" data-reveal>
     <h2 class="vinoteka-title" id="vinoteka-naslov">{v.title}</h2>
+    <p class="vinoteka-address">
+      <a href={maps.vinoteka} target="_blank" rel="noopener">{v.address}</a>
+    </p>
     <span class="vinoteka-rule" aria-hidden="true"></span>
     <p class="vinoteka-copy">{v.copy}</p>
     <div class="vinoteka-meta">

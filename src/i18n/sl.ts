@@ -174,6 +174,7 @@ export const sl: Content = {
     ],
     vinoteka: {
       title: 'Vinoteka Colnar',
+      address: 'Otoška cesta 5, 8000 Novo mesto',
       copy: 'Vinoteka v nakupovalnem središču Supernova Novo mesto, kjer se lahko ustavite na kozarcu vina. Možen tudi prevzem vina za domov.',
       hoursLabel: 'Delovni čas',
       hours: 'Pon – Sob · 9.00 – 21.00',
@@ -439,7 +440,7 @@ export const sl: Content = {
         },
         {
           q: 'Kdaj lahko pridemo?',
-          a: 'Med tednom od 7. do 17. ure. Ob vikendih smo odprti po predhodnem dogovoru.',
+          a: 'Med tednom od 8. do 16. ure. Ob vikendih smo odprti po predhodnem dogovoru.',
         },
         {
           q: 'Kje poteka degustacija?',
@@ -465,7 +466,7 @@ export const sl: Content = {
       whereCopy: 'Lešnica 8, 8222 Otočec',
       whereMap: maps.cellar,
       whenLabel: 'Kdaj',
-      whenHours: 'Pon – Pet · 7.00 – 17.00',
+      whenHours: 'Pon – Pet · 8.00 – 16.00',
       whenNote: 'Ob vikendih po dogovoru',
       phoneLabel: 'Raje po telefonu',
     },

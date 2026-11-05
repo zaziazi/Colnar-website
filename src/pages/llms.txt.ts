@@ -74,7 +74,7 @@ Website: ${url(routes.sl.home)} (Slovenian) · ${url(routes.en.home)} (English)
 ## Where
 
 - Cellar (tastings, cellar tours, collection): Lešnica 8, 8222 Otočec, Slovenia.
-  Open Monday–Friday 7.00–17.00; at weekends by arrangement.
+  Open Monday–Friday 8.00–16.00; at weekends by arrangement.
   Phone +386 31 288 724. Map: ${maps.cellar}
 - Wine bar "Vinoteka Colnar": Otoška cesta 5, Supernova shopping centre,
   8000 Novo mesto, Slovenia. Open Monday–Saturday 9.00–21.00.

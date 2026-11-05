@@ -182,6 +182,7 @@ export const en: Content = {
     ],
     vinoteka: {
       title: 'Colnar Wine Bar',
+      address: 'Otoška cesta 5, 8000 Novo mesto',
       copy: 'Our wine bar in the Supernova shopping centre in Novo mesto, where you can stop for a glass of wine. You can also collect wine to take home.',
       hoursLabel: 'Opening hours',
       hours: 'Mon – Sat · 9.00 – 21.00',
@@ -450,7 +451,7 @@ export const en: Content = {
         },
         {
           q: 'When can we come?',
-          a: 'On weekdays from 7.00 to 17.00. At weekends we open by prior arrangement.',
+          a: 'On weekdays from 8.00 to 16.00. At weekends we open by prior arrangement.',
         },
         {
           q: 'Where does the tasting take place?',
@@ -476,7 +477,7 @@ export const en: Content = {
       whereCopy: 'Lešnica 8, 8222 Otočec, Slovenia',
       whereMap: maps.cellar,
       whenLabel: 'When',
-      whenHours: 'Mon – Fri · 7.00 – 17.00',
+      whenHours: 'Mon – Fri · 8.00 – 16.00',
       whenNote: 'Weekends by arrangement',
       phoneLabel: 'Rather by phone',
     },

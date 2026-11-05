@@ -52,8 +52,8 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '07:00',
-      closes: '17:00',
+      opens: '08:00',
+      closes: '16:00',
     },
   ],
   sameAs: [
