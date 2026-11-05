@@ -2978,6 +2978,40 @@ a.meta-value {
   margin-top: 18px;
 }
 
+/* Story page: the opening paragraph beside a photograph of the family. */
+.story-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+  padding-top: 34px;
+}
+
+.story-split .page-prose {
+  padding-top: 0;
+}
+
+.story-photo-frame {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.story-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 58%;
+}
+
+@media (max-width: 759.98px) {
+  .story-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+
 @media (max-width: 759.98px) {
   .page-intro {
     padding-top: 48px;

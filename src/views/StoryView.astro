@@ -66,9 +66,28 @@ const slides = [
           <div class="section-gap" data-reveal>
             <h2 class="section-head" id={`zgodba-${i + 1}`}>{section.head}</h2>
           </div>
-          <div class="page-prose" data-reveal>
-            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-          </div>
+          {i === 0 ? (
+            <div class="story-split" data-reveal>
+              <div class="page-prose">
+                {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              </div>
+              <Picture
+                class="story-photo"
+                pictureAttributes={{ class: 'pic story-photo-frame' }}
+                src={youngest}
+                formats={['avif', 'webp']}
+                fallbackFormat="jpg"
+                widths={[400, 640, 900, 1200]}
+                sizes="(max-width: 759.98px) 100vw, 40vw"
+                loading="lazy"
+                alt={s.slides.alts[1]}
+              />
+            </div>
+          ) : (
+            <div class="page-prose" data-reveal>
+              {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+          )}
         </section>
       ))
     }
