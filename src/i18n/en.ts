@@ -460,6 +460,10 @@ export const en: Content = {
           a: 'On weekdays we are at the cellar from 8.00 to 16.00, and at weekends we are glad to welcome you if we arrange it beforehand.',
         },
         {
+          q: 'How do we get to you?',
+          a: 'The cellar is at Lešnica near Otočec, ten minutes by car from Novo mesto and five minutes from Otočec Castle. From Ljubljana it is a little under an hour by motorway, from Zagreb a little over an hour.',
+        },
+        {
           q: 'Where does the tasting take place?',
           a: 'At the Colnar cellar, Lešnica 8, 8222 Otočec. Tastings are held at the cellar only; the vineyard cottage at Črešnjice is for private parties.',
         },

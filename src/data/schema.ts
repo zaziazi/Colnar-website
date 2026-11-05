@@ -23,7 +23,9 @@ export const ids = {
 
 /** The estate. Its three addresses are departments of the one business. */
 export const winery = (site: URL, t: Content, homeUrl: string, image: string): Node => ({
-  '@type': 'Winery',
+  // Also a place to visit, so "things to do near Novo mesto" can find it.
+  '@type': ['Winery', 'TouristAttraction'],
+  touristType: ['Wine tourism'],
   '@id': ids.winery(site),
   name: t.siteName,
   alternateName: ['Colnar', 'Vina Colnar', 'Klet Colnar', 'Colnar Winery'],
@@ -45,6 +47,12 @@ export const winery = (site: URL, t: Content, homeUrl: string, image: string): N
     addressCountry: 'SI',
   },
   geo: { '@type': 'GeoCoordinates', latitude: 45.8314, longitude: 15.20681 },
+  amenityFeature: [
+    ['Parking for cars and coaches', true],
+    ['Wheelchair-accessible tasting room', true],
+    ['Children welcome', true],
+    ['Dogs welcome', true],
+  ].map(([name, value]) => ({ '@type': 'LocationFeatureSpecification', name, value })),
   priceRange: '€€',
   hasMap: maps.cellar,
   /* Weekdays only: at weekends it is open by arrangement, which has no markup. */

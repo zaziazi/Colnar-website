@@ -449,6 +449,10 @@ export const sl: Content = {
           a: 'Med tednom smo v kleti od 8. do 16. ure, ob vikendih pa vas z veseljem sprejmemo, če se prej dogovorimo.',
         },
         {
+          q: 'Kako pridemo do vas?',
+          a: 'Klet je na Lešnici pri Otočcu, deset minut vožnje iz Novega mesta in pet minut od gradu Otočec. Iz Ljubljane je do nas slabo uro vožnje po avtocesti, iz Zagreba dobro uro.',
+        },
+        {
           q: 'Kje poteka degustacija?',
           a: 'V vinski kleti Colnar na Lešnici 8, 8222 Otočec. Degustacije so samo v kleti; zidanica v Črešnjicah je namenjena zaključnim družbam.',
         },
