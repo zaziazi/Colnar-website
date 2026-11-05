@@ -325,8 +325,8 @@ export const sl: Content = {
       {
         head: 'Kmetija, ki jo vodi vsa družina',
         paragraphs: [
-          'Kmetijo danes vodi Janez ml. z ženo Katarino, ob strani pa sta mu oče Janez in mama Katarina. Za klet skrbi stric Matjaž, brat Martin in mama Katarina vodita turistično dejavnost, sestri Meta in Ana pa pomagata v vinogradu, kleti in pri prodaji. O večjih naložbah se odločamo skupaj.',
-          'Leta 2001 sta Janez in brat Matjaž zasadila tri hektarje in pol novih vinogradov. Danes obdelujemo 16,5 hektarja na petih legah, s približno 125.000 trtami, in pridelujemo dvanajst vin.',
+          'Sodobna zgodba naše kleti se začne leta 2001, ko sta oče Janez in njegov brat Matjaž zasadila tri hektarje in pol novih vinogradov. Od takrat smo zrasli na 16,5 hektarja na petih legah, s približno 125.000 trtami, in dvanajst vin.',
+          'Še vedno smo kmetija, ki jo vodi vsa družina. Stric Matjaž skrbi za klet, mama Katarina in sin Martin sprejemata goste, Janez ml. pa z ženo Katarino vodi kmetijo in nadaljuje delo, ki sta ga začela oče in stric. O večjih korakih se odločamo skupaj, za isto mizo.',
         ],
       },
       {

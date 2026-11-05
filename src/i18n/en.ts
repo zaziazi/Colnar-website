@@ -336,8 +336,8 @@ export const en: Content = {
       {
         head: 'A farm the whole family runs',
         paragraphs: [
-          'Today the farm is run by Janez Jr and his wife Katarina, with his father Janez and mother Katarina beside them. Uncle Matjaž looks after the cellar, brother Martin and mother Katarina run the tourism side, and sisters Meta and Ana help in the vineyards, the cellar and with sales. Bigger investments we decide together.',
-          'In 2001 Janez and his brother Matjaž planted three and a half hectares of new vineyards. Today we farm 16.5 hectares on five sites, with about 125,000 vines, and make twelve wines.',
+          'The modern story of our cellar begins in 2001, when Janez the father and his brother Matjaž planted three and a half hectares of new vineyards. Since then we have grown to 16.5 hectares on five sites, with about 125,000 vines, and twelve wines.',
+          'We are still a farm the whole family runs. Uncle Matjaž looks after the cellar, mother Katarina and her son Martin welcome the guests, and Janez Jr runs the farm with his wife Katarina, carrying on the work his father and uncle began. The bigger decisions we still make together, around the same table.',
         ],
       },
       {
