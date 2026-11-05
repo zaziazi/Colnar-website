@@ -6,9 +6,10 @@ import Nav from '../components/Nav.astro';
 import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
+import Faq from '../components/Faq.astro';
 import heroPhoto from '../assets/photos/vina-hero.jpg';
 import { getContent, routes, otherLang, winesFor, type Lang } from '../i18n';
-import { wineList } from '../data/schema';
+import { wineList, faq as faqSchema } from '../data/schema';
 
 interface Props {
   lang: Lang;
@@ -34,6 +35,7 @@ const schema = [
     t,
     wines.map((wine) => ({ name: wine.data.ime, url: new URL(pageOf(wine.id), Astro.site).href })),
   ),
+  faqSchema(new URL(routes[lang].wines, Astro.site).href, t.wines.faq.items),
 ];
 ---
 
@@ -101,6 +103,8 @@ const schema = [
         );
       })
     }
+
+    <Faq id="vprasanja-vina" head={t.wines.faq.head} items={t.wines.faq.items} />
 
     <CtaBand lang={lang} heading={t.wines.cta.heading} secondary={t.wines.cta.secondary} />
   </main>

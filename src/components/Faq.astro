@@ -1,0 +1,34 @@
+---
+/*
+ * Common questions as a fold-out list: the question in gold, the answer under
+ * it. Used on the tasting, wines, vineyards and wine-bar pages, each with its
+ * own questions; the page adds the matching FAQPage markup itself.
+ */
+interface Props {
+  id: string;
+  head: string;
+  items: { q: string; a: string }[];
+}
+
+const { id, head, items } = Astro.props;
+---
+
+<section aria-labelledby={id}>
+  <div class="section-gap" data-reveal>
+    <h2 class="section-head" id={id}>{head}</h2>
+  </div>
+
+  <div class="menu-groups menu-groups--flush" data-reveal>
+    {
+      items.map((item) => (
+        <details class="menu-group">
+          <summary class="menu-group-head">
+            <span class="menu-group-name menu-group-name--faq">{item.q}</span>
+            <span class="menu-group-mark" aria-hidden="true" />
+          </summary>
+          <p class="faq-answer">{item.a}</p>
+        </details>
+      ))
+    }
+  </div>
+</section>

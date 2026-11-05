@@ -7,6 +7,7 @@ import PageHero from '../components/PageHero.astro';
 import Stats from '../components/Stats.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
+import Faq from '../components/Faq.astro';
 import heroPhoto from '../assets/photos/vinogradi-hero.jpg';
 import trskaGora from '../assets/photos/vineyards/trska-gora-jasno.jpg';
 import razbore from '../assets/photos/vineyards/razbore-jasno.jpg';
@@ -14,6 +15,7 @@ import grcevje from '../assets/photos/vineyards/grcevje-jasno.jpg';
 import zdinjaVas from '../assets/photos/vineyards/zdinja-vas-jasno.jpg';
 import vinjiVrh from '../assets/photos/vineyards/vinji-vrh.jpg';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
+import { faq as faqSchema } from '../data/schema';
 
 interface Props {
   lang: Lang;
@@ -21,6 +23,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const v = getContent(lang).vineyards;
+const schema = [faqSchema(new URL(routes[lang].vineyards, Astro.site).href, v.faq.items)];
 
 /*
  * The frame is 16:9, the aerials' own shape; a wider photo would be drawn wider
@@ -44,7 +47,7 @@ const photos: Record<string, ImageMetadata> = {
 };
 ---
 
-<Base lang={lang} page="vineyards" ogImage={heroPhoto} ogImageAlt={v.heroAlt}>
+<Base lang={lang} page="vineyards" schema={schema} ogImage={heroPhoto} ogImageAlt={v.heroAlt}>
   <Nav lang={lang} toggleHref={routes[otherLang(lang)].vineyards} />
 
   <PageHero
@@ -109,6 +112,8 @@ const photos: Record<string, ImageMetadata> = {
         }
       </ul>
     </section>
+
+    <Faq id="vprasanja-vinogradi" head={v.faq.head} items={v.faq.items} />
 
     <CtaBand lang={lang} heading={v.cta.heading} secondary={v.cta.secondary} />
   </main>

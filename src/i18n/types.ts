@@ -6,6 +6,9 @@ import type { LegalKey, RouteKey } from './index';
  * so `sl.ts` and `en.ts` sitting side by side is the whole translation.
  */
 
+/** A block of common questions, shown as a fold-out list and marked up as FAQPage. */
+export type Faq = { head: string; items: { q: string; a: string }[] };
+
 export type Link = { label: string; to: RouteKey };
 /** `crumb` is the page's short name in the breadcrumb, when the title is longer. */
 export type Meta = { title: string; description: string; crumb?: string };
@@ -110,6 +113,8 @@ export type Content = {
     /** The wine lines, in the order the page shows them. */
     groups: { key: 'jc' | 'colnar' | 'grand-jaenes'; label: string }[];
     kinds: Record<string, string>;
+    /** Common questions about the wines, every answer from the wines' own pages. */
+    faq: Faq;
     cta: { heading: string; secondary: Link };
     /** A single wine's own page. */
     detail: {
@@ -164,6 +169,8 @@ export type Content = {
     /** In the estate's own order; `name` also picks the photograph. */
     sites: { name: string; copy: string[] }[];
     photoPending: string;
+    /** Common questions about the vineyards and the region. */
+    faq: Faq;
     cta: { heading: string; secondary: Link };
   };
 
@@ -188,6 +195,8 @@ export type Content = {
     };
     /** Terms under the list — DDV, that the offer changes. */
     menuNote: string;
+    /** Common questions about the wine bar. */
+    faq: Faq;
     cta: { heading: string; secondary: Link };
   };
 
@@ -210,7 +219,7 @@ export type Content = {
     privacyNote: string;
     privacyLink: string;
     /** Answers to what people ring up and ask, every one of them from this page. */
-    faq: { head: string; items: { q: string; a: string }[] };
+    faq: Faq;
     aside: {
       whereLabel: string;
       whereName: string;

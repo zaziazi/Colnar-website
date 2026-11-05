@@ -4,10 +4,11 @@ import Nav from '../components/Nav.astro';
 import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
+import Faq from '../components/Faq.astro';
 import heroPhoto from '../assets/photos/vinoteka-hero.jpg';
 import { menuIn } from '../data/vinoteka-menu';
 import { getContent, routes, otherLang, type Lang } from '../i18n';
-import { menu as menuSchema } from '../data/schema';
+import { menu as menuSchema, faq as faqSchema } from '../data/schema';
 
 interface Props {
   lang: Lang;
@@ -26,7 +27,10 @@ const litres = new Intl.NumberFormat(t.numberLocale, { maximumFractionDigits: 3 
 
 const canonical = new URL(routes[lang].vinoteka, Astro.site).href;
 const menu = menuIn(lang);
-const schema = menuSchema(Astro.site!, canonical, t, c.menu.sections.bar, menu, c.menu);
+const schema = [
+  ...menuSchema(Astro.site!, canonical, t, c.menu.sections.bar, menu, c.menu),
+  faqSchema(canonical, c.faq.items),
+];
 
 const size = (item: { ml?: number; g?: number }) => {
   if (item.ml) return `${litres.format(item.ml / 1000)} l`;
@@ -118,6 +122,8 @@ const size = (item: { ml?: number; g?: number }) => {
         </div>
       </div>
     </section>
+
+    <Faq id="vprasanja-vinoteka" head={c.faq.head} items={c.faq.items} />
 
     <CtaBand lang={lang} heading={c.cta.heading} secondary={c.cta.secondary} />
   </main>

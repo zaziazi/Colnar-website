@@ -75,7 +75,9 @@ export const GET: APIRoute = async ({ site }) => {
 > in Novo mesto.
 
 Named Kralj cvička — King of Cviček, the region's award for the best cviček —
-in 2008, 2014 and 2022.
+in 2008 and 2014 (Janez Colnar) and in 2022 (his son, Janez Colnar Jr). Sources:
+- 2014 and 2008: Zveza društev vinogradnikov Dolenjske (the organiser), 26 April 2014 — https://zdvd.si/42-novi-kralj-cvicka-je-janez-colnar
+- 2022: Dolenjski list, 28 May 2022 — https://dolenjskilist.svet24.si/novice/foto-povorka-uspela-okronan-novi-kralj-cvicka-janez-colnar-ml-ambasador-cvicka-peter-camloh-262091-1728206
 
 Decanter World Wine Awards (each result links to Decanter's own record):
 - 2024: Rosé 2023, Silver, 92 points — https://awards.decanter.com/dwwa/any/wines/760896
@@ -135,6 +137,18 @@ Prices include VAT. Payment on site, cash or card.
 ### Questions guests ask
 
 ${en.tasting.faq.items.map((item) => `**${item.q}** ${item.a}`).join('\n\n')}
+
+### Questions about the wines
+
+${en.wines.faq.items.map((item) => `**${item.q}** ${item.a}`).join('\n\n')}
+
+### Questions about the vineyards and Dolenjska
+
+${en.vineyards.faq.items.map((item) => `**${item.q}** ${item.a}`).join('\n\n')}
+
+### Questions about the wine bar
+
+${en.vinoteka.faq.items.map((item) => `**${item.q}** ${item.a}`).join('\n\n')}
 
 ## The family
 

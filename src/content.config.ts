@@ -50,7 +50,7 @@ const wines = defineCollection({
       /** Priznanja vina, kot se izpišejo v vrstici značilnosti. */
       /** Priznanja; `vir` je povezava na uradni zapis tekmovanja, kjer obstaja. */
       priznanja: z
-        .array(z.union([z.string(), z.object({ ime: z.string(), vir: z.string().url() })]))
+        .array(z.union([z.string(), z.object({ ime: z.string(), vir: z.url() })]))
         .optional(),
       /** Sorte grozdja, kot jih navaja opis. */
       sorte: z.string().optional(),

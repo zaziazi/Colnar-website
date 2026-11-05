@@ -219,6 +219,31 @@ export const en: Content = {
       penina: 'sparkling',
       'penina rosé': 'sparkling rosé',
     },
+    faq: {
+      head: 'Common questions',
+      items: [
+        {
+          q: 'Which of your wines have won awards?',
+          a: 'Our cviček has been named King of Cviček three times — in 2008 and 2014 (Janez Colnar) and in 2022 (Janez Colnar Jr). At the Decanter World Wine Awards in London, our Rosé 2018 won gold with 95 points (2019) and our Rosé 2023 silver with 92 points (2024); our cviček (2019, 2020, 2024) and laški rizling (2020, 2021) won bronze.',
+        },
+        {
+          q: 'What is kraljevina?',
+          a: 'An indigenous Dolenjska grape, and a protected variety. It has high acidity, low aromatics and low alcohol, which makes it ideal for sparkling wine. You will find it in Penina Colnar, in cviček, Dolenjsko belo and Hišno belo.',
+        },
+        {
+          q: 'Do you make sparkling wine?',
+          a: 'Yes, three, all by the classic method. We have made Penina Colnar from kraljevina since 2016; it is brut nature and spends at least 30 months on the lees. Grand Jaenes and Grand Jaenes Rosé are made from žametna črnina and spend 20 months on the lees.',
+        },
+        {
+          q: 'Which wines are aged in wood?',
+          a: 'Collis spends 24 months in a 2,500-litre acacia cask, modra frankinja 18 months in new barriques, chardonnay and modri pinot 12 months each in barriques, and laški rizling 6 months in oak casks. Dolenjsko belo and Hišno belo, our fresh whites, are kept in stainless steel.',
+        },
+        {
+          q: 'Where can I buy your wines?',
+          a: 'At the cellar in Lešnica when you visit, at our wine bar Vinoteka Colnar in the Supernova centre in Novo mesto, and online from the distributor Evino. We also ship within Slovenia and abroad — write to us at info@colnar.si.',
+        },
+      ],
+    },
     detail: {
       prev: 'Previous',
       next: 'Next',
@@ -353,6 +378,35 @@ export const en: Content = {
       },
     ],
     photoPending: 'Photograph to follow',
+    faq: {
+      head: 'Common questions',
+      items: [
+        {
+          q: 'How many vineyards do you have?',
+          a: '16.5 hectares in all, with about 125,000 vines, on five sites: Grčevje (6 ha), Razbore (3.5 ha), Ždinja vas (3.5 ha), Trška gora (about 2 ha) and Vinji vrh (about 1.5 ha).',
+        },
+        {
+          q: 'Which grape varieties do you grow?',
+          a: 'The traditional Dolenjska varieties — kraljevina, žametna črnina, modra frankinja (blaufränkisch) and laški rizling (Welschriesling) — alongside chardonnay, pinot blanc, pinot gris and traminer.',
+        },
+        {
+          q: 'What are the soils like?',
+          a: 'Mostly marl, which holds moisture well — at Grčevje and Razbore, and white marl at Vinji vrh. At Ždinja vas the soil is stony; on Trška gora marl and stone meet.',
+        },
+        {
+          q: 'What is special about Grčevje?',
+          a: 'The new part of Grčevje (4.5 ha), planted in 2020, 2022 and 2024, follows the Burgundian model, at densities of 15,000 to 33,000 vines per hectare.',
+        },
+        {
+          q: 'What is Trška gora?',
+          a: 'One of the best-known wine landscapes of Dolenjska, near Novo mesto, its slopes dotted with vineyards and vineyard cottages. Our vineyard there was first planted in 1994 and replanted with new vines in 2008.',
+        },
+        {
+          q: 'Where is Dolenjska?',
+          a: 'In south-eastern Slovenia, along the river Krka, between Ljubljana and Zagreb. It is a wine district of the Posavje wine region, and the home of cviček.',
+        },
+      ],
+    },
     cta: {
       heading: 'Meet the wines these vineyards make.',
       secondary: { label: 'Our wines', to: 'wines' },
@@ -397,6 +451,31 @@ export const en: Content = {
     },
     menuNote:
       'Prices are in euros and include VAT. The list changes as the cellar does — if a wine is not on it, ask at the counter.',
+    faq: {
+      head: 'Common questions',
+      items: [
+        {
+          q: 'Where is Vinoteka Colnar and when is it open?',
+          a: 'In the Supernova shopping centre in Novo mesto, at Otoška cesta 5. It is open Monday to Saturday, 9.00 to 21.00.',
+        },
+        {
+          q: 'Can I buy wine to take home?',
+          a: 'Yes. Our wines and sparkling wines are all for sale to take home, with gift bags and wooden boxes for one, two or six bottles.',
+        },
+        {
+          q: 'Do you have wines from other winemakers?',
+          a: 'Yes. Alongside our own we pour and sell wines from other winemakers, among them Šturm, Dolfo and Grubar, as well as dessert wines.',
+        },
+        {
+          q: 'Do you have anything without alcohol?',
+          a: 'Yes — soft drinks, coffee, cocoa and our own Colnar grape juice.',
+        },
+        {
+          q: 'Can I taste the wines here before visiting the cellar?',
+          a: 'Yes, most of our wines are poured by the glass. For a guided tasting and a tour of the cellar, visit us at Lešnica near Otočec, ten minutes by car from Novo mesto.',
+        },
+      ],
+    },
     cta: {
       heading: 'You can taste the wines at the cellar too.',
       secondary: { label: 'Our wines', to: 'wines' },
@@ -462,6 +541,10 @@ export const en: Content = {
         {
           q: 'How do we get to you?',
           a: 'The cellar is at Lešnica near Otočec, ten minutes by car from Novo mesto and five minutes from Otočec Castle. From Ljubljana it is a little under an hour by motorway, from Zagreb a little over an hour.',
+        },
+        {
+          q: 'What else is there to do nearby?',
+          a: 'A tasting fits well into a day in Dolenjska: Otočec Castle, on an island in the river Krka, is five minutes from the cellar, Novo mesto and its main square ten minutes, and the Šmarješke Toplice spa a little over ten minutes. For a walk among vineyards and vineyard cottages, there is Trška gora.',
         },
         {
           q: 'Where does the tasting take place?',

@@ -211,6 +211,31 @@ export const sl: Content = {
       penina: 'penina',
       'penina rosé': 'penina rosé',
     },
+    faq: {
+      head: 'Pogosta vprašanja',
+      items: [
+        {
+          q: 'Katera vaša vina so prejela priznanja?',
+          a: 'Naš cviček je bil trikrat razglašen za kralja cvička — leta 2008 in 2014 (Janez Colnar) ter leta 2022 (Janez Colnar ml.). Na Decanter World Wine Awards v Londonu je Rosé 2018 prejel zlato medaljo s 95 točkami (2019), Rosé 2023 srebrno z 92 točkami (2024), bronaste medalje pa cviček (2019, 2020, 2024) in laški rizling (2020, 2021).',
+        },
+        {
+          q: 'Kaj je kraljevina?',
+          a: 'Avtohtona dolenjska sorta grozdja, ki je zaščitena. Ima visoko kislino, nizko aromatiko in nizek alkohol, zato je kot ustvarjena za penino. Najdete jo v Penini Colnar, v cvičku, Dolenjskem belem in Hišnem belem.',
+        },
+        {
+          q: 'Ali pridelujete tudi penine?',
+          a: 'Da, tri, vse po klasični metodi. Penino Colnar iz kraljevine pridelujemo od leta 2016; je brut nature in na kvasovkah zori najmanj 30 mesecev. Grand Jaenes in Grand Jaenes Rosé sta iz žametne črnine in na kvasovkah zorita 20 mesecev.',
+        },
+        {
+          q: 'Katera vina zorijo v lesu?',
+          a: 'Collis 24 mesecev v 2.500-litrskem akacijevem sodu, modra frankinja 18 mesecev v novih barrique sodih, chardonnay in modri pinot po 12 mesecev v barrique sodih, laški rizling pa 6 mesecev v hrastovih sodih. Dolenjsko belo in Hišno belo, naši sveži belini, zorita v nerjavečem jeklu.',
+        },
+        {
+          q: 'Kje lahko kupim vaša vina?',
+          a: 'Ob obisku v kleti na Lešnici, v Vinoteki Colnar v središču Supernova v Novem mestu in na spletu pri distributerju Evino. Vino pošljemo tudi po Sloveniji in v tujino — pišite nam na info@colnar.si.',
+        },
+      ],
+    },
     detail: {
       prev: 'Prejšnje',
       next: 'Naslednje',
@@ -342,6 +367,35 @@ export const sl: Content = {
       },
     ],
     photoPending: 'Fotografija sledi',
+    faq: {
+      head: 'Pogosta vprašanja',
+      items: [
+        {
+          q: 'Koliko vinogradov imate?',
+          a: 'Skupaj 16,5 hektarja s približno 125.000 trtami na petih legah: Grčevje (6 ha), Razbore (3,5 ha), Ždinja vas (3,5 ha), Trška gora (približno 2 ha) in Vinji vrh (približno 1,5 ha).',
+        },
+        {
+          q: 'Katere sorte gojite?',
+          a: 'Tradicionalne dolenjske sorte — kraljevino, žametno črnino, modro frankinjo in laški rizling — ter chardonnay, beli pinot, sivi pinot in traminec.',
+        },
+        {
+          q: 'Kakšna so tla v vaših vinogradih?',
+          a: 'Večinoma lapor, ki dobro zadržuje vlago — v Grčevju in Razborah, na Vinjem vrhu pa beli lapor. V Ždinji vasi so tla kamnita, na Trški gori se prepletata lapor in kamen.',
+        },
+        {
+          q: 'Kaj je posebnega v Grčevju?',
+          a: 'Novi del Grčevja (4,5 ha), zasajen v letih 2020, 2022 in 2024, smo zasadili po burgundskem zgledu, z gostotami od 15.000 do 33.000 trt na hektar.',
+        },
+        {
+          q: 'Kaj je Trška gora?',
+          a: 'Ena najbolj prepoznavnih vinogradniških pokrajin Dolenjske, pri Novem mestu, s pobočji, posejanimi z vinogradi in zidanicami. Naš vinograd tam je bil prvič zasajen leta 1994, leta 2008 pa smo ga dopolnili z novimi trtami.',
+        },
+        {
+          q: 'Kje je Dolenjska?',
+          a: 'Na jugovzhodu Slovenije, ob reki Krki, med Ljubljano in Zagrebom. Je vinorodni okoliš vinorodne dežele Posavje in domovina cvička.',
+        },
+      ],
+    },
     cta: {
       heading: 'Spoznajte vina iz naših vinogradov.',
       secondary: { label: 'Naša vina', to: 'wines' },
@@ -386,6 +440,31 @@ export const sl: Content = {
     },
     menuNote:
       'Cene so v evrih in vključujejo DDV. Ponudba se sproti spreminja — za vino, ki ga ni na seznamu, vprašajte pri pultu.',
+    faq: {
+      head: 'Pogosta vprašanja',
+      items: [
+        {
+          q: 'Kje je Vinoteka Colnar in kdaj je odprta?',
+          a: 'V nakupovalnem središču Supernova v Novem mestu, na Otoški cesti 5. Odprta je od ponedeljka do sobote, od 9. do 21. ure.',
+        },
+        {
+          q: 'Ali lahko vino kupim za domov?',
+          a: 'Da. Naša vina in penine so naprodaj tudi za domov, ob njih pa darilna in lesena embalaža za eno, dve ali šest steklenic.',
+        },
+        {
+          q: 'Ali imate tudi vina drugih vinarjev?',
+          a: 'Da. Ob naših vinih točimo in prodajamo tudi vina drugih vinarjev, med njimi Šturma, Dolfa in Grubarja, ter predikatna vina.',
+        },
+        {
+          q: 'Ali imate kaj brez alkohola?',
+          a: 'Da — brezalkoholne pijače, kavo, kakav in naš grozdni sok Colnar.',
+        },
+        {
+          q: 'Ali lahko vina pokusim tukaj, preden obiščem klet?',
+          a: 'Da, večino naših vin točimo na kozarec. Za vodeno degustacijo in ogled kleti pa nas obiščite na Lešnici pri Otočcu, deset minut vožnje iz Novega mesta.',
+        },
+      ],
+    },
     cta: {
       heading: 'Vina lahko pokusite tudi v kleti.',
       secondary: { label: 'Naša vina', to: 'wines' },
@@ -451,6 +530,10 @@ export const sl: Content = {
         {
           q: 'Kako pridemo do vas?',
           a: 'Klet je na Lešnici pri Otočcu, deset minut vožnje iz Novega mesta in pet minut od gradu Otočec. Iz Ljubljane je do nas slabo uro vožnje po avtocesti, iz Zagreba dobro uro.',
+        },
+        {
+          q: 'Kaj še lahko doživimo v okolici?',
+          a: 'Degustacijo je lepo povezati z izletom po Dolenjski: grad Otočec na otoku sredi Krke je pet minut od kleti, Novo mesto z Glavnim trgom deset minut, Šmarješke Toplice dobrih deset minut. Med vinogradi in zidanicami se lahko sprehodite po Trški gori.',
         },
         {
           q: 'Kje poteka degustacija?',

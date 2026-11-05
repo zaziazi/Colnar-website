@@ -13,7 +13,10 @@ cena: 5.9
 sorte: "žametna črnina, kraljevina, laški rizling, modra frankinja"
 hrana: "rdeče meso, suhe mesnine"
 priznanja:
-  - Kralj cvička 2008, 2014, 2022
+  - ime: "Kralj cvička 2022 (Janez Colnar ml.)"
+    vir: https://dolenjskilist.svet24.si/novice/foto-povorka-uspela-okronan-novi-kralj-cvicka-janez-colnar-ml-ambasador-cvicka-peter-camloh-262091-1728206
+  - ime: "Kralj cvička 2014 in 2008 (Janez Colnar)"
+    vir: https://zdvd.si/42-novi-kralj-cvicka-je-janez-colnar
   - ime: "Decanter 2024, bron, 87 točk (letnik 2023)"
     vir: https://awards.decanter.com/dwwa/any/wines/760877
   - ime: "Decanter 2020, bron, 86 točk (letnik 2019)"
