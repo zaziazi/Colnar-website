@@ -468,8 +468,7 @@ export const sl: Content = {
       whereCopy: 'Lešnica 8, 8222 Otočec',
       whereMap: maps.cellar,
       whenLabel: 'Kdaj',
-      whenHours: 'Pon – Pet · 8.00 – 16.00',
-      whenNote: 'Ob vikendih po dogovoru',
+      whenHours: 'Po dogovoru',
       phoneLabel: 'Raje po telefonu',
     },
     form: {

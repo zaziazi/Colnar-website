@@ -479,8 +479,7 @@ export const en: Content = {
       whereCopy: 'Lešnica 8, 8222 Otočec, Slovenia',
       whereMap: maps.cellar,
       whenLabel: 'When',
-      whenHours: 'Mon – Fri · 8.00 – 16.00',
-      whenNote: 'Weekends by arrangement',
+      whenHours: 'By arrangement',
       phoneLabel: 'Rather by phone',
     },
     form: {

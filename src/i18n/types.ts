@@ -214,7 +214,6 @@ export type Content = {
       whereMap: string;
       whenLabel: string;
       whenHours: string;
-      whenNote: string;
       phoneLabel: string;
     };
     form: {
