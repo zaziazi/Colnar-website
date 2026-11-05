@@ -65,7 +65,7 @@ const cap = (text: string) => text.charAt(0).toLocaleUpperCase(t.numberLocale) +
 
 const specs = [
   wine.data.stil && { label: d.spec.style, value: d.styles[wine.data.stil] },
-  wine.data.sorte && { label: d.spec.grapes, value: cap(wine.data.sorte) },
+  wine.data.sorte && { label: d.spec.grapes, value: cap(wine.data.sorte), dataOnly: true },
   wine.data.sladkost && { label: d.spec.sweetness, value: cap(wine.data.sladkost) },
   wine.data.letnik && { label: d.spec.vintage, value: String(wine.data.letnik), tnum: true },
   wine.data.volumen && {
@@ -78,12 +78,16 @@ const specs = [
     value: `${percent.format(wine.data.alkohol)} %`,
     tnum: true,
   },
-  wine.data.zorenje && { label: d.spec.ageing, value: cap(wine.data.zorenje) },
+  wine.data.zorenje && { label: d.spec.ageing, value: cap(wine.data.zorenje), dataOnly: true },
   { label: d.spec.region, value: d.regionName },
   { label: d.spec.country, value: d.countryName },
   wine.data.hrana && { label: d.spec.pairing, value: cap(wine.data.hrana) },
   wine.data.priznanja && { label: d.spec.awards, value: wine.data.priznanja.join(' · ') },
-].filter(Boolean) as { label: string; value: string; tnum?: boolean }[];
+].filter(Boolean) as { label: string; value: string; tnum?: boolean; dataOnly?: boolean }[];
+
+/* Grapes and ageing are already in the wine's own text, so the table leaves
+   them out; the structured data and llms.txt still carry them as facts. */
+const shownSpecs = specs.filter((spec) => !spec.dataOnly);
 
 const money = new Intl.NumberFormat(t.numberLocale, { style: 'currency', currency: 'EUR' });
 const price = wine.data.evino && wine.data.cena ? money.format(wine.data.cena) : undefined;
@@ -179,7 +183,7 @@ const schema = [
     <section aria-label={d.specHead}>
       <dl class:list={['wine-spec', { 'wine-spec--aligned': wine.data.slika }]} data-reveal>
         {
-          specs.map((spec) => (
+          shownSpecs.map((spec) => (
             <div class="wine-spec-row">
               <dt class="wine-spec-label">{spec.label}</dt>
               <dd class:list={['wine-spec-value', { tnum: spec.tnum }]}>{spec.value}</dd>
