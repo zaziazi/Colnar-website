@@ -1,5 +1,5 @@
 import type { Content } from './types';
-import { maps } from '../data/maps';
+import { maps, search } from '../data/maps';
 
 /**
  * English.
@@ -326,6 +326,40 @@ export const en: Content = {
         'At the table with a carafe of our own wine',
       ],
     },
+    sections: [
+      {
+        head: 'Every first son is a Janez',
+        paragraphs: [
+          'The Colnar family lives and farms at Lešnica near Otočec. The first records of the family go back to 1408, and in 1747 the first Janez was born — every firstborn son has carried the name since. The tradition carries on in the cellar too: Janez the father was King of Cviček in 2008 and 2014, and his son Janez Jr in 2022.',
+        ],
+      },
+      {
+        head: 'A farm the whole family runs',
+        paragraphs: [
+          'Today the farm is run by Janez Jr and his wife Katarina, with his father Janez and mother Katarina beside them. Uncle Matjaž looks after the cellar, brother Martin and mother Katarina run the tourism side, and sisters Meta and Ana help in the vineyards, the cellar and with sales. Bigger investments we decide together.',
+          'In 2001 Janez and his brother Matjaž planted three and a half hectares of new vineyards. Today we farm 16.5 hectares on five sites, with about 125,000 vines, and make twelve wines.',
+        ],
+      },
+      {
+        head: 'The new cellar at Lešnica',
+        paragraphs: [
+          'In 2022 we built a new cellar in the middle of Lešnica: the upper floor measures 47 × 27 metres, the lower one, dug into the hillside, 57 × 20 metres. The grapes pass over a sorting table that removes damaged berries, and from the moment they arrive we control the temperature and keep the wine away from oxygen. Sulphur is added only before bottling.',
+          'In the cellar laboratory a Foss WineScan analyser follows the grapes, the must and the wine; from those readings we set the day of the harvest for each variety separately.',
+        ],
+      },
+      {
+        head: 'In the vineyard',
+        paragraphs: [
+          'We plant the vines closer together than usual, so that each carries less fruit — in the new part of Grčevje up to 33,000 vines per hectare. We farm the vineyards close to nature, with as little fertiliser and spraying as we can, and twice a season we protect and feed the vines with a nettle extract.',
+        ],
+      },
+      {
+        head: 'Nothing goes to waste',
+        paragraphs: [
+          'A 140 kW solar plant on the cellar roof produces about 170 MWh a year. We press oil from grape seeds and from sunflowers, and make a grape juice from žametna črnina that we bottle for children like wine. In 2023 the Agrobiznis conference gave us an award for our move towards energy and environmental neutrality.',
+        ],
+      },
+    ],
     cta: {
       heading: 'The story continues at the cellar.',
       secondary: { label: 'Our wines', to: 'wines' },
@@ -531,6 +565,18 @@ export const en: Content = {
     paymentNote: 'Payment is taken on site, in cash or by card.',
     privacyNote: 'We use the details you give only to arrange your tasting. More in our ',
     privacyLink: 'privacy notice',
+    nearby: {
+      head: 'A day in Dolenjska',
+      intro: 'The cellar is an hour from Ljubljana and from Zagreb, and a tasting fits well into a day out around it. Times are by car from the cellar.',
+      items: [
+        { name: 'Otočec Castle', time: '5 minutes', copy: 'A castle on an island in the river Krka.', map: search('Grad Otočec') },
+        { name: 'Trška gora', time: '5 minutes', copy: 'A vineyard hill dotted with vineyard cottages, for a walk among the vines.', map: search('Trška gora, Novo mesto') },
+        { name: 'Novo mesto', time: '10 minutes', copy: 'A town in a bend of the Krka, with its main square — and our wine bar.', map: search('Glavni trg, Novo mesto') },
+        { name: 'Šmarješke Toplice', time: '13 minutes', copy: 'A thermal spa set in green countryside.', map: search('Šmarješke Toplice') },
+        { name: 'Dolenjske Toplice', time: '25 minutes', copy: 'A thermal spa at the edge of the Kočevski rog forest.', map: search('Dolenjske Toplice') },
+        { name: 'Pleterje Charterhouse', time: '25 minutes', copy: 'A Carthusian monastery with an open-air museum and a monastery shop.', map: search('Kartuzija Pleterje') },
+      ],
+    },
     faq: {
       head: 'Common questions',
       items: [

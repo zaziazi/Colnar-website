@@ -155,6 +155,8 @@ export type Content = {
     tree: { head: string; alt: string; caption: string; open: string };
     /** The slideshow under the timeline: its name, its arrows, one alt per photo in order. */
     slides: { label: string; prev: string; next: string; alts: string[] };
+    /** The family's story in words, section by section, under the timeline. */
+    sections: { head: string; paragraphs: string[] }[];
     cta: { heading: string; secondary: Link };
   };
 
@@ -218,7 +220,9 @@ export type Content = {
     /** Under the form: what happens to the details, with a link to the privacy notice. */
     privacyNote: string;
     privacyLink: string;
-    /** Answers to what people ring up and ask, every one of them from this page. */
+    /** Places worth combining with a tasting, with the drive from the cellar. */
+    nearby: { head: string; intro: string; items: { name: string; time: string; copy: string; map: string }[] };
+    /** Answers to what people ring up and ask. */
     faq: Faq;
     aside: {
       whereLabel: string;

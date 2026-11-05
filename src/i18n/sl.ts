@@ -1,5 +1,5 @@
 import type { Content } from './types';
-import { maps } from '../data/maps';
+import { maps, search } from '../data/maps';
 
 /**
  * Slovenščina — izvirno besedilo.
@@ -315,6 +315,40 @@ export const sl: Content = {
         'Za mizo z vrčem domačega vina',
       ],
     },
+    sections: [
+      {
+        head: 'Vsak prvi sin je Janez',
+        paragraphs: [
+          'Družina Colnar živi in kmetuje na Lešnici pri Otočcu. Prvi zapisi o družini segajo v leto 1408, leta 1747 pa se rodi prvi Janez — od takrat to ime nosi vsak prvorojeni sin. Tradicija se nadaljuje tudi v kleti: oče Janez je bil kralj cvička v letih 2008 in 2014, sin Janez ml. pa leta 2022.',
+        ],
+      },
+      {
+        head: 'Kmetija, ki jo vodi vsa družina',
+        paragraphs: [
+          'Kmetijo danes vodi Janez ml. z ženo Katarino, ob strani pa sta mu oče Janez in mama Katarina. Za klet skrbi stric Matjaž, brat Martin in mama Katarina vodita turistično dejavnost, sestri Meta in Ana pa pomagata v vinogradu, kleti in pri prodaji. O večjih naložbah se odločamo skupaj.',
+          'Leta 2001 sta Janez in brat Matjaž zasadila tri hektarje in pol novih vinogradov. Danes obdelujemo 16,5 hektarja na petih legah, s približno 125.000 trtami, in pridelujemo dvanajst vin.',
+        ],
+      },
+      {
+        head: 'Nova klet na Lešnici',
+        paragraphs: [
+          'Leta 2022 smo sredi Lešnice zgradili novo klet: zgornja etaža meri 47 × 27 metrov, spodnja, vkopana v zemljo, 57 × 20 metrov. Grozdje gre čez sortirno mizo, ki odstrani poškodovane jagode, od prevzema naprej pa nadzorujemo temperaturo in vino varujemo pred kisikom. Žveplo dodamo šele pred polnjenjem.',
+          'V laboratoriju kleti z analizatorjem Foss WineScan spremljamo grozdje, mošt in vino; po teh meritvah za vsako sorto posebej določimo dan trgatve.',
+        ],
+      },
+      {
+        head: 'V vinogradu',
+        paragraphs: [
+          'Trte sadimo gosteje kot je običajno, da vsaka nosi manj grozdja — v novem delu Grčevja tudi do 33.000 trt na hektar. Vinograde obdelujemo sonaravno, z najmanj gnojil in škropiv, dvakrat v sezoni pa trte zaščitimo in nahranimo z izvlečkom iz kopriv.',
+        ],
+      },
+      {
+        head: 'Nič ne gre v nič',
+        paragraphs: [
+          'Na strehi kleti stoji sončna elektrarna z močjo 140 kW, ki na leto proizvede okoli 170 MWh. Iz grozdnih pešk stiskamo olje, iz sončnic sončnično olje, iz žametne črnine pa grozdni sok, ki ga za otroke polnimo v buteljke. Leta 2023 smo na konferenci Agrobiznis prejeli priznanje za premik proti energetski in okoljski nevtralnosti.',
+        ],
+      },
+    ],
     cta: {
       heading: 'Zgodbo nadaljujemo v kleti.',
       secondary: { label: 'Naša vina', to: 'wines' },
@@ -520,6 +554,18 @@ export const sl: Content = {
     paymentNote: 'Plačilo je možno na lokaciji, z gotovino ali s kartico.',
     privacyNote: 'Podatke iz prijave uporabimo samo za dogovor o degustaciji. Več v ',
     privacyLink: 'pravilniku o zasebnosti',
+    nearby: {
+      head: 'Dan na Dolenjskem',
+      intro: 'Klet je uro vožnje iz Ljubljane in Zagreba, degustacijo pa je lepo povezati z ogledom okolice. Časi so za vožnjo z avtom od kleti.',
+      items: [
+        { name: 'Grad Otočec', time: '5 minut', copy: 'Grad na otoku sredi reke Krke.', map: search('Grad Otočec') },
+        { name: 'Trška gora', time: '5 minut', copy: 'Vinogradniški hrib, posejan z zidanicami, za sprehod med vinogradi.', map: search('Trška gora, Novo mesto') },
+        { name: 'Novo mesto', time: '10 minut', copy: 'Mesto na okljuku Krke z Glavnim trgom — in naša Vinoteka.', map: search('Glavni trg, Novo mesto') },
+        { name: 'Šmarješke Toplice', time: '13 minut', copy: 'Termalno zdravilišče sredi zelenja.', map: search('Šmarješke Toplice') },
+        { name: 'Dolenjske Toplice', time: '25 minut', copy: 'Termalno zdravilišče ob robu Kočevskega roga.', map: search('Dolenjske Toplice') },
+        { name: 'Kartuzija Pleterje', time: '25 minut', copy: 'Samostan kartuzijanov s skansnom in samostansko trgovino.', map: search('Kartuzija Pleterje') },
+      ],
+    },
     faq: {
       head: 'Pogosta vprašanja',
       items: [

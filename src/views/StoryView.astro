@@ -59,6 +59,20 @@ const slides = [
       <Timeline lang={lang} />
     </section>
 
+    {/* The story in words, between the years and the documents. */}
+    {
+      s.sections.map((section, i) => (
+        <section aria-labelledby={`zgodba-${i + 1}`}>
+          <div class="section-gap" data-reveal>
+            <h2 class="section-head" id={`zgodba-${i + 1}`}>{section.head}</h2>
+          </div>
+          <div class="page-prose" data-reveal>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </section>
+      ))
+    }
+
     {/* The family tree as the document itself — names and dates in the original hand. */}
     <section class="tree" aria-labelledby="druzinsko-drevo">
       <h2 class="years-kicker" id="druzinsko-drevo" data-reveal>{s.tree.head}</h2>

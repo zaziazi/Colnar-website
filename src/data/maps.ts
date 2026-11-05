@@ -4,7 +4,7 @@
  * Searched by address rather than by place id: a search URL keeps working if a
  * listing is renamed, merged or re-registered, and needs no API key.
  */
-const search = (address: string) =>
+export const search = (address: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
 export const maps = {

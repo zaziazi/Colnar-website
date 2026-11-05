@@ -283,6 +283,29 @@ const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
       </div>
     </section>
 
+    {/* What else to see: the places, how far by car, a map link each. */}
+    <section aria-labelledby="v-okolici">
+      <div class="section-gap" data-reveal>
+        <h2 class="section-head" id="v-okolici">{d.nearby.head}</h2>
+      </div>
+      <div class="page-prose" data-reveal>
+        <p>{d.nearby.intro}</p>
+      </div>
+      <div class="places places--page places--three places--rows" data-reveal>
+        {
+          d.nearby.items.map((item) => (
+            <div class="place">
+              <p class="place-label">{item.time}</p>
+              <p class="place-name">
+                <a href={item.map} target="_blank" rel="noopener">{item.name}</a>
+              </p>
+              <p class="place-copy">{item.copy}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
     {/*
       What people ring up and ask. Every answer is already somewhere on the
       site — the price list, the aside, the copy, the cviček's own page — so

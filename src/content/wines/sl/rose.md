@@ -10,6 +10,7 @@ alkohol: 13
 slika: ../../../assets/photos/wines/rose.png
 evino: https://www.evino.si/izdelek/rose-2025-colnar/
 cena: 10.49
+sorte: "modra frankinja (100 %)"
 hrana: "škampi, jastog, suši, jagode"
 priznanja:
   - ime: "Decanter 2024, srebro, 92 točk (letnik 2023)"

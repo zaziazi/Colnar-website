@@ -1274,6 +1274,20 @@ p {
   padding-left: 32px;
 }
 
+/* Three across in more than one row: each row starts flush, with no rule. */
+.places--rows {
+  row-gap: 40px;
+}
+
+.places--rows .place:nth-child(3n + 1) {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.places--rows .place:nth-child(3n) {
+  padding-right: 0;
+}
+
 .place-label {
   font-family: var(--font-heading);
   font-size: 12px;
@@ -1324,6 +1338,10 @@ p {
 
   .place:last-child {
     padding-bottom: 0;
+  }
+
+  .places--rows {
+    row-gap: 0;
   }
 
   .place-label {

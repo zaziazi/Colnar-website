@@ -10,6 +10,7 @@ alkohol: 13
 slika: ../../../assets/photos/wines/rose.png
 evino: https://www.evino.si/izdelek/rose-2025-colnar/
 cena: 10.49
+sorte: "blaufränkisch (modra frankinja), 100 %"
 hrana: "prawns, lobster, sushi, strawberries"
 priznanja:
   - ime: "Decanter 2024, silver, 92 points (2023 vintage)"

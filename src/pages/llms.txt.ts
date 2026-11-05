@@ -134,6 +134,12 @@ ${tastingLines}
 
 Prices include VAT. Payment on site, cash or card.
 
+### A day in Dolenjska
+
+${en.tasting.nearby.intro}
+
+${en.tasting.nearby.items.map((item) => `- ${item.name} (${item.time}): ${item.copy}`).join('\n')}
+
 ### Questions guests ask
 
 ${en.tasting.faq.items.map((item) => `**${item.q}** ${item.a}`).join('\n\n')}
@@ -153,6 +159,8 @@ ${en.vinoteka.faq.items.map((item) => `**${item.q}** ${item.a}`).join('\n\n')}
 ## The family
 
 ${en.home.milestones.map((m) => `- ${m.year}, ${m.kicker}: ${m.copy}`).join('\n')}
+
+${en.story.sections.map((section) => `### ${section.head}\n${section.paragraphs.join(' ')}`).join('\n\n')}
 
 More at ${url(routes.en.story)}
 
