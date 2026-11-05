@@ -337,12 +337,6 @@ export const sl: Content = {
           'V kleti nič ne gre v nič. Streho pokriva sončna elektrarna, iz grozdnih pešk stiskamo olje, iz žametne črnine pa delamo grozdni sok za otroke. Polnimo ga v buteljke, da si ga lahko natočijo tako kot starši vino in že zgodaj spoznajo kulturo pitja ob mizi. Leta 2023 smo za to na konferenci Agrobiznis prejeli priznanje za premik proti energetski in okoljski nevtralnosti.',
         ],
       },
-      {
-        head: 'V vinogradu',
-        paragraphs: [
-          'Trte sadimo gosteje kot je običajno, da vsaka nosi manj grozdja — v novem delu Grčevja tudi do 33.000 trt na hektar. Vinograde obdelujemo sonaravno, z najmanj gnojil in škropiv, dvakrat v sezoni pa trte zaščitimo in nahranimo z izvlečkom iz kopriv.',
-        ],
-      },
     ],
     cta: {
       heading: 'Zgodbo nadaljujemo v kleti.',

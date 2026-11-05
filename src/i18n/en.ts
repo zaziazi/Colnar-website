@@ -348,12 +348,6 @@ export const en: Content = {
           'In the cellar nothing goes to waste. Solar panels cover the roof, we press oil from grape seeds, and from žametna črnina we make a grape juice for children. We bottle it like wine, so they can pour it the way their parents pour wine and learn early how a drink belongs at the table. In 2023 the Agrobiznis conference gave us an award for our move towards energy and environmental neutrality.',
         ],
       },
-      {
-        head: 'In the vineyard',
-        paragraphs: [
-          'We plant the vines closer together than usual, so that each carries less fruit — in the new part of Grčevje up to 33,000 vines per hectare. We farm the vineyards close to nature, with as little fertiliser and spraying as we can, and twice a season we protect and feed the vines with a nettle extract.',
-        ],
-      },
     ],
     cta: {
       heading: 'The story continues at the cellar.',
