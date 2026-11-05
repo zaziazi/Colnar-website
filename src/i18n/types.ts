@@ -83,12 +83,14 @@ export type Content = {
     places: Place[];
     vinoteka: {
       title: string;
-      address: string;
       copy: string;
       hoursLabel: string;
       hours: string;
       menuLabel: string;
       menuLink: string;
+      addressLabel: string;
+      address: string;
+      town: string;
       alt: string;
     };
     ctaBar: string;

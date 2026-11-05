@@ -16,9 +16,6 @@ const v = getContent(lang).home.vinoteka;
 <section class="vinoteka" aria-labelledby="vinoteka-naslov">
   <div class="vinoteka-text" data-reveal>
     <h2 class="vinoteka-title" id="vinoteka-naslov">{v.title}</h2>
-    <p class="vinoteka-address">
-      <a href={maps.vinoteka} target="_blank" rel="noopener">{v.address}</a>
-    </p>
     <span class="vinoteka-rule" aria-hidden="true"></span>
     <p class="vinoteka-copy">{v.copy}</p>
     <div class="vinoteka-meta">
@@ -29,6 +26,10 @@ const v = getContent(lang).home.vinoteka;
       <div class="meta-item">
         <p class="meta-label">{v.menuLabel}</p>
         <a class="meta-value" href={route(lang, 'vinoteka')}>{v.menuLink}</a>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">{v.addressLabel}</p>
+        <a class="meta-value meta-address" href={maps.vinoteka} target="_blank" rel="noopener">{v.address}<br />{v.town}</a>
       </div>
     </div>
   </div>
