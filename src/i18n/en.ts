@@ -231,6 +231,14 @@ export const en: Content = {
           a: 'An indigenous Dolenjska grape, and a protected variety. It has high acidity, low aromatics and low alcohol, which makes it ideal for sparkling wine. You will find it in Penina Colnar, in cviček, Dolenjsko belo and Hišno belo.',
         },
         {
+          q: 'What is žametna črnina?',
+          a: 'One of the oldest Slovenian red varieties, grown today mainly in Dolenjska — you will hardly find it anywhere else. It is the main grape of cviček, and gives wines of a bright ruby colour, fresh acidity and gentle tannins. We grow it at Razbore, Ždinja vas, Trška gora and Vinji vrh; you will find it in our cviček and in the sparkling Grand Jaenes and Grand Jaenes Rosé.',
+        },
+        {
+          q: 'What is laški rizling?',
+          a: 'A white variety (Welschriesling) that, with žametna črnina, modra frankinja and kraljevina, is one of the four grapes covering most of Dolenjska\'s vineyards. It makes dry, fresh wines with lively acidity. We grow it on all five of our sites; it goes into our cviček, Dolenjsko belo, Hišno belo and Collis, and on its own it has twice won bronze at Decanter.',
+        },
+        {
           q: 'Do you make sparkling wine?',
           a: 'Yes, three, all by the classic method. We have made Penina Colnar from kraljevina since 2016; it is brut nature and spends at least 30 months on the lees. Grand Jaenes and Grand Jaenes Rosé are made from žametna črnina and spend 20 months on the lees.',
         },

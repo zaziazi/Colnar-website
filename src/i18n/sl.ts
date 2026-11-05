@@ -223,6 +223,14 @@ export const sl: Content = {
           a: 'Avtohtona dolenjska sorta grozdja, ki je zaščitena. Ima visoko kislino, nizko aromatiko in nizek alkohol, zato je kot ustvarjena za penino. Najdete jo v Penini Colnar, v cvičku, Dolenjskem belem in Hišnem belem.',
         },
         {
+          q: 'Kaj je žametna črnina?',
+          a: 'Ena najstarejših slovenskih rdečih sort, ki jo danes gojijo predvsem na Dolenjskem — drugod je skoraj ne najdete. Je glavna sorta cvička in daje vina svetle rubinaste barve, sveže kisline in nežnih taninov. Pri nas raste v Razborah, Ždinji vasi, na Trški gori in Vinjem vrhu, najdete pa jo v cvičku ter v peninah Grand Jaenes in Grand Jaenes Rosé.',
+        },
+        {
+          q: 'Kaj je laški rizling?',
+          a: 'Bela sorta, ki je skupaj z žametno črnino, modro frankinjo in kraljevino ena od štirih sort, ki pokrivajo večino dolenjskih vinogradov. Daje suha, sveža vina z živahno kislino. Gojimo ga na vseh petih legah; je v cvičku, Dolenjskem belem, Hišnem belem in Collisu, kot samostojno vino pa je na Decanterju dvakrat prejel bronasto medaljo.',
+        },
+        {
           q: 'Ali pridelujete tudi penine?',
           a: 'Da, tri, vse po klasični metodi. Penino Colnar iz kraljevine pridelujemo od leta 2016; je brut nature in na kvasovkah zori najmanj 30 mesecev. Grand Jaenes in Grand Jaenes Rosé sta iz žametne črnine in na kvasovkah zorita 20 mesecev.',
         },
